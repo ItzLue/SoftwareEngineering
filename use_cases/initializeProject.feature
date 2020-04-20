@@ -7,8 +7,8 @@ Feature: someone initializes a project
     Given A project is created
     When The project is added to the system
     Then There is a project in the system
-#    Given The following developers are registered in the system
-#      | Hans | Madsen |
+    Given The following developers are registered in the system
+      | Hans | Madsen |
 
   #Main Scenario
   Scenario: A project is initialized

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Project {
 
     protected Developer projectLeader;
-    protected ArrayList<Activity> activityList = new ArrayList<>();
+    protected ArrayList<Activity> activityList = new ArrayList<Activity>();
     protected boolean initialized;
     protected Interval interval;
     private String ID = "";

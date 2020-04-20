@@ -16,11 +16,6 @@ public class Console implements PropertyChangeListener {
         app.addObserver(this);
     }
 
-    public Console(App m) {
-        app = m;
-        app.addObserver(this);
-    }
-
     public static void main(String[] args) throws Exception {
         Console console = new Console();
         new Console().mainMenu(console);
@@ -239,7 +234,6 @@ public class Console implements PropertyChangeListener {
     }
 
 
-    @Override
     public void propertyChange(PropertyChangeEvent evt) {
         String type = evt.getPropertyName();
         if (NotificationType.ACTIVE_DEVELOPER.equals(type)) {
