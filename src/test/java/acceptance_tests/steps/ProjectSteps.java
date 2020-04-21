@@ -26,9 +26,8 @@ public class ProjectSteps {
 
     @Given("A project is created")
     public void aProjectIsCreated() {
-        // Write code here that turns the phrase above into concrete actions
-       // throw new io.cucumber.java.PendingException();
         assertTrue(true);
+
     }
 
     @Given("The project has not been initialized")
