@@ -8,13 +8,9 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.Scanner;
 
-public class Console implements PropertyChangeListener {
+public class Console {
     App app = new App();
     Scanner in = new Scanner(System.in);
-
-    public Console() {
-        app.addObserver(this);
-    }
 
     public static void main(String[] args) throws Exception {
         Console console = new Console();
@@ -233,13 +229,4 @@ public class Console implements PropertyChangeListener {
         return console;
     }
 
-
-    public void propertyChange(PropertyChangeEvent evt) {
-        String type = evt.getPropertyName();
-        if (NotificationType.ACTIVE_DEVELOPER.equals(type)) {
-            if (app.getActiveDeveloper() != null) {
-                System.out.println("Active developer: " + app.getActiveDeveloper());
-            }
-        }
-    }
 }
