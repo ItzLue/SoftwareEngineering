@@ -4,20 +4,23 @@ import domain.Developer;
 import domain.Project;
 import time.DateServer;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.Calendar;
 import java.util.HashMap;
 
 public class App {
+
     public Developer activeDeveloper;
     public HashMap<String, Developer> developerHM = new HashMap<String, Developer>();
     protected HashMap<String, Project> projectHM = new HashMap<String, Project>();
     private PropertyChangeSupport support = new PropertyChangeSupport(this);
     protected DateServer dateServer = new DateServer();
-
     public void registerDeveloper(Developer developer) {
-        String ID = "";
+        String ID;
         if (developerHM.size() > 9) {
             ID = developer.getFirstName().substring(0,2).toLowerCase() + developer.getLastName().substring(0,2).toLowerCase() + (developerHM.size()+1);
         } else {
