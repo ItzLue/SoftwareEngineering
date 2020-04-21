@@ -34,11 +34,10 @@ public class UI extends ActionView {
         rootMenu.addMenuItem(new TestMenuProjectLeaderAction());
         rootMenu.display();
     }
-
     /*
     Developer menus
      */
-    private void SetActiveDeveloperMenu(Object Objtarget) {
+    public void SetActiveDeveloperMenu() {
         String ID = this.prompt("Please enter the ID of the developer: ",String.class);
         app.setActiveDeveloper(ID);
         activeDeveloperMenu = new MenuView("Welcome " + app.getActiveDeveloper(),"");
@@ -49,6 +48,7 @@ public class UI extends ActionView {
         activeDeveloperMenu.addMenuItem(new ShowProjectsAction());
         this.setParentView(activeDeveloperMenu);
         this.actionSuccessful();
+        this.display();
     }
     class SetActiveDeveloperAction extends ActionView{
         public SetActiveDeveloperAction(){
@@ -56,16 +56,7 @@ public class UI extends ActionView {
         }
         @Override
         public void executeCustomAction(){
-            String ID = this.prompt("Please enter the ID of the developer: ",String.class);
-            app.setActiveDeveloper(ID);
-            activeDeveloperMenu = new MenuView("Welcome " + app.getActiveDeveloper(),"");
-            activeDeveloperMenu.addMenuItem(new ChangeActiveDeveloperAction());
-            activeDeveloperMenu.addMenuItem(new ShowDevelopersAction());
-            activeDeveloperMenu.addMenuItem(new AddDeveloperAction());
-            activeDeveloperMenu.addMenuItem(new AddProjectAction());
-            activeDeveloperMenu.addMenuItem(new ShowProjectsAction());
-            this.setParentView(activeDeveloperMenu);
-            this.actionSuccessful();
+            SetActiveDeveloperMenu();
         }
     }
     class AddDeveloperAction extends ActionView{
