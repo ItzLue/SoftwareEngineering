@@ -29,25 +29,26 @@ public class UI extends ActionView {
         rootMenu.addMenuItem(new SetActiveDeveloperAction());
         rootMenu.addMenuItem(new ShowDevelopersAction());
         rootMenu.addMenuItem(new AddDeveloperAction());
-        rootMenu.addMenuItem(new ShowProjects());
-        rootMenu.addMenuItem(new AddProject());
+        rootMenu.addMenuItem(new ShowProjectsAction());
+        rootMenu.addMenuItem(new AddProjectAction());
+        rootMenu.addMenuItem(new TestMenuProjectLeaderAction());
         rootMenu.display();
     }
+
     /*
     Developer menus
      */
-    private void SetActiveDeveloperMenu() {
+    private void SetActiveDeveloperMenu(Object Objtarget) {
         String ID = this.prompt("Please enter the ID of the developer: ",String.class);
         app.setActiveDeveloper(ID);
         activeDeveloperMenu = new MenuView("Welcome " + app.getActiveDeveloper(),"");
         activeDeveloperMenu.addMenuItem(new ChangeActiveDeveloperAction());
         activeDeveloperMenu.addMenuItem(new ShowDevelopersAction());
         activeDeveloperMenu.addMenuItem(new AddDeveloperAction());
-        activeDeveloperMenu.addMenuItem(new AddProject());
-        activeDeveloperMenu.addMenuItem(new ShowProjects());
+        activeDeveloperMenu.addMenuItem(new AddProjectAction());
+        activeDeveloperMenu.addMenuItem(new ShowProjectsAction());
         this.setParentView(activeDeveloperMenu);
         this.actionSuccessful();
-
     }
     class SetActiveDeveloperAction extends ActionView{
         public SetActiveDeveloperAction(){
@@ -61,9 +62,8 @@ public class UI extends ActionView {
             activeDeveloperMenu.addMenuItem(new ChangeActiveDeveloperAction());
             activeDeveloperMenu.addMenuItem(new ShowDevelopersAction());
             activeDeveloperMenu.addMenuItem(new AddDeveloperAction());
-            activeDeveloperMenu.addMenuItem(new AddProject());
-            activeDeveloperMenu.addMenuItem(new ShowProjects());
-            activeDeveloperMenu.addMenuItem(new SetWorkHours());
+            activeDeveloperMenu.addMenuItem(new AddProjectAction());
+            activeDeveloperMenu.addMenuItem(new ShowProjectsAction());
             this.setParentView(activeDeveloperMenu);
             this.actionSuccessful();
         }
@@ -100,27 +100,28 @@ public class UI extends ActionView {
             activeDeveloperMenu = new MenuView("Welcome " + app.getActiveDeveloper(),"");
             activeDeveloperMenu.addMenuItem(new ChangeActiveDeveloperAction());
             activeDeveloperMenu.addMenuItem(new ShowDevelopersAction());
-            activeDeveloperMenu.addMenuItem(new AddProject());
-            activeDeveloperMenu.addMenuItem(new ShowProjects());
-            activeDeveloperMenu.addMenuItem(new SetWorkHours());
+            activeDeveloperMenu.addMenuItem(new AddProjectAction());
+            activeDeveloperMenu.addMenuItem(new ShowProjectsAction());
+            activeDeveloperMenu.addMenuItem(new SetWorkHoursAction());
             this.setParentView(activeDeveloperMenu);
             this.actionSuccessful();
         }
     }
 
-    class SetWorkHours extends ActionView{
-        public SetWorkHours() {
+    class SetWorkHoursAction extends ActionView{
+        public SetWorkHoursAction() {
             super("Enter your worked hours", "Set work hours");
         }
         public void executeCustomAction() {
 
         }
     }
+
     /*
         Project menus
     */
-    class ShowProjects extends ActionView{
-        public ShowProjects(){
+    class ShowProjectsAction extends ActionView{
+        public ShowProjectsAction(){
             super("Table over projects","Show projects");
         }
         @Override
@@ -128,8 +129,8 @@ public class UI extends ActionView {
             app.getProjectValues();
         }
     }
-    class AddProject extends ActionView{
-        public AddProject(){
+    class AddProjectAction extends ActionView{
+        public AddProjectAction(){
             super("Add a project could be something like 'Marcosoft'","Add project");
         }
         @Override
@@ -142,7 +143,42 @@ public class UI extends ActionView {
     /*
         Project leader menus
     */
-    
+    class TestMenuProjectLeaderAction extends ActionView{
+        public TestMenuProjectLeaderAction() {
+            super("project leader menu", "project leader menu");
+        }
+
+        public void executeCustomAction() {
+            projectLeaderMenu = new MenuView("Welcome " + app.getActiveDeveloper(),"");
+            projectLeaderMenu.addMenuItem(new ChangeActiveDeveloperAction());
+            projectLeaderMenu.addMenuItem(new ShowDevelopersAction());
+            projectLeaderMenu.addMenuItem(new AddProjectAction());
+            projectLeaderMenu.addMenuItem(new ShowProjectsAction());
+            projectLeaderMenu.addMenuItem(new SetWorkHoursAction());
+            projectLeaderMenu.addMenuItem(new ChangeActiveProjects());
+            this.setParentView(projectLeaderMenu);
+            this.actionSuccessful();
+        }
+    }
+    private void setProjectLeaderMenu(){
+        projectLeaderMenu = new MenuView("Welcome " + app.getActiveDeveloper(),"");
+        projectLeaderMenu.addMenuItem(new ChangeActiveDeveloperAction());
+        projectLeaderMenu.addMenuItem(new ShowDevelopersAction());
+        projectLeaderMenu.addMenuItem(new AddProjectAction());
+        projectLeaderMenu.addMenuItem(new ShowProjectsAction());
+        projectLeaderMenu.addMenuItem(new SetWorkHoursAction());
+        projectLeaderMenu.addMenuItem(new ChangeActiveProjects());
+        this.setParentView(projectLeaderMenu);
+        this.actionSuccessful();
+    }
+    class ChangeActiveProjects extends ActionView{
+        public ChangeActiveProjects() {
+            super("Change your active projects", "Change your active projects");
+        }
+        public void executeCustomAction() {
+
+        }
+    }
 
 
 

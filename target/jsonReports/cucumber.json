@@ -3,7 +3,7 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2020-04-21T08:22:07.111Z",
+        "start_timestamp": "2020-04-21T10:24:22.888Z",
         "line": 6,
         "name": "A developer is succesfully added to the system",
         "description": "",
@@ -13,7 +13,7 @@
         "steps": [
           {
             "result": {
-              "duration": 307000000,
+              "duration": 398000000,
               "status": "passed"
             },
             "line": 7,
@@ -35,7 +35,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 8,
@@ -57,7 +56,7 @@
           },
           {
             "result": {
-              "duration": 2000000,
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -171,7 +170,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-21T08:22:07.467Z",
+        "start_timestamp": "2020-04-21T10:24:23.359Z",
         "line": 14,
         "name": "A developer creates a project",
         "description": "",
@@ -198,7 +197,7 @@
           },
           {
             "result": {
-              "duration": 1000000,
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 16,
@@ -247,6 +246,7 @@
         "steps": [
           {
             "result": {
+              "duration": 3000000,
               "status": "passed"
             },
             "line": 7,
@@ -259,7 +259,7 @@
           {
             "result": {
               "error_message": "java.lang.NullPointerException\r\n\tat System.App.registerProject(App.java:34)\r\n\tat acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem(SystemSteps.java:58)\r\n\tat ✽.The project is added to the system(file:///C:/Users/Loui/IdeaProjects/SoftwareEngineering/use_cases/initializeProject.feature:8)\r\n",
-              "duration": 1000000,
+              "duration": 2000000,
               "status": "failed"
             },
             "line": 8,
@@ -302,7 +302,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-21T08:22:07.476Z",
+        "start_timestamp": "2020-04-21T10:24:23.371Z",
         "line": 14,
         "name": "A project is initialized",
         "description": "",
