@@ -1,0 +1,7 @@
+acceptance_tests\steps\SystemSteps.class
+acceptance_tests\steps\ProjectHelper.class
+acceptance_tests\AcceptanceTest.class
+acceptance_tests\steps\ProjectSteps.class
+acceptance_tests\steps\DeveloperHelper.class
+acceptance_tests\steps\ErrorMessageHolder.class
+acceptance_tests\steps\MockDateHolder.class

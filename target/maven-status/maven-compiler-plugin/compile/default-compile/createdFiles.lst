@@ -1,0 +1,9 @@
+System\App.class
+domain\Developer.class
+ui\ConsoleUI.class
+domain\Activity.class
+domain\Project.class
+time\DateServer.class
+ui\SimpleUI.class
+time\Interval.class
+ui\Console.class
