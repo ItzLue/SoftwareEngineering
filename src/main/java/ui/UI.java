@@ -39,13 +39,19 @@ public class UI extends ActionView {
      */
     public void SetActiveDeveloperMenu() {
         String ID = this.prompt("Please enter the ID of the developer: ",String.class);
-        app.setActiveDeveloper(ID);
+        if (app.developerHM.containsKey(ID)){
+            app.setActiveDeveloper(ID);
+        } else {
+
+        }
+
         activeDeveloperMenu = new MenuView("Welcome " + app.getActiveDeveloper(),"");
         activeDeveloperMenu.addMenuItem(new ChangeActiveDeveloperAction());
         activeDeveloperMenu.addMenuItem(new ShowDevelopersAction());
         activeDeveloperMenu.addMenuItem(new AddDeveloperAction());
         activeDeveloperMenu.addMenuItem(new AddProjectAction());
         activeDeveloperMenu.addMenuItem(new ShowProjectsAction());
+        activeDeveloperMenu.addMenuItem(new SetWorkHoursAction());
         this.setParentView(activeDeveloperMenu);
         this.actionSuccessful();
         this.display();
@@ -73,11 +79,15 @@ public class UI extends ActionView {
     }
     class ShowDevelopersAction extends ActionView{
         public ShowDevelopersAction(){
-            super("Show developers","Show developers");
+            super(" ","Show developers");
         }
         @Override
         public void executeCustomAction(){
-            app.getDevValues();
+            if (app.devHmEmpty()){
+                print("No developers to show here");
+            } else{
+                app.getDevValues();
+            }
         }
     }
     class ChangeActiveDeveloperAction extends ActionView{
@@ -86,16 +96,7 @@ public class UI extends ActionView {
         }
 
         public void executeCustomAction() {
-            String ID = this.prompt("Please enter the ID of the developer: ",String.class);
-            app.setActiveDeveloper(ID);
-            activeDeveloperMenu = new MenuView("Welcome " + app.getActiveDeveloper(),"");
-            activeDeveloperMenu.addMenuItem(new ChangeActiveDeveloperAction());
-            activeDeveloperMenu.addMenuItem(new ShowDevelopersAction());
-            activeDeveloperMenu.addMenuItem(new AddProjectAction());
-            activeDeveloperMenu.addMenuItem(new ShowProjectsAction());
-            activeDeveloperMenu.addMenuItem(new SetWorkHoursAction());
-            this.setParentView(activeDeveloperMenu);
-            this.actionSuccessful();
+            SetActiveDeveloperMenu();
         }
     }
 
@@ -140,33 +141,40 @@ public class UI extends ActionView {
         }
 
         public void executeCustomAction() {
-            projectLeaderMenu = new MenuView("Welcome " + app.getActiveDeveloper(),"");
-            projectLeaderMenu.addMenuItem(new ChangeActiveDeveloperAction());
-            projectLeaderMenu.addMenuItem(new ShowDevelopersAction());
-            projectLeaderMenu.addMenuItem(new AddProjectAction());
-            projectLeaderMenu.addMenuItem(new ShowProjectsAction());
-            projectLeaderMenu.addMenuItem(new SetWorkHoursAction());
-            projectLeaderMenu.addMenuItem(new ChangeActiveProjects());
-            this.setParentView(projectLeaderMenu);
-            this.actionSuccessful();
+            SetProjectLeaderMenu();
         }
     }
-    private void setProjectLeaderMenu(){
+    private void SetProjectLeaderMenu(){
         projectLeaderMenu = new MenuView("Welcome " + app.getActiveDeveloper(),"");
         projectLeaderMenu.addMenuItem(new ChangeActiveDeveloperAction());
         projectLeaderMenu.addMenuItem(new ShowDevelopersAction());
         projectLeaderMenu.addMenuItem(new AddProjectAction());
         projectLeaderMenu.addMenuItem(new ShowProjectsAction());
         projectLeaderMenu.addMenuItem(new SetWorkHoursAction());
-        projectLeaderMenu.addMenuItem(new ChangeActiveProjects());
+        projectLeaderMenu.addMenuItem(new ChangeActiveProjectAction());
         this.setParentView(projectLeaderMenu);
         this.actionSuccessful();
+        this.display();
     }
-    class ChangeActiveProjects extends ActionView{
-        public ChangeActiveProjects() {
+    class ChangeActiveProjectAction extends ActionView{
+        public ChangeActiveProjectAction() {
             super("Change your active projects", "Change your active projects");
         }
         public void executeCustomAction() {
+            String ID = this.prompt("Enter the ID of the project",String.class);
+            if (app.getProjectHM().containsKey(ID)){
+                // Selected project menu
+            }
+        }
+    }
+    class ShowActivityAction extends ActionView{
+
+        public ShowActivityAction(String runningTitle, String nameInParentMenu) {
+            super("Tables of activities for project" /* ID */ , "Show activities");
+        }
+
+        public void executeCustomAction() {
+
 
         }
     }
