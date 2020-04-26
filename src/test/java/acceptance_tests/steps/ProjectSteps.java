@@ -32,6 +32,7 @@ public class ProjectSteps {
     @When("The project is initialized by the user")
     public void theProjectIsInitializedByTheUser() {
         projectHelper.getProject().initProject();
+        //wadup
     }
 
     @Then("The project is initialized")
