@@ -3,17 +3,17 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2020-04-21T19:53:04.164Z",
+        "start_timestamp": "2020-04-26T09:02:17.647Z",
         "line": 6,
-        "name": "A developer is succesfully added to the system",
+        "name": "A developer is successfully added to the system",
         "description": "",
-        "id": "add-a-developer-to-the-system;a-developer-is-succesfully-added-to-the-system",
+        "id": "add-a-developer-to-the-system;a-developer-is-successfully-added-to-the-system",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 299000000,
+              "duration": 301000000,
               "status": "passed"
             },
             "line": 7,
@@ -101,6 +101,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -143,7 +144,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -170,7 +170,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-21T19:53:04.502Z",
+        "start_timestamp": "2020-04-26T09:02:17.996Z",
         "line": 14,
         "name": "A developer creates a project",
         "description": "",
@@ -197,7 +197,7 @@
           },
           {
             "result": {
-              "duration": 1000000,
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 16,
@@ -209,7 +209,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 17,
@@ -258,7 +257,7 @@
           },
           {
             "result": {
-              "error_message": "java.lang.NullPointerException\r\n\tat System.App.registerProject(App.java:34)\r\n\tat acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem(SystemSteps.java:58)\r\n\tat ✽.The project is added to the system(file:///C:/Users/Loui/IdeaProjects/SoftwareEngineering/use_cases/initializeProject.feature:8)\r\n",
+              "error_message": "java.lang.NullPointerException\r\n\tat System.App.registerProject(App.java:84)\r\n\tat acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem(SystemSteps.java:58)\r\n\tat ✽.The project is added to the system(file:///C:/Users/Loui/IdeaProjects/SoftwareEngineering/use_cases/initializeProject.feature:8)\r\n",
               "duration": 1000000,
               "status": "failed"
             },
@@ -302,7 +301,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-21T19:53:04.511Z",
+        "start_timestamp": "2020-04-26T09:02:18.005Z",
         "line": 14,
         "name": "A project is initialized",
         "description": "",
