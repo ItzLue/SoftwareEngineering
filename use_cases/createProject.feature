@@ -6,7 +6,7 @@ Feature: Create a project
   Background: There is a developer registered in the system
     Given There is a Developer with first name "Ole" and last name "Smith"
     When the developer with first name "Ole" and last name "Smith" is added to the system
-    Then the developer with ID "OLSM" and first name "Ole" and last name "Smith" is in the system
+    Then the developer with first name "Ole" and last name "Smith" and appropriate ID is in the system
 #    Given The following developers are registered in the system
 #      | Hans | Madsen |
 

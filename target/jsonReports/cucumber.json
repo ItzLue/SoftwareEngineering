@@ -3,7 +3,7 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2020-04-26T10:32:26.938Z",
+        "start_timestamp": "2020-04-26T10:46:04.219Z",
         "line": 6,
         "name": "A developer is succesfully added to the system",
         "description": "",
@@ -13,7 +13,7 @@
         "steps": [
           {
             "result": {
-              "duration": 899000000,
+              "duration": 922000000,
               "status": "passed"
             },
             "line": 7,
@@ -35,7 +35,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 8,
@@ -57,11 +56,23 @@
           },
           {
             "result": {
-              "status": "undefined"
+              "status": "passed"
             },
             "line": 9,
             "name": "the developer with first name \"Ole\" and last name \"Smith\" and appropriate ID is in the system",
-            "match": {},
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Ole\"",
+                  "offset": 30
+                },
+                {
+                  "val": "\"Smith\"",
+                  "offset": 50
+                }
+              ],
+              "location": "acceptance_tests.steps.SystemSteps.theDeveloperWithFirstNameAndLastNameAndAppropriateIDIsInTheSystem(java.lang.String,java.lang.String)"
+            },
             "keyword": "Then "
           }
         ]
@@ -132,30 +143,26 @@
               "status": "passed"
             },
             "line": 9,
-            "name": "the developer with ID \"OLSM\" and first name \"Ole\" and last name \"Smith\" is in the system",
+            "name": "the developer with first name \"Ole\" and last name \"Smith\" and appropriate ID is in the system",
             "match": {
               "arguments": [
                 {
-                  "val": "\"OLSM\"",
-                  "offset": 22
-                },
-                {
                   "val": "\"Ole\"",
-                  "offset": 44
+                  "offset": 30
                 },
                 {
                   "val": "\"Smith\"",
-                  "offset": 64
+                  "offset": 50
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperWithIDAndFirstNameAndLastNameIsInTheSystem(java.lang.String,java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.SystemSteps.theDeveloperWithFirstNameAndLastNameAndAppropriateIDIsInTheSystem(java.lang.String,java.lang.String)"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "start_timestamp": "2020-04-26T10:32:28.011Z",
+        "start_timestamp": "2020-04-26T10:46:05.326Z",
         "line": 14,
         "name": "A developer creates a project",
         "description": "",
@@ -165,7 +172,6 @@
         "steps": [
           {
             "result": {
-              "duration": 2000000,
               "status": "passed"
             },
             "line": 15,
@@ -183,7 +189,7 @@
           },
           {
             "result": {
-              "duration": 3000000,
+              "duration": 4000000,
               "status": "passed"
             },
             "line": 16,
@@ -267,30 +273,26 @@
               "status": "passed"
             },
             "line": 9,
-            "name": "the developer with ID \"OLSM\" and first name \"Ole\" and last name \"Smith\" is in the system",
+            "name": "the developer with first name \"Ole\" and last name \"Smith\" and appropriate ID is in the system",
             "match": {
               "arguments": [
                 {
-                  "val": "\"OLSM\"",
-                  "offset": 22
-                },
-                {
                   "val": "\"Ole\"",
-                  "offset": 44
+                  "offset": 30
                 },
                 {
                   "val": "\"Smith\"",
-                  "offset": 64
+                  "offset": 50
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperWithIDAndFirstNameAndLastNameIsInTheSystem(java.lang.String,java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.SystemSteps.theDeveloperWithFirstNameAndLastNameAndAppropriateIDIsInTheSystem(java.lang.String,java.lang.String)"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "start_timestamp": "2020-04-26T10:32:28.030Z",
+        "start_timestamp": "2020-04-26T10:46:05.344Z",
         "line": 20,
         "name": "The project ID fits the current date",
         "description": "",
@@ -360,6 +362,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -405,7 +408,7 @@
           },
           {
             "result": {
-              "duration": 1000000,
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 10,
@@ -416,8 +419,8 @@
             "rows": [
               {
                 "cells": [
-                  "Hans",
-                  "Madsen"
+                  "Ole",
+                  "Smith"
                 ]
               }
             ],
@@ -426,7 +429,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-26T10:32:28.046Z",
+        "start_timestamp": "2020-04-26T10:46:05.362Z",
         "line": 14,
         "name": "A project is initialized",
         "description": "",
@@ -459,6 +462,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 17,
@@ -490,7 +494,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 7,
@@ -533,33 +537,30 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
-            "name": "the developer with ID \"OLSM\" and first name \"Ole\" and last name \"Smith\" is in the system",
+            "name": "the developer with first name \"Ole\" and last name \"Smith\" and appropriate ID is in the system",
             "match": {
               "arguments": [
                 {
-                  "val": "\"OLSM\"",
-                  "offset": 22
-                },
-                {
                   "val": "\"Ole\"",
-                  "offset": 44
+                  "offset": 30
                 },
                 {
                   "val": "\"Smith\"",
-                  "offset": 64
+                  "offset": 50
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperWithIDAndFirstNameAndLastNameIsInTheSystem(java.lang.String,java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.SystemSteps.theDeveloperWithFirstNameAndLastNameAndAppropriateIDIsInTheSystem(java.lang.String,java.lang.String)"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "start_timestamp": "2020-04-26T10:32:28.066Z",
+        "start_timestamp": "2020-04-26T10:46:05.382Z",
         "line": 13,
         "name": "A developer is set as the active developer",
         "description": "",

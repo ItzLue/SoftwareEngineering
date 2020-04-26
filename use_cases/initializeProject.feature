@@ -8,7 +8,7 @@ Feature: someone initializes a project
     When The project is added to the system
     Then There is a project in the system with name "Enigma Codebreaker"
     Given The following developers are registered in the system
-      | Hans | Madsen |
+      | Ole | Smith |
 
   #Main Scenario
   Scenario: A project is initialized

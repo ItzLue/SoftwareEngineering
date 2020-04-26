@@ -44,9 +44,9 @@ public class SystemSteps {
     public void theDeveloperWithFirstNameAndLastNameAndAppropriateIDIsInTheSystem(String string, String string2) {
         String testID;
         if (app.getDeveloperHM().size() > 9) {
-            testID = developerHelper.getDeveloper().getFirstName().substring(0,2).toUpperCase() + developerHelper.getDeveloper().getLastName().substring(0,2).toUpperCase() + (app.developerHM.size()+1);
+            testID = developerHelper.getDeveloper().getFirstName().substring(0,2).toUpperCase() + developerHelper.getDeveloper().getLastName().substring(0,2).toUpperCase() + (app.developerHM.size());
         } else {
-            testID = developerHelper.getDeveloper().getFirstName().substring(0,2).toUpperCase() + developerHelper.getDeveloper().getLastName().substring(0,2).toUpperCase() + 0 + (app.developerHM.size()+1);
+            testID = developerHelper.getDeveloper().getFirstName().substring(0,2).toUpperCase() + developerHelper.getDeveloper().getLastName().substring(0,2).toUpperCase() + 0 + (app.developerHM.size());
         }
 
         assertTrue(testID.equals(developerHelper.getDeveloper().getID()));
