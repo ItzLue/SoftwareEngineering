@@ -1,20 +1,23 @@
-Feature: Create a project
+Feature: Add activities to project
   Description: A developer creates a project
   Actors: Developer
 
-# Main scenario
-  Scenario: A developer creates a project
+  #background
+  Background: There is an uninitialized project in the system
     Given A project with name "Enigma Codebreaker" is created
     When The project is added to the system
     Then There is a project in the system with name "Enigma Codebreaker"
 
-    #second scenario
-  Scenario: The project ID fits the current date
-    Given A project with name "Enigma Codebreaker" is created
-    Then The project is added to the system
-    Then The project ID fits the current date
+    #first scenario
+  Scenario: Activity is added to an uninitialized project
+#  Given the following activities are added to the project with name "Enigma Codebreaker"
+#  | Coding |
+  When the activity with name "Coding" is added to the project
+  Then the activity with name "Coding" is in the project
 
-#    #second scenario
+
+
+#
 #  Scenario: A developer creates a project with a name, activities, and start/end dates.
 #    Given the following activities have been chosen for the project
 #      | Coding | 10 | 14 | 16 |
@@ -43,9 +46,4 @@ Feature: Create a project
 #    When A new project with ID "030901" and and the given activities is created
 #    When The project with ID "030901" is added to the system
 #    Then There is a project with ID "030901" in the system
-
-
-
-
-
 

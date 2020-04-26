@@ -5,9 +5,12 @@ import domain.Project;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import System.App;
 
+import java.util.Calendar;
 import java.util.List;
 
 public class SystemSteps {
@@ -37,8 +40,16 @@ public class SystemSteps {
         app.registerDeveloper(developerHelper.getDeveloper());
     }
 
-    @Then("the developer with ID {string} and first name {string} and last name {string} is in the system")
-    public void theDeveloperWithIDAndFirstNameAndLastNameIsInTheSystem(String string, String string2, String string3) throws Exception {
+    @Then("the developer with first name {string} and last name {string} and appropriate ID is in the system")
+    public void theDeveloperWithFirstNameAndLastNameAndAppropriateIDIsInTheSystem(String string, String string2) {
+        String testID;
+        if (app.getDeveloperHM().size() > 9) {
+            testID = developerHelper.getDeveloper().getFirstName().substring(0,2).toUpperCase() + developerHelper.getDeveloper().getLastName().substring(0,2).toUpperCase() + (app.developerHM.size());
+        } else {
+            testID = developerHelper.getDeveloper().getFirstName().substring(0,2).toUpperCase() + developerHelper.getDeveloper().getLastName().substring(0,2).toUpperCase() + 0 + (app.developerHM.size());
+        }
+
+        assertTrue(testID.equals(developerHelper.getDeveloper().getID()));
         assertTrue(app.getDeveloperHM().containsKey(developerHelper.getDeveloper().getID()));
     }
 
@@ -63,7 +74,25 @@ public class SystemSteps {
         assertTrue(!(app.getProjectHM().isEmpty()));
     }
 
+    @Then("The project ID fits the current date")
+    public void theProjectIDFitsTheCurrentDate() {
+        String weekNumber = Integer.toString(app.getDate().get(Calendar.WEEK_OF_YEAR));
+        String year = Integer.toString(app.getDate().get(Calendar.YEAR)).substring(2);
+        String runningNumber = Integer.toString(app.getProjectHM().size());
+        String test = year + weekNumber + runningNumber;
 
+        assertTrue(test.equals(projectHelper.getProject().getID()));
+    }
+
+    @When("The developer with ID {string} is set as the active developer")
+    public void theDeveloperWithIDIsSetAsTheActiveDeveloper(String ID) {
+        app.setActiveDeveloper(ID);
+    }
+
+    @Then("the developer with ID {string} is the active developer")
+    public void theDeveloperWithIDIsTheActiveDeveloper(String ID) {
+        assertEquals(app.getActiveDeveloper(),app.getDeveloperHM().get(ID));
+    }
 
 
 //    @When("the developer with ID {string} and name {string} is set as project leader for project with ID {string}")
