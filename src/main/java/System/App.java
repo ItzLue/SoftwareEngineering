@@ -22,9 +22,9 @@ public class App {
     public void registerDeveloper(Developer developer) {
         String ID;
         if (developerHM.size() > 9) {
-            ID = developer.getFirstName().substring(0,2).toLowerCase() + developer.getLastName().substring(0,2).toLowerCase() + (developerHM.size()+1);
+            ID = developer.getFirstName().substring(0,2).toUpperCase() + developer.getLastName().substring(0,2).toUpperCase() + (developerHM.size()+1);
         } else {
-            ID = developer.getFirstName().substring(0,2).toLowerCase() + developer.getLastName().substring(0,2) .toLowerCase() + 0 + (developerHM.size()+1);
+            ID = developer.getFirstName().substring(0,2).toUpperCase() + developer.getLastName().substring(0,2).toUpperCase() + 0 + (developerHM.size()+1);
         }
         developer.setId(ID);
         developerHM.put(developer.getID(),developer);
@@ -36,7 +36,7 @@ public class App {
     }
 
     public App() {
-        registerDeveloper(new Developer("Hans","Hansen"));
+        //registerDeveloper(new Developer("Hans","Hansen"));
     }
 
     public String makeProjectID() {

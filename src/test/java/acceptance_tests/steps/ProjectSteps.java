@@ -33,7 +33,8 @@ public class ProjectSteps {
 
     @Given("The project has not been initialized")
     public void theProjectHasNotBeenInitialized() {
-       // assertFalse(false);
+
+        // assertFalse(false);
         assertTrue(true);
     }
 

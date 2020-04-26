@@ -40,8 +40,16 @@ public class SystemSteps {
         app.registerDeveloper(developerHelper.getDeveloper());
     }
 
-    @Then("the developer with ID {string} and first name {string} and last name {string} is in the system")
-    public void theDeveloperWithIDAndFirstNameAndLastNameIsInTheSystem(String string, String string2, String string3) throws Exception {
+    @Then("the developer with first name {string} and last name {string} and appropriate ID is in the system")
+    public void theDeveloperWithFirstNameAndLastNameAndAppropriateIDIsInTheSystem(String string, String string2) {
+        String testID;
+        if (app.getDeveloperHM().size() > 9) {
+            testID = developerHelper.getDeveloper().getFirstName().substring(0,2).toUpperCase() + developerHelper.getDeveloper().getLastName().substring(0,2).toUpperCase() + (app.developerHM.size()+1);
+        } else {
+            testID = developerHelper.getDeveloper().getFirstName().substring(0,2).toUpperCase() + developerHelper.getDeveloper().getLastName().substring(0,2).toUpperCase() + 0 + (app.developerHM.size()+1);
+        }
+
+        assertTrue(testID.equals(developerHelper.getDeveloper().getID()));
         assertTrue(app.getDeveloperHM().containsKey(developerHelper.getDeveloper().getID()));
     }
 
