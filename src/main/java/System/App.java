@@ -26,7 +26,7 @@ public class App {
         } else {
             ID = developer.getFirstName().substring(0,2).toUpperCase() + developer.getLastName().substring(0,2).toUpperCase() + 0 + (developerHM.size()+1);
         }
-        developer.setId(ID);
+        developer.setID(ID);
         developerHM.put(developer.getID(),developer);
     }
 
@@ -115,4 +115,10 @@ public class App {
         }
         //if (!initialized || Activedeveloper == this.projectLeader)
     }
+
+    public void setInterval() {
+        
+    }
+
+
 }
