@@ -9,15 +9,6 @@ public class Interval {
     protected Calendar startDate;
     protected Calendar endDate;
 
-    public Interval(Calendar startDate, Calendar endDate) {
-        this.startDate = startDate;
-        this.endDate = endDate;
-    }
-
-    public Interval() {
-
-    }
-
     public Calendar getEndDate() {
         return endDate;
     }

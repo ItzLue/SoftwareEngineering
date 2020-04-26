@@ -20,13 +20,15 @@ public class ProjectSteps {
     private DeveloperHelper developerHelper;
     private ProjectHelper projectHelper;
     private MockDateHolder dateHolder;
+    private ActivityHelper activityHelper;
 
-    public ProjectSteps(App app, ErrorMessageHolder errorMessageHolder, DeveloperHelper developerHelper, ProjectHelper projectHelper, MockDateHolder dateHolder) {
+    public ProjectSteps(App app, ErrorMessageHolder errorMessageHolder, DeveloperHelper developerHelper, ProjectHelper projectHelper, MockDateHolder dateHolder, ActivityHelper activityHelper) {
         this.app = app;
         this.errorMessageHolder = errorMessageHolder;
         this.developerHelper = developerHelper;
         this.projectHelper = projectHelper;
         this.dateHolder = dateHolder;
+        this.activityHelper = activityHelper;
     }
 
     @Given("The project has not been initialized")
@@ -44,36 +46,21 @@ public class ProjectSteps {
         assertTrue(projectHelper.getProject().isInitialized());
     }
 
-
-    @Then("the developer with ID {string} and first name {string} and last name {string} is in the system")
-    public void theDeveloperWithIDAndFirstNameAndLastNameIsInTheSystem(String arg0, String arg1, String arg2) {
+    @When("the activity with name {string} is added to the project")
+    public void theActivityWithNameIsAddedToTheProject(String name) {
+        app.registerActivityToProject(name,projectHelper.getProject().getID());
     }
 
-
-    @When("The project with ID {string} is added to the system")
-    public void theProjectWithIDIsAddedToTheSystem(String arg0) {
-    }
-
-    @Then("There is a project with ID {string} in the system")
-    public void thereIsAProjectWithIDInTheSystem(String arg0) {
-    }
-
-    @Then("The error message {string} is given")
-    public void theErrorMessageIsGiven(String arg0) {
-    }
-
-    @Given("the following activity have been chosen for the project")
-    public void theFollowingActivityHaveBeenChosenForTheProject(List<List<String>> activity) {
-        for (List<String> ActivityInfo: activity){
-            app.registerActivityToProject(new Activity());
+    @Then("the activity with name {string} is in the project")
+    public void theActivityWithNameIsInTheProject(String name) {
+        boolean nameExists = false;
+        for (Activity a : projectHelper.getProject().getActivityList()) {
+            System.out.println("Activity name: " + a.getName());
+            if (a.getName().equals(name)) {
+                nameExists = true;
+            }
         }
+        assertTrue(nameExists);
     }
 
-    @When("the activity are added to the project")
-    public void theActivityAreAddedToTheProject() {
-    }
-
-    @Then("the activity are in the project")
-    public void theActivityAreInTheProject() {
-    }
 }

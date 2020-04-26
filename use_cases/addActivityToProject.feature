@@ -10,10 +10,10 @@ Feature: Add activities to project
 
     #first scenario
   Scenario: Activity is added to an uninitialized project
-  Given the following activity have been chosen for the project
-  | Coding |
-  When the activity are added to the project
-  Then the activity are in the project
+#  Given the following activities are added to the project with name "Enigma Codebreaker"
+#  | Coding |
+  When the activity with name "Coding" is added to the project
+  Then the activity with name "Coding" is in the project
 
 
 

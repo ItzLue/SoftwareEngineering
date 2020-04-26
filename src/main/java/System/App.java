@@ -20,6 +20,7 @@ public class App {
     protected HashMap<String, Project> projectHM = new HashMap<String, Project>();
     private PropertyChangeSupport support = new PropertyChangeSupport(this);
     protected DateServer dateServer = new DateServer();
+
     public void registerDeveloper(Developer developer) {
         String ID;
         if (developerHM.size() > 9) {

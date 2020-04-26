@@ -12,6 +12,6 @@ Feature: the active developer is chosen
     When The developer with ID "OLSM" is set as the active developer
     Then the developer with ID "OLSM" is the active developer
 
-  Scenario: the active developer is set as empty
-    When The developer with ID "OLSM" is set as the active developer
-    Then the developer with ID "OLSM" is the active developer
+  Scenario: the active developer is set as null
+#    When The active developer is set as null
+#    Then the active developer is null
