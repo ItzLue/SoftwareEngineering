@@ -5,9 +5,12 @@ import domain.Project;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import System.App;
 
+import java.util.Calendar;
 import java.util.List;
 
 public class SystemSteps {
@@ -63,7 +66,25 @@ public class SystemSteps {
         assertTrue(!(app.getProjectHM().isEmpty()));
     }
 
+    @Then("The project ID fits the current date")
+    public void theProjectIDFitsTheCurrentDate() {
+        String weekNumber = Integer.toString(app.getDate().get(Calendar.WEEK_OF_YEAR));
+        String year = Integer.toString(app.getDate().get(Calendar.YEAR)).substring(2);
+        String runningNumber = Integer.toString(app.getProjectHM().size());
+        String test = year + weekNumber + runningNumber;
 
+        assertTrue(test.equals(projectHelper.getProject().getID()));
+    }
+
+    @When("The developer with ID {string} is set as the active developer")
+    public void theDeveloperWithIDIsSetAsTheActiveDeveloper(String ID) {
+        app.setActiveDeveloper(ID);
+    }
+
+    @Then("the developer with ID {string} is the active developer")
+    public void theDeveloperWithIDIsTheActiveDeveloper(String ID) {
+        assertEquals(app.getActiveDeveloper(),app.getDeveloperHM().get(ID));
+    }
 
 
 //    @When("the developer with ID {string} and name {string} is set as project leader for project with ID {string}")

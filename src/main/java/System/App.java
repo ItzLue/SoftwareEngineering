@@ -38,6 +38,7 @@ public class App {
     public App() {
         registerDeveloper(new Developer("Hans","Hansen"));
     }
+
     public String makeProjectID() {
         String weekNumber = Integer.toString(getDate().get(Calendar.WEEK_OF_YEAR));
         String year = Integer.toString(getDate().get(Calendar.YEAR)).substring(2);
@@ -87,11 +88,18 @@ public class App {
         support.addPropertyChangeListener(listener);
     }
 
-    public String getActiveDeveloper() {
+    public String getActiveDeveloperID() {
         if(activeDeveloper == null) {
             return null;
         }
         return activeDeveloper.getID();
+    }
+
+    public Developer getActiveDeveloper() {
+        if(activeDeveloper == null) {
+            return null;
+        }
+        return activeDeveloper;
     }
 
     public boolean devHmEmpty(){
@@ -99,5 +107,12 @@ public class App {
             System.out.println("Developer list is empty");
         }
         return true;
+    }
+
+    public void setProjectName(String ID, String name) {
+        if (projectHM.containsKey(ID)) {
+            projectHM.get(ID).setName(name);
+        }
+        //if (!initialized || Activedeveloper == this.projectLeader)
     }
 }

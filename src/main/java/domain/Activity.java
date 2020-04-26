@@ -15,4 +15,6 @@ public class Activity {
         return this.ID;
     }
 
+    public Interval getInterval() {return this.interval; }
+
 }

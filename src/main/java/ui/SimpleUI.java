@@ -53,7 +53,7 @@ public class SimpleUI{
     }
 
     public void showMenu() {
-        System.out.println("Active developer: " + app.getActiveDeveloper());
+        System.out.println("Active developer: " + app.getActiveDeveloperID());
         System.out.println("Select a number (1-5): ");
         System.out.println("   1) Set active developer");
         System.out.println("   2) Show developers");

@@ -20,6 +20,7 @@ public class MockDateHolder {
 
     public void setDate(Calendar calendar) {
         Calendar c = new GregorianCalendar(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH));
+        //Calendar c = new GregorianCalendar(2020,4,20);
         when(this.dateServer.getDate()).thenReturn(c);
     }
 

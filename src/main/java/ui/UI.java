@@ -40,7 +40,7 @@ public class UI extends ActionView {
     public void SetActiveDeveloperMenu() {
         String ID = this.prompt("Please enter the ID of the developer: ",String.class);
         app.setActiveDeveloper(ID);
-        activeDeveloperMenu = new MenuView("Welcome " + app.getActiveDeveloper(),"");
+        activeDeveloperMenu = new MenuView("Welcome " + app.getActiveDeveloperID(),"");
         activeDeveloperMenu.addMenuItem(new ChangeActiveDeveloperAction());
         activeDeveloperMenu.addMenuItem(new ShowDevelopersAction());
         activeDeveloperMenu.addMenuItem(new AddDeveloperAction());
@@ -88,7 +88,7 @@ public class UI extends ActionView {
         public void executeCustomAction() {
             String ID = this.prompt("Please enter the ID of the developer: ",String.class);
             app.setActiveDeveloper(ID);
-            activeDeveloperMenu = new MenuView("Welcome " + app.getActiveDeveloper(),"");
+            activeDeveloperMenu = new MenuView("Welcome " + app.getActiveDeveloperID(),"");
             activeDeveloperMenu.addMenuItem(new ChangeActiveDeveloperAction());
             activeDeveloperMenu.addMenuItem(new ShowDevelopersAction());
             activeDeveloperMenu.addMenuItem(new AddProjectAction());
@@ -140,7 +140,7 @@ public class UI extends ActionView {
         }
 
         public void executeCustomAction() {
-            projectLeaderMenu = new MenuView("Welcome " + app.getActiveDeveloper(),"");
+            projectLeaderMenu = new MenuView("Welcome " + app.getActiveDeveloperID(),"");
             projectLeaderMenu.addMenuItem(new ChangeActiveDeveloperAction());
             projectLeaderMenu.addMenuItem(new ShowDevelopersAction());
             projectLeaderMenu.addMenuItem(new AddProjectAction());
@@ -152,7 +152,7 @@ public class UI extends ActionView {
         }
     }
     private void setProjectLeaderMenu(){
-        projectLeaderMenu = new MenuView("Welcome " + app.getActiveDeveloper(),"");
+        projectLeaderMenu = new MenuView("Welcome " + app.getActiveDeveloperID(),"");
         projectLeaderMenu.addMenuItem(new ChangeActiveDeveloperAction());
         projectLeaderMenu.addMenuItem(new ShowDevelopersAction());
         projectLeaderMenu.addMenuItem(new AddProjectAction());

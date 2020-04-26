@@ -12,18 +12,16 @@ Feature: Create a project
 
 # Main scenario
   Scenario: A developer creates a project
-    Given A project with name "Enigma Codebreaker " is created
+    Given A project with name "Enigma Codebreaker" is created
     When The project is added to the system
     Then There is a project in the system with name "Enigma Codebreaker"
 
-#    #Main fail scenario
-#  Scenario: A developer creates a project with an already used ID
-#    Given A project with ID "030901" is created
-#    When The project with ID "030901" is added to the system
-#    And There is a project with ID "030901" in the system
-#    When A project with ID "030901" is created
-#    Then The error message "project ID already used" is given
-#
+    #second scenario
+  Scenario: The project ID fits the current date
+    Given A project with name "Enigma Codebreaker" is created
+    Then The project is added to the system
+    Then The project ID fits the current date
+
 #    #second scenario
 #  Scenario: A developer creates a project with a name, activities, and start/end dates.
 #    Given the following activities have been chosen for the project
