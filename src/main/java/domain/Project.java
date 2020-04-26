@@ -16,6 +16,7 @@ public class Project {
     public Project(String name) {
         this.name = name;
         this.initialized = false;
+        this.interval = new Interval();
     }
 
     public void addActivity(Activity activity) {
@@ -67,6 +68,8 @@ public class Project {
         return this.interval;
     }
 
-
+    public ArrayList<Activity> getActivityList() {
+        return this.activityList;
+    }
 
 }

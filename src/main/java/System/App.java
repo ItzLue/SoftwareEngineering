@@ -1,5 +1,6 @@
 package System;
 
+import domain.Activity;
 import domain.Developer;
 import domain.Project;
 import time.DateServer;
@@ -28,6 +29,24 @@ public class App {
         }
         developer.setID(ID);
         developerHM.put(developer.getID(),developer);
+    }
+
+    public void registerActivityToProject(String name, String projectID) {
+        if (projectHM.containsKey(projectID)) {
+           Activity activity = new Activity(name);
+           boolean nameExists = false;
+            for (Activity a : projectHM.get(projectID).getActivityList()) {
+                if (a.getName().equals(name)) {
+                    nameExists = true;
+                }
+            }
+            if (!nameExists) {
+                projectHM.get(projectID).getActivityList().add(activity);
+            }
+            else {
+                System.out.println("activity name already exists");
+            }
+        }
     }
 
     public void registerProject(Project project) {
@@ -117,7 +136,7 @@ public class App {
     }
 
     public void setInterval() {
-        
+
     }
 
 

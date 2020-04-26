@@ -14,6 +14,10 @@ public class Interval {
         this.endDate = endDate;
     }
 
+    public Interval() {
+
+    }
+
     public Calendar getEndDate() {
         return endDate;
     }
