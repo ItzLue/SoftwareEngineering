@@ -28,12 +28,15 @@ public class Project {
     }
 
     public void setProjectLeader(Developer developer) {
-        if (initialized) {
+        if (initialized && projectLeader == null) {
             this.projectLeader = developer;
         }
-        else {
-            System.out.println("deeeet var vidste en ommerr ahahaha skal vi have en lille en: læst med arne nougatgren stemme");
-        }
+//        else {
+//            System.out.println("Project already has a project leader");
+//        }
+    }
+    public Developer getProjectLeader() {
+        return projectLeader;
     }
 
     public void setName(String name) { this.name = name; }
