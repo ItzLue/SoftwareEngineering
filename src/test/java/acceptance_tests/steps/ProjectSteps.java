@@ -1,6 +1,10 @@
 package acceptance_tests.steps;
 
 import System.App;
+import acceptance_tests.helper.ActivityHelper;
+import acceptance_tests.helper.DeveloperHelper;
+import acceptance_tests.helper.ErrorMessageHolder;
+import acceptance_tests.helper.ProjectHelper;
 import domain.Activity;
 import domain.Developer;
 import domain.Project;
@@ -68,7 +72,6 @@ public class ProjectSteps {
         assertEquals(developerHelper.getDeveloper().getFirstName(), string);
         assertEquals(developerHelper.getDeveloper().getLastName(), string2);
         assertEquals(projectHelper.getProject().getName(),string3);
-
         projectHelper.getProject().setProjectLeader(developerHelper.getDeveloper());
 
     }
