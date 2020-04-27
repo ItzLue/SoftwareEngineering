@@ -57,7 +57,7 @@ public class Project {
         return "Name:'" + name + '\'' +
                 ", ID: '" + ID + '\'' +
                 ", Project Leader: " + projectLeader +
-                ", Activity list: " + activityList;
+                ", Activity list: " + activityList.toString();
     }
 
     public boolean isInitialized() {

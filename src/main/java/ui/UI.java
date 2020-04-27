@@ -20,16 +20,9 @@ public class UI extends ActionView {
     public UI(String runningTitle, String nameInParentMenu) {
         super(runningTitle, nameInParentMenu);
 
-        MenuView projectMenu = new MenuView("Project menu", "Project menu");
-        projectMenu.addMenuItem(new AddProjectLeaderAction());
-        projectMenu.addMenuItem(new AddActivityAction());
-        projectMenu.addMenuItem(new ShowProjectsAction());
-        projectMenu.addMenuItem(new AddProjectAction());
+        MenuView projectMenu = getProjectMenu();
 
-        MenuView developerMenu = new MenuView("Devs menu","Developer menu");
-        developerMenu.addMenuItem(new SetActiveDeveloperAction());
-        developerMenu.addMenuItem(new ShowDevelopersAction());
-        developerMenu.addMenuItem(new AddDeveloperAction());
+        MenuView developerMenu = getDeveloperMenu();
 
 
         MenuView rootMenu = new MenuView("Welcome to SoftwareHuset A/S", "");
@@ -37,24 +30,42 @@ public class UI extends ActionView {
         rootMenu.addMenuItem(projectMenu);
         rootMenu.display();
     }
+
+
+
+
+
     public void executeCustomAction() {
     }
 
     /*
     Root menu
      */
-    private void RootMenu() {
-
-    }
 
     /*
     Project menu
      */
 
+    private MenuView getProjectMenu() {
+        MenuView developerMenu = new MenuView("Devs menu","Developer menu");
+        developerMenu.addMenuItem(new SetActiveDeveloperAction());
+        developerMenu.addMenuItem(new ShowDevelopersAction());
+        developerMenu.addMenuItem(new AddDeveloperAction());
+        return developerMenu;
+    }
 
     /*
     Developer menus
      */
+    private MenuView getDeveloperMenu() {
+        MenuView projectMenu = new MenuView("Project menu", "Project menu");
+        projectMenu.addMenuItem(new AddProjectLeaderAction());
+        projectMenu.addMenuItem(new AddActivityAction());
+        projectMenu.addMenuItem(new ShowProjectsAction());
+        projectMenu.addMenuItem(new AddProjectAction());
+        return projectMenu;
+    }
+
     public void SetActiveDeveloperMenu() {
         String ID = this.prompt("Please enter the ID of the developer: ", String.class);
         if (app.developerHM.containsKey(ID)) {
@@ -186,6 +197,7 @@ public class UI extends ActionView {
     /*
         Project leader menus
     */
+
 
 
 }
