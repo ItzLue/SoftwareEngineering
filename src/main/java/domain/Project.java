@@ -52,6 +52,10 @@ public class Project {
         return this.ID;
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public String toString() {
         return "Name:'" + name + '\'' +

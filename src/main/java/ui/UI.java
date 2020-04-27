@@ -5,6 +5,7 @@ import domain.Developer;
 import domain.Project;
 import io.bretty.console.view.ActionView;
 import io.bretty.console.view.MenuView;
+import time.Interval;
 
 public class UI extends ActionView {
     App app = new App();
@@ -58,6 +59,8 @@ public class UI extends ActionView {
         projectMenu.addMenuItem(new AddActivityAction());
         projectMenu.addMenuItem(new ShowProjectsAction());
         projectMenu.addMenuItem(new AddProjectAction());
+        projectMenu.addMenuItem(new initializeProject());
+        projectMenu.addMenuItem(new setIntervalAction());
         return projectMenu;
     }
 
@@ -181,7 +184,11 @@ public class UI extends ActionView {
                     if (confirmed){
                         String ID = this.prompt("Write the ID of the project leader: ",String.class);
                         project.setProjectLeader(app.getDeveloperHM().get(ID));
+                        print("The project leader" + app.getProjectHM().get(ID) + "for the project " + name);
+                        print(' ');
                     }
+                    print(' ');
+                    print("The project " + name + " is created\n" + "No project leader is added");
         }
     }
     /*
@@ -201,6 +208,7 @@ public class UI extends ActionView {
             }
         }
     }
+
     class setIntervalAction extends ActionView {
         public setIntervalAction() {
             super("Set start end date for a project", "Set start end date for a project");
@@ -208,10 +216,10 @@ public class UI extends ActionView {
 
         @Override
         public void executeCustomAction() {
-
-            boolean confirmed = this.confirmDialog("Are you sure that you want to initialize " /* Project name */);
-            if (confirmed){
-                /* Initialize project ID*/ project.initProject();
+            String ID = this.prompt("Enter a valid ID for a project: ",String.class);
+            if (app.getProjectHM().containsKey(ID)){
+                Interval Start = this.prompt("Enter a start date for project",Interval.class);
+                project.setInterval(Start);
             }
         }
     }
