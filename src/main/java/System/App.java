@@ -59,10 +59,10 @@ public class App {
         projectHM.put(project.getID(),project);
     }
 
-//    public App() {
-//        registerDeveloper(new Developer("Hans","Hansen"));
-//        System.out.println(developerHM.get("HAHA01"));
-//    }
+    public App() {
+        registerDeveloper(new Developer("Hans","Hansen"));
+        registerProject(new Project("Minecraft"));
+    }
 
     public String makeProjectID() {
         String weekNumber = Integer.toString(getDate().get(Calendar.WEEK_OF_YEAR));

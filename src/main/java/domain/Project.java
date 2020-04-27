@@ -57,10 +57,18 @@ public class Project {
 
     @Override
     public String toString() {
-        return "Name:'" + name + '\'' +
-                ", ID: '" + ID + '\'' +
-                ", Project Leader: " + projectLeader +
-                ", Activity list: " + activityList.toString();
+        if (projectLeader != null){
+            return "Name:'" + name + '\'' +
+                    ", ID: '" + ID + '\'' +
+                    ", Project Leader: " + '\'' +projectLeader.getID() + '\'' +
+                    ", Activity list: " + activityList.toString();
+        } else {
+            return "Name:'" + name + '\'' +
+                    ", ID: '" + ID + '\'' +
+                    ", Project Leader: " + projectLeader + '\'' +
+                    ", Activity list: " + activityList.toString();
+        }
+
     }
 
     public boolean isInitialized() {
