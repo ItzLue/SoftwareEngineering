@@ -203,7 +203,7 @@ public class UI extends ActionView {
     }
     class setIntervalAction extends ActionView {
         public setIntervalAction() {
-            super("initialize a project", "Set start end date for a project");
+            super("Set start end date for a project", "Set start end date for a project");
         }
 
         @Override
@@ -215,6 +215,8 @@ public class UI extends ActionView {
             }
         }
     }
+
+
 
 
 }
