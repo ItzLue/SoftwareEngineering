@@ -11,7 +11,7 @@
         "steps": [
           {
             "result": {
-              "duration": 532000000,
+              "duration": 419000000,
               "status": "passed"
             },
             "line": 7,
@@ -41,7 +41,7 @@
           },
           {
             "result": {
-              "duration": 2000000,
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -60,7 +60,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-27T10:25:31.378Z",
+        "start_timestamp": "2020-04-27T10:43:10.586Z",
         "line": 12,
         "name": "Activity is added to an uninitialized project",
         "description": "",
@@ -70,7 +70,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 15,
@@ -88,6 +87,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 16,
@@ -117,11 +117,11 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2020-04-27T10:25:32.005Z",
+        "start_timestamp": "2020-04-27T10:43:11.072Z",
         "line": 6,
-        "name": "A developer is successfully added to the system",
+        "name": "A developer is succesfully added to the system",
         "description": "",
-        "id": "add-a-developer-to-the-system;a-developer-is-successfully-added-to-the-system",
+        "id": "add-a-developer-to-the-system;a-developer-is-succesfully-added-to-the-system",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
@@ -229,6 +229,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -278,7 +279,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-27T10:25:32.064Z",
+        "start_timestamp": "2020-04-27T10:43:11.107Z",
         "line": 13,
         "name": "A developer is successfully being added as project leader to a project",
         "description": "",
@@ -288,11 +289,27 @@
         "steps": [
           {
             "result": {
-              "status": "undefined"
+              "status": "passed"
             },
             "line": 14,
             "name": "the developer with first name \"Ole\" and last name \"Smith\" is set as project leader for project with name \"Enigma Codebreaker\"",
-            "match": {},
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Ole\"",
+                  "offset": 30
+                },
+                {
+                  "val": "\"Smith\"",
+                  "offset": 50
+                },
+                {
+                  "val": "\"Enigma Codebreaker\"",
+                  "offset": 105
+                }
+              ],
+              "location": "acceptance_tests.steps.ProjectSteps.theDeveloperWithFirstNameAndLastNameIsSetAsProjectLeaderForProjectWithName(java.lang.String,java.lang.String,java.lang.String)"
+            },
             "keyword": "When "
           },
           {
@@ -355,7 +372,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 8,
@@ -391,7 +407,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-27T10:25:32.091Z",
+        "start_timestamp": "2020-04-27T10:43:11.126Z",
         "line": 11,
         "name": "The project start date is set",
         "description": "",
@@ -471,7 +487,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -518,7 +533,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-27T10:25:32.105Z",
+        "start_timestamp": "2020-04-27T10:43:11.135Z",
         "line": 15,
         "name": "The project end date is set",
         "description": "",
@@ -582,7 +597,7 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2020-04-27T10:25:32.115Z",
+        "start_timestamp": "2020-04-27T10:43:11.144Z",
         "line": 6,
         "name": "A developer creates a project",
         "description": "",
@@ -610,6 +625,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 8,
@@ -639,7 +655,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-27T10:25:32.124Z",
+        "start_timestamp": "2020-04-27T10:43:11.151Z",
         "line": 12,
         "name": "The project ID fits the current date",
         "description": "",
@@ -678,7 +694,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 15,
@@ -757,7 +772,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-27T10:25:32.134Z",
+        "start_timestamp": "2020-04-27T10:43:11.158Z",
         "line": 12,
         "name": "A project is initialized",
         "description": "",
@@ -767,7 +782,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 13,
@@ -821,7 +835,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -848,7 +861,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-27T10:25:32.143Z",
+        "start_timestamp": "2020-04-27T10:43:11.165Z",
         "line": 11,
         "name": "A developer is set as the active developer",
         "description": "",
@@ -901,7 +914,7 @@
         "steps": []
       },
       {
-        "start_timestamp": "2020-04-27T10:25:32.151Z",
+        "start_timestamp": "2020-04-27T10:43:11.169Z",
         "line": 15,
         "name": "the active developer is set as null",
         "description": "",

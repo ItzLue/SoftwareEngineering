@@ -62,4 +62,13 @@ public class ProjectSteps {
         assertTrue(nameExists);
     }
 
+    @When("the developer with first name {string} and last name {string} is set as project leader for project with name {string}")
+    public void theDeveloperWithFirstNameAndLastNameIsSetAsProjectLeaderForProjectWithName(String arg0, String arg1, String arg2) {
+
+    }
+
+    @Then("the project with name {string} has the developer with first name {string} and last name {string} as project leader")
+    public void theProjectWithNameHasTheDeveloperWithFirstNameAndLastNameAsProjectLeader(String arg0, String arg1, String arg2) {
+
+    }
 }
