@@ -9,6 +9,7 @@ import io.bretty.console.view.MenuView;
 public class UI extends ActionView {
     App app = new App();
     Project project;
+    Developer developer;
     public MenuView activeDeveloperMenu;
     public MenuView projectLeaderMenu;
 
@@ -30,11 +31,6 @@ public class UI extends ActionView {
         rootMenu.addMenuItem(projectMenu);
         rootMenu.display();
     }
-
-
-
-
-
     public void executeCustomAction() {
     }
 
@@ -43,10 +39,9 @@ public class UI extends ActionView {
      */
 
     /*
-    Project menu
+    Developer menu
      */
-
-    private MenuView getProjectMenu() {
+    private MenuView getDeveloperMenu() {
         MenuView developerMenu = new MenuView("Devs menu","Developer menu");
         developerMenu.addMenuItem(new SetActiveDeveloperAction());
         developerMenu.addMenuItem(new ShowDevelopersAction());
@@ -55,9 +50,9 @@ public class UI extends ActionView {
     }
 
     /*
-    Developer menus
+    Project menus
      */
-    private MenuView getDeveloperMenu() {
+    private MenuView getProjectMenu() {
         MenuView projectMenu = new MenuView("Project menu", "Project menu");
         projectMenu.addMenuItem(new AddProjectLeaderAction());
         projectMenu.addMenuItem(new AddActivityAction());
@@ -74,12 +69,9 @@ public class UI extends ActionView {
 
         }
         activeDeveloperMenu = new MenuView("Welcome " + app.getActiveDeveloper().getFirstName(), "");
-        activeDeveloperMenu.addMenuItem(new ChangeActiveDeveloperAction());
-        activeDeveloperMenu.addMenuItem(new ShowDevelopersAction());
-        activeDeveloperMenu.addMenuItem(new AddDeveloperAction());
-        activeDeveloperMenu.addMenuItem(new AddProjectAction());
-        activeDeveloperMenu.addMenuItem(new ShowProjectsAction());
-        activeDeveloperMenu.addMenuItem(new SetWorkHoursAction());
+        activeDeveloperMenu.addMenuItem(getDeveloperMenu());
+//        getDeveloperMenu().addMenuItem(new SetWorkHoursAction());
+        activeDeveloperMenu.addMenuItem(getProjectMenu());
         this.setParentView(activeDeveloperMenu);
         this.actionSuccessful();
         this.display();
@@ -138,11 +130,9 @@ public class UI extends ActionView {
 
         }
     }
-
     /*
         Project actions
     */
-
     class AddProjectLeaderAction extends ActionView {
         public AddProjectLeaderAction() {
             super("Add project leader", "Add project leader");
@@ -166,8 +156,6 @@ public class UI extends ActionView {
                 String name = this.prompt("Enter the name for the activity: ", String.class);
                 String ID = this.prompt("Enter the ID for the project: ", String.class);
                 app.registerActivityToProject(name, ID);
-
-
         }
     }
 
@@ -181,7 +169,6 @@ public class UI extends ActionView {
            app.getProjectValues();
         }
     }
-
     class AddProjectAction extends ActionView {
         public AddProjectAction() {
             super("Add a project could be something like 'Marcosoft'", "Add project");
@@ -191,13 +178,14 @@ public class UI extends ActionView {
         public void executeCustomAction() {
             String name = this.prompt("Please a name for the project: ", String.class);
             app.registerProject(new Project(name));
-            this.actionSuccessful();
+            boolean confirmed = this.confirmDialog("Do you want to se at project leader now?");
+                    if (confirmed){
+                        String ID = this.prompt("Write the ID of the project leader: ",String.class);
+                        project.setProjectLeader(developer);
+                    }
         }
     }
     /*
         Project leader menus
     */
-
-
-
 }
