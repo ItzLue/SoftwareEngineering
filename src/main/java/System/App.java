@@ -116,33 +116,11 @@ public class App {
         return dateServer.getDate();
     }
 
-    public void addObserver(PropertyChangeListener listener) {
-        support.addPropertyChangeListener(listener);
-    }
-
-    public String getActiveDeveloperID() {
-        if(activeDeveloper == null) {
-            return null;
-        }
-        return activeDeveloper.getFirstName();
-    }
-
     public Developer getActiveDeveloper() {
         if(activeDeveloper == null) {
             return null;
         }
         return activeDeveloper;
-    }
-
-    public boolean devHmEmpty(){
-        if (developerHM.isEmpty()){
-            System.out.println("Developer list is empty");
-        } return true;
-    }
-    public boolean projectHmEmpty(){
-        if (projectHM.isEmpty()){
-            System.out.println("No projects to show");
-        } return true;
     }
 
     public void setProjectName(String ID, String name) {
