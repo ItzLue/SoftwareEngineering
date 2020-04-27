@@ -43,7 +43,7 @@ public class UI extends ActionView {
      */
     private MenuView getDeveloperMenu() {
         MenuView developerMenu = new MenuView("Devs menu","Developer menu");
-        developerMenu.addMenuItem(new SetActiveDeveloperAction());
+        developerMenu.addMenuItem(new setActiveDeveloperAction());
         developerMenu.addMenuItem(new ShowDevelopersAction());
         developerMenu.addMenuItem(new AddDeveloperAction());
         return developerMenu;
@@ -61,30 +61,28 @@ public class UI extends ActionView {
         return projectMenu;
     }
 
-    public void SetActiveDeveloperMenu() {
+    public void setActiveDeveloperMenu() {
         String ID = this.prompt("Please enter the ID of the developer: ", String.class);
         if (app.developerHM.containsKey(ID)) {
             app.setActiveDeveloper(ID);
-        } else {
-
         }
         activeDeveloperMenu = new MenuView("Welcome " + app.getActiveDeveloper().getFirstName(), "");
+        getDeveloperMenu().addMenuItem(new SetWorkHoursAction());
         activeDeveloperMenu.addMenuItem(getDeveloperMenu());
-//        getDeveloperMenu().addMenuItem(new SetWorkHoursAction());
         activeDeveloperMenu.addMenuItem(getProjectMenu());
         this.setParentView(activeDeveloperMenu);
         this.actionSuccessful();
         this.display();
     }
 
-    class SetActiveDeveloperAction extends ActionView {
-        public SetActiveDeveloperAction() {
+    class setActiveDeveloperAction extends ActionView {
+        public setActiveDeveloperAction() {
             super("Set an active developer", "Set an active developer");
         }
 
         @Override
         public void executeCustomAction() {
-            SetActiveDeveloperMenu();
+            setActiveDeveloperMenu();
         }
     }
 
@@ -117,7 +115,7 @@ public class UI extends ActionView {
         }
 
         public void executeCustomAction() {
-            SetActiveDeveloperMenu();
+            setActiveDeveloperMenu();
         }
     }
 
@@ -127,6 +125,7 @@ public class UI extends ActionView {
         }
 
         public void executeCustomAction() {
+
 
         }
     }
@@ -181,11 +180,41 @@ public class UI extends ActionView {
             boolean confirmed = this.confirmDialog("Do you want to se at project leader now?");
                     if (confirmed){
                         String ID = this.prompt("Write the ID of the project leader: ",String.class);
-                        project.setProjectLeader(developer);
+                        project.setProjectLeader(app.getDeveloperHM().get(ID));
                     }
         }
     }
     /*
         Project leader menus
     */
+    class initializeProject extends ActionView {
+        public initializeProject() {
+            super("initialize a project", "initialize project");
+        }
+
+        @Override
+        public void executeCustomAction() {
+
+            boolean confirmed = this.confirmDialog("Are you sure that you want to initialize " /* Project name */);
+            if (confirmed){
+                /* Initialize project ID*/ project.initProject();
+            }
+        }
+    }
+    class setIntervalAction extends ActionView {
+        public setIntervalAction() {
+            super("initialize a project", "Set start end date for a project");
+        }
+
+        @Override
+        public void executeCustomAction() {
+
+            boolean confirmed = this.confirmDialog("Are you sure that you want to initialize " /* Project name */);
+            if (confirmed){
+                /* Initialize project ID*/ project.initProject();
+            }
+        }
+    }
+
+
 }
