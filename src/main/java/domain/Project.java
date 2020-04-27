@@ -29,9 +29,10 @@ public class Project {
     }
 
     public void setProjectLeader(Developer developer) {
-        if (initialized) {
-            this.projectLeader = developer;
+        if (!initialized) {
+            initProject();
         }
+        this.projectLeader = developer;
     }
 
     public Developer getProjectLeader() {

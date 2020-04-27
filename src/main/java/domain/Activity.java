@@ -6,6 +6,7 @@ public class Activity {
     protected String name;
     protected Interval interval;
     protected double plannedHours;
+    protected double workedHours;
 
     public Activity(String name) {
         this.name = name;

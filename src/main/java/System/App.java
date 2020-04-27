@@ -71,11 +71,12 @@ public class App {
         return year + weekNumber + runningNumber;
     }
 
-    public void setProjectLeader(Project project, Developer developer) {
-        if (project.getProjectLeader() != null || project.getProjectLeader() == this.activeDeveloper) {
-            project.setProjectLeader(developer);
+    public void setProjectLeader(String projectID, String developerID) {
+        if (projectHM.containsKey(projectID) && developerHM.containsKey(developerID)) {
+            if (projectHM.get(projectID).getProjectLeader() != null || projectHM.get(projectID).getProjectLeader() == this.activeDeveloper) {
+                projectHM.get(projectID).setProjectLeader(developerHM.get(developerID));
+            }
         }
-
     }
 
     public void setDateServer(DateServer dateServer) {
