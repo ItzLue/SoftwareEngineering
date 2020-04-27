@@ -29,13 +29,11 @@ public class Project {
     }
 
     public void setProjectLeader(Developer developer) {
-        if (initialized && projectLeader == null) {
+        if (initialized) {
             this.projectLeader = developer;
         }
-//        else {
-//            System.out.println("Project already has a project leader");
-//        }
     }
+
     public Developer getProjectLeader() {
         return projectLeader;
     }

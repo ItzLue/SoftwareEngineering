@@ -71,6 +71,13 @@ public class App {
         return year + weekNumber + runningNumber;
     }
 
+    public void setProjectLeader(Project project, Developer developer) {
+        if (project.getProjectLeader() != null || project.getProjectLeader() == this.activeDeveloper) {
+            project.setProjectLeader(developer);
+        }
+
+    }
+
     public void setDateServer(DateServer dateServer) {
         this.dateServer = dateServer;
     }
