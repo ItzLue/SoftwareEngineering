@@ -11,7 +11,7 @@
         "steps": [
           {
             "result": {
-              "duration": 419000000,
+              "duration": 974000000,
               "status": "passed"
             },
             "line": 7,
@@ -29,7 +29,7 @@
           },
           {
             "result": {
-              "duration": 2000000,
+              "duration": 7000000,
               "status": "passed"
             },
             "line": 8,
@@ -41,7 +41,7 @@
           },
           {
             "result": {
-              "duration": 1000000,
+              "duration": 4000000,
               "status": "passed"
             },
             "line": 9,
@@ -60,7 +60,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-27T10:43:10.586Z",
+        "start_timestamp": "2020-04-27T13:15:42.782Z",
         "line": 12,
         "name": "Activity is added to an uninitialized project",
         "description": "",
@@ -70,6 +70,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 15,
@@ -117,17 +118,17 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2020-04-27T10:43:11.072Z",
+        "start_timestamp": "2020-04-27T13:15:43.996Z",
         "line": 6,
-        "name": "A developer is succesfully added to the system",
+        "name": "A developer is successfully added to the system",
         "description": "",
-        "id": "add-a-developer-to-the-system;a-developer-is-succesfully-added-to-the-system",
+        "id": "add-a-developer-to-the-system;a-developer-is-successfully-added-to-the-system",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 1000000,
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 7,
@@ -211,10 +212,73 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 6,
+            "name": "There is a Developer with first name \"Ole\" and last name \"Smith\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Ole\"",
+                  "offset": 37
+                },
+                {
+                  "val": "\"Smith\"",
+                  "offset": 57
+                }
+              ],
+              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "the developer with first name \"Ole\" and last name \"Smith\" is added to the system",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Ole\"",
+                  "offset": 30
+                },
+                {
+                  "val": "\"Smith\"",
+                  "offset": 50
+                }
+              ],
+              "location": "acceptance_tests.steps.SystemSteps.theDeveloperWithFirstNameAndLastNameIsAddedToTheSystem(java.lang.String,java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "the developer with first name \"Ole\" and last name \"Smith\" and appropriate ID is in the system",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Ole\"",
+                  "offset": 30
+                },
+                {
+                  "val": "\"Smith\"",
+                  "offset": 50
+                }
+              ],
+              "location": "acceptance_tests.steps.SystemSteps.theDeveloperWithFirstNameAndLastNameAndAppropriateIDIsInTheSystem(java.lang.String,java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 9,
             "name": "A project with name \"Enigma Codebreaker\" is created",
             "match": {
               "arguments": [
@@ -229,10 +293,9 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
-            "line": 7,
+            "line": 10,
             "name": "The project is added to the system",
             "match": {
               "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
@@ -243,7 +306,7 @@
             "result": {
               "status": "passed"
             },
-            "line": 8,
+            "line": 11,
             "name": "There is a project in the system with name \"Enigma Codebreaker\"",
             "match": {
               "arguments": [
@@ -258,29 +321,42 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
-            "line": 9,
-            "name": "The following developers are registered in the system",
+            "line": 12,
+            "name": "The project has not been initialized",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theFollowingDeveloperSIsAreRegisteredInTheSystem(java.util.List\u003cjava.util.List\u003cjava.lang.String\u003e\u003e)"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectHasNotBeenInitialized()"
             },
-            "rows": [
-              {
-                "cells": [
-                  "Ole",
-                  "Smith"
-                ]
-              }
-            ],
             "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "The project is initialized by the user",
+            "match": {
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsInitializedByTheUser()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "The project is initialized",
+            "match": {
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsInitialized()"
+            },
+            "keyword": "Then "
           }
         ]
       },
       {
-        "start_timestamp": "2020-04-27T10:43:11.107Z",
-        "line": 13,
+        "start_timestamp": "2020-04-27T13:15:44.015Z",
+        "line": 17,
         "name": "A developer is successfully being added as project leader to a project",
         "description": "",
         "id": "add-project-leader-to-project;a-developer-is-successfully-being-added-as-project-leader-to-a-project",
@@ -291,7 +367,7 @@
             "result": {
               "status": "passed"
             },
-            "line": 14,
+            "line": 18,
             "name": "the developer with first name \"Ole\" and last name \"Smith\" is set as project leader for project with name \"Enigma Codebreaker\"",
             "match": {
               "arguments": [
@@ -314,11 +390,280 @@
           },
           {
             "result": {
-              "status": "undefined"
+              "status": "passed"
             },
-            "line": 15,
+            "line": 19,
             "name": "the project with name \"Enigma Codebreaker\" has the developer with first name \"Ole\" and last name \"Smith\" as project leader",
-            "match": {},
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Enigma Codebreaker\"",
+                  "offset": 22
+                },
+                {
+                  "val": "\"Ole\"",
+                  "offset": 77
+                },
+                {
+                  "val": "\"Smith\"",
+                  "offset": 97
+                }
+              ],
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectWithNameHasTheDeveloperWithFirstNameAndLastNameAsProjectLeader(java.lang.String,java.lang.String,java.lang.String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 5,
+        "name": "There is a developer and a project registered in the system",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 2000000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "There is a Developer with first name \"Ole\" and last name \"Smith\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Ole\"",
+                  "offset": 37
+                },
+                {
+                  "val": "\"Smith\"",
+                  "offset": 57
+                }
+              ],
+              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "the developer with first name \"Ole\" and last name \"Smith\" is added to the system",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Ole\"",
+                  "offset": 30
+                },
+                {
+                  "val": "\"Smith\"",
+                  "offset": 50
+                }
+              ],
+              "location": "acceptance_tests.steps.SystemSteps.theDeveloperWithFirstNameAndLastNameIsAddedToTheSystem(java.lang.String,java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "the developer with first name \"Ole\" and last name \"Smith\" and appropriate ID is in the system",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Ole\"",
+                  "offset": 30
+                },
+                {
+                  "val": "\"Smith\"",
+                  "offset": 50
+                }
+              ],
+              "location": "acceptance_tests.steps.SystemSteps.theDeveloperWithFirstNameAndLastNameAndAppropriateIDIsInTheSystem(java.lang.String,java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "A project with name \"Enigma Codebreaker\" is created",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Enigma Codebreaker\"",
+                  "offset": 20
+                }
+              ],
+              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "The project is added to the system",
+            "match": {
+              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "There is a project in the system with name \"Enigma Codebreaker\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Enigma Codebreaker\"",
+                  "offset": 43
+                }
+              ],
+              "location": "acceptance_tests.steps.SystemSteps.thereIsAProjectInTheSystemWithName(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "The project has not been initialized",
+            "match": {
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectHasNotBeenInitialized()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "The project is initialized by the user",
+            "match": {
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsInitializedByTheUser()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "The project is initialized",
+            "match": {
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsInitialized()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-04-27T13:15:44.033Z",
+        "line": 22,
+        "name": "A developer tries to be added as project leader to a project that already has a developer",
+        "description": "",
+        "id": "add-project-leader-to-project;a-developer-tries-to-be-added-as-project-leader-to-a-project-that-already-has-a-developer",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "a developer with first name \"Birte\" and last name \"Rasmussen\" is added to the system",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Birte\"",
+                  "offset": 28
+                },
+                {
+                  "val": "\"Rasmussen\"",
+                  "offset": 50
+                }
+              ],
+              "location": "acceptance_tests.steps.ProjectSteps.aDeveloperWithFirstNameAndLastNameIsAddedToTheSystem(java.lang.String,java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "the developer with first name \"Ole\" and last name \"Smith\" is set as project leader for project with name \"Enigma Codebreaker\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Ole\"",
+                  "offset": 30
+                },
+                {
+                  "val": "\"Smith\"",
+                  "offset": 50
+                },
+                {
+                  "val": "\"Enigma Codebreaker\"",
+                  "offset": 105
+                }
+              ],
+              "location": "acceptance_tests.steps.ProjectSteps.theDeveloperWithFirstNameAndLastNameIsSetAsProjectLeaderForProjectWithName(java.lang.String,java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "a developer with first name \"Birte\" and last name \"Rasmussen\" is set as project leader for project with name \"Enigma Codebreaker\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Birte\"",
+                  "offset": 28
+                },
+                {
+                  "val": "\"Rasmussen\"",
+                  "offset": 50
+                },
+                {
+                  "val": "\"Enigma Codebreaker\"",
+                  "offset": 109
+                }
+              ],
+              "location": "acceptance_tests.steps.ProjectSteps.aDeveloperWithFirstNameAndLastNameIsSetAsProjectLeaderForProjectWithName(java.lang.String,java.lang.String,java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "The error message \"Project already has a project leader\" is given",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Project already has a project leader\"",
+                  "offset": 18
+                }
+              ],
+              "location": "acceptance_tests.steps.ProjectSteps.theErrorMessageIsGiven(java.lang.String)"
+            },
             "keyword": "Then "
           }
         ]
@@ -372,6 +717,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 8,
@@ -407,7 +753,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-27T10:43:11.126Z",
+        "start_timestamp": "2020-04-27T13:15:44.053Z",
         "line": 11,
         "name": "The project start date is set",
         "description": "",
@@ -417,7 +763,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 12,
@@ -487,6 +832,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -515,6 +861,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -533,7 +880,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-27T10:43:11.135Z",
+        "start_timestamp": "2020-04-27T13:15:44.065Z",
         "line": 15,
         "name": "The project end date is set",
         "description": "",
@@ -543,6 +890,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 16,
@@ -597,7 +945,7 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2020-04-27T10:43:11.144Z",
+        "start_timestamp": "2020-04-27T13:15:44.082Z",
         "line": 6,
         "name": "A developer creates a project",
         "description": "",
@@ -607,7 +955,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 7,
@@ -625,7 +973,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 8,
@@ -655,7 +1002,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-27T10:43:11.151Z",
+        "start_timestamp": "2020-04-27T13:15:44.093Z",
         "line": 12,
         "name": "The project ID fits the current date",
         "description": "",
@@ -683,6 +1030,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 14,
@@ -725,7 +1073,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
+              "duration": 3000000,
               "status": "passed"
             },
             "line": 7,
@@ -743,6 +1091,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 8,
@@ -754,6 +1103,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -772,7 +1122,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-27T10:43:11.158Z",
+        "start_timestamp": "2020-04-27T13:15:44.105Z",
         "line": 12,
         "name": "A project is initialized",
         "description": "",
@@ -835,6 +1185,7 @@
         "steps": [
           {
             "result": {
+              "duration": 3000000,
               "status": "passed"
             },
             "line": 7,
@@ -861,7 +1212,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-27T10:43:11.165Z",
+        "start_timestamp": "2020-04-27T13:15:44.129Z",
         "line": 11,
         "name": "A developer is set as the active developer",
         "description": "",
@@ -914,7 +1265,7 @@
         "steps": []
       },
       {
-        "start_timestamp": "2020-04-27T10:43:11.169Z",
+        "start_timestamp": "2020-04-27T13:15:44.147Z",
         "line": 15,
         "name": "the active developer is set as null",
         "description": "",
