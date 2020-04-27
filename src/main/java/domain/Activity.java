@@ -13,8 +13,7 @@ public class Activity {
         this.interval = new Interval();
     }
 
-    public Interval getInterval() {
-        return this.interval; }
+    public Interval getInterval() { return this.interval; }
 
     public double getPlannedHours() {
         return this.plannedHours;

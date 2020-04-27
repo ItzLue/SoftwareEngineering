@@ -37,9 +37,7 @@ public class Interval {
         setStartDate(calendar);
     }
 
-    public Calendar getStartHour() {
-        return startHour;
-    }
+    public Calendar getStartHour() { return startHour; }
 
     public void setStartHour(Calendar startHour) {
         this.startHour = startHour;

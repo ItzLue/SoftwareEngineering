@@ -72,7 +72,7 @@ public class ProjectSteps {
         assertEquals(developerHelper.getDeveloper().getFirstName(), string);
         assertEquals(developerHelper.getDeveloper().getLastName(), string2);
         assertEquals(projectHelper.getProject().getName(),string3);
-        app.setProjectLeader(projectHelper.getProject(),developerHelper.getDeveloper());
+        app.setProjectLeader(projectHelper.getProject().getID(),developerHelper.getDeveloper().getID());
 
     }
 
