@@ -2,6 +2,7 @@ package acceptance_tests.steps;
 
 import System.App;
 import domain.Activity;
+import domain.Developer;
 import domain.Project;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -10,8 +11,7 @@ import io.cucumber.java.en.When;
 
 import java.util.List;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.*;
 
 public class ProjectSteps {
 
@@ -64,12 +64,44 @@ public class ProjectSteps {
     }
 
     @When("the developer with first name {string} and last name {string} is set as project leader for project with name {string}")
-    public void theDeveloperWithFirstNameAndLastNameIsSetAsProjectLeaderForProjectWithName(String arg0, String arg1, String arg2) {
+    public void theDeveloperWithFirstNameAndLastNameIsSetAsProjectLeaderForProjectWithName(String string, String string2, String string3) throws Exception {
+        assertEquals(developerHelper.getDeveloper().getFirstName(), string);
+        assertEquals(developerHelper.getDeveloper().getLastName(), string2);
+        assertEquals(projectHelper.getProject().getName(),string3);
+
+        projectHelper.getProject().setProjectLeader(developerHelper.getDeveloper());
 
     }
 
     @Then("the project with name {string} has the developer with first name {string} and last name {string} as project leader")
-    public void theProjectWithNameHasTheDeveloperWithFirstNameAndLastNameAsProjectLeader(String arg0, String arg1, String arg2) {
+    public void theProjectWithNameHasTheDeveloperWithFirstNameAndLastNameAsProjectLeader(String string, String string2, String string3) {
+        assertEquals(projectHelper.getProject().getName(),string);
+        assertEquals(projectHelper.getProject().getProjectLeader().getFirstName(),string2);
+        assertEquals(projectHelper.getProject().getProjectLeader().getLastName(),string3);
+    }
+
+    @Given("a developer with first name {string} and last name {string} is added to the system")
+    public void aDeveloperWithFirstNameAndLastNameIsAddedToTheSystem(String string, String string2) throws Exception {
+        Developer birte = new Developer(string,string2);
+        app.registerDeveloper(birte);
 
     }
+    @When("a developer with first name {string} and last name {string} is set as project leader for project with name {string}")
+    public void aDeveloperWithFirstNameAndLastNameIsSetAsProjectLeaderForProjectWithName(String string, String string2, String string3) {
+        try {
+            for (Developer developer : app.developerHM.values()) {
+                if(developer.getFirstName().equals("Birte")) {
+                    projectHelper.getProject().setProjectLeader(developer);
+                }
+            }
+        } catch (Exception e) {
+            errorMessageHolder.setErrorMessage(e.getMessage());
+        }
+    }
+
+    @Then("The error message {string} is given")
+    public void theErrorMessageIsGiven(String string) {
+
+    }
+
 }
