@@ -207,6 +207,8 @@ public class UI extends ActionView {
                 /* Initialize project ID*/ project.initProject();
             }
         }
+        //FIXME
+        // - Init project
     }
 
     class setIntervalAction extends ActionView {
@@ -220,11 +222,14 @@ public class UI extends ActionView {
             if (app.getProjectHM().containsKey(ID)){
                 Interval Start = this.prompt("Enter a start date for project",Interval.class);
                 project.setInterval(Start);
+                //FIXME
+                // - Set interval
             }
         }
     }
 
 
+// TODO
 
 
 }
