@@ -1,5 +1,8 @@
 package acceptance_tests.steps;
 
+import acceptance_tests.helper.DeveloperHelper;
+import acceptance_tests.helper.ErrorMessageHolder;
+import acceptance_tests.helper.ProjectHelper;
 import domain.Developer;
 import domain.Project;
 import io.cucumber.java.en.Given;

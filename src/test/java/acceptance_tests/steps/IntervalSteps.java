@@ -1,15 +1,14 @@
 package acceptance_tests.steps;
 
 import System.App;
-import domain.Activity;
-import domain.Project;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
+import acceptance_tests.helper.ActivityHelper;
+import acceptance_tests.helper.DeveloperHelper;
+import acceptance_tests.helper.ErrorMessageHolder;
+import acceptance_tests.helper.ProjectHelper;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import java.util.Calendar;
-import java.util.List;
 
 import static org.junit.Assert.*;
 

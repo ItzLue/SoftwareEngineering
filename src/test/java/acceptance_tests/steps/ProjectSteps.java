@@ -1,6 +1,9 @@
 package acceptance_tests.steps;
 
-import acceptance_tests.steps.*;
+import acceptance_tests.helper.ActivityHelper;
+import acceptance_tests.helper.DeveloperHelper;
+import acceptance_tests.helper.ErrorMessageHolder;
+import acceptance_tests.helper.ProjectHelper;
 import domain.Activity;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

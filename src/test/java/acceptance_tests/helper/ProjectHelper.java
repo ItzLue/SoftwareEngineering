@@ -1,4 +1,4 @@
-package acceptance_tests.steps;
+package acceptance_tests.helper;
 
 import domain.Project;
 
