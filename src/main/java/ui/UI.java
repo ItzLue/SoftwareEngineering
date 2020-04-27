@@ -180,15 +180,17 @@ public class UI extends ActionView {
         public void executeCustomAction() {
             String name = this.prompt("Please a name for the project: ", String.class);
             app.registerProject(new Project(name));
-            boolean confirmed = this.confirmDialog("Do you want to se at project leader now?");
+            boolean confirmed = this.confirmDialog("Do you want to initialize the project?");
                     if (confirmed){
-                        String ID = this.prompt("Write the ID of the project leader: ",String.class);
-                        project.setProjectLeader(app.getDeveloperHM().get(ID));
-                        print("The project leader" + app.getProjectHM().get(ID) + "for the project " + name);
-                        print(' ');
+                        boolean confirmedProjectLeader = this.confirmDialog("Do you want to add a project leader?");
+                        if (confirmedProjectLeader){
+                            //project.setProjectLeader(app.getDeveloperHM().get(ID));
+                            //print("The project leader" + app.getProjectHM().get(ID) + "for the project " + name);
+                            print(' ');
+                        }
+
                     }
-                    print(' ');
-                    print("The project " + name + " is created\n" + "No project leader is added");
+                    actionSuccessful();
         }
     }
     /*
