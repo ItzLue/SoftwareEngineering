@@ -184,7 +184,7 @@ public class UI extends ActionView {
                     if (confirmed){
                         boolean confirmedProjectLeader = this.confirmDialog("Do you want to add a project leader?");
                         if (confirmedProjectLeader){
-                            //project.setProjectLeader(app.getDeveloperHM().get(ID));
+                            //app.setProjectLeader(name,ID);
                             //print("The project leader" + app.getProjectHM().get(ID) + "for the project " + name);
                             print(' ');
                         }
