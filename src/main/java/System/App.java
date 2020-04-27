@@ -50,14 +50,19 @@ public class App {
         }
     }
 
+//    public static void main(String[] args) {
+//      new  App();
+//    }
+
     public void registerProject(Project project) {
         project.setID(makeProjectID());
         projectHM.put(project.getID(),project);
     }
 
-    public App() {
-        //registerDeveloper(new Developer("Hans","Hansen"));
-    }
+//    public App() {
+//        registerDeveloper(new Developer("Hans","Hansen"));
+//        System.out.println(developerHM.get("HAHA01"));
+//    }
 
     public String makeProjectID() {
         String weekNumber = Integer.toString(getDate().get(Calendar.WEEK_OF_YEAR));
@@ -112,7 +117,7 @@ public class App {
         if(activeDeveloper == null) {
             return null;
         }
-        return activeDeveloper.getID();
+        return activeDeveloper.getFirstName();
     }
 
     public Developer getActiveDeveloper() {
@@ -125,8 +130,12 @@ public class App {
     public boolean devHmEmpty(){
         if (developerHM.isEmpty()){
             System.out.println("Developer list is empty");
-        }
-        return true;
+        } return true;
+    }
+    public boolean projectHmEmpty(){
+        if (projectHM.isEmpty()){
+            System.out.println("No projects to show");
+        } return true;
     }
 
     public void setProjectName(String ID, String name) {

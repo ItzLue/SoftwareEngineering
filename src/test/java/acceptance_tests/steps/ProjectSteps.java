@@ -1,15 +1,11 @@
 package acceptance_tests.steps;
 
-import System.App;
+import acceptance_tests.steps.*;
 import domain.Activity;
-import domain.Project;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
-import java.util.List;
-
+import System.App;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 

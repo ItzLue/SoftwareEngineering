@@ -52,12 +52,16 @@ public class Project {
         return this.ID;
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public String toString() {
         return "Name:'" + name + '\'' +
                 ", ID: '" + ID + '\'' +
                 ", Project Leader: " + projectLeader +
-                ", Activity list: " + activityList;
+                ", Activity list: " + activityList.toString();
     }
 
     public boolean isInitialized() {

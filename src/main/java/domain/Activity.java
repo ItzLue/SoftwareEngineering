@@ -12,7 +12,8 @@ public class Activity {
         this.interval = new Interval();
     }
 
-    public Interval getInterval() {return this.interval; }
+    public Interval getInterval() {
+        return this.interval; }
 
     public double getPlannedHours() {
         return this.plannedHours;
@@ -23,6 +24,11 @@ public class Activity {
     }
 
     public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
         return name;
     }
 }

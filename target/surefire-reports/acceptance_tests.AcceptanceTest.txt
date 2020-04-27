@@ -1,7 +1,24 @@
 -------------------------------------------------------------------------------
 Test set: acceptance_tests.AcceptanceTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.229 sec <<< FAILURE! - in acceptance_tests.AcceptanceTest
-A project is initialized(someone initializes a project)  Time elapsed: 0.012 sec  <<< ERROR!
-java.lang.NullPointerException
+Tests run: 10, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.018 sec <<< FAILURE! - in acceptance_tests.AcceptanceTest
+A developer is successfully being added as project leader to a project(Add project leader to project)  Time elapsed: 0.041 sec  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the developer with first name "Ole" and last name "Smith" is set as project leader for project with name "Enigma Codebreaker"" is undefined. You can implement it using the snippet(s) below:
+
+@When("the developer with first name {string} and last name {string} is set as project leader for project with name {string}")
+public void theDeveloperWithFirstNameAndLastNameIsSetAsProjectLeaderForProjectWithName(String string, String string2, String string3) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@Then("the project with name {string} has the developer with first name {string} and last name {string} as project leader")
+public void theProjectWithNameHasTheDeveloperWithFirstNameAndLastNameAsProjectLeader(String string, String string2, String string3) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
 

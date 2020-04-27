@@ -8,6 +8,8 @@ public class Interval {
 
     protected Calendar startDate;
     protected Calendar endDate;
+    protected Calendar startHour;
+    protected Calendar endHour;
 
     public Calendar getEndDate() {
         return endDate;
@@ -33,6 +35,22 @@ public class Interval {
         calendar.set(Calendar.YEAR, year);
         calendar.set(Calendar.WEEK_OF_YEAR, week);
         setStartDate(calendar);
+    }
+
+    public Calendar getStartHour() {
+        return startHour;
+    }
+
+    public void setStartHour(Calendar startHour) {
+        this.startHour = startHour;
+    }
+
+    public Calendar getEndHour() {
+        return endHour;
+    }
+
+    public void setEndHour(Calendar endHour) {
+        this.endHour = endHour;
     }
 
     public void setStartDate(Calendar startDate) {
