@@ -32,7 +32,6 @@ public class UI extends ActionView {
         rootMenu.addMenuItem(projectMenu);
         rootMenu.display();
     }
-
     public void executeCustomAction() {
     }
 
@@ -44,7 +43,7 @@ public class UI extends ActionView {
     Developer menu
      */
     private MenuView getDeveloperMenu() {
-        MenuView developerMenu = new MenuView("Devs menu", "Developer menu");
+        MenuView developerMenu = new MenuView("Devs menu","Developer menu");
         developerMenu.addMenuItem(new setActiveDeveloperAction());
         developerMenu.addMenuItem(new ShowDevelopersAction());
         developerMenu.addMenuItem(new AddDeveloperAction());
@@ -60,8 +59,8 @@ public class UI extends ActionView {
         projectMenu.addMenuItem(new AddActivityAction());
         projectMenu.addMenuItem(new ShowProjectsAction());
         projectMenu.addMenuItem(new AddProjectAction());
-        //projectMenu.addMenuItem(new initializeProject());
-        // projectMenu.addMenuItem(new setIntervalAction());
+        projectMenu.addMenuItem(new initializeProject());
+        projectMenu.addMenuItem(new setIntervalAction());
         return projectMenu;
     }
 
@@ -107,7 +106,6 @@ public class UI extends ActionView {
         public ShowDevelopersAction() {
             super(" ", "Show developers");
         }
-
         @Override
         public void executeCustomAction() {
             app.getDevValues();
@@ -134,7 +132,6 @@ public class UI extends ActionView {
 
         }
     }
-
     /*
         Project actions
     */
@@ -145,11 +142,8 @@ public class UI extends ActionView {
 
         @Override
         public void executeCustomAction() {
-            String projectID = this.prompt("Enter the ID of the project: ",String.class);
-                String developerID = this.prompt("Enter the ID for the project leader: ", String.class);
-                    app.setProjectLeader(projectID,developerID);
-                    
-            actionSuccessful();
+            String ID = this.prompt("Enter the ID for the project leader: ", String.class);
+            project.setProjectLeader(app.getDeveloperHM().get(ID));
         }
     }
 
@@ -161,9 +155,9 @@ public class UI extends ActionView {
 
         @Override
         public void executeCustomAction() {
-            String name = this.prompt("Enter the name for the activity: ", String.class);
-            String ID = this.prompt("Enter the ID for the project: ", String.class);
-            app.registerActivityToProject(name, ID);
+                String name = this.prompt("Enter the name for the activity: ", String.class);
+                String ID = this.prompt("Enter the ID for the project: ", String.class);
+                app.registerActivityToProject(name, ID);
         }
     }
 
@@ -174,10 +168,9 @@ public class UI extends ActionView {
 
         @Override
         public void executeCustomAction() {
-            app.getProjectValues();
+           app.getProjectValues();
         }
     }
-
     class AddProjectAction extends ActionView {
         public AddProjectAction() {
             super("Add a project could be something like 'Marcosoft'", "Add project");
@@ -187,44 +180,58 @@ public class UI extends ActionView {
         public void executeCustomAction() {
             String name = this.prompt("Please a name for the project: ", String.class);
             app.registerProject(new Project(name));
-            actionSuccessful();
+            boolean confirmed = this.confirmDialog("Do you want to initialize the project?");
+                    if (confirmed){
+                        boolean confirmedProjectLeader = this.confirmDialog("Do you want to add a project leader?");
+                        if (confirmedProjectLeader){
+                            //app.setProjectLeader(name,ID);
+                            //print("The project leader" + app.getProjectHM().get(ID) + "for the project " + name);
+                            print(' ');
+                        }
+
+                    }
+                    actionSuccessful();
         }
     }
-}
     /*
         Project leader menus
     */
-//    class initializeProject extends ActionView {
-//        public initializeProject() {
-//            super("initialize a project", "initialize project");
-//        }
-//
-//        @Override
-//        public void executeCustomAction() {
-//
-//            boolean confirmed = this.confirmDialog("Are you sure that you want to initialize " /* Project name */);
-//            if (confirmed){
-//
-//            }
-//        }
-//        //FIXME
-//        // - Init project
-//    }
+    class initializeProject extends ActionView {
+        public initializeProject() {
+            super("initialize a project", "initialize project");
+        }
 
-//    class setIntervalAction extends ActionView {
-//        public setIntervalAction() {
-//            super("Set start end date for a project", "Set start end date for a project");
-//        }
-//
-//        @Override
-//        public void executeCustomAction() {
-//            String ID = this.prompt("Enter a valid ID for a project: ",String.class);
-//            if (){
-//                Interval Start = this.prompt("Enter a start date for project",Interval.class);
-//                project.setInterval(Start);
-//                //FIXME
-//                // - Set interval
-//            }
-//        }
-//    }
+        @Override
+        public void executeCustomAction() {
 
+            boolean confirmed = this.confirmDialog("Are you sure that you want to initialize " /* Project name */);
+            if (confirmed){
+                /* Initialize project ID*/ project.initProject();
+            }
+        }
+        //FIXME
+        // - Init project
+    }
+
+    class setIntervalAction extends ActionView {
+        public setIntervalAction() {
+            super("Set start end date for a project", "Set start end date for a project");
+        }
+
+        @Override
+        public void executeCustomAction() {
+            String ID = this.prompt("Enter a valid ID for a project: ",String.class);
+            if (app.getProjectHM().containsKey(ID)){
+                Interval Start = this.prompt("Enter a start date for project",Interval.class);
+                project.setInterval(Start);
+                //FIXME
+                // - Set interval
+            }
+        }
+    }
+
+
+// TODO
+
+
+}

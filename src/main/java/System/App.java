@@ -22,14 +22,18 @@ public class App {
     protected DateServer dateServer = new DateServer();
 
     public void registerDeveloper(Developer developer) {
+        developer.setID(makeDeveloperID(developer));
+        developerHM.put(developer.getID(),developer);
+    }
+
+    public String makeDeveloperID(Developer developer) {
         String ID;
         if (developerHM.size() > 9) {
             ID = developer.getFirstName().substring(0,2).toUpperCase() + developer.getLastName().substring(0,2).toUpperCase() + (developerHM.size()+1);
         } else {
             ID = developer.getFirstName().substring(0,2).toUpperCase() + developer.getLastName().substring(0,2).toUpperCase() + 0 + (developerHM.size()+1);
         }
-        developer.setID(ID);
-        developerHM.put(developer.getID(),developer);
+        return ID;
     }
 
     public void registerActivityToProject(String name, String projectID) {
@@ -67,7 +71,12 @@ public class App {
     public String makeProjectID() {
         String weekNumber = Integer.toString(getDate().get(Calendar.WEEK_OF_YEAR));
         String year = Integer.toString(getDate().get(Calendar.YEAR)).substring(2);
-        String runningNumber = Integer.toString(projectHM.size()+1);
+        String runningNumber = "";
+        if (projectHM.size() > 9) {
+            runningNumber = "0" + Integer.toString(projectHM.size()+1);
+        } else {
+            runningNumber = Integer.toString(projectHM.size()+1);
+        }
         return year + weekNumber + runningNumber;
     }
 
