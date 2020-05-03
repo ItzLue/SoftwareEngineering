@@ -93,26 +93,24 @@ public class SystemSteps {
         assertTrue(test.equals(projectHelper.getProject().getID()));
     }
 
-    @When("The developer with ID {string} is set as the active developer")
-    public void theDeveloperWithIDIsSetAsTheActiveDeveloper(String ID) {
-        app.setActiveDeveloper(ID);
+    @When("a developer isn't selected as an active developer")
+    public void aDeveloperIsnTSelectedAsAnActiveDeveloper() {
     }
 
-    @Then("the developer with ID {string} is the active developer")
-    public void theDeveloperWithIDIsTheActiveDeveloper(String ID) {
-        assertEquals(app.getActiveDeveloper(),app.getDeveloperHM().get(ID));
+    @Then("the active developer variable has the value null")
+    public void theActiveDeveloperVariableHasTheValueNull() {
+        assertTrue(app.getActiveDeveloper() == null);
     }
 
+    @When("The developer with first name {string} and last name {string} is set as the active developer")
+    public void theDeveloperWithFirstNameAndLastNameIsSetAsTheActiveDeveloper(String string, String string2) {
+        developerHelper.setDeveloper(new Developer(string,string2));
+        app.setActiveDeveloper(developerHelper.getDeveloper());
+    }
 
-//    @When("the developer with ID {string} and name {string} is set as project leader for project with ID {string}")
-//    public void theDeveloperWithIDAndNameIsSetAsProjectLeaderForProjectWithID(String arg0, String arg1, String arg2) {
-//    }
-//
-//    @Then("the project with ID {string} has the developer with ID {string} and name {string} as project leader")
-//    public void theProjectWithIDHasTheDeveloperWithIDAndNameAsProjectLeader(String arg0, String arg1, String arg2) {
-//    }
-//
-//    @Then("The error message {string} is given")
-//    public void theErrorMessageIsGiven(String arg0) {
-//    }
+    @Then("the developer with first name {string} and last name {string} is the active developer")
+    public void theDeveloperWithFirstNameAndLastNameIsTheActiveDeveloper(String string, String string2) {
+        assertEquals(app.getActiveDeveloper().getFirstName(),string);
+        assertEquals(app.getActiveDeveloper().getLastName(),string2);
+    }
 }
