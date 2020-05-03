@@ -68,7 +68,6 @@ public class Project {
                     ", Project Leader: " + projectLeader + '\'' +
                     ", Activity list: " + activityList.toString();
         }
-
     }
 
     public boolean isInitialized() {
