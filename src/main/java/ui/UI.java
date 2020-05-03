@@ -2,6 +2,7 @@ package ui;
 
 import Exceptions.InvalidActivityNameException;
 import System.App;
+import de.vandermeer.asciitable.AsciiTable;
 import domain.Activity;
 import domain.Developer;
 import domain.Project;

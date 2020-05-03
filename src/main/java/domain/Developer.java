@@ -1,7 +1,9 @@
 package domain;
 
-public class Developer {
+import de.vandermeer.asciitable.AsciiTable;
 
+public class Developer {
+    AsciiTable at = new AsciiTable();
     protected String firstName;
     protected String lastName;
     protected String ID;
@@ -27,11 +29,13 @@ public class Developer {
         this.lastName = lastName;
     }
 
-
     @Override
     public String toString() {
-        return "First name: '" + firstName + '\'' +
-                ", Last name: '" + lastName + '\'' +
-                ", ID: '" + ID + '\'' + "\n";
+        at.addRule();
+        at.addRow("First name","Last name","ID");
+        at.addRule();
+        at.addRow(firstName,lastName,ID);
+        at.addRule();
+        return at.render();
     }
 }

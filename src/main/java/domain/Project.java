@@ -1,5 +1,6 @@
 package domain;
 
+import de.vandermeer.asciitable.AsciiTable;
 import io.bretty.console.view.ActionView;
 import time.Interval;
 
@@ -8,7 +9,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class Project {
-
+    AsciiTable at = new AsciiTable();
     protected Developer projectLeader;
 
     protected ArrayList<Activity> activityList = new ArrayList<Activity>();
@@ -56,6 +57,15 @@ public class Project {
 
     public String getName() {
         return name;
+    }
+
+    public String Table (){
+        at.addRule();
+        at.addRow("Name","ID","Project leader","Activity list");
+        at.addRule();
+        at.addRow(name,ID,projectLeader.getID(),activityList.toString());
+        at.addRule();
+        return at.render();
     }
 
     @Override
