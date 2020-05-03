@@ -52,7 +52,7 @@ public class ProjectSteps {
 
     @When("the activity with name {string} is added to the project")
     public void theActivityWithNameIsAddedToTheProject(String name) {
-        app.registerActivityToProject(activityHelper.getActivity(),projectHelper.getProject().getID());
+        app.registerActivityToProject(activityHelper.getActivity(), projectHelper.getProject().getID());
     }
 
     @Then("the activity with name {string} is in the project")
@@ -71,20 +71,20 @@ public class ProjectSteps {
     public void theDeveloperWithFirstNameAndLastNameIsSetAsProjectLeaderForProjectWithName(String string, String string2, String string3) throws Exception {
         assertEquals(developerHelper.getDeveloper().getFirstName(), string);
         assertEquals(developerHelper.getDeveloper().getLastName(), string2);
-        assertEquals(projectHelper.getProject().getName(),string3);
-        app.setProjectLeader(projectHelper.getProject().getID(),developerHelper.getDeveloper().getID());
+        assertEquals(projectHelper.getProject().getName(), string3);
+        app.setProjectLeader(projectHelper.getProject().getID(), developerHelper.getDeveloper().getID());
     }
 
     @Then("the project with name {string} has the developer with first name {string} and last name {string} as project leader")
     public void theProjectWithNameHasTheDeveloperWithFirstNameAndLastNameAsProjectLeader(String string, String string2, String string3) {
-        assertEquals(projectHelper.getProject().getName(),string);
-        assertEquals(projectHelper.getProject().getProjectLeader().getFirstName(),string2);
-        assertEquals(projectHelper.getProject().getProjectLeader().getLastName(),string3);
+        assertEquals(projectHelper.getProject().getName(), string);
+        assertEquals(projectHelper.getProject().getProjectLeader().getFirstName(), string2);
+        assertEquals(projectHelper.getProject().getProjectLeader().getLastName(), string3);
     }
 
     @Given("a developer with first name {string} and last name {string} is added to the system")
     public void aDeveloperWithFirstNameAndLastNameIsAddedToTheSystem(String string, String string2) {
-        developerHelper.setDeveloper(new Developer(string,string2));
+        developerHelper.setDeveloper(new Developer(string, string2));
         app.registerDeveloper(developerHelper.getDeveloper());
     }
 
@@ -108,4 +108,5 @@ public class ProjectSteps {
     @Then("The error message {string} is given")
     public void theErrorMessageIsGiven(String string) {
 
+    }
 }

@@ -20,7 +20,7 @@ public class App {
     protected HashMap<String, Project> projectHM = new HashMap<String, Project>();
     protected DateServer dateServer = new DateServer();
 
-    public void registerDeveloper(Developer developer) {
+    public void registerDeveloper(Developer developer){
         developer.setID(makeDeveloperID(developer));
         developerHM.put(developer.getID(), developer);
     }
@@ -35,7 +35,7 @@ public class App {
         return ID;
     }
 
-    public void registerActivityToProject(Activity activity, String projectID) {
+    public void registerActivityToProject(Activity activity, String projectID){
         if (projectHM.containsKey(projectID)) {
             boolean nameExists = false;
             for (Activity a : projectHM.get(projectID).getActivityList()) {
@@ -60,11 +60,6 @@ public class App {
             }
         }
     }
-
-
-//    public static void main(String[] args) {
-//      new  App();
-//    }
 
     public void registerProject(Project project) {
         project.setID(makeProjectID());
@@ -152,6 +147,4 @@ public class App {
     public void setInterval() {
 
     }
-
-
 }
