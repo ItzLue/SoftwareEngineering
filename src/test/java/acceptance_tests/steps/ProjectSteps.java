@@ -73,7 +73,6 @@ public class ProjectSteps {
         assertEquals(developerHelper.getDeveloper().getLastName(), string2);
         assertEquals(projectHelper.getProject().getName(),string3);
         app.setProjectLeader(projectHelper.getProject().getID(),developerHelper.getDeveloper().getID());
-
     }
 
     @Then("the project with name {string} has the developer with first name {string} and last name {string} as project leader")
@@ -84,23 +83,11 @@ public class ProjectSteps {
     }
 
     @Given("a developer with first name {string} and last name {string} is added to the system")
-    public void aDeveloperWithFirstNameAndLastNameIsAddedToTheSystem(String string, String string2) throws Exception {
-        Developer birte = new Developer(string,string2);
-        app.registerDeveloper(birte);
+    public void aDeveloperWithFirstNameAndLastNameIsAddedToTheSystem(String string, String string2) {
+        developerHelper.setDeveloper(new Developer(string,string2));
+        app.registerDeveloper(developerHelper.getDeveloper());
+    }
 
-    }
-    @When("a developer with first name {string} and last name {string} is set as project leader for project with name {string}")
-    public void aDeveloperWithFirstNameAndLastNameIsSetAsProjectLeaderForProjectWithName(String string, String string2, String string3) {
-        try {
-            for (Developer developer : app.developerHM.values()) {
-                if(developer.getFirstName().equals("Birte")) {
-                    projectHelper.getProject().setProjectLeader(developer);
-                }
-            }
-        } catch (Exception e) {
-            errorMessageHolder.setErrorMessage(e.getMessage());
-        }
-    }
 
     @When("The name of the project is changed to {string}")
     public void theNameOfTheProjectIsChangedTo(String string) {
@@ -120,7 +107,5 @@ public class ProjectSteps {
 
     @Then("The error message {string} is given")
     public void theErrorMessageIsGiven(String string) {
-
-    }
 
 }

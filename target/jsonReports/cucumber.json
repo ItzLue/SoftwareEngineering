@@ -29,7 +29,7 @@
           },
           {
             "result": {
-              "duration": 2000000,
+              "duration": 3000000,
               "status": "passed"
             },
             "line": 8,
@@ -41,7 +41,7 @@
           },
           {
             "result": {
-              "duration": 1000000,
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 9,
@@ -424,6 +424,7 @@
           },
           {
             "result": {
+              "duration": 1166000000,
               "status": "passed"
             },
             "line": 19,
@@ -458,7 +459,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 6,
@@ -567,6 +567,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 12,
@@ -603,9 +604,9 @@
       {
         "start_timestamp": "2020-05-03T14:37:42.618Z",
         "line": 22,
-        "name": "A developer tries to be added as project leader to a project that already has a developer",
+        "name": "A developer is successfully added as project leader to a project with an existing project leader",
         "description": "",
-        "id": "add-project-leader-to-project;a-developer-tries-to-be-added-as-project-leader-to-a-project-that-already-has-a-developer",
+        "id": "add-project-leader-to-project;a-developer-is-successfully-added-as-project-leader-to-a-project-with-an-existing-project-leader",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
@@ -614,27 +615,6 @@
               "status": "passed"
             },
             "line": 23,
-            "name": "a developer with first name \"Birte\" and last name \"Rasmussen\" is added to the system",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Birte\"",
-                  "offset": 28
-                },
-                {
-                  "val": "\"Rasmussen\"",
-                  "offset": 50
-                }
-              ],
-              "location": "acceptance_tests.steps.ProjectSteps.aDeveloperWithFirstNameAndLastNameIsAddedToTheSystem(java.lang.String,java.lang.String)"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "status": "passed"
-            },
-            "line": 24,
             "name": "the developer with first name \"Ole\" and last name \"Smith\" is set as project leader for project with name \"Enigma Codebreaker\"",
             "match": {
               "arguments": [
@@ -653,14 +633,15 @@
               ],
               "location": "acceptance_tests.steps.ProjectSteps.theDeveloperWithFirstNameAndLastNameIsSetAsProjectLeaderForProjectWithName(java.lang.String,java.lang.String,java.lang.String)"
             },
-            "keyword": "And "
+            "keyword": "Given "
           },
           {
             "result": {
+              "duration": 1723000000,
               "status": "passed"
             },
-            "line": 25,
-            "name": "a developer with first name \"Birte\" and last name \"Rasmussen\" is set as project leader for project with name \"Enigma Codebreaker\"",
+            "line": 24,
+            "name": "a developer with first name \"Birte\" and last name \"Rasmussen\" is added to the system",
             "match": {
               "arguments": [
                 {
@@ -670,30 +651,60 @@
                 {
                   "val": "\"Rasmussen\"",
                   "offset": 50
-                },
-                {
-                  "val": "\"Enigma Codebreaker\"",
-                  "offset": 109
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.aDeveloperWithFirstNameAndLastNameIsSetAsProjectLeaderForProjectWithName(java.lang.String,java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aDeveloperWithFirstNameAndLastNameIsAddedToTheSystem(java.lang.String,java.lang.String)"
             },
-            "keyword": "When "
+            "keyword": "And "
           },
           {
             "result": {
               "status": "passed"
             },
-            "line": 26,
-            "name": "The error message \"Project already has a project leader\" is given",
+            "line": 25,
+            "name": "the developer with first name \"Birte\" and last name \"Rasmussen\" is set as project leader for project with name \"Enigma Codebreaker\"",
             "match": {
               "arguments": [
                 {
-                  "val": "\"Project already has a project leader\"",
-                  "offset": 18
+                  "val": "\"Birte\"",
+                  "offset": 30
+                },
+                {
+                  "val": "\"Rasmussen\"",
+                  "offset": 52
+                },
+                {
+                  "val": "\"Enigma Codebreaker\"",
+                  "offset": 111
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.theErrorMessageIsGiven(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.theDeveloperWithFirstNameAndLastNameIsSetAsProjectLeaderForProjectWithName(java.lang.String,java.lang.String,java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 88769000000,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "the project with name \"Enigma Codebreaker\" has the developer with first name \"Birte\" and last name \"Rasmussen\" as project leader",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Enigma Codebreaker\"",
+                  "offset": 22
+                },
+                {
+                  "val": "\"Birte\"",
+                  "offset": 77
+                },
+                {
+                  "val": "\"Rasmussen\"",
+                  "offset": 99
+                }
+              ],
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectWithNameHasTheDeveloperWithFirstNameAndLastNameAsProjectLeader(java.lang.String,java.lang.String,java.lang.String)"
             },
             "keyword": "Then "
           }
@@ -1124,6 +1135,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 8,
@@ -1218,6 +1230,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 21,
@@ -1403,6 +1416,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 6,
@@ -1601,6 +1615,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -1657,7 +1672,9 @@
         "steps": [
           {
             "result": {
-              "status": "undefined"
+              "error_message": "io.cucumber.java.PendingException: TODO: implement me\r\n\tat acceptance_tests.steps.ProjectSteps.theNameOfTheActivityWithNameIsChangedTo(ProjectSteps.java:100)\r\n\tat ✽.The name of the activity with name \"Coding\" is changed to \"Development\"(file:///C:/Users/regin/IntelliJ-Projects/SoftwareEngineering/use_cases/modifyUninitializedProject.feature:19)\r\n",
+              "duration": 3000000,
+              "status": "pending"
             },
             "line": 32,
             "name": "The end date of the activity is set to year 2020 and week 35",
@@ -1666,7 +1683,7 @@
           },
           {
             "result": {
-              "status": "undefined"
+              "status": "skipped"
             },
             "line": 33,
             "name": "The activity has the ending year 2020 and the ending week 35",
