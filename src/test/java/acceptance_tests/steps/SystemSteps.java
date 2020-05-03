@@ -11,6 +11,7 @@ import io.cucumber.java.en.When;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 import System.App;
 
 import java.util.Calendar;
@@ -75,6 +76,10 @@ public class SystemSteps {
     @Then("There is a project in the system with name {string}")
     public void thereIsAProjectInTheSystemWithName(String string) throws Exception{
         assertTrue(!(app.getProjectHM().isEmpty()));
+    }
+    @Then("The project with name {string} is uninitialized in the system")
+    public void theProjectWithNameIsUninitializedInTheSystem(String string) {
+        assertFalse(projectHelper.getProject().isInitialized());
     }
 
     @Then("The project ID fits the current date")

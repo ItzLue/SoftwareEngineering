@@ -52,6 +52,17 @@ public class App {
         }
     }
 
+    public void removeActivityFromProject(Activity activity, String projectID) {
+        if (projectHM.containsKey(projectID)) {
+            for (Activity a : projectHM.get(projectID).getActivityList()) {
+                if (a.equals(activity)) {
+                    projectHM.get(projectID).getActivityList().remove(a);
+                }
+            }
+        }
+    }
+
+
 //    public static void main(String[] args) {
 //      new  App();
 //    }

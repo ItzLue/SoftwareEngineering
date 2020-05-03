@@ -2,6 +2,8 @@ Feature: Assign developer to project-activity
   Description: The project leader assigns a developer to an activity in the project
   Actor: Project leader
 
+
+
 #  Background: There is a developer and a project registered in the system
 #    Given The following developer(s) is/are registered in the system
 #      | OLSM | Ole Smith|

@@ -1,5 +1,5 @@
-Feature: Add activities to project
-  Description: A developer creates a project
+Feature: Add activities to an uninitialized project
+  Description: A developer adds an activity to an uninitialized project
   Actors: Developer
 
   #background
@@ -7,6 +7,8 @@ Feature: Add activities to project
     Given A project with name "Enigma Codebreaker" is created
     When The project is added to the system
     Then There is a project in the system with name "Enigma Codebreaker"
+    And The project with name "Enigma Codebreaker" is uninitialized in the system
+
 
     #first scenario
   Scenario: Activity is added to an uninitialized project
