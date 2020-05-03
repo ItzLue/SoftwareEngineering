@@ -76,6 +76,7 @@ public class SystemSteps {
     @Then("There is a project in the system with name {string}")
     public void thereIsAProjectInTheSystemWithName(String string) throws Exception{
         assertTrue(!(app.getProjectHM().isEmpty()));
+        assertTrue(projectHelper.getProject().getName().equals(string));
     }
     @Then("The project with name {string} is uninitialized in the system")
     public void theProjectWithNameIsUninitializedInTheSystem(String string) {

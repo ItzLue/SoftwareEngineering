@@ -11,7 +11,11 @@
         "steps": [
           {
             "result": {
+<<<<<<< HEAD
               "duration": 412000000,
+=======
+              "duration": 327000000,
+>>>>>>> features
               "status": "passed"
             },
             "line": 7,
@@ -77,8 +81,13 @@
         ]
       },
       {
+<<<<<<< HEAD
         "start_timestamp": "2020-05-03T13:31:22.365Z",
         "line": 14,
+=======
+        "start_timestamp": "2020-05-03T13:03:59.691Z",
+        "line": 12,
+>>>>>>> features
         "name": "Activity is added to an uninitialized project",
         "description": "",
         "id": "add-activities-to-an-uninitialized-project;activity-is-added-to-an-uninitialized-project",
@@ -87,7 +96,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 17,
@@ -134,7 +142,11 @@
     "line": 1,
     "elements": [
       {
+<<<<<<< HEAD
         "start_timestamp": "2020-05-03T13:31:22.852Z",
+=======
+        "start_timestamp": "2020-05-03T13:04:00.095Z",
+>>>>>>> features
         "line": 6,
         "name": "A developer is successfully added to the system",
         "description": "",
@@ -309,6 +321,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 10,
@@ -371,7 +384,11 @@
         ]
       },
       {
+<<<<<<< HEAD
         "start_timestamp": "2020-05-03T13:31:22.866Z",
+=======
+        "start_timestamp": "2020-05-03T13:04:00.105Z",
+>>>>>>> features
         "line": 17,
         "name": "A developer is successfully being added as project leader to a project",
         "description": "",
@@ -583,7 +600,11 @@
         ]
       },
       {
+<<<<<<< HEAD
         "start_timestamp": "2020-05-03T13:31:22.874Z",
+=======
+        "start_timestamp": "2020-05-03T13:04:00.115Z",
+>>>>>>> features
         "line": 22,
         "name": "A developer tries to be added as project leader to a project that already has a developer",
         "description": "",
@@ -729,6 +750,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 8,
@@ -764,11 +786,15 @@
         ]
       },
       {
+<<<<<<< HEAD
         "start_timestamp": "2020-05-03T13:31:22.881Z",
+=======
+        "start_timestamp": "2020-05-03T13:04:00.122Z",
+>>>>>>> features
         "line": 11,
-        "name": "The project start date is set",
+        "name": "The interval start date is set",
         "description": "",
-        "id": "change-interval-date;the-project-start-date-is-set",
+        "id": "change-interval-date;the-interval-start-date-is-set",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
@@ -825,7 +851,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 6,
@@ -889,16 +915,21 @@
         ]
       },
       {
+<<<<<<< HEAD
         "start_timestamp": "2020-05-03T13:31:22.888Z",
+=======
+        "start_timestamp": "2020-05-03T13:04:00.128Z",
+>>>>>>> features
         "line": 15,
-        "name": "The project end date is set",
+        "name": "The interval end date is set",
         "description": "",
-        "id": "change-interval-date;the-project-end-date-is-set",
+        "id": "change-interval-date;the-interval-end-date-is-set",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 16,
@@ -954,7 +985,11 @@
     "line": 1,
     "elements": [
       {
+<<<<<<< HEAD
         "start_timestamp": "2020-05-03T13:31:22.893Z",
+=======
+        "start_timestamp": "2020-05-03T13:04:00.136Z",
+>>>>>>> features
         "line": 6,
         "name": "A developer creates a project",
         "description": "",
@@ -1011,7 +1046,11 @@
         ]
       },
       {
+<<<<<<< HEAD
         "start_timestamp": "2020-05-03T13:31:22.900Z",
+=======
+        "start_timestamp": "2020-05-03T13:04:00.142Z",
+>>>>>>> features
         "line": 12,
         "name": "The project ID fits the current date",
         "description": "",
@@ -1127,7 +1166,11 @@
         ]
       },
       {
+<<<<<<< HEAD
         "start_timestamp": "2020-05-03T13:31:22.905Z",
+=======
+        "start_timestamp": "2020-05-03T13:04:00.147Z",
+>>>>>>> features
         "line": 12,
         "name": "A project is initialized",
         "description": "",
@@ -1182,6 +1225,257 @@
     "line": 1,
     "elements": [
       {
+        "line": 5,
+        "name": "There is an uninitialized project registered in the system",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "A project with name \"Enigma Codebreaker\" is created",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Enigma Codebreaker\"",
+                  "offset": 20
+                }
+              ],
+              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "The project is added to the system",
+            "match": {
+              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "There is a project in the system with name \"Enigma Codebreaker\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Enigma Codebreaker\"",
+                  "offset": 43
+                }
+              ],
+              "location": "acceptance_tests.steps.SystemSteps.thereIsAProjectInTheSystemWithName(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "the activity with name \"Coding\" is added to the project",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Coding\"",
+                  "offset": 23
+                }
+              ],
+              "location": "acceptance_tests.steps.ProjectSteps.theActivityWithNameIsAddedToTheProject(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "The project has not been initialized",
+            "match": {
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectHasNotBeenInitialized()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-05-03T13:04:00.154Z",
+        "line": 13,
+        "name": "The project name is changed",
+        "description": "",
+        "id": "change-project-name--dates--and-activities-in-the-project;the-project-name-is-changed",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "The name of the project is changed to \"Maintenance Work\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Maintenance Work\"",
+                  "offset": 38
+                }
+              ],
+              "location": "acceptance_tests.steps.ProjectSteps.theNameOfTheProjectIsChangedTo(java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "There is a project in the system with name \"Maintenance Work\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Maintenance Work\"",
+                  "offset": 43
+                }
+              ],
+              "location": "acceptance_tests.steps.SystemSteps.thereIsAProjectInTheSystemWithName(java.lang.String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 5,
+        "name": "There is an uninitialized project registered in the system",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "A project with name \"Enigma Codebreaker\" is created",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Enigma Codebreaker\"",
+                  "offset": 20
+                }
+              ],
+              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "The project is added to the system",
+            "match": {
+              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "There is a project in the system with name \"Enigma Codebreaker\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Enigma Codebreaker\"",
+                  "offset": 43
+                }
+              ],
+              "location": "acceptance_tests.steps.SystemSteps.thereIsAProjectInTheSystemWithName(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "the activity with name \"Coding\" is added to the project",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Coding\"",
+                  "offset": 23
+                }
+              ],
+              "location": "acceptance_tests.steps.ProjectSteps.theActivityWithNameIsAddedToTheProject(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "The project has not been initialized",
+            "match": {
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectHasNotBeenInitialized()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-05-03T13:04:00.179Z",
+        "line": 18,
+        "name": "The name of an activity is changed",
+        "description": "",
+        "id": "change-project-name--dates--and-activities-in-the-project;the-name-of-an-activity-is-changed",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 19,
+            "name": "The name of the activity with name \"Coding\" is changed to \"Development\"",
+            "match": {},
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 20,
+            "name": "There is an activity in the project with name \"Development\"",
+            "match": {},
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Change project name, dates, and activities in the project",
+    "description": "  Description: A developer changes an uninitialized project\n  Actors: Developer",
+    "id": "change-project-name--dates--and-activities-in-the-project",
+    "keyword": "Feature",
+    "uri": "file:use_cases/modifyUninitializedProject.feature",
+    "tags": []
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
         "line": 6,
         "name": "There is a developer registered in the system",
         "description": "",
@@ -1217,7 +1511,11 @@
         ]
       },
       {
+<<<<<<< HEAD
         "start_timestamp": "2020-05-03T13:31:22.912Z",
+=======
+        "start_timestamp": "2020-05-03T13:04:00.193Z",
+>>>>>>> features
         "line": 11,
         "name": "A developer is set as the active developer",
         "description": "",
@@ -1270,7 +1568,11 @@
         "steps": []
       },
       {
+<<<<<<< HEAD
         "start_timestamp": "2020-05-03T13:31:22.917Z",
+=======
+        "start_timestamp": "2020-05-03T13:04:00.205Z",
+>>>>>>> features
         "line": 15,
         "name": "the active developer is set as null",
         "description": "",

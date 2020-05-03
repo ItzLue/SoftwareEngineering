@@ -74,12 +74,12 @@ public class Project {
         return initialized;
     }
 
-    public void setInterval(Interval interval) {
-        this.interval = interval;
-    }
-
     public Interval getInterval() {
         return this.interval;
+    }
+
+    public void setInterval(Interval interval) {
+        this.interval = interval;
     }
 
     public ArrayList<Activity> getActivityList() {
