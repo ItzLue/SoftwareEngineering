@@ -18,9 +18,9 @@ Feature: Add project leader to project
     When the developer with first name "Ole" and last name "Smith" is set as project leader for project with name "Enigma Codebreaker"
     Then the project with name "Enigma Codebreaker" has the developer with first name "Ole" and last name "Smith" as project leader
 
-        #fail scenario
-  Scenario: A developer tries to be added as project leader to a project that already has a developer
-    Given a developer with first name "Birte" and last name "Rasmussen" is added to the system
-    And the developer with first name "Ole" and last name "Smith" is set as project leader for project with name "Enigma Codebreaker"
-    When a developer with first name "Birte" and last name "Rasmussen" is set as project leader for project with name "Enigma Codebreaker"
-    Then The error message "Project already has a project leader" is given
+        #Second scenario
+  Scenario: A developer is successfully added as project leader to a project with an existing project leader
+    Given the developer with first name "Ole" and last name "Smith" is set as project leader for project with name "Enigma Codebreaker"
+    And a developer with first name "Birte" and last name "Rasmussen" is added to the system
+    When the developer with first name "Birte" and last name "Rasmussen" is set as project leader for project with name "Enigma Codebreaker"
+    Then the project with name "Enigma Codebreaker" has the developer with first name "Birte" and last name "Rasmussen" as project leader
