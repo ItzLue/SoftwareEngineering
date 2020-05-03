@@ -7,6 +7,9 @@ import io.bretty.console.view.ActionView;
 import io.bretty.console.view.MenuView;
 import time.Interval;
 
+import java.util.InputMismatchException;
+import java.util.regex.Pattern;
+
 public class UI extends ActionView {
     App app = new App();
     Project project;
@@ -32,6 +35,7 @@ public class UI extends ActionView {
         rootMenu.addMenuItem(projectMenu);
         rootMenu.display();
     }
+
     public void executeCustomAction() {
     }
 
@@ -43,10 +47,11 @@ public class UI extends ActionView {
     Developer menu
      */
     private MenuView getDeveloperMenu() {
-        MenuView developerMenu = new MenuView("Devs menu","Developer menu");
+        MenuView developerMenu = new MenuView("Devs menu", "Developer menu");
         developerMenu.addMenuItem(new setActiveDeveloperAction());
         developerMenu.addMenuItem(new ShowDevelopersAction());
         developerMenu.addMenuItem(new AddDeveloperAction());
+        developerMenu.addMenuItem(new SetWorkHoursAction());
         return developerMenu;
     }
 
@@ -66,11 +71,8 @@ public class UI extends ActionView {
 
     public void setActiveDeveloperMenu() {
         String ID = this.prompt("Please enter the ID of the developer: ", String.class);
-        if (app.developerHM.containsKey(ID)) {
-            app.setActiveDeveloper(ID);
-        }
+        app.setActiveDeveloper(ID);
         activeDeveloperMenu = new MenuView("Welcome " + app.getActiveDeveloper().getFirstName(), "");
-        getDeveloperMenu().addMenuItem(new SetWorkHoursAction());
         activeDeveloperMenu.addMenuItem(getDeveloperMenu());
         activeDeveloperMenu.addMenuItem(getProjectMenu());
         this.setParentView(activeDeveloperMenu);
@@ -84,8 +86,12 @@ public class UI extends ActionView {
         }
 
         @Override
-        public void executeCustomAction() {
-            setActiveDeveloperMenu();
+        public void executeCustomAction() throws NullPointerException{
+            try {
+                setActiveDeveloperMenu();
+            }catch (NullPointerException e){
+                System.out.println("Not a valid ID");
+            }
         }
     }
 
@@ -94,21 +100,33 @@ public class UI extends ActionView {
             super("Add developer", "Add developer");
         }
 
-        public void executeCustomAction() {
-            String firstName = this.prompt("Enter the first name: ", String.class);
-            String lastName = this.prompt("Enter the last name: ", String.class);
-            app.registerDeveloper(new Developer(firstName, lastName));
-            this.actionSuccessful();
+        public void executeCustomAction() throws InputMismatchException {
+
+            try {
+                String firstName = this.prompt("Enter the first name: ", String.class);
+                String lastName = this.prompt("Enter the last name: ", String.class);
+                app.registerDeveloper(new Developer(firstName, lastName));
+                this.actionSuccessful();
+            }catch (InputMismatchException e){
+                System.out.println("Not a valid input: " + e);
+            }
         }
     }
 
     class ShowDevelopersAction extends ActionView {
         public ShowDevelopersAction() {
-            super(" ", "Show developers");
+            super("Table of developers", "Show developers");
         }
+
         @Override
         public void executeCustomAction() {
-            app.getDevValues();
+            if (app.getProjectHM().isEmpty()) {
+                println();
+                println("No developers to show here");
+            } else {
+                app.getDevValues();
+            }
+
         }
     }
 
@@ -126,24 +144,27 @@ public class UI extends ActionView {
         public SetWorkHoursAction() {
             super("Enter your worked hours", "Set work hours");
         }
-
         public void executeCustomAction() {
-
-
         }
     }
+
     /*
         Project actions
     */
-    class AddProjectLeaderAction extends ActionView {
+    class AddProjectLeaderAction extends ActionView{
         public AddProjectLeaderAction() {
             super("Add project leader", "Add project leader");
         }
 
         @Override
-        public void executeCustomAction() {
-            String ID = this.prompt("Enter the ID for the project leader: ", String.class);
-            project.setProjectLeader(app.getDeveloperHM().get(ID));
+        public void executeCustomAction() throws NullPointerException{
+            try {
+                String ID = this.prompt("Enter the ID for the project leader: ", String.class);
+                project.setProjectLeader(app.getDeveloperHM().get(ID));
+            }
+            catch (NullPointerException e){
+                System.out.println("Not a valid input " + e );
+            }
         }
     }
 
@@ -155,9 +176,9 @@ public class UI extends ActionView {
 
         @Override
         public void executeCustomAction() {
-                String name = this.prompt("Enter the name for the activity: ", String.class);
-                String ID = this.prompt("Enter the ID for the project: ", String.class);
-                app.registerActivityToProject(name, ID);
+            String name = this.prompt("Enter the name for the activity: ", String.class);
+            String ID = this.prompt("Enter the ID for the project: ", String.class);
+            app.registerActivityToProject(name, ID);
         }
     }
 
@@ -168,9 +189,10 @@ public class UI extends ActionView {
 
         @Override
         public void executeCustomAction() {
-           app.getProjectValues();
+            app.getProjectValues();
         }
     }
+
     class AddProjectAction extends ActionView {
         public AddProjectAction() {
             super("Add a project could be something like 'Marcosoft'", "Add project");
@@ -180,19 +202,10 @@ public class UI extends ActionView {
         public void executeCustomAction() {
             String name = this.prompt("Please a name for the project: ", String.class);
             app.registerProject(new Project(name));
-            boolean confirmed = this.confirmDialog("Do you want to initialize the project?");
-                    if (confirmed){
-                        boolean confirmedProjectLeader = this.confirmDialog("Do you want to add a project leader?");
-                        if (confirmedProjectLeader){
-                            //app.setProjectLeader(name,ID);
-                            //print("The project leader" + app.getProjectHM().get(ID) + "for the project " + name);
-                            print(' ');
-                        }
-
-                    }
-                    actionSuccessful();
+            actionSuccessful();
         }
     }
+
     /*
         Project leader menus
     */
@@ -204,10 +217,8 @@ public class UI extends ActionView {
         @Override
         public void executeCustomAction() {
 
-            boolean confirmed = this.confirmDialog("Are you sure that you want to initialize " /* Project name */);
-            if (confirmed){
-                /* Initialize project ID*/ project.initProject();
-            }
+            String ID = this.prompt("Enter the ID of the project",String.class);
+
         }
         //FIXME
         // - Init project
@@ -220,12 +231,10 @@ public class UI extends ActionView {
 
         @Override
         public void executeCustomAction() {
-            String ID = this.prompt("Enter a valid ID for a project: ",String.class);
-            if (app.getProjectHM().containsKey(ID)){
-                Interval Start = this.prompt("Enter a start date for project",Interval.class);
+            String ID = this.prompt("Enter a valid ID for a project: ", String.class);
+            if (app.getProjectHM().containsKey(ID)) {
+                Interval Start = this.prompt("Enter a start date for project: ", Interval.class);
                 project.setInterval(Start);
-                //FIXME
-                // - Set interval
             }
         }
     }
