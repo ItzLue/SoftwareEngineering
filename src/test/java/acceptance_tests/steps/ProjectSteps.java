@@ -102,6 +102,17 @@ public class ProjectSteps {
         }
     }
 
+    @When("The name of the project is changed to {string}")
+    public void theNameOfTheProjectIsChangedTo(String string) {
+        projectHelper.getProject().setName(string);
+    }
+
+    @When("The name of the activity with name {string} is changed to {string}")
+    public void theNameOfTheActivityWithNameIsChangedTo(String string, String string2) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
     @Then("The error message {string} is given")
     public void theErrorMessageIsGiven(String string) {
 

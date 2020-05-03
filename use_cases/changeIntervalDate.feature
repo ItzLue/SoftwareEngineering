@@ -8,10 +8,10 @@ Feature: Change Interval date
     Then There is a project in the system with name "Enigma Codebreaker"
     And the activity with name "Coding" is added to the project
 
-  Scenario: The project start date is set
+  Scenario: The interval start date is set
     When The start date of the project is set to year 2020 and week 30
     Then The project has the starting year 2020 and the starting week 30
 
-  Scenario: The project end date is set
+  Scenario: The interval end date is set
     When The end date of the project is set to year 2020 and week 35
     Then The project has the ending year 2020 and the ending week 35
