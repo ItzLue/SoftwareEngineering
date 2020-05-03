@@ -1,6 +1,7 @@
 package ui;
 
 import System.App;
+import domain.Activity;
 import domain.Developer;
 import domain.Project;
 import io.bretty.console.view.ActionView;
@@ -189,7 +190,7 @@ public class UI extends ActionView {
         public void executeCustomAction() {
             String name = this.prompt("Enter the name for the activity: ", String.class);
             String ID = this.prompt("Enter the ID for the project: ", String.class);
-            app.registerActivityToProject(name, ID);
+            app.registerActivityToProject(new Activity(name), ID);
         }
     }
 

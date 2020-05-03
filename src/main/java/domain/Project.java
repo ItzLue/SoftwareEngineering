@@ -1,8 +1,11 @@
 package domain;
 
+import io.bretty.console.view.ActionView;
 import time.Interval;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class Project {
 
@@ -84,6 +87,34 @@ public class Project {
 
     public ArrayList<Activity> getActivityList() {
         return this.activityList;
+    }
+
+    public void setActivityStartDate(Activity activity, int year, int week) {
+        if (dateIsValid(year,week)) {
+            activity.getInterval().setStartDate(year,week);
+        }
+    }
+
+    public void setActivityEndDate(Activity activity, int year, int week) {
+        if (dateIsValid(year,week)) {
+            activity.getInterval().setEndDate(year,week);
+        }
+    }
+
+    public boolean dateIsValid(int year, int week) {
+        Calendar calendarStart = new GregorianCalendar();
+        calendarStart.set(Calendar.YEAR, year);
+        calendarStart.set(Calendar.WEEK_OF_YEAR, week+1);
+
+        Calendar calendarEnd = new GregorianCalendar();
+        calendarEnd.set(Calendar.YEAR, year);
+        calendarEnd.set(Calendar.WEEK_OF_YEAR, week-1);
+
+        if (getInterval().getStartDate().before(calendarStart) && getInterval().getEndDate().after(calendarEnd) ) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

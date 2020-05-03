@@ -35,12 +35,11 @@ public class App {
         return ID;
     }
 
-    public void registerActivityToProject(String name, String projectID) {
+    public void registerActivityToProject(Activity activity, String projectID) {
         if (projectHM.containsKey(projectID)) {
-            Activity activity = new Activity(name);
             boolean nameExists = false;
             for (Activity a : projectHM.get(projectID).getActivityList()) {
-                if (a.getName().equals(name)) {
+                if (a.getName().equals(activity.getName())) {
                     nameExists = true;
                 }
             }

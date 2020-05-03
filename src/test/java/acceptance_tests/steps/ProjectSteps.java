@@ -52,7 +52,7 @@ public class ProjectSteps {
 
     @When("the activity with name {string} is added to the project")
     public void theActivityWithNameIsAddedToTheProject(String name) {
-        app.registerActivityToProject(name,projectHelper.getProject().getID());
+        app.registerActivityToProject(activityHelper.getActivity(),projectHelper.getProject().getID());
     }
 
     @Then("the activity with name {string} is in the project")
@@ -111,6 +111,11 @@ public class ProjectSteps {
     public void theNameOfTheActivityWithNameIsChangedTo(String string, String string2) {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
+    }
+
+    @Given("there is an activity with name {string}")
+    public void thereIsAnActivityWithName(String string) {
+        activityHelper.setActivity(new Activity(string));
     }
 
     @Then("The error message {string} is given")

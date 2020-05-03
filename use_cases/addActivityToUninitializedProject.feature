@@ -14,8 +14,10 @@ Feature: Add activities to an uninitialized project
   Scenario: Activity is added to an uninitialized project
 #  Given the following activities are added to the project with name "Enigma Codebreaker"
 #  | Coding |
+  Given there is an activity with name "Coding"
   When the activity with name "Coding" is added to the project
   Then the activity with name "Coding" is in the project
+
 
 
 
