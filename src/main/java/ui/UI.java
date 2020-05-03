@@ -272,8 +272,7 @@ public class UI extends ActionView {
                 if (confirmed) {
                     String name = this.prompt("Please enter the new name for the project: ", String.class);
                     app.setProjectName(ID, name);
-                } else {
-                    actionCanceled();
+                    this.actionSuccessful();
                 }
             } catch (NullPointerException e) {
                 System.out.println("The project does not exist " + e);
