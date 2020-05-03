@@ -11,11 +11,7 @@
         "steps": [
           {
             "result": {
-<<<<<<< Updated upstream
-              "duration": 459000000,
-=======
-              "duration": 658000000,
->>>>>>> Stashed changes
+              "duration": 414000000,
               "status": "passed"
             },
             "line": 7,
@@ -33,11 +29,7 @@
           },
           {
             "result": {
-<<<<<<< Updated upstream
               "duration": 2000000,
-=======
-              "duration": 5000000,
->>>>>>> Stashed changes
               "status": "passed"
             },
             "line": 8,
@@ -49,11 +41,7 @@
           },
           {
             "result": {
-<<<<<<< Updated upstream
               "duration": 1000000,
-=======
-              "duration": 2000000,
->>>>>>> Stashed changes
               "status": "passed"
             },
             "line": 9,
@@ -72,11 +60,7 @@
         ]
       },
       {
-<<<<<<< Updated upstream
-        "start_timestamp": "2020-05-02T08:48:17.188Z",
-=======
-        "start_timestamp": "2020-04-27T13:50:54.118Z",
->>>>>>> Stashed changes
+        "start_timestamp": "2020-05-03T11:59:06.002Z",
         "line": 12,
         "name": "Activity is added to an uninitialized project",
         "description": "",
@@ -86,7 +70,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 15,
@@ -133,11 +116,7 @@
     "line": 1,
     "elements": [
       {
-<<<<<<< Updated upstream
-        "start_timestamp": "2020-05-02T08:48:17.709Z",
-=======
-        "start_timestamp": "2020-04-27T13:50:54.890Z",
->>>>>>> Stashed changes
+        "start_timestamp": "2020-05-03T11:59:06.487Z",
         "line": 6,
         "name": "A developer is successfully added to the system",
         "description": "",
@@ -190,7 +169,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -313,6 +291,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 10,
@@ -375,11 +354,7 @@
         ]
       },
       {
-<<<<<<< Updated upstream
-        "start_timestamp": "2020-05-02T08:48:17.719Z",
-=======
-        "start_timestamp": "2020-04-27T13:50:54.904Z",
->>>>>>> Stashed changes
+        "start_timestamp": "2020-05-03T11:59:06.498Z",
         "line": 17,
         "name": "A developer is successfully being added as project leader to a project",
         "description": "",
@@ -448,7 +423,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 6,
@@ -540,7 +515,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 11,
@@ -592,11 +566,7 @@
         ]
       },
       {
-<<<<<<< Updated upstream
-        "start_timestamp": "2020-05-02T08:48:17.727Z",
-=======
-        "start_timestamp": "2020-04-27T13:50:54.921Z",
->>>>>>> Stashed changes
+        "start_timestamp": "2020-05-03T11:59:06.510Z",
         "line": 22,
         "name": "A developer tries to be added as project leader to a project that already has a developer",
         "description": "",
@@ -732,6 +702,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -778,11 +749,7 @@
         ]
       },
       {
-<<<<<<< Updated upstream
-        "start_timestamp": "2020-05-02T08:48:17.736Z",
-=======
-        "start_timestamp": "2020-04-27T13:50:54.940Z",
->>>>>>> Stashed changes
+        "start_timestamp": "2020-05-03T11:59:06.525Z",
         "line": 11,
         "name": "The project start date is set",
         "description": "",
@@ -792,7 +759,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 12,
@@ -862,7 +828,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -909,11 +874,7 @@
         ]
       },
       {
-<<<<<<< Updated upstream
-        "start_timestamp": "2020-05-02T08:48:17.744Z",
-=======
-        "start_timestamp": "2020-04-27T13:50:54.950Z",
->>>>>>> Stashed changes
+        "start_timestamp": "2020-05-03T11:59:06.534Z",
         "line": 15,
         "name": "The project end date is set",
         "description": "",
@@ -977,11 +938,7 @@
     "line": 1,
     "elements": [
       {
-<<<<<<< Updated upstream
-        "start_timestamp": "2020-05-02T08:48:17.751Z",
-=======
-        "start_timestamp": "2020-04-27T13:50:54.959Z",
->>>>>>> Stashed changes
+        "start_timestamp": "2020-05-03T11:59:06.542Z",
         "line": 6,
         "name": "A developer creates a project",
         "description": "",
@@ -991,10 +948,6 @@
         "steps": [
           {
             "result": {
-<<<<<<< Updated upstream
-              "duration": 3000000,
-=======
->>>>>>> Stashed changes
               "status": "passed"
             },
             "line": 7,
@@ -1042,11 +995,7 @@
         ]
       },
       {
-<<<<<<< Updated upstream
-        "start_timestamp": "2020-05-02T08:48:17.760Z",
-=======
-        "start_timestamp": "2020-04-27T13:50:54.966Z",
->>>>>>> Stashed changes
+        "start_timestamp": "2020-05-03T11:59:06.549Z",
         "line": 12,
         "name": "The project ID fits the current date",
         "description": "",
@@ -1085,6 +1034,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 15,
@@ -1163,11 +1113,7 @@
         ]
       },
       {
-<<<<<<< Updated upstream
-        "start_timestamp": "2020-05-02T08:48:17.766Z",
-=======
-        "start_timestamp": "2020-04-27T13:50:54.974Z",
->>>>>>> Stashed changes
+        "start_timestamp": "2020-05-03T11:59:06.555Z",
         "line": 12,
         "name": "A project is initialized",
         "description": "",
@@ -1199,7 +1145,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 15,
@@ -1231,11 +1176,7 @@
         "steps": [
           {
             "result": {
-<<<<<<< Updated upstream
-              "duration": 2000000,
-=======
               "duration": 1000000,
->>>>>>> Stashed changes
               "status": "passed"
             },
             "line": 7,
@@ -1262,11 +1203,7 @@
         ]
       },
       {
-<<<<<<< Updated upstream
-        "start_timestamp": "2020-05-02T08:48:17.776Z",
-=======
-        "start_timestamp": "2020-04-27T13:50:54.987Z",
->>>>>>> Stashed changes
+        "start_timestamp": "2020-05-03T11:59:06.565Z",
         "line": 11,
         "name": "A developer is set as the active developer",
         "description": "",
@@ -1276,7 +1213,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 12,
@@ -1320,11 +1256,7 @@
         "steps": []
       },
       {
-<<<<<<< Updated upstream
-        "start_timestamp": "2020-05-02T08:48:17.783Z",
-=======
-        "start_timestamp": "2020-04-27T13:50:54.996Z",
->>>>>>> Stashed changes
+        "start_timestamp": "2020-05-03T11:59:06.577Z",
         "line": 15,
         "name": "the active developer is set as null",
         "description": "",

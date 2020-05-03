@@ -159,8 +159,19 @@ public class UI extends ActionView {
         @Override
         public void executeCustomAction() throws NullPointerException{
             try {
-                String ID = this.prompt("Enter the ID for the project leader: ", String.class);
-                project.setProjectLeader(app.getDeveloperHM().get(ID));
+                String projectID = this.prompt("Enter the project's ID: ", String.class);
+                if(app.getProjectHM().get(projectID).getProjectLeader() != (null)) {
+                    boolean confirmed = this.confirmDialog("A project leader already exists for this project. Continue?");
+                    if(confirmed){
+                        this.println("Continuing");
+                    }
+                }
+                String developerID = this.prompt("Enter the new project leader's ID: ", String.class);
+                app.setProjectLeader(projectID,developerID);
+
+                if(app.getProjectHM().get(projectID).getProjectLeader().equals(app.getDeveloperHM().get(developerID))) {
+                    this.actionSuccessful();
+                }
             }
             catch (NullPointerException e){
                 System.out.println("Not a valid input " + e );

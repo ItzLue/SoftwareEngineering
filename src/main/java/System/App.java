@@ -80,9 +80,10 @@ public class App {
 
     public void setProjectLeader(String projectID, String developerID) {
         if (projectHM.containsKey(projectID) && developerHM.containsKey(developerID)) {
-            if (projectHM.get(projectID).getProjectLeader() != null || projectHM.get(projectID).getProjectLeader() == this.activeDeveloper) {
-                projectHM.get(projectID).setProjectLeader(developerHM.get(developerID));
-            }
+//            if (projectHM.get(projectID).getProjectLeader() == null || projectHM.get(projectID).getProjectLeader() == this.activeDeveloper) {
+            projectHM.get(projectID).setProjectLeader(developerHM.get(developerID));
+
+//            }
         }
     }
 
