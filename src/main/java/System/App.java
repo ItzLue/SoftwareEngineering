@@ -16,8 +16,8 @@ public class App {
     protected DateServer dateServer = new DateServer();
 
     public void registerDeveloper(Developer developer){
-        developer.setID(makeDeveloperID(developer));
-        developerHM.put(developer.getID(), developer);
+            developer.setID(makeDeveloperID(developer));
+            developerHM.put(developer.getID(), developer);
     }
 
     public String makeDeveloperID(Developer developer) {
@@ -54,10 +54,7 @@ public class App {
             } if (e instanceof IllegalAccessException){
                 System.out.println("Not a valid name");
             }
-
         }
-
-
     }
 
     public void removeActivityFromProject(Activity activity, String projectID) {

@@ -21,7 +21,6 @@ public class UI extends ActionView {
 
     public static void main(String[] args) {
         new UI("", "");
-
     }
 
     public UI(String runningTitle, String nameInParentMenu) {
@@ -120,12 +119,9 @@ public class UI extends ActionView {
             try {
                 String firstName = this.prompt("Enter the first name: ", String.class);
                 String lastName = this.prompt("Enter the last name: ", String.class);
-                if (firstName.matches(".*\\d.*") || lastName.matches(".*\\d.*")) {
-                    throw new IllegalArgumentException();
-                } else {
-                    app.registerDeveloper(new Developer(firstName, lastName));
-                    this.actionSuccessful();
-                }
+                app.registerDeveloper(new Developer(firstName, lastName));
+                this.actionSuccessful();
+
             } catch (IllegalArgumentException e) {
                 System.out.println("Not a valid input: " + e);
             }

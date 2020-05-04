@@ -3,7 +3,6 @@ package domain;
 import de.vandermeer.asciitable.AsciiTable;
 
 public class Developer {
-    AsciiTable at = new AsciiTable();
     protected String firstName;
     protected String lastName;
     protected String ID;
@@ -25,8 +24,12 @@ public class Developer {
     }
 
     public Developer(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        if(!firstName.matches(".*\\d.*") || !lastName.matches(".*\\d.*")) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+        } else {
+            throw new IllegalArgumentException("Developer names cannot contain digits");
+        }
     }
 
     @Override
