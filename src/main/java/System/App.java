@@ -155,10 +155,14 @@ public class App {
 
     }
 
-    public void setProjectStartDate(String projectID, int week, int year) throws IllegalAccessException {
+    public void setProjectDate(boolean startOrEnd, String projectID, int week, int year) throws IllegalAccessException {
         if (projectHM.containsKey(projectID)) {
             if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
-                projectHM.get(projectID).setProjectStartDate(week, year);
+                if (startOrEnd) {
+                    projectHM.get(projectID).setProjectStartDate(week, year);
+                } else {
+                    projectHM.get(projectID).setProjectEndDate(week, year);
+                }
             } else {
                 throw new IllegalAccessException("You dont have access");
             }
@@ -167,32 +171,21 @@ public class App {
         }
     }
 
-    public void setProjectEndDate(String projectID, int week, int year) throws IllegalAccessException {
-        if (projectHM.containsKey(projectID)) {
+    public void setActivityDate(boolean startOrEnd, String projectID, String activityName, int week, int year) throws IllegalAccessException {
+        if (projectHM.containsKey(projectID) && projectHM.get(projectID).activityExists(activityName)) {
             if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
-                projectHM.get(projectID).setProjectEndDate(week, year);
+                if (startOrEnd) {
+                    projectHM.get(projectID).setActivityStartDate(activityName, week, year);
+                } else {
+                    projectHM.get(projectID).setActivityEndDate(activityName, week, year);
+                }
             } else {
                 throw new IllegalAccessException("You dont have access");
             }
         } else {
-            throw new NullPointerException("Project doesnt existP");
+            throw new NullPointerException("Project doesnt exist");
         }
     }
 
-    public void setActivityStartDate(String projectID, String activityName, int week, int year) throws IllegalAccessException {
-        if (projectHM.containsKey(projectID) && projectHM.get(projectID).getActivityList().contains(activityName)) {
-            if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
-                projectHM.get(projectID).setProjectEndDate(week, year);
-            } else {
-                throw new IllegalAccessException("You dont have access");
-            }
-        } else {
-            throw new NullPointerException("Project doesnt existP");
-        }
-    }
-
-    public void setActivityEndDate() {
-
-    }
 
 }

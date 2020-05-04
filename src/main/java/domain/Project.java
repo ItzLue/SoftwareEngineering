@@ -8,7 +8,6 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class Project {
-    AsciiTable at = new AsciiTable();
     protected Developer projectLeader;
 
     protected ArrayList<Activity> activityList = new ArrayList<Activity>();
@@ -24,7 +23,14 @@ public class Project {
         this.interval = new Interval();
     }
 
-
+    public boolean activityExists(String activityName) {
+        for (Activity activity: activityList) {
+            if (activity.getName().equals(activityName)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public void addActivity(Activity activity) {
         this.activityList.add(activity);
@@ -61,14 +67,6 @@ public class Project {
         return name;
     }
 
-    public String Table (){
-        at.addRule();
-        at.addRow("Name","ID","Project leader","Activity list");
-        at.addRule();
-        at.addRow(name,ID,projectLeader.getID(),activityList.toString());
-        at.addRule();
-        return at.render();
-    }
 
     @Override
     public String toString() {
@@ -158,15 +156,23 @@ public class Project {
         return invalid;
     }
 
-    public void setActivityStartDate(Activity activity, int year, int week) {
-        if (dateIsValid(year,week)) {
-            activity.getInterval().setStartDate(year,week);
+    public Activity getActivity(String activityName) {
+        for (Activity activity: activityList) {
+            if (activityName.equals(activity.getName())) {
+                return activity;
+            }
         }
     }
 
-    public void setActivityEndDate(Activity activity, int year, int week) {
+    public void setActivityStartDate(String activityName, int year, int week) {
         if (dateIsValid(year,week)) {
-            activity.getInterval().setEndDate(year,week);
+            getActivity(activityName).getInterval().setStartDate(year,week);
+        }
+    }
+
+    public void setActivityEndDate(String activityName, int year, int week) {
+        if (dateIsValid(year,week)) {
+            getActivity(activityName).getInterval().setEndDate(year,week);
         }
     }
 
