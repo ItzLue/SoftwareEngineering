@@ -156,13 +156,14 @@ public class Project {
         return invalid;
     }
 
-//    public Activity getActivity(String activityName) {
-//        for (Activity activity: activityList) {
-//            if (activityName.equals(activity.getName())) {
-//                return activity;
-//            }
-//        }
-//    }
+    public Activity getActivity(String activityName) {
+        for (Activity activity: activityList) {
+            if (activityName.equals(activity.getName())) {
+                return activity;
+            }
+        }
+        return null;
+    }
 
     public void setActivityStartDate(String activityName, int year, int week) {
         if (dateIsValid(year,week)) {
