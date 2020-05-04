@@ -18,9 +18,14 @@ public class Project {
     protected Calendar testDate = new GregorianCalendar();
 
     public Project(String name) {
-        this.name = name;
-        this.initialized = false;
-        this.interval = new Interval();
+        if(name.matches("^[a-zA-Z]*$")) {
+            this.name = name;
+            this.initialized = false;
+            this.interval = new Interval();
+        } else {
+            throw new IllegalArgumentException("Project names can only contain alphabetic letters");
+        }
+
     }
 
     public boolean activityExists(String activityName) {
@@ -160,23 +165,24 @@ public class Project {
         return false;
     }
 
-//    public Activity getActivity(String activityName) {
-//        for (Activity activity: activityList) {
-//            if (activityName.equals(activity.getName())) {
-//                return activity;
-//            }
-//        }
-//    }
+    public Activity getActivity(String activityName) {
+        for (Activity activity: activityList) {
+            if (activityName.equals(activity.getName())) {
+                return activity;
+            }
+        }
+        return null;
+    }
 
     public void setActivityStartDate(String activityName, int year, int week) {
         if (dateIsValid(year,week)) {
-            //getActivity(activityName).getInterval().setStartDate(year,week);
+            getActivity(activityName).getInterval().setStartDate(year,week);
         }
     }
 
     public void setActivityEndDate(String activityName, int year, int week) {
         if (dateIsValid(year,week)) {
-            //getActivity(activityName).getInterval().setEndDate(year,week);
+            getActivity(activityName).getInterval().setEndDate(year,week);
         }
     }
 

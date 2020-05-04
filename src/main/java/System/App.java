@@ -13,7 +13,7 @@ public class App {
     public Developer activeDeveloper;
     public HashMap<String, Developer> developerHM = new HashMap<String, Developer>();
     protected HashMap<String, Project> projectHM = new HashMap<String, Project>();
-    protected DateServer dateServer = new DateServer();
+    public DateServer dateServer = new DateServer();
 
     public void registerDeveloper(Developer developer){
             developer.setID(makeDeveloperID(developer));
@@ -30,7 +30,7 @@ public class App {
         return ID;
     }
 
-    public void registerActivityToProject(Activity activity, String projectID) throws IllegalAccessException {
+    public void registerActivityToProject(Activity activity, String projectID) {
         boolean nameExists = false;
         try{
             if (projectHM.containsKey(projectID)) {
