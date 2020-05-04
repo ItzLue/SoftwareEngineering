@@ -24,7 +24,7 @@ public class Developer {
     }
 
     public Developer(String firstName, String lastName) {
-        if(!firstName.matches(".*\\d.*") || !lastName.matches(".*\\d.*")) {
+        if(firstName.matches("^[a-zA-Z]*$") && lastName.matches("^[a-zA-Z]*$")) {
             this.firstName = firstName;
             this.lastName = lastName;
         } else {

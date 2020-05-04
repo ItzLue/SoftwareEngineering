@@ -30,7 +30,7 @@ public class App {
         return ID;
     }
 
-    public void registerActivityToProject(Activity activity, String projectID) throws IllegalAccessException {
+    public void registerActivityToProject(Activity activity, String projectID) {
         boolean nameExists = false;
         try{
             if (projectHM.containsKey(projectID)) {
