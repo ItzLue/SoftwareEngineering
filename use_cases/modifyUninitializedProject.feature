@@ -15,42 +15,53 @@ Feature: Change project name, dates, and activities in the project
     When The name of the project is changed to "Maintenance Work"
     Then There is a project registered in the system with name "Maintenance Work"
 
-  Scenario: The interval start date is set and the end date is null
+  Scenario: The project start date is set and the end date is null
     When The start date of the project is set to year 2020 and week 30
     Then The project has the starting year 2020 and the starting week 30
 
-  Scenario: The interval end date is set and the start date is null
+  Scenario: The project end date is set and the start date is null
     When The end date of the project is set to year 2020 and week 35
     Then The project has the ending year 2020 and the ending week 35
 
-  Scenario: The interval start date is set and the end date is not null but valid
+  Scenario: The project start date is set and the end date is not null but valid
     When The end date of the project is set to year 2020 and week 35
     Then The project has the ending year 2020 and the ending week 35
     When The start date of the project is set to year 2020 and week 30
     Then The project has the starting year 2020 and the starting week 30
 
-  Scenario: The interval end date is set and the start date is not null but valid
+  Scenario: The project end date is set and the start date is not null but valid
     When The start date of the project is set to year 2020 and week 30
     Then The project has the starting year 2020 and the starting week 30
     When The end date of the project is set to year 2020 and week 35
     Then The project has the ending year 2020 and the ending week 35
 
-  Scenario: The interval start date is set and the end date is not null and not valid
+  Scenario: The project start date is set and the end date is not null and not valid
     When The end date of the project is set to year 2020 and week 35
     Then The project has the ending year 2020 and the ending week 35
     Then An exception is expected
     When The start date of the project is set to year 2020 and week 40
     Then An exception is given
 
-  Scenario: The interval start date is set and the end date is not null and not valid
+  Scenario: The project start date is set and the end date is not null and not valid
     When The start date of the project is set to year 2020 and week 30
     Then The project has the starting year 2020 and the starting week 30
     Then An exception is expected
     When The end date of the project is set to year 2020 and week 25
     Then An exception is given
 
+  Scenario: The activity start date is set and the end date is null
+    When The start date of the activity is set to year 2020 and week 30
+    Then The activity has the starting year 2020 and the starting week 30
 
+  Scenario: The activity end date is set and the start date is null
+    When The end date of the activity is set to year 2020 and week 30
+    Then The activity has the ending year 2020 and the ending week 30
 
+  Scenario: The activity start date is set and the start date is not null
+    When The start date of the project is set to year 2020 and week 30
+    Then The project has the starting year 2020 and the starting week 30
+    When The start date of the activity is set to year 2020 and week 30
+    Then The activity has the starting year 2020 and the starting week 30
 
 #  Scenario: The interval end date is set and then the start date is set to after the end date
 #    When The end date of the project is set to year 2020 and week 35

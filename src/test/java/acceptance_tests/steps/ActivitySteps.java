@@ -36,8 +36,8 @@ public class ActivitySteps {
     }
 
     @When("The start date of the activity is set to year {int} and week {int}")
-    public void theStartDateOfTheActivityIsSetToYearAndWeek(int year, int week) {
-        activityHelper.getActivity().getInterval().setStartDate(year,week);
+    public void theStartDateOfTheActivityIsSetToYearAndWeek(int year, int week) throws IllegalAccessException {
+        app.setActivityDate(true, projectHelper.getProject().getID(), activityHelper.getActivity().getName(), year, week);
     }
 
     @Then("The activity has the starting year {int} and the starting week {int}")
@@ -47,14 +47,14 @@ public class ActivitySteps {
     }
 
     @When("The end date of the activity is set to year {int} and week {int}")
-    public void theEndDateOfTheActivityIsSetToYearAndWeek(int year, int week) {
-        activityHelper.getActivity().getInterval().setEndDate(year,week);
+    public void theEndDateOfTheActivityIsSetToYearAndWeek(int year, int week) throws IllegalAccessException {
+        app.setActivityDate(false, projectHelper.getProject().getID(), activityHelper.getActivity().getName(), year, week);
     }
 
     @Then("The activity has the ending year {int} and the ending week {int}")
     public void theActivityHasTheEndingYearAndTheEndingWeek(int year, int week) {
         assertEquals(year, activityHelper.getActivity().getInterval().getEndDate().get(Calendar.YEAR));
-        assertEquals(week, activityHelper.getActivity().getInterval().getStartDate().get(Calendar.WEEK_OF_YEAR));
+        assertEquals(week, activityHelper.getActivity().getInterval().getEndDate().get(Calendar.WEEK_OF_YEAR));
     }
 
 }

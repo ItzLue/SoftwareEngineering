@@ -182,13 +182,13 @@ public class App {
         }
     }
 
-    public void setActivityDate(boolean startOrEnd, String projectID, String activityName, int week, int year) throws IllegalAccessException {
+    public void setActivityDate(boolean startOrEnd, String projectID, String activityName, int year, int week) throws IllegalAccessException {
         if (projectHM.containsKey(projectID) && projectHM.get(projectID).activityExists(activityName)) {
             if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
                 if (startOrEnd) {
-                    projectHM.get(projectID).setActivityStartDate(activityName, week, year);
+                    projectHM.get(projectID).setActivityStartDate(activityName, year, week);
                 } else {
-                    projectHM.get(projectID).setActivityEndDate(activityName, week, year);
+                    projectHM.get(projectID).setActivityEndDate(activityName, year, week);
                 }
             } else {
                 throw new IllegalAccessException("You dont have access");

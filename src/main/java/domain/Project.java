@@ -207,7 +207,9 @@ public class Project {
     public boolean activityStartDateIsValid(int year, int week) {
         testDate.set(Calendar.YEAR, year);
         testDate.set(Calendar.WEEK_OF_YEAR, week);
-        if (getInterval().getStartDate().before(testDate) || getInterval().getStartDate().equals(testDate)) {
+        if (getInterval().getStartDate() != null && (getInterval().getStartDate().before(testDate) || getInterval().getStartDate().equals(testDate))) {
+            return true;
+        } else if (getInterval().getStartDate() == null) {
             return true;
         } else {
             return false;
@@ -217,7 +219,9 @@ public class Project {
     public boolean activityEndDateIsValid(int year, int week) {
         testDate.set(Calendar.YEAR, year);
         testDate.set(Calendar.WEEK_OF_YEAR, week);
-        if (getInterval().getEndDate().after(testDate) || getInterval().getEndDate().equals(testDate)) {
+        if (getInterval().getEndDate() != null && (getInterval().getEndDate().after(testDate) || getInterval().getEndDate().equals(testDate))) {
+            return true;
+        } else if (getInterval().getEndDate() == null)  {
             return true;
         } else {
             return false;
