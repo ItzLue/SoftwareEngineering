@@ -1,8 +1,6 @@
 package acceptance_tests.steps;
 
-import acceptance_tests.helper.DeveloperHelper;
-import acceptance_tests.helper.ErrorMessageHolder;
-import acceptance_tests.helper.ProjectHelper;
+import acceptance_tests.helper.*;
 import domain.Developer;
 import domain.Project;
 import io.cucumber.java.en.Given;
@@ -24,13 +22,17 @@ public class SystemSteps {
     private DeveloperHelper developerHelper;
     private ProjectHelper projectHelper;
     private MockDateHolder dateHolder;
+    private ActivityHelper activityHelper;
+    private ExceptionHandler exceptionHandler;
 
-    public SystemSteps(App app, ErrorMessageHolder errorMessageHolder, DeveloperHelper developerHelper, ProjectHelper projectHelper, MockDateHolder dateHolder) {
-       this.app = app;
-       this.errorMessageHolder = errorMessageHolder;
-       this.developerHelper = developerHelper;
-       this.projectHelper = projectHelper;
-       this.dateHolder = dateHolder;
+    public SystemSteps(App app, ErrorMessageHolder errorMessageHolder, DeveloperHelper developerHelper, ProjectHelper projectHelper, MockDateHolder dateHolder, ActivityHelper activityHelper, ExceptionHandler exceptionHandler) {
+        this.app = app;
+        this.errorMessageHolder = errorMessageHolder;
+        this.developerHelper = developerHelper;
+        this.projectHelper = projectHelper;
+        this.dateHolder = dateHolder;
+        this.activityHelper = activityHelper;
+        this.exceptionHandler = exceptionHandler;
     }
 
     @Given("There is a Developer with first name {string} and last name {string}")

@@ -371,6 +371,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -622,6 +623,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 11,
@@ -933,7 +935,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 8,
@@ -1391,7 +1392,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 6,
@@ -1529,7 +1529,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 35,
@@ -1567,6 +1566,398 @@
                 }
               ],
               "location": "acceptance_tests.steps.IntervalSteps.theProjectHasTheEndingYearAndTheEndingWeek(int,int)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 5,
+        "name": "There is an uninitialized project registered in the system",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "A project with name \"Enigma Codebreaker\" is created",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Enigma Codebreaker\"",
+                  "offset": 20
+                }
+              ],
+              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "The project is added to the system",
+            "match": {
+              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "There is a project in the system with name \"Enigma Codebreaker\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Enigma Codebreaker\"",
+                  "offset": 43
+                }
+              ],
+              "location": "acceptance_tests.steps.SystemSteps.thereIsAProjectInTheSystemWithName(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "there is an activity with name \"Coding\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Coding\"",
+                  "offset": 31
+                }
+              ],
+              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "the activity with name \"Coding\" is added to the project",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Coding\"",
+                  "offset": 23
+                }
+              ],
+              "location": "acceptance_tests.steps.ProjectSteps.theActivityWithNameIsAddedToTheProject(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "The project has not been initialized",
+            "match": {
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectHasNotBeenInitialized()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-05-04T15:52:14.805Z",
+        "line": 38,
+        "name": "The interval start date is set and the end date is not null and not valid",
+        "description": "",
+        "id": "change-project-name--dates--and-activities-in-the-project;the-interval-start-date-is-set-and-the-end-date-is-not-null-and-not-valid",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 39,
+            "name": "The end date of the project is set to year 2020 and week 35",
+            "match": {
+              "arguments": [
+                {
+                  "val": "2020",
+                  "offset": 43
+                },
+                {
+                  "val": "35",
+                  "offset": 57
+                }
+              ],
+              "location": "acceptance_tests.steps.IntervalSteps.theEndDateOfTheProjectIsSetToYearAndWeek(int,int)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 40,
+            "name": "The project has the ending year 2020 and the ending week 35",
+            "match": {
+              "arguments": [
+                {
+                  "val": "2020",
+                  "offset": 32
+                },
+                {
+                  "val": "35",
+                  "offset": 57
+                }
+              ],
+              "location": "acceptance_tests.steps.IntervalSteps.theProjectHasTheEndingYearAndTheEndingWeek(int,int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 41,
+            "name": "An exception is expected",
+            "match": {
+              "location": "acceptance_tests.steps.ProjectSteps.anExceptionIsExpected()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 42,
+            "name": "The start date of the project is set to year 2020 and week 40",
+            "match": {
+              "arguments": [
+                {
+                  "val": "2020",
+                  "offset": 45
+                },
+                {
+                  "val": "40",
+                  "offset": 59
+                }
+              ],
+              "location": "acceptance_tests.steps.IntervalSteps.theStartDateOfTheProjectIsSetToYearAndWeek(int,int)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 43,
+            "name": "An exception is given",
+            "match": {
+              "location": "acceptance_tests.steps.ProjectSteps.anExceptionIsGiven()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 5,
+        "name": "There is an uninitialized project registered in the system",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "A project with name \"Enigma Codebreaker\" is created",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Enigma Codebreaker\"",
+                  "offset": 20
+                }
+              ],
+              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "The project is added to the system",
+            "match": {
+              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "There is a project in the system with name \"Enigma Codebreaker\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Enigma Codebreaker\"",
+                  "offset": 43
+                }
+              ],
+              "location": "acceptance_tests.steps.SystemSteps.thereIsAProjectInTheSystemWithName(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "there is an activity with name \"Coding\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Coding\"",
+                  "offset": 31
+                }
+              ],
+              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "the activity with name \"Coding\" is added to the project",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Coding\"",
+                  "offset": 23
+                }
+              ],
+              "location": "acceptance_tests.steps.ProjectSteps.theActivityWithNameIsAddedToTheProject(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "The project has not been initialized",
+            "match": {
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectHasNotBeenInitialized()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-05-04T15:52:14.812Z",
+        "line": 45,
+        "name": "The interval start date is set and the end date is not null and not valid",
+        "description": "",
+        "id": "change-project-name--dates--and-activities-in-the-project;the-interval-start-date-is-set-and-the-end-date-is-not-null-and-not-valid",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 46,
+            "name": "The start date of the project is set to year 2020 and week 30",
+            "match": {
+              "arguments": [
+                {
+                  "val": "2020",
+                  "offset": 45
+                },
+                {
+                  "val": "30",
+                  "offset": 59
+                }
+              ],
+              "location": "acceptance_tests.steps.IntervalSteps.theStartDateOfTheProjectIsSetToYearAndWeek(int,int)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 47,
+            "name": "The project has the starting year 2020 and the starting week 30",
+            "match": {
+              "arguments": [
+                {
+                  "val": "2020",
+                  "offset": 34
+                },
+                {
+                  "val": "30",
+                  "offset": 61
+                }
+              ],
+              "location": "acceptance_tests.steps.IntervalSteps.theProjectHasTheStartingYearAndTheStartingWeek(int,int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 48,
+            "name": "An exception is expected",
+            "match": {
+              "location": "acceptance_tests.steps.ProjectSteps.anExceptionIsExpected()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 49,
+            "name": "The end date of the project is set to year 2020 and week 25",
+            "match": {
+              "arguments": [
+                {
+                  "val": "2020",
+                  "offset": 43
+                },
+                {
+                  "val": "25",
+                  "offset": 57
+                }
+              ],
+              "location": "acceptance_tests.steps.IntervalSteps.theEndDateOfTheProjectIsSetToYearAndWeek(int,int)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 50,
+            "name": "An exception is given",
+            "match": {
+              "location": "acceptance_tests.steps.ProjectSteps.anExceptionIsGiven()"
             },
             "keyword": "Then "
           }
@@ -1814,6 +2205,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 8,

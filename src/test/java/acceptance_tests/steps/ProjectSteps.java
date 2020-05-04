@@ -1,10 +1,7 @@
 package acceptance_tests.steps;
 
 import System.App;
-import acceptance_tests.helper.ActivityHelper;
-import acceptance_tests.helper.DeveloperHelper;
-import acceptance_tests.helper.ErrorMessageHolder;
-import acceptance_tests.helper.ProjectHelper;
+import acceptance_tests.helper.*;
 import domain.Activity;
 import domain.Developer;
 import io.cucumber.java.en.Given;
@@ -21,14 +18,16 @@ public class ProjectSteps {
     private ProjectHelper projectHelper;
     private MockDateHolder dateHolder;
     private ActivityHelper activityHelper;
+    private ExceptionHandler exceptionHandler;
 
-    public ProjectSteps(App app, ErrorMessageHolder errorMessageHolder, DeveloperHelper developerHelper, ProjectHelper projectHelper, MockDateHolder dateHolder, ActivityHelper activityHelper) {
+    public ProjectSteps(App app, ErrorMessageHolder errorMessageHolder, DeveloperHelper developerHelper, ProjectHelper projectHelper, MockDateHolder dateHolder, ActivityHelper activityHelper, ExceptionHandler exceptionHandler) {
         this.app = app;
         this.errorMessageHolder = errorMessageHolder;
         this.developerHelper = developerHelper;
         this.projectHelper = projectHelper;
         this.dateHolder = dateHolder;
         this.activityHelper = activityHelper;
+        this.exceptionHandler = exceptionHandler;
     }
 
     @Given("The project has not been initialized")
@@ -117,5 +116,15 @@ public class ProjectSteps {
     @Then("The error message {string} is given")
     public void theErrorMessageIsGiven(String string) {
 
+    }
+
+    @Then("An exception is expected")
+    public void anExceptionIsExpected() {
+        exceptionHandler.expectException();
+    }
+
+    @Then("An exception is given")
+    public void anExceptionIsGiven() {
+        assertFalse(exceptionHandler.getExceptions().isEmpty());
     }
 }

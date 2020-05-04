@@ -35,6 +35,23 @@ Feature: Change project name, dates, and activities in the project
     When The end date of the project is set to year 2020 and week 35
     Then The project has the ending year 2020 and the ending week 35
 
+  Scenario: The interval start date is set and the end date is not null and not valid
+    When The end date of the project is set to year 2020 and week 35
+    Then The project has the ending year 2020 and the ending week 35
+    Then An exception is expected
+    When The start date of the project is set to year 2020 and week 40
+    Then An exception is given
+
+  Scenario: The interval start date is set and the end date is not null and not valid
+    When The start date of the project is set to year 2020 and week 30
+    Then The project has the starting year 2020 and the starting week 30
+    Then An exception is expected
+    When The end date of the project is set to year 2020 and week 25
+    Then An exception is given
+
+
+
+
 #  Scenario: The interval end date is set and then the start date is set to after the end date
 #    When The end date of the project is set to year 2020 and week 35
 #    Then The project has the ending year 2020 and the ending week 35

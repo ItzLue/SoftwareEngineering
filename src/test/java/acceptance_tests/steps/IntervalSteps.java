@@ -1,12 +1,10 @@
 package acceptance_tests.steps;
 
 import System.App;
-import acceptance_tests.helper.ActivityHelper;
-import acceptance_tests.helper.DeveloperHelper;
-import acceptance_tests.helper.ErrorMessageHolder;
-import acceptance_tests.helper.ProjectHelper;
+import acceptance_tests.helper.*;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import time.Interval;
 
 import java.util.Calendar;
 
@@ -20,19 +18,26 @@ public class IntervalSteps {
     private ProjectHelper projectHelper;
     private MockDateHolder dateHolder;
     private ActivityHelper activityHelper;
+    private ExceptionHandler exceptionHandler;
 
-    public IntervalSteps(App app, ErrorMessageHolder errorMessageHolder, DeveloperHelper developerHelper, ProjectHelper projectHelper, MockDateHolder dateHolder, ActivityHelper activityHelper) {
+    public IntervalSteps(App app, ErrorMessageHolder errorMessageHolder, DeveloperHelper developerHelper, ProjectHelper projectHelper, MockDateHolder dateHolder, ActivityHelper activityHelper, ExceptionHandler exceptionHandler) {
         this.app = app;
         this.errorMessageHolder = errorMessageHolder;
         this.developerHelper = developerHelper;
         this.projectHelper = projectHelper;
         this.dateHolder = dateHolder;
         this.activityHelper = activityHelper;
+        this.exceptionHandler = exceptionHandler;
     }
 
     @When("The start date of the project is set to year {int} and week {int}")
     public void theStartDateOfTheProjectIsSetToYearAndWeek(int year, int week) throws IllegalAccessException {
-        app.setProjectDate(true, projectHelper.getProject().getID(), year, week);
+        try {
+            app.setProjectDate(true, projectHelper.getProject().getID(), year, week);
+        } catch (RuntimeException e) {
+            exceptionHandler.add(e);
+        }
+
     }
 
     @Then("The project has the starting year {int} and the starting week {int}")
@@ -43,7 +48,11 @@ public class IntervalSteps {
 
     @When("The end date of the project is set to year {int} and week {int}")
     public void theEndDateOfTheProjectIsSetToYearAndWeek(int year, int week) throws IllegalAccessException {
-        app.setProjectDate(false, projectHelper.getProject().getID(), year, week);
+        try {
+            app.setProjectDate(false, projectHelper.getProject().getID(), year, week);
+        } catch (RuntimeException e) {
+            exceptionHandler.add(e);
+        }
     }
 
     @Then("The project has the ending year {int} and the ending week {int}")

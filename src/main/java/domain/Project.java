@@ -132,13 +132,8 @@ public class Project {
             if (getInterval().getStartDate() == null) {
                 getInterval().setEndDate(year, week);
             } else {
-                System.out.println("year: " + year);
                         testDate.set(Calendar.YEAR, year);
                         testDate.set(Calendar.WEEK_OF_YEAR, week);
-                            boolean bool = getInterval().getStartDate().before(testDate);
-                            System.out.println(bool);
-                        System.out.println("start date: " + getInterval().getStartDate().getTime());
-                        System.out.println("test end date: " + testDate.getTime());
                 if (getInterval().getStartDate().before(testDate)) {
                     getInterval().setEndDate(year, week);
                 } else {
@@ -155,14 +150,16 @@ public class Project {
         testDate.set(Calendar.WEEK_OF_YEAR, week);
         if (startOrEnd) {
             for (Activity activity: activityList) {
-                if (activity.getInterval().getStartDate() != null && activity.getInterval().getStartDate().before(testDate)) {
+                if (activity.getInterval().getStartDate() != null &&
+                        (activity.getInterval().getStartDate().after(testDate) || getInterval().getStartDate().equals(testDate))) {
                     return true;
                 }
             }
         }
         else {
             for (Activity activity: activityList) {
-                if (activity.getInterval().getEndDate() != null && activity.getInterval().getEndDate().after(testDate)) {
+                if (activity.getInterval().getEndDate() != null &&
+                        (activity.getInterval().getEndDate().before(testDate) || getInterval().getEndDate().equals(testDate))) {
                     return true;
                 }
             }
@@ -180,27 +177,47 @@ public class Project {
     }
 
     public void setActivityStartDate(String activityName, int year, int week) {
-        if (dateIsValid(year,week)) {
-            getActivity(activityName).getInterval().setStartDate(year,week);
+        if (getActivity(activityName).getInterval().getEndDate() == null && activityStartDateIsValid(year, week)) {
+            getActivity(activityName).getInterval().setStartDate(year, week);
+        } else {
+            testDate.set(Calendar.YEAR, year);
+            testDate.set(Calendar.WEEK_OF_YEAR, week);
+            if (getActivity(activityName).getInterval().getEndDate().after(testDate) && activityStartDateIsValid(year, week)) {
+                getActivity(activityName).getInterval().setStartDate(year, week);
+            } else {
+                throw new IllegalArgumentException("Invalid date");
+            }
         }
     }
 
     public void setActivityEndDate(String activityName, int year, int week) {
-        if (dateIsValid(year,week)) {
-            getActivity(activityName).getInterval().setEndDate(year,week);
+        if (getActivity(activityName).getInterval().getStartDate() == null && activityEndDateIsValid(year, week)) {
+            getActivity(activityName).getInterval().setEndDate(year, week);
+        } else {
+            testDate.set(Calendar.YEAR, year);
+            testDate.set(Calendar.WEEK_OF_YEAR, week);
+            if (getActivity(activityName).getInterval().getStartDate().before(testDate) && activityEndDateIsValid(year, week)) {
+                getActivity(activityName).getInterval().setEndDate(year, week);
+            } else {
+                throw new IllegalArgumentException("Invalid date");
+            }
         }
     }
 
-    public boolean dateIsValid(int year, int week) {
-        Calendar calendarStart = new GregorianCalendar();
-        calendarStart.set(Calendar.YEAR, year);
-        calendarStart.set(Calendar.WEEK_OF_YEAR, week);
+    public boolean activityStartDateIsValid(int year, int week) {
+        testDate.set(Calendar.YEAR, year);
+        testDate.set(Calendar.WEEK_OF_YEAR, week);
+        if (getInterval().getStartDate().before(testDate) || getInterval().getStartDate().equals(testDate)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-        Calendar calendarEnd = new GregorianCalendar();
-        calendarEnd.set(Calendar.YEAR, year);
-        calendarEnd.set(Calendar.WEEK_OF_YEAR, week-1);
-
-        if (getInterval().getStartDate().before(calendarStart) && getInterval().getEndDate().after(calendarEnd) ) {
+    public boolean activityEndDateIsValid(int year, int week) {
+        testDate.set(Calendar.YEAR, year);
+        testDate.set(Calendar.WEEK_OF_YEAR, week);
+        if (getInterval().getEndDate().after(testDate) || getInterval().getEndDate().equals(testDate)) {
             return true;
         } else {
             return false;
