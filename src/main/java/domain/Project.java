@@ -12,11 +12,12 @@ public class Project {
     AsciiTable at = new AsciiTable();
     protected Developer projectLeader;
 
-    protected ArrayList<Activity> activityList = new ArrayList<Activity>();
+    protected ArrayList<Activity> activityHM = new ArrayList<Activity>();
     protected boolean initialized;
     protected Interval interval;
     private String ID = "";
     protected String name;
+    protected Calendar testDate = new GregorianCalendar();
 
     public Project(String name) {
         this.name = name;
@@ -24,8 +25,10 @@ public class Project {
         this.interval = new Interval();
     }
 
+
+
     public void addActivity(Activity activity) {
-        this.activityList.add(activity);
+        this.activityHM.add(activity);
     }
 
     public void initProject() {
@@ -74,12 +77,12 @@ public class Project {
             return "Name:'" + name + '\'' +
                     ", ID: '" + ID + '\'' +
                     ", Project Leader: " + '\'' +projectLeader.getID() + '\'' +
-                    ", Activity list: " + activityList.toString();
+                    ", Activity list: " + activityHM.toString();
         } else {
             return "Name:'" + name + '\'' +
                     ", ID: '" + ID + '\'' +
-                    ", Project Leader: '" + projectLeader + '\'' +
-                    ", Activity list: " + activityList.toString();
+                    ", Project Leader: " + projectLeader + '\'' +
+                    ", Activity list: " + activityHM.toString();
         }
     }
 
@@ -95,8 +98,65 @@ public class Project {
         this.interval = interval;
     }
 
-    public ArrayList<Activity> getActivityList() {
-        return this.activityList;
+    public ArrayList<Activity> getActivityHM() {
+        return this.activityHM;
+    }
+
+    public void setProjectStartDate(int week, int year) {
+        if (!invalidActivityDates(true, week, year)) {
+            if (getInterval().getEndDate() == null) {
+                    getInterval().setStartDate(week, year);
+            } else {
+                testDate.set(Calendar.YEAR, year);
+                testDate.set(Calendar.WEEK_OF_YEAR, week);
+                if (getInterval().getEndDate().after(testDate)) {
+                    getInterval().setStartDate(week, year);
+                } else {
+                    throw new IllegalArgumentException("Invalid date");
+                }
+            }
+        } else {
+            throw new IllegalArgumentException("Activity start dates are before the set date");
+        }
+    }
+
+    public void setProjectEndDate(int week, int year) {
+        if (!invalidActivityDates(true, week, year)) {
+            if (getInterval().getStartDate() == null) {
+                getInterval().setEndDate(week, year);
+            } else {
+                testDate.set(Calendar.YEAR, year);
+                testDate.set(Calendar.WEEK_OF_YEAR, week);
+                if (getInterval().getStartDate().before(testDate)) {
+                    getInterval().setEndDate(week, year);
+                } else {
+                    throw new IllegalArgumentException("Invalid date");
+                }
+            }
+        } else {
+            throw new IllegalArgumentException("Activity end dates are after the set date");
+        }
+    }
+    
+    public boolean invalidActivityDates(boolean startOrEnd, int week, int year) {
+        boolean invalid = false;
+        testDate.set(Calendar.YEAR, year);
+        testDate.set(Calendar.WEEK_OF_YEAR, week);
+        if (startOrEnd) {
+            for (Activity activity: activityHM) {
+                if (activity.getInterval().getStartDate().before(testDate)) {
+                    invalid = true;
+                }
+            }
+        }
+        else {
+            for (Activity activity: activityHM) {
+                if (activity.getInterval().getEndDate().after(testDate)) {
+                    invalid = true;
+                }
+            }
+        }
+        return invalid;
     }
 
     public void setActivityStartDate(Activity activity, int year, int week) {
@@ -114,7 +174,7 @@ public class Project {
     public boolean dateIsValid(int year, int week) {
         Calendar calendarStart = new GregorianCalendar();
         calendarStart.set(Calendar.YEAR, year);
-        calendarStart.set(Calendar.WEEK_OF_YEAR, week+1);
+        calendarStart.set(Calendar.WEEK_OF_YEAR, week);
 
         Calendar calendarEnd = new GregorianCalendar();
         calendarEnd.set(Calendar.YEAR, year);

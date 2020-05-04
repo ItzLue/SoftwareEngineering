@@ -7,13 +7,9 @@ import acceptance_tests.helper.ErrorMessageHolder;
 import acceptance_tests.helper.ProjectHelper;
 import domain.Activity;
 import domain.Developer;
-import domain.Project;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
-import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -58,7 +54,7 @@ public class ProjectSteps {
     @Then("the activity with name {string} is in the project")
     public void theActivityWithNameIsInTheProject(String name) {
         boolean nameExists = false;
-        for (Activity a : projectHelper.getProject().getActivityList()) {
+        for (Activity a : projectHelper.getProject().getActivityHM()) {
             System.out.println("Activity name: " + a.getName());
             if (a.getName().equals(name)) {
                 nameExists = true;
