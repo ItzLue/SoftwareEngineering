@@ -1,5 +1,6 @@
 package System;
 
+import Exceptions.InvalidActivityNameException;
 import domain.Activity;
 import domain.Developer;
 import domain.Project;
@@ -35,20 +36,34 @@ public class App {
         return ID;
     }
 
-    public void registerActivityToProject(Activity activity, String projectID) {
-        if (projectHM.containsKey(projectID)) {
-            boolean nameExists = false;
-            for (Activity a : projectHM.get(projectID).getActivityList()) {
-                if (a.getName().equals(activity.getName())) {
-                    nameExists = true;
-                }
+    public void registerActivityToProject(Activity activity, String projectID) throws IllegalAccessException {
+        boolean nameExists = false;
+        try{
+            if (projectHM.containsKey(projectID)) {
+
+                    for (Activity a : projectHM.get(projectID).getActivityList()) {
+                        if (a.getName().equals(activity.getName())) {
+                            nameExists = true;
+                        }
+                    }
+                    if (!nameExists) {
+                        projectHM.get(projectID).getActivityList().add(activity);
+                    } else {
+                        throw new IllegalAccessException();
+                    }
+            } else{
+                throw new IllegalArgumentException();
             }
-            if (!nameExists) {
-                projectHM.get(projectID).getActivityList().add(activity);
-            } else {
-                System.out.println("activity name already exists");
+        }catch (Exception e){
+            if (e instanceof IllegalArgumentException){
+                System.out.println("The project with ID " + projectID + " does not exists");
+            } if (e instanceof IllegalAccessException){
+                System.out.println("Not a valid name");
             }
+
         }
+
+
     }
 
     public void removeActivityFromProject(Activity activity, String projectID) {

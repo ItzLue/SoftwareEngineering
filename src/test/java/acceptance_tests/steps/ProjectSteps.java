@@ -51,7 +51,7 @@ public class ProjectSteps {
     }
 
     @When("the activity with name {string} is added to the project")
-    public void theActivityWithNameIsAddedToTheProject(String name) {
+    public void theActivityWithNameIsAddedToTheProject(String name) throws IllegalAccessException {
         app.registerActivityToProject(activityHelper.getActivity(), projectHelper.getProject().getID());
     }
 

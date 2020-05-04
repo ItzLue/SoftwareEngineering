@@ -77,7 +77,7 @@ public class UI extends ActionView {
     Activity menu
      */
 
-    public MenuView getActivityMenu(){
+    public MenuView getActivityMenu() {
         MenuView activityMenu = new MenuView("Activity menu", "activity menu");
         activityMenu.addMenuItem(new AddActivityAction());
         activityMenu.addMenuItem(new removeActivityFromProjectAction());
@@ -156,6 +156,7 @@ public class UI extends ActionView {
         public void executeCustomAction() {
         }
     }
+
     /*
         Project actions
     */
@@ -195,19 +196,26 @@ public class UI extends ActionView {
         }
 
         @Override
-        public void executeCustomAction() throws InvalidActivityNameException {
+        public void executeCustomAction() {
 
             String name = this.prompt("Enter the name for the activity: ", String.class);
-            if (name == null || name.length() == 0 || name.charAt(0) == ' ' || name.charAt(name.length() - 1) == ' ') {
-//                throw new InvalidActivityNameException("Not a valid name ");
+            try {
+                if (name.matches(".*\\d.*")) {
+                    throw new IllegalArgumentException();
+                } else {
+                    String ID = this.prompt("Enter the ID for the project: ", String.class);
+                    app.registerActivityToProject(new Activity(name), ID);
+                }
+            } catch (IllegalArgumentException e) {
+                System.out.println("Invalid name " + e);
 
-                String ID = this.prompt("Enter the ID for the project: ", String.class);
-                app.registerActivityToProject(new Activity(name), ID);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
             }
         }
-        //FIXME
-        // Throw exception if invalid input or no input at all
     }
+    //FIXME
+    // Throw exception if invalid input or no input at all
 
 
     class ShowProjectsAction extends ActionView {
@@ -259,20 +267,23 @@ public class UI extends ActionView {
         }
     }
 
-    class removeActivityFromProjectAction extends ActionView{
 
-        public removeActivityFromProjectAction(){
-            super("Remove activity from project","Remove activity from project");
+    class removeActivityFromProjectAction extends ActionView {
+
+        public removeActivityFromProjectAction() {
+            super("Remove activity from project", "Remove activity from project");
         }
+
         public void executeCustomAction() {
 
-            Activity name = this.prompt("Enter activity name: ",Activity.class);
+            Activity name = this.prompt("Enter activity name: ", Activity.class);
 
-            String ID = this.prompt("Enter ID of the project: ",String.class);
+            String ID = this.prompt("Enter ID of the project: ", String.class);
 
-            app.removeActivityFromProject(name,ID);
+            app.removeActivityFromProject(name, ID);
         }
     }
+
     class setIntervalAction extends ActionView {
         public setIntervalAction() {
             super("Set start end date for a project", "Set start end date for a project");
@@ -288,4 +299,8 @@ public class UI extends ActionView {
         }
     }
 }
+
+
+
+
 
