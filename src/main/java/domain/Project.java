@@ -167,13 +167,13 @@ public class Project {
 
     public void setActivityStartDate(String activityName, int year, int week) {
         if (dateIsValid(year,week)) {
-            //getActivity(activityName).getInterval().setStartDate(year,week);
+            getActivity(activityName).getInterval().setStartDate(year,week);
         }
     }
 
     public void setActivityEndDate(String activityName, int year, int week) {
         if (dateIsValid(year,week)) {
-            //getActivity(activityName).getInterval().setEndDate(year,week);
+            getActivity(activityName).getInterval().setEndDate(year,week);
         }
     }
 

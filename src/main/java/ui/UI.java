@@ -123,7 +123,7 @@ public class UI extends ActionView {
                 this.actionSuccessful();
 
             } catch (IllegalArgumentException e) {
-                System.out.println("Not a valid input: " + e);
+                System.out.println(e.getMessage());
             }
         }
     }
@@ -194,17 +194,14 @@ public class UI extends ActionView {
 
             String name = this.prompt("Enter the name for the activity: ", String.class);
             try {
-                if (name.matches(".*\\d.*")) {
-                    throw new IllegalArgumentException();
-                } else {
+                if (name.matches("^[a-zA-Z]*$")) {
                     String ID = this.prompt("Enter the ID for the project: ", String.class);
                     app.registerActivityToProject(new Activity(name), ID);
+                } else {
+                    throw new IllegalArgumentException("Activity names can only contain alphabetic letters");
                 }
             } catch (IllegalArgumentException e) {
-                System.out.println("Invalid name " + e);
-
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
+                System.out.println(e.getMessage());
             }
         }
     }
