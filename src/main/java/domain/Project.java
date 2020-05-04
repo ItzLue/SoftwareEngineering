@@ -1,7 +1,6 @@
 package domain;
 
 import de.vandermeer.asciitable.AsciiTable;
-import io.bretty.console.view.ActionView;
 import time.Interval;
 
 import java.util.ArrayList;
@@ -12,7 +11,7 @@ public class Project {
     AsciiTable at = new AsciiTable();
     protected Developer projectLeader;
 
-    protected ArrayList<Activity> activityHM = new ArrayList<Activity>();
+    protected ArrayList<Activity> activityList = new ArrayList<Activity>();
     protected boolean initialized;
     protected Interval interval;
     private String ID = "";
@@ -28,7 +27,7 @@ public class Project {
 
 
     public void addActivity(Activity activity) {
-        this.activityHM.add(activity);
+        this.activityList.add(activity);
     }
 
     public void initProject() {
@@ -77,12 +76,12 @@ public class Project {
             return "Name:'" + name + '\'' +
                     ", ID: '" + ID + '\'' +
                     ", Project Leader: " + '\'' +projectLeader.getID() + '\'' +
-                    ", Activity list: " + activityHM.toString();
+                    ", Activity list: " + activityList.toString();
         } else {
             return "Name:'" + name + '\'' +
                     ", ID: '" + ID + '\'' +
                     ", Project Leader: " + projectLeader + '\'' +
-                    ", Activity list: " + activityHM.toString();
+                    ", Activity list: " + activityList.toString();
         }
     }
 
@@ -98,8 +97,8 @@ public class Project {
         this.interval = interval;
     }
 
-    public ArrayList<Activity> getActivityHM() {
-        return this.activityHM;
+    public ArrayList<Activity> getActivityList() {
+        return this.activityList;
     }
 
     public void setProjectStartDate(int week, int year) {
@@ -143,14 +142,14 @@ public class Project {
         testDate.set(Calendar.YEAR, year);
         testDate.set(Calendar.WEEK_OF_YEAR, week);
         if (startOrEnd) {
-            for (Activity activity: activityHM) {
+            for (Activity activity: activityList) {
                 if (activity.getInterval().getStartDate().before(testDate)) {
                     invalid = true;
                 }
             }
         }
         else {
-            for (Activity activity: activityHM) {
+            for (Activity activity: activityList) {
                 if (activity.getInterval().getEndDate().after(testDate)) {
                     invalid = true;
                 }

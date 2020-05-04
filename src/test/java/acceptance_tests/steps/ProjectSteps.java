@@ -54,7 +54,7 @@ public class ProjectSteps {
     @Then("the activity with name {string} is in the project")
     public void theActivityWithNameIsInTheProject(String name) {
         boolean nameExists = false;
-        for (Activity a : projectHelper.getProject().getActivityHM()) {
+        for (Activity a : projectHelper.getProject().getActivityList()) {
             System.out.println("Activity name: " + a.getName());
             if (a.getName().equals(name)) {
                 nameExists = true;

@@ -5,11 +5,6 @@ import domain.Developer;
 import domain.Project;
 import time.DateServer;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 import java.util.Calendar;
 import java.util.HashMap;
 
@@ -67,9 +62,9 @@ public class App {
 
     public void removeActivityFromProject(Activity activity, String projectID) {
         if (projectHM.containsKey(projectID)) {
-            for (Activity a : projectHM.get(projectID).getActivityHM()) {
+            for (Activity a : projectHM.get(projectID).getActivityList()) {
                 if (a.equals(activity)) {
-                    projectHM.get(projectID).getActivityHM().remove(a);
+                    projectHM.get(projectID).getActivityList().remove(a);
                 }
             }
         }
@@ -184,8 +179,8 @@ public class App {
         }
     }
 
-    public void setActivityStartDate(String projectID, String activityName, int week, int year) {
-        if (projectHM.containsKey(projectID) && projectHM.get(projectID).getActivityHM().contains(activityName)) {
+    public void setActivityStartDate(String projectID, String activityName, int week, int year) throws IllegalAccessException {
+        if (projectHM.containsKey(projectID) && projectHM.get(projectID).getActivityList().contains(activityName)) {
             if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
                 projectHM.get(projectID).setProjectEndDate(week, year);
             } else {
