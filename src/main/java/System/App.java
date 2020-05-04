@@ -85,8 +85,8 @@ public class App {
     }
 
     public App() {
-        registerDeveloper(new Developer("Hans","Hansen"));
-        registerProject(new Project("Minecraft"));
+//        registerDeveloper(new Developer("Hans","Hansen"));
+//        registerProject(new Project("Minecraft"));
     }
 
     public String makeProjectID() {
