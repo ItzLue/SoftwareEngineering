@@ -31,11 +31,8 @@ public class Developer {
 
     @Override
     public String toString() {
-        at.addRule();
-        at.addRow("First name","Last name","ID");
-        at.addRule();
-        at.addRow(firstName,lastName,ID);
-        at.addRule();
-        return at.render();
+        return "First name='" + firstName + '\'' +
+                ", Last name='" + lastName + '\'' +
+                ", ID='" + ID + '\'';
     }
 }

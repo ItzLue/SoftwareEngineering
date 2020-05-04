@@ -2,7 +2,6 @@ package ui;
 
 import Exceptions.InvalidActivityNameException;
 import System.App;
-import de.vandermeer.asciitable.AsciiTable;
 import domain.Activity;
 import domain.Developer;
 import domain.Project;
@@ -11,6 +10,7 @@ import io.bretty.console.view.MenuView;
 import time.Interval;
 
 import java.util.InputMismatchException;
+import java.util.regex.Pattern;
 
 public class UI extends ActionView {
     App app = new App();
@@ -67,7 +67,6 @@ public class UI extends ActionView {
         projectMenu.addMenuItem(new AddProjectLeaderAction());
         projectMenu.addMenuItem(new ShowProjectsAction());
         projectMenu.addMenuItem(new AddProjectAction());
-        projectMenu.addMenuItem(new initializeProject());
         projectMenu.addMenuItem(new setIntervalAction());
         projectMenu.addMenuItem(new ChangeProjectNameAction());
         projectMenu.addMenuItem(getActivityMenu());
@@ -121,9 +120,13 @@ public class UI extends ActionView {
             try {
                 String firstName = this.prompt("Enter the first name: ", String.class);
                 String lastName = this.prompt("Enter the last name: ", String.class);
-                app.registerDeveloper(new Developer(firstName, lastName));
-                this.actionSuccessful();
-            } catch (InputMismatchException e) {
+                if (firstName.matches(".*\\d.*") || lastName.matches(".*\\d.*")) {
+                    throw new IllegalArgumentException();
+                } else {
+                    app.registerDeveloper(new Developer(firstName, lastName));
+                    this.actionSuccessful();
+                }
+            } catch (IllegalArgumentException e) {
                 System.out.println("Not a valid input: " + e);
             }
         }
@@ -145,16 +148,6 @@ public class UI extends ActionView {
         }
     }
 
-    class ChangeActiveDeveloperAction extends ActionView {
-        public ChangeActiveDeveloperAction() {
-            super("Change active developer", "Change active developer");
-        }
-
-        public void executeCustomAction() {
-            setActiveDeveloperMenu();
-        }
-    }
-
     class SetWorkHoursAction extends ActionView {
         public SetWorkHoursAction() {
             super("Enter your worked hours", "Set work hours");
@@ -163,7 +156,6 @@ public class UI extends ActionView {
         public void executeCustomAction() {
         }
     }
-
     /*
         Project actions
     */
@@ -173,7 +165,7 @@ public class UI extends ActionView {
         }
 
         @Override
-        public void executeCustomAction() throws IllegalArgumentException {
+        public void executeCustomAction() throws NullPointerException {
             try {
                 String projectID = this.prompt("Enter the project's ID: ", String.class);
                 if (app.getProjectHM().get(projectID).getProjectLeader() != (null)) {
@@ -188,7 +180,7 @@ public class UI extends ActionView {
                 if (app.getProjectHM().get(projectID).getProjectLeader().equals(app.getDeveloperHM().get(developerID))) {
                     this.actionSuccessful();
                 }
-            } catch (IllegalArgumentException e) {
+            } catch (NullPointerException e) {
                 System.out.println("Not a valid input " + e);
             }
             //FIXME
@@ -245,21 +237,6 @@ public class UI extends ActionView {
     /*
         Project leader menus
     */
-    class initializeProject extends ActionView {
-        public initializeProject() {
-            super("initialize a project", "initialize project");
-        }
-
-        @Override
-        public void executeCustomAction() {
-
-            String ID = this.prompt("Enter the ID of the project", String.class);
-
-        }
-        //FIXME
-        // - Init project
-    }
-
     class ChangeProjectNameAction extends ActionView {
         public ChangeProjectNameAction() {
             super("Change name", "Change name");
