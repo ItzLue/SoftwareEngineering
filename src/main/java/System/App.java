@@ -5,11 +5,6 @@ import domain.Developer;
 import domain.Project;
 import time.DateServer;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 import java.util.Calendar;
 import java.util.HashMap;
 
@@ -38,13 +33,13 @@ public class App {
     public void registerActivityToProject(Activity activity, String projectID){
         if (projectHM.containsKey(projectID)) {
             boolean nameExists = false;
-            for (Activity a : projectHM.get(projectID).getActivityList()) {
+            for (Activity a : projectHM.get(projectID).getActivityHM()) {
                 if (a.getName().equals(activity.getName())) {
                     nameExists = true;
                 }
             }
             if (!nameExists) {
-                projectHM.get(projectID).getActivityList().add(activity);
+                projectHM.get(projectID).getActivityHM().add(activity);
             } else {
                 System.out.println("activity name already exists");
             }
@@ -53,9 +48,9 @@ public class App {
 
     public void removeActivityFromProject(Activity activity, String projectID) {
         if (projectHM.containsKey(projectID)) {
-            for (Activity a : projectHM.get(projectID).getActivityList()) {
+            for (Activity a : projectHM.get(projectID).getActivityHM()) {
                 if (a.equals(activity)) {
-                    projectHM.get(projectID).getActivityList().remove(a);
+                    projectHM.get(projectID).getActivityHM().remove(a);
                 }
             }
         }
@@ -89,6 +84,8 @@ public class App {
             projectHM.get(projectID).setProjectLeader(developerHM.get(developerID));
 
 //            }
+        } else {
+            throw new NullPointerException("Projæ dont exis or developer");
         }
     }
 
@@ -100,7 +97,6 @@ public class App {
         if (developerHM.containsKey(ID)) {
             setActiveDeveloper(developerHM.get(ID));
         }
-
     }
 
     public void setActiveDeveloper(Developer developer) {
@@ -147,4 +143,45 @@ public class App {
     public void setInterval() {
 
     }
+
+    public void setProjectStartDate(String projectID, int week, int year) throws IllegalAccessException {
+        if (projectHM.containsKey(projectID)) {
+            if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
+                projectHM.get(projectID).setProjectStartDate(week, year);
+            } else {
+                throw new IllegalAccessException("You dont have access");
+            }
+        } else {
+            throw new NullPointerException("Project doesnt exist");
+        }
+    }
+
+    public void setProjectEndDate(String projectID, int week, int year) throws IllegalAccessException {
+        if (projectHM.containsKey(projectID)) {
+            if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
+                projectHM.get(projectID).setProjectEndDate(week, year);
+            } else {
+                throw new IllegalAccessException("You dont have access");
+            }
+        } else {
+            throw new NullPointerException("Project doesnt existP");
+        }
+    }
+
+    public void setActivityStartDate(String projectID, String activityName, int week, int year) {
+        if (projectHM.containsKey(projectID) && projectHM.get(projectID).getActivityHM().contains(activityName)) {
+            if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
+                projectHM.get(projectID).setProjectEndDate(week, year);
+            } else {
+                throw new IllegalAccessException("You dont have access");
+            }
+        } else {
+            throw new NullPointerException("Project doesnt existP");
+        }
+    }
+
+    public void setActivityEndDate() {
+
+    }
+
 }
