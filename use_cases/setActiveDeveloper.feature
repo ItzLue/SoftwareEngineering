@@ -5,8 +5,8 @@ Feature: the active developer is chosen
   #background
   Background: There is a developer registered in the system
     Given There is a Developer with first name "Ole" and last name "Smith"
-    When the developer with first name "Ole" and last name "Smith" is added to the system
-    Then the developer with first name "Ole" and last name "Smith" and appropriate ID is in the system
+    When the developer is added to the system
+    Then the developer is in the system with an appropriate ID
 
     #Main scenario
   Scenario: There isn't chosen an active developer
@@ -15,7 +15,7 @@ Feature: the active developer is chosen
 
     #Second scenario
   Scenario: A developer is set as the active developer
-    When The developer with first name "Ole" and last name "Smith" is set as the active developer
-    Then the developer with first name "Ole" and last name "Smith" is the active developer
+    When The developer is set as the active developer
+    Then the developer is the active developer
 
 

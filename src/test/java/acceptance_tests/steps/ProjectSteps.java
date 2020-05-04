@@ -36,10 +36,6 @@ public class ProjectSteps {
         assertFalse(projectHelper.getProject().isInitialized());
     }
 
-    @When("The project is initialized by the user")
-    public void theProjectIsInitializedByTheUser() {
-        projectHelper.getProject().initProject();
-    }
 
     @Then("The project is initialized")
     public void theProjectIsInitialized() {
@@ -63,6 +59,22 @@ public class ProjectSteps {
         assertTrue(nameExists);
     }
 
+
+    @Given("the developer is set as project leader for project with name {string}")
+    public void theDeveloperIsSetAsProjectLeaderForProjectWithName(String string) {
+        assertEquals(projectHelper.getProject().getName(), string);
+        app.setProjectLeader(projectHelper.getProject().getID(), developerHelper.getDeveloper().getID());
+    }
+
+    @Then("the project with name {string} has the developer with first name {string} and last name {string} as project leader")
+    public void theProjectWithNameHasTheDeveloperWithFirstNameAndLastNameAsProjectLeader(String string, String string2, String string3) {
+        assertEquals(projectHelper.getProject().getProjectLeader().getFirstName(),string2);
+        assertEquals(projectHelper.getProject().getProjectLeader().getLastName(),string3);
+
+    }
+
+
+
     @When("the developer with first name {string} and last name {string} is set as project leader for project with name {string}")
     public void theDeveloperWithFirstNameAndLastNameIsSetAsProjectLeaderForProjectWithName(String string, String string2, String string3) throws Exception {
         assertEquals(developerHelper.getDeveloper().getFirstName(), string);
@@ -71,12 +83,13 @@ public class ProjectSteps {
         app.setProjectLeader(projectHelper.getProject().getID(), developerHelper.getDeveloper().getID());
     }
 
-    @Then("the project with name {string} has the developer with first name {string} and last name {string} as project leader")
-    public void theProjectWithNameHasTheDeveloperWithFirstNameAndLastNameAsProjectLeader(String string, String string2, String string3) {
+    @Then("the project with name {string} has the developer as project leader")
+    public void theProjectWithNameHasTheDeveloperAsProjectLeader(String string) {
         assertEquals(projectHelper.getProject().getName(), string);
-        assertEquals(projectHelper.getProject().getProjectLeader().getFirstName(), string2);
-        assertEquals(projectHelper.getProject().getProjectLeader().getLastName(), string3);
+        assertEquals(projectHelper.getProject().getProjectLeader(), developerHelper.getDeveloper());
+
     }
+
 
     @Given("a developer with first name {string} and last name {string} is added to the system")
     public void aDeveloperWithFirstNameAndLastNameIsAddedToTheSystem(String string, String string2) {
@@ -102,8 +115,7 @@ public class ProjectSteps {
     }
 
     @Then("The error message {string} is given")
-    public void theErrorMessageIsGiven(String errorMessage) {
-        this.errorMessageHolder.setErrorMessage(errorMessage);
-        assertEquals(errorMessage, this.errorMessageHolder.getErrorMessage());
+    public void theErrorMessageIsGiven(String string) {
+
     }
 }

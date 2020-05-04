@@ -3,10 +3,10 @@ Feature: Create a project
   Actors: Developer
 
 # Main scenario
-  Scenario: A developer creates a project
+  Scenario: A developer creates and registers a project
     Given A project with name "Enigma Codebreaker" is created
     When The project is added to the system
-    Then There is a project in the system with name "Enigma Codebreaker"
+    Then the project is registered in the system
 
     #second scenario
   Scenario: The project ID fits the current date

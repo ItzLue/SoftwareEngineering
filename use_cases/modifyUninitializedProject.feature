@@ -5,7 +5,7 @@ Feature: Change project name, dates, and activities in the project
   Background: There is an uninitialized project registered in the system
     Given A project with name "Enigma Codebreaker" is created
     When The project is added to the system
-    Then There is a project in the system with name "Enigma Codebreaker"
+    Then the project is registered in the system
     When there is an activity with name "Coding"
     Then the activity with name "Coding" is added to the project
     And The project has not been initialized
@@ -13,7 +13,7 @@ Feature: Change project name, dates, and activities in the project
 
   Scenario: The project name is changed
     When The name of the project is changed to "Maintenance Work"
-    Then There is a project in the system with name "Maintenance Work"
+    Then There is a project registered in the system with name "Maintenance Work"
 
   Scenario: The interval start date is set and the end date is null
     When The start date of the project is set to year 2020 and week 30

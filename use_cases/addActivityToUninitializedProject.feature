@@ -6,7 +6,7 @@ Feature: Add activities to an uninitialized project
   Background: There is an uninitialized project in the system
     Given A project with name "Enigma Codebreaker" is created
     When The project is added to the system
-    Then There is a project in the system with name "Enigma Codebreaker"
+    Then the project is registered in the system
     And The project with name "Enigma Codebreaker" is uninitialized in the system
 
 

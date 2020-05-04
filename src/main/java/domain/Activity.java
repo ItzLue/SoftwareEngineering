@@ -9,7 +9,7 @@ public class Activity {
     protected double workedHours;
 
     public Activity(String name) {
-        if(name.length() < 1) {
+        if(name.length() > 1) {
             this.name = name;
             this.interval = new Interval();
         } else {

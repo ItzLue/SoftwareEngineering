@@ -31,9 +31,10 @@ public class App {
     }
 
     public void registerActivityToProject(Activity activity, String projectID) {
-        boolean nameExists = false;
-        try{
-            if (projectHM.containsKey(projectID)) {
+        if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper){
+                boolean nameExists = false;
+            try {
+                if (projectHM.containsKey(projectID)) {
 
                     for (Activity a : projectHM.get(projectID).getActivityList()) {
                         if (a.getName().equals(activity.getName())) {
@@ -45,32 +46,36 @@ public class App {
                     } else {
                         throw new IllegalAccessException();
                     }
-            } else{
-                throw new IllegalArgumentException();
-            }
-        }catch (Exception e){
-            if (e instanceof IllegalArgumentException){
-                System.out.println("The project with ID " + projectID + " does not exists");
-            } if (e instanceof IllegalAccessException){
-                System.out.println("Not a valid name");
+                } else {
+                    throw new IllegalArgumentException();
+                }
+            } catch (Exception e) {
+                if (e instanceof IllegalArgumentException) {
+                    System.out.println("The project with ID " + projectID + " does not exists");
+                }
+                if (e instanceof IllegalAccessException) {
+                    System.out.println("Not a valid name");
+                }
             }
         }
     }
 
     public void removeActivityFromProject(Activity activity, String projectID) {
-        int counter = 0;
-        if (projectHM.containsKey(projectID)) {
-            for (Activity a : projectHM.get(projectID).getActivityList()) {
-                if (a.equals(activity)) {
-                    projectHM.get(projectID).getActivityList().remove(a);
-                    counter++;
+        if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper){
+            int counter = 0;
+            if (projectHM.containsKey(projectID)) {
+                for (Activity a : projectHM.get(projectID).getActivityList()) {
+                    if (a.equals(activity)) {
+                        projectHM.get(projectID).getActivityList().remove(a);
+                        counter++;
+                    }
                 }
+                if (counter == 0) {
+                    throw new NullPointerException("The activity does not exist in the project with ID: " + projectID);
+                }
+            } else {
+                throw new NullPointerException("The project with ID: " + projectID + " does not exist");
             }
-            if(counter == 0) {
-                throw new NullPointerException("The activity does not exist in the project with ID: " + projectID);
-            }
-        } else {
-            throw new NullPointerException("The project with ID: " + projectID + " does not exist");
         }
     }
 

@@ -39,13 +39,14 @@ public class SystemSteps {
         assertTrue(developerHelper.getDeveloper().getFirstName() == firstName && developerHelper.getDeveloper().getLastName() == lastName);
     }
 
-    @When("the developer with first name {string} and last name {string} is added to the system")
-    public void theDeveloperWithFirstNameAndLastNameIsAddedToTheSystem(String firstName, String lastName) throws Exception {
+    @When("the developer is added to the system")
+    public void theDeveloperIsAddedToTheSystem() throws Exception {
         app.registerDeveloper(developerHelper.getDeveloper());
     }
 
-    @Then("the developer with first name {string} and last name {string} and appropriate ID is in the system")
-    public void theDeveloperWithFirstNameAndLastNameAndAppropriateIDIsInTheSystem(String string, String string2) {
+
+    @Then("the developer is in the system with an appropriate ID")
+    public void theDeveloperIsInTheSystemWithAnAppropriateID() {
         String testID;
         if (app.getDeveloperHM().size() > 9) {
             testID = developerHelper.getDeveloper().getFirstName().substring(0,2).toUpperCase() + developerHelper.getDeveloper().getLastName().substring(0,2).toUpperCase() + (app.developerHM.size());
@@ -56,6 +57,7 @@ public class SystemSteps {
         assertTrue(testID.equals(developerHelper.getDeveloper().getID()));
         assertTrue(app.getDeveloperHM().containsKey(developerHelper.getDeveloper().getID()));
     }
+
 
     @Given("The following developers are registered in the system")
     public void theFollowingDeveloperSIsAreRegisteredInTheSystem(List<List<String>> developers) {
@@ -73,11 +75,17 @@ public class SystemSteps {
         app.registerProject(projectHelper.getProject());
     }
 
-    @Then("There is a project in the system with name {string}")
-    public void thereIsAProjectInTheSystemWithName(String string) throws Exception{
-        assertTrue(!(app.getProjectHM().isEmpty()));
-        assertTrue(projectHelper.getProject().getName().equals(string));
+    @Then("the project is registered in the system")
+    public void theProjectIsRegisteredInTheSystem() {
+        assertTrue(app.getProjectHM().containsValue(projectHelper.getProject()));
     }
+    @Then("There is a project registered in the system with name {string}")
+    public void thereIsAProjectRegisteredInTheSystemWithName(String string) {
+        assertTrue(projectHelper.getProject().getName().equals(string));
+        assertTrue(app.getProjectHM().containsValue(projectHelper.getProject()));
+    }
+
+
     @Then("The project with name {string} is uninitialized in the system")
     public void theProjectWithNameIsUninitializedInTheSystem(String string) {
         assertFalse(projectHelper.getProject().isInitialized());
@@ -102,15 +110,17 @@ public class SystemSteps {
         assertTrue(app.getActiveDeveloper() == null);
     }
 
-    @When("The developer with first name {string} and last name {string} is set as the active developer")
-    public void theDeveloperWithFirstNameAndLastNameIsSetAsTheActiveDeveloper(String string, String string2) {
-        developerHelper.setDeveloper(new Developer(string,string2));
+    @When("The developer is set as the active developer")
+    public void theDeveloperIsSetAsTheActiveDeveloper() throws Exception{
         app.setActiveDeveloper(developerHelper.getDeveloper());
     }
 
-    @Then("the developer with first name {string} and last name {string} is the active developer")
-    public void theDeveloperWithFirstNameAndLastNameIsTheActiveDeveloper(String string, String string2) {
-        assertEquals(app.getActiveDeveloper().getFirstName(),string);
-        assertEquals(app.getActiveDeveloper().getLastName(),string2);
+
+    @Then("the developer is the active developer")
+    public void theDeveloperIsTheActiveDeveloper() {
+        assertEquals(app.getActiveDeveloper(),developerHelper.getDeveloper());
+
     }
+
+
 }
