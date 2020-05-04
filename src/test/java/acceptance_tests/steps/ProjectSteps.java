@@ -102,7 +102,8 @@ public class ProjectSteps {
     }
 
     @Then("The error message {string} is given")
-    public void theErrorMessageIsGiven(String string) {
-
+    public void theErrorMessageIsGiven(String errorMessage) {
+        this.errorMessageHolder.setErrorMessage(errorMessage);
+        assertEquals(errorMessage, this.errorMessageHolder.getErrorMessage());
     }
 }

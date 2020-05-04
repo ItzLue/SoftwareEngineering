@@ -152,13 +152,13 @@ public class App {
 
     }
 
-    public void setProjectDate(boolean startOrEnd, String projectID, int week, int year) throws IllegalAccessException {
+    public void setProjectDate(boolean startOrEnd, String projectID, int year, int week) throws IllegalAccessException {
         if (projectHM.containsKey(projectID)) {
             if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
                 if (startOrEnd) {
-                    projectHM.get(projectID).setProjectStartDate(week, year);
+                    projectHM.get(projectID).setProjectStartDate(year, week);
                 } else {
-                    projectHM.get(projectID).setProjectEndDate(week, year);
+                    projectHM.get(projectID).setProjectEndDate(year, week);
                 }
             } else {
                 throw new IllegalAccessException("You dont have access");

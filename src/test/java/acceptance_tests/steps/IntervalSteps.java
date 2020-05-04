@@ -31,8 +31,8 @@ public class IntervalSteps {
     }
 
     @When("The start date of the project is set to year {int} and week {int}")
-    public void theStartDateOfTheProjectIsSetToYearAndWeek(int year, int week) {
-        projectHelper.getProject().getInterval().setStartDate(year, week);
+    public void theStartDateOfTheProjectIsSetToYearAndWeek(int year, int week) throws IllegalAccessException {
+        app.setProjectDate(true, projectHelper.getProject().getID(), year, week);
     }
 
     @Then("The project has the starting year {int} and the starting week {int}")
@@ -42,8 +42,8 @@ public class IntervalSteps {
     }
 
     @When("The end date of the project is set to year {int} and week {int}")
-    public void theEndDateOfTheProjectIsSetToYearAndWeek(int year, int week) {
-        projectHelper.getProject().getInterval().setEndDate(year, week);
+    public void theEndDateOfTheProjectIsSetToYearAndWeek(int year, int week) throws IllegalAccessException {
+        app.setProjectDate(false, projectHelper.getProject().getID(), year, week);
     }
 
     @Then("The project has the ending year {int} and the ending week {int}")

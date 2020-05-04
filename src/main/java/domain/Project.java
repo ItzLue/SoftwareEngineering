@@ -99,15 +99,15 @@ public class Project {
         return this.activityList;
     }
 
-    public void setProjectStartDate(int week, int year) {
-        if (!invalidActivityDates(true, week, year)) {
+    public void setProjectStartDate(int year, int week) {
+        if (!invalidActivityDates(true, year, week)) {
             if (getInterval().getEndDate() == null) {
-                    getInterval().setStartDate(week, year);
+                    getInterval().setStartDate(year, week);
             } else {
                 testDate.set(Calendar.YEAR, year);
                 testDate.set(Calendar.WEEK_OF_YEAR, week);
                 if (getInterval().getEndDate().after(testDate)) {
-                    getInterval().setStartDate(week, year);
+                    getInterval().setStartDate(year, week);
                 } else {
                     throw new IllegalArgumentException("Invalid date");
                 }
@@ -117,15 +117,20 @@ public class Project {
         }
     }
 
-    public void setProjectEndDate(int week, int year) {
-        if (!invalidActivityDates(true, week, year)) {
+    public void setProjectEndDate(int year, int week) {
+        if (!invalidActivityDates(false, year, week)) {
             if (getInterval().getStartDate() == null) {
-                getInterval().setEndDate(week, year);
+                getInterval().setEndDate(year, week);
             } else {
-                testDate.set(Calendar.YEAR, year);
-                testDate.set(Calendar.WEEK_OF_YEAR, week);
+                System.out.println("year: " + year);
+                        testDate.set(Calendar.YEAR, year);
+                        testDate.set(Calendar.WEEK_OF_YEAR, week);
+                            boolean bool = getInterval().getStartDate().before(testDate);
+                            System.out.println(bool);
+                        System.out.println("start date: " + getInterval().getStartDate().getTime());
+                        System.out.println("test end date: " + testDate.getTime());
                 if (getInterval().getStartDate().before(testDate)) {
-                    getInterval().setEndDate(week, year);
+                    getInterval().setEndDate(year, week);
                 } else {
                     throw new IllegalArgumentException("Invalid date");
                 }
@@ -135,25 +140,24 @@ public class Project {
         }
     }
     
-    public boolean invalidActivityDates(boolean startOrEnd, int week, int year) {
-        boolean invalid = false;
+    public boolean invalidActivityDates(boolean startOrEnd, int year, int week) {
         testDate.set(Calendar.YEAR, year);
         testDate.set(Calendar.WEEK_OF_YEAR, week);
         if (startOrEnd) {
             for (Activity activity: activityList) {
-                if (activity.getInterval().getStartDate().before(testDate)) {
-                    invalid = true;
+                if (activity.getInterval().getStartDate() != null && activity.getInterval().getStartDate().before(testDate)) {
+                    return true;
                 }
             }
         }
         else {
             for (Activity activity: activityList) {
-                if (activity.getInterval().getEndDate().after(testDate)) {
-                    invalid = true;
+                if (activity.getInterval().getEndDate() != null && activity.getInterval().getEndDate().after(testDate)) {
+                    return true;
                 }
             }
         }
-        return invalid;
+        return false;
     }
 
 //    public Activity getActivity(String activityName) {
