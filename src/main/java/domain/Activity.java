@@ -9,8 +9,12 @@ public class Activity {
     protected double workedHours;
 
     public Activity(String name) {
-        this.name = name;
-        this.interval = new Interval();
+        if(name.matches("^[a-zA-Z]*$")) {
+            this.name = name;
+            this.interval = new Interval();
+        } else {
+            throw new IllegalArgumentException("Activity names can only contain alphabetic letters");
+        }
     }
 
     public Interval getInterval() { return this.interval; }

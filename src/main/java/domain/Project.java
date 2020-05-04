@@ -18,9 +18,14 @@ public class Project {
     protected Calendar testDate = new GregorianCalendar();
 
     public Project(String name) {
-        this.name = name;
-        this.initialized = false;
-        this.interval = new Interval();
+        if(name.matches("^[a-zA-Z]*$")) {
+            this.name = name;
+            this.initialized = false;
+            this.interval = new Interval();
+        } else {
+            throw new IllegalArgumentException("Project names can only contain alphabetic letters");
+        }
+
     }
 
     public boolean activityExists(String activityName) {

@@ -28,7 +28,7 @@ public class Developer {
             this.firstName = firstName;
             this.lastName = lastName;
         } else {
-            throw new IllegalArgumentException("Developer names cannot contain digits");
+            throw new IllegalArgumentException("Developer names can only contain alphabetic letters");
         }
     }
 

@@ -192,14 +192,11 @@ public class UI extends ActionView {
         @Override
         public void executeCustomAction() {
 
-            String name = this.prompt("Enter the name for the activity: ", String.class);
             try {
-                if (name.matches("^[a-zA-Z]*$")) {
-                    String ID = this.prompt("Enter the ID for the project: ", String.class);
-                    app.registerActivityToProject(new Activity(name), ID);
-                } else {
-                    throw new IllegalArgumentException("Activity names can only contain alphabetic letters");
-                }
+                String name = this.prompt("Enter the name for the activity: ", String.class);
+                String ID = this.prompt("Enter the ID for the project: ", String.class);
+                app.registerActivityToProject(new Activity(name), ID);
+
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
@@ -227,9 +224,13 @@ public class UI extends ActionView {
 
         @Override
         public void executeCustomAction() {
-            String name = this.prompt("Please a name for the project: ", String.class);
-            app.registerProject(new Project(name));
-            actionSuccessful();
+            try {
+                String name = this.prompt("Please a name for the project: ", String.class);
+                app.registerProject(new Project(name));
+                actionSuccessful();
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 
