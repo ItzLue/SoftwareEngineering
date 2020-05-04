@@ -180,8 +180,6 @@ public class UI extends ActionView {
             } catch (NullPointerException e) {
                 System.out.println("Not a valid input " + e);
             }
-            //FIXME
-            // Throw exception if invalid input or no input at all
         }
     }
 
@@ -282,20 +280,22 @@ public class UI extends ActionView {
 
     class setIntervalAction extends ActionView {
         public setIntervalAction() {
-            super("Set start end date for a project", "Set start end date for a project");
+            super("Set start date for a project", "Set start date for a project");
         }
 
         @Override
         public void executeCustomAction() {
-            String ID = this.prompt("Enter a valid ID for a project: ", String.class);
-            if (app.getProjectHM().containsKey(ID)) {
-                Interval Start = this.prompt("Enter a start date for project: ", Interval.class);
-                project.setInterval(Start);
+            String ID = this.prompt("Enter ID for project: ",String.class);
+            int week = this.prompt("Enter the week: ", int.class);
+            int year = this.prompt("Enter the year: ", int.class);
+            try {
+                app.setProjectDate(true, ID, week, year);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
             }
         }
     }
 }
-
 
 
 
