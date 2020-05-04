@@ -9,11 +9,11 @@ public class Activity {
     protected double workedHours;
 
     public Activity(String name) {
-        if(name.matches("^[a-zA-Z]*$")) {
+        if(name.length() < 1) {
             this.name = name;
             this.interval = new Interval();
         } else {
-            throw new IllegalArgumentException("Activity names can only contain alphabetic letters");
+            throw new IllegalArgumentException("Activity names must be longer than one letter");
         }
     }
 

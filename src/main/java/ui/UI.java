@@ -63,12 +63,12 @@ public class UI extends ActionView {
      */
     private MenuView getProjectMenu() {
         MenuView projectMenu = new MenuView("Project menu", "Project menu");
-        projectMenu.addMenuItem(new AddProjectLeaderAction());
         projectMenu.addMenuItem(new ShowProjectsAction());
         projectMenu.addMenuItem(new AddProjectAction());
+        projectMenu.addMenuItem(getActivityMenu());
+        projectMenu.addMenuItem(new AddProjectLeaderAction());
         projectMenu.addMenuItem(new setIntervalAction());
         projectMenu.addMenuItem(new ChangeProjectNameAction());
-        projectMenu.addMenuItem(getActivityMenu());
         return projectMenu;
     }
 
@@ -77,7 +77,7 @@ public class UI extends ActionView {
      */
 
     public MenuView getActivityMenu() {
-        MenuView activityMenu = new MenuView("Activity menu", "activity menu");
+        MenuView activityMenu = new MenuView("Activity menu", "Activity menu");
         activityMenu.addMenuItem(new AddActivityAction());
         activityMenu.addMenuItem(new removeActivityFromProjectAction());
         return activityMenu;
@@ -165,7 +165,7 @@ public class UI extends ActionView {
         public void executeCustomAction() throws NullPointerException {
             try {
                 String projectID = this.prompt("Enter the project's ID: ", String.class);
-                if (app.getProjectHM().get(projectID).getProjectLeader() != (null)) {
+                if (app.getProjectHM().get(projectID).getProjectLeader() != null) {
                     boolean confirmed = this.confirmDialog("A project leader already exists for this project. Continue?");
                     if (confirmed) {
                         this.println("Continuing");
@@ -173,12 +173,10 @@ public class UI extends ActionView {
                 }
                 String developerID = this.prompt("Enter the new project leader's ID: ", String.class);
                 app.setProjectLeader(projectID, developerID);
+                this.actionSuccessful();
 
-                if (app.getProjectHM().get(projectID).getProjectLeader().equals(app.getDeveloperHM().get(developerID))) {
-                    this.actionSuccessful();
-                }
             } catch (NullPointerException e) {
-                System.out.println("Not a valid input " + e);
+                System.out.println(e.getMessage());
             }
         }
     }
@@ -196,7 +194,7 @@ public class UI extends ActionView {
                 String name = this.prompt("Enter the name for the activity: ", String.class);
                 String ID = this.prompt("Enter the ID for the project: ", String.class);
                 app.registerActivityToProject(new Activity(name), ID);
-
+                this.actionSuccessful();
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
@@ -267,12 +265,14 @@ public class UI extends ActionView {
         }
 
         public void executeCustomAction() {
+            try {
+                Activity name = this.prompt("Enter activity name: ", Activity.class);
+                String ID = this.prompt("Enter ID of the project: ", String.class);
+                app.removeActivityFromProject(name, ID);
 
-            Activity name = this.prompt("Enter activity name: ", Activity.class);
-
-            String ID = this.prompt("Enter ID of the project: ", String.class);
-
-            app.removeActivityFromProject(name, ID);
+            } catch(NullPointerException e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 
@@ -284,8 +284,8 @@ public class UI extends ActionView {
         @Override
         public void executeCustomAction() {
             String ID = this.prompt("Enter ID for project: ",String.class);
-            int week = this.prompt("Enter the week: ", int.class);
-            int year = this.prompt("Enter the year: ", int.class);
+            int week = this.prompt("Enter the week: ", Integer.class);
+            int year = this.prompt("Enter the year: ", Integer.class);
             try {
                 app.setProjectDate(true, ID, week, year);
             } catch (IllegalAccessException e) {

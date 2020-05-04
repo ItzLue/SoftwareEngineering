@@ -15,15 +15,20 @@ public class Project {
     protected Interval interval;
     private String ID = "";
     protected String name;
+
+    public Calendar getTestDate() {
+        return testDate;
+    }
+
     protected Calendar testDate = new GregorianCalendar();
 
     public Project(String name) {
-        if(name.matches("^[a-zA-Z]*$")) {
+        if(name.length() > 1) {
             this.name = name;
             this.initialized = false;
             this.interval = new Interval();
         } else {
-            throw new IllegalArgumentException("Project names can only contain alphabetic letters");
+            throw new IllegalArgumentException("Project names must be longer than one letter ");
         }
 
     }

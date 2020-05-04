@@ -58,12 +58,19 @@ public class App {
     }
 
     public void removeActivityFromProject(Activity activity, String projectID) {
+        int counter = 0;
         if (projectHM.containsKey(projectID)) {
             for (Activity a : projectHM.get(projectID).getActivityList()) {
                 if (a.equals(activity)) {
                     projectHM.get(projectID).getActivityList().remove(a);
+                    counter++;
                 }
             }
+            if(counter == 0) {
+                throw new NullPointerException("The activity does not exist in the project with ID: " + projectID);
+            }
+        } else {
+            throw new NullPointerException("The project with ID: " + projectID + " does not exist");
         }
     }
 
@@ -92,6 +99,8 @@ public class App {
     public void setProjectLeader(String projectID, String developerID) {
         if (projectHM.containsKey(projectID) && developerHM.containsKey(developerID)) {
             projectHM.get(projectID).setProjectLeader(developerHM.get(developerID));
+        } else {
+            throw new NullPointerException("Incorrect project ID or developer ID");
         }
     }
 
