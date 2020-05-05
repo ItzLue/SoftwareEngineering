@@ -139,9 +139,11 @@ public class App {
     }
 
     public void getProjectValues() {
+
         for (Project project : projectHM.values()) {
             System.out.println(project);
         }
+
     }
 
     public Calendar getDate() {
