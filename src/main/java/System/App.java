@@ -93,7 +93,7 @@ public class App {
         String weekNumber = Integer.toString(getDate().get(Calendar.WEEK_OF_YEAR));
         String year = Integer.toString(getDate().get(Calendar.YEAR)).substring(2);
         String runningNumber = "";
-        if (projectHM.size() > 9) {
+        if (projectHM.size() < 9) {
             runningNumber = "0" + Integer.toString(projectHM.size() + 1);
         } else {
             runningNumber = Integer.toString(projectHM.size() + 1);
