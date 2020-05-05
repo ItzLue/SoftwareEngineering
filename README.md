@@ -4,11 +4,12 @@
 Dette projekt går ud på at lave en program som kan gøre det nemmere for SoftwareHuset A/S. 
 
 ## Guide til programmet 
-Vores prorgram er lavet i et console UI, få at starte programmet skal filen [UI](./src/java/ui/UI.java) køres.
+Vores prorgram er lavet i et console UI, få at starte programmet skal filen [UI](main/java/ui/UI) køres.
 Når programmet startes vil der komme en menu frem hvor man kan vælge mellem "developer menu" eller "project menu". 
 
 
-## Gruppen 
-@JoachimTepe
-@OGummi
-@s194602
+## Gruppe 08
+- Christian Emil Tchernokojev Houmann -- s194602 @194602
+- Joachim Touveneau Petersen -- s194296 @JoachimTepe
+- Regin Steffansson Kunoy -- s183462 @OGummi
+- Loui Nissen-Petersen -- s194294 @ItzLue
