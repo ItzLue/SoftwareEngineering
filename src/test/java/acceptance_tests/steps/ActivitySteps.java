@@ -104,11 +104,7 @@ public class ActivitySteps {
         assertTrue(developerHelper.getDeveloper().getActivityList().contains(activityHelper.getActivity()));
     }
 
-    @When("the activity with name {string} is removed from the project")
-    public void theActivityWithNameIsRemovedFromTheProject(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
+
 
 
 

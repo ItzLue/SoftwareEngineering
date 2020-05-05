@@ -45,6 +45,11 @@ public class ProjectSteps {
     public void theActivityWithNameIsAddedToTheProject(String name) throws IllegalAccessException {
         app.registerActivityToProject(activityHelper.getActivity(), projectHelper.getProject().getID());
     }
+    @When("the activity with name {string} is removed from the project")
+    public void theActivityWithNameIsRemovedFromTheProject(String string) {
+        app.removeActivityFromProject(activityHelper.getActivity(),projectHelper.getProject().getID());
+
+    }
 
     @Then("the activity with name {string} is in the project")
     public void theActivityWithNameIsInTheProject(String name) {

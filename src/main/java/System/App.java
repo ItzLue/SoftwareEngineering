@@ -68,6 +68,9 @@ public class App {
                     if (a.equals(activity)) {
                         projectHM.get(projectID).getActivityList().remove(a);
                         counter++;
+                        if (projectHM.get(projectID).getActivityList().size() == 0) {
+                            break;
+                        }
                     }
                 }
                 if (counter == 0) {
