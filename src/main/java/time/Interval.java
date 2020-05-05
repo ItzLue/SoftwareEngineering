@@ -12,10 +12,16 @@ public class Interval {
     protected Calendar endHour;
 
     public Calendar getEndDate() {
+        if(endDate == null) {
+            return null;
+        }
         return endDate;
     }
 
     public Calendar getStartDate() {
+        if(startDate == null) {
+            return null;
+        }
         return startDate;
     }
 

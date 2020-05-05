@@ -76,24 +76,29 @@ public class Project {
         return name;
     }
 
+    public String getProjectLeaderID() {
+        if(projectLeader == null) {
+            return null;
+        }
+        return projectLeader.getID();
+    }
 
     @Override
     public String toString() {
-//            if (projectLeader != null) {
-//                return "Name:'" + name + '\'' +
-//                        ", ID: '" + ID + '\'' +
-//                        ", Project Leader: " + '\'' + projectLeader.getID() + '\'' +
-//                        ", Start date: " + "Week: " + '\'' + interval.getStartDate().get(Calendar.WEEK_OF_YEAR) + '\'' + ", Year: " +
-//                        '\'' + interval.getStartDate().get(Calendar.YEAR) + '\'' +
-//                        ", Activity list: " + activityList.size();
-//            } else {
+        if(interval.getStartDate() == null) {
                 return "Name:'" + name + '\'' +
                         ", ID: '" + ID + '\'' +
-                        ", Project Leader: " + '\'' + projectLeader + '\'' +
+                        ", Project Leader: " + '\'' + getProjectLeaderID() + '\'' +
+                        ", Start date: not assigned" +
+                        ", Activity list: " + activityList.size();
+            } else {
+                return "Name:'" + name + '\'' +
+                        ", ID: '" + ID + '\'' +
+                        ", Project Leader: " + '\'' + getProjectLeaderID() + '\'' +
                         ", Start date: " + "Week: " + '\'' + interval.getStartDate().get(Calendar.WEEK_OF_YEAR) + '\'' + ", Year: " +
                         '\'' + interval.getStartDate().get(Calendar.YEAR) + '\'' +
                         ", Activity list: " + activityList.size();
-//            }
+            }
     }
 
     public boolean isInitialized() {

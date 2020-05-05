@@ -139,12 +139,11 @@ public class App {
     }
 
     public void getProjectValues() {
-        try {
-            for (Project project : projectHM.values()) {
-                System.out.println(project);
-            }
-        } catch(NullPointerException e) {
+
+        for (Project project : projectHM.values()) {
+            System.out.println(project);
         }
+
     }
 
     public Calendar getDate() {
