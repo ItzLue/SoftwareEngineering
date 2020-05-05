@@ -205,8 +205,26 @@ public class UI extends ActionView {
             }
         }
     }
-    //FIXME
-    // Throw exception if invalid input or no input at all
+
+    class showActivityAction extends ActionView {
+        public showActivityAction() {
+            super("Show activities", "Show activities");
+        }
+
+        @Override
+        public void executeCustomAction() {
+
+            try {
+                String ID = this.prompt("Enter the project ID",String.class);
+                app.getProjectHM().get(ID).getActivityList().toString();
+
+
+
+            } catch (IllegalArgumentException | IllegalAccessException | NullPointerException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
 
 
     class ShowProjectsAction extends ActionView {
@@ -261,7 +279,6 @@ public class UI extends ActionView {
 
         }
     }
-
 
     class removeActivityFromProjectAction extends ActionView {
 
