@@ -91,21 +91,14 @@ class RegisterDeveloper {
         // In a grouped assertion all assertions are executed, and all
         // failures will be reported together.
         app.registerDeveloper(new Developer("Ole","Hansen"));
-        app.registerDeveloper(new Developer("Ole","Hansen"));
-        app.registerDeveloper(new Developer("Ole","Hansen"));
-        app.registerDeveloper(new Developer("Ole","Hansen"));
-        app.registerDeveloper(new Developer("Ole","Hansen"));
-        app.registerDeveloper(new Developer("Ole","Hansen"));
-        app.registerDeveloper(new Developer("Ole","Hansen"));
-        app.registerDeveloper(new Developer("Ole","Hansen"));
-        app.registerDeveloper(new Developer("Ole","Hansen"));
-        app.registerDeveloper(new Developer("Ole","Hansen"));
-        app.registerDeveloper(new Developer("Ole","Hansen"));
-        app.registerDeveloper(new Developer("Ole","Hansen"));
+        app.registerDeveloper(new Developer("Hans","Hansen"));
+        app.registerDeveloper(new Developer("Hans","Hansen"));
+        app.registerDeveloper(new Developer("Hans","Hansen"));
+        app.registerDeveloper(new Developer("Hans","Hansen"));
 
-        assertAll("person",
-                () -> assertEquals("Jane", person.getFirstName()),
-                () -> assertEquals("Doe", person.getLastName())
+        assertAll("developer",
+                () -> assertEquals("Ole",app.getDeveloperHM().get("OLHA01").getFirstName()),
+                () -> assertEquals("Hans", app.getDeveloperHM().get("HAHA02").getFirstName())
         );
     }
 }
