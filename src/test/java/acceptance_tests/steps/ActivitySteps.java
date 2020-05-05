@@ -67,4 +67,30 @@ public class ActivitySteps {
         assertEquals(week, activityHelper.getActivity().getInterval().getEndDate().get(Calendar.WEEK_OF_YEAR));
     }
 
+    @When("the active developer assigns the developer to the activity")
+    public void theDeveloperAssignsTheDeveloperToTheActivity() throws Exception{
+        app.setDeveloperToActivity(activityHelper.getActivity().getName(),projectHelper.getProject().getID(),
+                developerHelper.getDeveloper().getID());
+    }
+
+//    @When("the project leader assigns the developer to the activity")
+//    public void theProjectLeaderAssignsTheDeveloperToTheActivity() throws Exception{
+//        System.out.println("project leader: " + app.getActiveDeveloper());
+//        app.setDeveloperToActivity(activityHelper.getActivity().getName(),projectHelper.getProject().getID(),
+//                developerHelper.getDeveloper().getID());
+//
+//    }
+
+    @Then("the activity has the developer assigned")
+    public void theActivityHasTheDeveloperAssigned() {
+        assertTrue(activityHelper.getActivity().developerHM.containsValue(developerHelper.getDeveloper()));
+    }
+
+    @Then("the developer has the activty on his or hers activity list")
+    public void theDeveloperHasTheActivtyOnHisHersActivityList() {
+        assertTrue(developerHelper.getDeveloper().getActivityList().contains(activityHelper.getActivity()));
+    }
+
+
+
 }

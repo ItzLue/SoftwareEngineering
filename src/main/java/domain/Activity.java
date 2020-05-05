@@ -3,12 +3,15 @@ package domain;
 import time.Interval;
 
 import java.util.Calendar;
+import java.util.HashMap;
 
 public class Activity {
     protected String name;
     protected Interval interval;
     protected double plannedHours;
     protected double workedHours;
+    public HashMap<String, Developer> developerHM = new HashMap<String, Developer>();
+
 
     public Activity(String name) {
         if(name.length() > 1) {
@@ -42,4 +45,10 @@ public class Activity {
 //                ", workedHours=" + workedHours +
                 + "} \n";
     }
+
+    public void addDeveloper(Developer developer) {
+        developerHM.put(developer.getID(),developer);
+    }
+
+
 }

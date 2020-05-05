@@ -199,4 +199,13 @@ public class App {
             throw new NullPointerException("Project doesn't exist");
         }
     }
+    public void setDeveloperToActivity(String activityName,String projectID, String developerID) throws Exception {
+        if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
+            projectHM.get(projectID).getActivity(activityName).addDeveloper(developerHM.get(developerID));
+            developerHM.get(developerID).addActivity(projectHM.get(projectID).getActivity(activityName));
+        }
+        else {
+            throw new IllegalAccessException("You don't have access");
+        }
+    }
 }

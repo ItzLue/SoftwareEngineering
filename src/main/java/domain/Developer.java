@@ -1,9 +1,13 @@
 package domain;
 
+import java.util.ArrayList;
+
 public class Developer {
     protected String firstName;
     protected String lastName;
     protected String ID;
+    protected ArrayList<Activity> activityList = new ArrayList<Activity>();
+
 
 
     public String getLastName() {
@@ -19,6 +23,10 @@ public class Developer {
             return null;
         }
         return ID;
+    }
+
+    public ArrayList<Activity> getActivityList() {
+        return activityList;
     }
 
     public void setID(String ID) {
@@ -39,4 +47,9 @@ public class Developer {
                 ", Last name:'" + lastName + '\'' +
                 ", ID:'" + ID + '\'';
     }
+
+    public void addActivity(Activity activity) {
+        activityList.add(activity);
+    }
+
 }
