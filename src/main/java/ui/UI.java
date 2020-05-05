@@ -1,16 +1,13 @@
 package ui;
 
-import Exceptions.InvalidActivityNameException;
 import System.App;
 import domain.Activity;
 import domain.Developer;
 import domain.Project;
 import io.bretty.console.view.ActionView;
 import io.bretty.console.view.MenuView;
-import time.Interval;
 
 import java.util.InputMismatchException;
-import java.util.regex.Pattern;
 
 public class UI extends ActionView {
     App app = new App();
@@ -182,7 +179,6 @@ public class UI extends ActionView {
         }
     }
 
-
     class AddActivityAction extends ActionView {
         public AddActivityAction() {
             super("Add activity", "Add activity");
@@ -218,7 +214,6 @@ public class UI extends ActionView {
             try {
                 String ID = this.prompt("Enter the project ID",String.class);
                 System.out.println(app.getProjectHM().get(ID).getActivityList().toString());
-
 
             } catch (IllegalArgumentException | NullPointerException e) {
                 System.out.println(e.getMessage());

@@ -119,6 +119,8 @@ public class App {
     public void setActiveDeveloper(String ID) {
         if (developerHM.containsKey(ID)) {
             setActiveDeveloper(developerHM.get(ID));
+        }else {
+            throw new IllegalArgumentException("Invalid ID");
         }
 
     }

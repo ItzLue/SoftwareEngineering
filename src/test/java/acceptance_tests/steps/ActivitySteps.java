@@ -2,16 +2,10 @@ package acceptance_tests.steps;
 
 import System.App;
 import acceptance_tests.helper.*;
-import domain.Activity;
-import domain.Developer;
-import domain.Project;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import java.util.Calendar;
-import java.util.List;
 
 import static org.junit.Assert.*;
 

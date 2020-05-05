@@ -4,7 +4,6 @@ import System.App;
 import acceptance_tests.helper.*;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import time.Interval;
 
 import java.util.Calendar;
 
