@@ -219,11 +219,6 @@ public class UI extends ActionView {
                 String ID = this.prompt("Enter the project ID",String.class);
                 System.out.println(app.getProjectHM().get(ID).getActivityList().toString());
 
-<<<<<<< Updated upstream
-
-
-=======
->>>>>>> Stashed changes
             } catch (IllegalArgumentException | NullPointerException e) {
                 System.out.println(e.getMessage());
             }
