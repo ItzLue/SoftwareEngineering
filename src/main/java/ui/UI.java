@@ -194,8 +194,13 @@ public class UI extends ActionView {
                 String name = this.prompt("Enter the name for the activity: ", String.class);
                 String ID = this.prompt("Enter the ID for the project: ", String.class);
                 app.registerActivityToProject(new Activity(name), ID);
+                int weekPlanned = this.prompt("Enter the start week for this activity: ", Integer.class);
+                int yearPlanned = this.prompt("Enter the start year for this activity: ", Integer.class);
+
+                app.setActivityDate(true,ID,name,yearPlanned,weekPlanned);
                 this.actionSuccessful();
-            } catch (IllegalArgumentException e) {
+
+            } catch (IllegalArgumentException | IllegalAccessException | NullPointerException e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -283,9 +288,10 @@ public class UI extends ActionView {
             int week = this.prompt("Enter the week: ", Integer.class);
             int year = this.prompt("Enter the year: ", Integer.class);
             try {
-                app.setProjectDate(true, ID, week, year);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
+                app.setProjectDate(true, ID, year, week);
+                this.actionSuccessful();
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
         }
     }

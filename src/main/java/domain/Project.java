@@ -20,7 +20,7 @@ public class Project {
         return testDate;
     }
 
-    protected Calendar testDate = new GregorianCalendar();
+    public Calendar testDate = new GregorianCalendar();
 
     public Project(String name) {
         if(name.length() > 1) {
@@ -30,7 +30,6 @@ public class Project {
         } else {
             throw new IllegalArgumentException("Project names must be longer than one letter ");
         }
-
     }
 
     public boolean activityExists(String activityName) {
@@ -83,13 +82,17 @@ public class Project {
         if (projectLeader != null){
             return "Name:'" + name + '\'' +
                     ", ID: '" + ID + '\'' +
-                    ", Project Leader: " + '\'' +projectLeader.getID() + '\'' +
+                    ", Project Leader: " + '\'' + projectLeader.getID() + '\'' +
+                    ", Start date: " + '\'' + "Week: " + interval.getStartDate().get(Calendar.WEEK_OF_YEAR) + " Year: " +
+                    interval.getStartDate().get(Calendar.YEAR) + '\'' +
                     ", Activity list: " + activityList.toString();
         } else {
             return "Name:'" + name + '\'' +
                     ", ID: '" + ID + '\'' +
-                    ", Project Leader: '" + projectLeader + '\'' +
-                    ", Activity list: " + activityList.toString();
+                    ", Project Leader: " + '\'' + projectLeader + '\'' +
+                    ", Start date: " + '\'' + "Week: " + interval.getStartDate().get(Calendar.WEEK_OF_YEAR) + " Year: " +
+                    interval.getStartDate().get(Calendar.YEAR) + '\'' +
+                    ", Activity list: " + activityList;
         }
     }
 

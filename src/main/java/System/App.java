@@ -44,7 +44,7 @@ public class App {
                     if (!nameExists) {
                         projectHM.get(projectID).getActivityList().add(activity);
                     } else {
-                        throw new IllegalAccessException();
+                        throw new IllegalAccessException("Not a valid name");
                     }
                 } else {
                     throw new IllegalArgumentException();
