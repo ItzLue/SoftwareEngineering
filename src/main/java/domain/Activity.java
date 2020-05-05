@@ -2,6 +2,8 @@ package domain;
 
 import time.Interval;
 
+import java.util.Calendar;
+
 public class Activity {
     protected String name;
     protected Interval interval;
@@ -33,6 +35,11 @@ public class Activity {
 
     @Override
     public String toString() {
-        return name;
+    return      "{ name: '" + name + '\'' +
+                ", Start date: " + "Week: " + '\'' + interval.getStartDate().get(Calendar.WEEK_OF_YEAR) + '\'' + ", Year: " +
+                '\'' + interval.getStartDate().get(Calendar.YEAR) + '\''
+//                ", plannedHours=" + plannedHours +
+//                ", workedHours=" + workedHours +
+                + "} \n";
     }
 }

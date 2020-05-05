@@ -177,10 +177,10 @@ public class App {
                     projectHM.get(projectID).setProjectEndDate(year, week);
                 }
             } else {
-                throw new IllegalAccessException("You dont have access");
+                throw new IllegalAccessException("You don't have access");
             }
         } else {
-            throw new NullPointerException("Project doesnt exist");
+            throw new NullPointerException("Project doesn't exist");
         }
     }
 
@@ -193,10 +193,10 @@ public class App {
                     projectHM.get(projectID).setActivityEndDate(activityName, year, week);
                 }
             } else {
-                throw new IllegalAccessException("You dont have access");
+                throw new IllegalAccessException("You don't have access");
             }
         } else {
-            throw new NullPointerException("Project doesnt exist");
+            throw new NullPointerException("Project doesn't exist");
         }
     }
 }

@@ -17,5 +17,3 @@ Feature: the active developer is chosen
   Scenario: A developer is set as the active developer
     When The developer is set as the active developer
     Then the developer is the active developer
-
-

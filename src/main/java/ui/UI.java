@@ -78,6 +78,7 @@ public class UI extends ActionView {
 
     public MenuView getActivityMenu() {
         MenuView activityMenu = new MenuView("Activity menu", "Activity menu");
+        activityMenu.addMenuItem(new showActivityAction());
         activityMenu.addMenuItem(new AddActivityAction());
         activityMenu.addMenuItem(new removeActivityFromProjectAction());
         return activityMenu;
@@ -184,7 +185,7 @@ public class UI extends ActionView {
 
     class AddActivityAction extends ActionView {
         public AddActivityAction() {
-            super("Add activity", "add activity");
+            super("Add activity", "Add activity");
         }
 
         @Override
@@ -216,10 +217,13 @@ public class UI extends ActionView {
 
             try {
                 String ID = this.prompt("Enter the project ID",String.class);
-                app.getProjectHM().get(ID).getActivityList().toString();
+                System.out.println(app.getProjectHM().get(ID).getActivityList().toString());
+
+<<<<<<< Updated upstream
 
 
-
+=======
+>>>>>>> Stashed changes
             } catch (IllegalArgumentException | NullPointerException e) {
                 System.out.println(e.getMessage());
             }
