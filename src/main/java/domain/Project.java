@@ -79,21 +79,21 @@ public class Project {
 
     @Override
     public String toString() {
-        if (projectLeader != null){
-            return "Name:'" + name + '\'' +
-                    ", ID: '" + ID + '\'' +
-                    ", Project Leader: " + '\'' + projectLeader.getID() + '\'' +
-                    ", Start date: " + '\'' + "Week: " + interval.getStartDate().get(Calendar.WEEK_OF_YEAR) + " Year: " +
-                    interval.getStartDate().get(Calendar.YEAR) + '\'' +
-                    ", Activity list: " + activityList.toString();
-        } else {
-            return "Name:'" + name + '\'' +
-                    ", ID: '" + ID + '\'' +
-                    ", Project Leader: " + '\'' + projectLeader + '\'' +
-                    ", Start date: " + '\'' + "Week: " + interval.getStartDate().get(Calendar.WEEK_OF_YEAR) + " Year: " +
-                    interval.getStartDate().get(Calendar.YEAR) + '\'' +
-                    ", Activity list: " + activityList;
-        }
+//            if (projectLeader != null) {
+//                return "Name:'" + name + '\'' +
+//                        ", ID: '" + ID + '\'' +
+//                        ", Project Leader: " + '\'' + projectLeader.getID() + '\'' +
+//                        ", Start date: " + "Week: " + '\'' + interval.getStartDate().get(Calendar.WEEK_OF_YEAR) + '\'' + ", Year: " +
+//                        '\'' + interval.getStartDate().get(Calendar.YEAR) + '\'' +
+//                        ", Activity list: " + activityList.size();
+//            } else {
+                return "Name:'" + name + '\'' +
+                        ", ID: '" + ID + '\'' +
+                        ", Project Leader: " + '\'' + projectLeader + '\'' +
+                        ", Start date: " + "Week: " + '\'' + interval.getStartDate().get(Calendar.WEEK_OF_YEAR) + '\'' + ", Year: " +
+                        '\'' + interval.getStartDate().get(Calendar.YEAR) + '\'' +
+                        ", Activity list: " + activityList.size();
+//            }
     }
 
     public boolean isInitialized() {

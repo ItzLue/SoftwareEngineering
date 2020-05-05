@@ -139,8 +139,11 @@ public class App {
     }
 
     public void getProjectValues() {
-        for (Project project : projectHM.values()) {
-            System.out.println(project);
+        try {
+            for (Project project : projectHM.values()) {
+                System.out.println(project);
+            }
+        } catch(NullPointerException e) {
         }
     }
 
