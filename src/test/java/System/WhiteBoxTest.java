@@ -57,7 +57,7 @@ class WhiteBoxTest {
                     Exception exception = assertThrows(NullPointerException.class, () ->
                             app.getProjectHM().get("20191").getProjectLeader());
                     assertNull(exception.getMessage());
-
+// Test
 
                     // Executed only if the previous assertion is valid.
                     assertAll("name",
