@@ -8,11 +8,12 @@ Feature: Add activities to an uninitialized project
     Given A project with name "Enigma Codebreaker" is created
     And The project is added to the system
     And The project has not been initialized
+    Given there is an activity with name "Coding"
+
 
 
     #first scenario
   Scenario: Activity is added to an uninitialized project
-  Given there is an activity with name "Coding"
   When the activity with name "Coding" is added to the project
   Then the activity with name "Coding" is in the project
 

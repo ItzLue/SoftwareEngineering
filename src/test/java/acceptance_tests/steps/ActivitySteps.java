@@ -68,10 +68,23 @@ public class ActivitySteps {
     }
 
     @When("the active developer assigns the developer to the activity")
-    public void theDeveloperAssignsTheDeveloperToTheActivity() throws Exception{
-        app.setDeveloperToActivity(activityHelper.getActivity().getName(),projectHelper.getProject().getID(),
-                developerHelper.getDeveloper().getID());
+    public void theDeveloperAssignsTheDeveloperToTheActivity() throws IllegalAccessException{
+        try {
+            app.setDeveloperToActivity(activityHelper.getActivity().getName(),projectHelper.getProject().getID(),
+                    developerHelper.getDeveloper().getID());
+        } catch (Exception e) {
+
+        }
+
     }
+
+    @Then("the error message {string} is given")
+    public void theErrorMessageIsGiven(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+
 
 //    @When("the project leader assigns the developer to the activity")
 //    public void theProjectLeaderAssignsTheDeveloperToTheActivity() throws Exception{
@@ -90,6 +103,15 @@ public class ActivitySteps {
     public void theDeveloperHasTheActivtyOnHisHersActivityList() {
         assertTrue(developerHelper.getDeveloper().getActivityList().contains(activityHelper.getActivity()));
     }
+
+    @When("the activity with name {string} is removed from the project")
+    public void theActivityWithNameIsRemovedFromTheProject(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+
+
 
 
 
