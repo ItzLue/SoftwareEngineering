@@ -4,7 +4,7 @@
 Dette projekt går ud på at lave et program som kan gøre det nemmere for SoftwareHuset A/S. 
 
 ## Guide til programmet 
-Vores prorgram er lavet i et console UI, få at starte programmet skal filen [UI](src/main/java/ui/UI.java) køres.
+Vores program er lavet i et console UI, få at starte programmet skal filen [UI](src/main/java/ui/UI.java) køres.
 Når programmet startes vil der komme en menu frem hvor man kan vælge mellem *developer menu* eller *project menu*. 
 
 
