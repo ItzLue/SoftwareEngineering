@@ -38,13 +38,15 @@ public class Activity {
 
     @Override
     public String toString() {
-    return      "{ name: '" + name + '\'' +
+    return      "name: '" + name; /*+ '\'' +
                 ", Start date: " + "Week: " + '\'' + interval.getStartDate().get(Calendar.WEEK_OF_YEAR) + '\'' + ", Year: " +
                 '\'' + interval.getStartDate().get(Calendar.YEAR) + '\''
 //                ", plannedHours=" + plannedHours +
 //                ", workedHours=" + workedHours +
-                + "} \n";
+   */            // + "} \n";
     }
+    //FIXME
+    // - ToString
 
     public void addDeveloper(Developer developer) {
         developerHM.put(developer.getID(),developer);

@@ -16,11 +16,13 @@ public class UI extends ActionView {
     public MenuView activeDeveloperMenu;
     public MenuView projectLeaderMenu;
 
-    public static void main(String[] args) {
+
+
+    public static void main(String[] args) throws Exception {
         new UI("", "");
     }
 
-    public UI(String runningTitle, String nameInParentMenu) {
+    public UI(String runningTitle, String nameInParentMenu) throws Exception {
         super(runningTitle, nameInParentMenu);
 
         MenuView projectMenu = getProjectMenu();
@@ -29,6 +31,12 @@ public class UI extends ActionView {
 
         MenuView activityMenu = getActivityMenu();
 
+        Developer developer = new Developer("Jane","Doe");
+        app.registerDeveloper(developer);
+        app.registerProject(new Project("Minecraft"));
+        app.registerActivityToProject(new Activity("Coding"),"20191");
+        app.setDeveloperToActivity("Coding","20191","JADO01");
+        app.setActiveDeveloper(developer);
 
         MenuView rootMenu = new MenuView("Welcome to SoftwareHuset A/S", "");
         rootMenu.addMenuItem(developerMenu);
@@ -88,6 +96,7 @@ public class UI extends ActionView {
         activeDeveloperMenu = new MenuView("Welcome " + app.getActiveDeveloper().getFirstName(), "");
         activeDeveloperMenu.addMenuItem(getDeveloperMenu());
         activeDeveloperMenu.addMenuItem(getProjectMenu());
+        activeDeveloperMenu.addMenuItem(new showActivityAction());
         this.setParentView(activeDeveloperMenu);
         this.actionSuccessful();
         this.display();
@@ -213,7 +222,8 @@ public class UI extends ActionView {
         public void executeCustomAction() {
 
             try {
-                String ID = this.prompt("Enter the project ID: ",String.class);
+                System.out.println(app.getActiveDeveloper().getActivityList().size());
+                System.out.println(app.getActiveDeveloper().getActivityList().get(0).toString());
 
 
             } catch (IllegalArgumentException | NullPointerException e) {
@@ -301,9 +311,9 @@ public class UI extends ActionView {
         @Override
         public void executeCustomAction() {
             try{
-                String projectID = this.prompt("Enter the ID for the project",String.class);
-                String activityName = this.prompt("Enter name for the activity",String.class);
-                String developerID = this.prompt("Enter ID of the developer",String.class);
+                String projectID = this.prompt("Enter the ID for the project: ",String.class);
+                String activityName = this.prompt("Enter name for the activity: ",String.class);
+                String developerID = this.prompt("Enter ID of the developer: ",String.class);
                 app.setDeveloperToActivity(activityName,projectID,developerID);
             }catch (Exception e){
                 System.out.println(e.getMessage());

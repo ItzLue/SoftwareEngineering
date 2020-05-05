@@ -88,8 +88,6 @@ public class App {
     }
 
     public App() {
-        registerDeveloper(new Developer("Jane","Doe"));
-        registerProject(new Project("Minecraft"));
     }
 
     public String makeProjectID() {
