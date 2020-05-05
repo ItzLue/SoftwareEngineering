@@ -6,28 +6,38 @@ import System.App;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Register Project")
-class RegisterProject {
+public class RegisterProject {
     private final App app = new App();
     private final Developer developer = new Developer("Jane","Doe");
     private final Project project = new Project("Enigma Codebreaker");
 
+
+    // No input
     @Test
     @DisplayName("Test case A")
-    void registerProjectDataSetA() {
-        assertThrows(IllegalArgumentException.class, () -> {
+    public void registerProjectDataSetA() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             app.registerProject(new Project(""));
         });
+        String expectedMessage = "Project names must be longer than one letter";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
     }
 
     @Test
     @DisplayName("Test case B1")
-    void registerProjectDataSetB1() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            app.registerProject(new Project("123"));
+    public void registerProjectDataSetB1() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            app.registerProject(new Project("1"));
         });
+        String expectedMessage = "Project names must be longer than one letter";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
+
     }
 
     @Test
@@ -100,12 +110,5 @@ class RegisterProject {
 //        );
 //    }
 
-//    @Test
-//    void setProjectLeader() {
-//        app.registerDeveloper(developer);
-//        app.registerProject(project);
-//        app.setProjectLeader("20191", "JADO01");
-//        assertEquals("Jane", app.projectHM.get(project.getID()).getProjectLeader().getFirstName());
-//    }
 
 }

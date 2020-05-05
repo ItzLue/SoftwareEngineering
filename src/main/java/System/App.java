@@ -49,12 +49,12 @@ public class App {
                 } else {
                     throw new IllegalArgumentException();
                 }
-            } catch (Exception e) {
+            } catch (IllegalAccessException | IllegalArgumentException e) {
                 if (e instanceof IllegalArgumentException) {
-                    System.out.println("The project with ID " + projectID + " does not exists");
+                    System.out.println(e.getMessage());
                 }
                 if (e instanceof IllegalAccessException) {
-                    System.out.println("Not a valid name");
+                    System.out.println(e.getMessage());
                 }
             }
         }
@@ -85,9 +85,6 @@ public class App {
     public void registerProject(Project project) {
         project.setID(makeProjectID());
         projectHM.put(project.getID(), project);
-    }
-
-    public App() {
     }
 
     public String makeProjectID() {

@@ -1,4 +1,5 @@
 package Junit;
+
 import domain.Developer;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,44 +12,58 @@ class SetActiveDeveloper {
     private final App app = new App();
     private final Developer developer = new Developer("Jane", "Doe");
 
+    // no input
     @Test
     @DisplayName("Test case A")
     void registerDeveloperDataSetA() {
-        assertThrows(IllegalArgumentException.class, () -> {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             app.setActiveDeveloper("");
         });
-
+        String expectedMessage = "Invalid ID";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
     }
 
     @Test
     @DisplayName("Test case B1")
     void registerDeveloperDataSetB1() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            app.setActiveDeveloper("213213123");
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            app.setActiveDeveloper("21387");
         });
+        String expectedMessage = "Invalid ID";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
     }
 
     @Test
     @DisplayName("Test case B2")
     void registerDeveloperDataSetB2() {
-        assertThrows(IllegalArgumentException.class, () -> {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             app.setActiveDeveloper("-112321");
         });
+        String expectedMessage = "Invalid ID";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
     }
+
 
     @Test
     @DisplayName("Test case B3")
     void registerDeveloperDataSetB3() {
-        assertThrows(IllegalArgumentException.class, () -> {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             app.setActiveDeveloper("!¤%%%!½½§§½");
         });
+        String expectedMessage = "Invalid ID";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
+
     }
 
     @Test
     @DisplayName("Test case C")
     void registerDeveloperDataSetC() {
-            app.setActiveDeveloper(developer);
-            assertNotNull(app.getActiveDeveloper());
+        app.setActiveDeveloper(developer);
+        assertNotNull(app.getActiveDeveloper());
 
     }
 }

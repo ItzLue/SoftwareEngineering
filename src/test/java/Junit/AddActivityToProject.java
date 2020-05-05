@@ -7,8 +7,7 @@ import System.App;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Add activity to project")
 public class AddActivityToProject {
@@ -17,7 +16,7 @@ public class AddActivityToProject {
     private final Project project = new Project("Enigma Codebreaker");
     private final Activity activity = new Activity("Coding");
 
-    // Test input for names
+    // No input for names
     @Test
     @DisplayName("Test case A")
     void registerDeveloperDataSetA() {
@@ -26,6 +25,7 @@ public class AddActivityToProject {
         });
     }
 
+    // No input for activity name and wrong project ID
     @Test
     @DisplayName("Test case B1")
     void registerDeveloperDataSetB1() {
@@ -34,65 +34,73 @@ public class AddActivityToProject {
         });
     }
 
+    // Wrong name for activity and no project ID
     @Test
     @DisplayName("Test case B2")
     void registerDeveloperDataSetB2() {
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(NullPointerException.class, () -> {
             app.registerActivityToProject(new Activity("123213"), "");
         });
     }
 
+    // Valid activity and no project ID
     @Test
     @DisplayName("Test case B3")
     void registerDeveloperDataSetB3() {
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(NullPointerException.class, () -> {
             app.registerActivityToProject(activity, "");
         });
     }
 
-    @Test
-    @DisplayName("Test case B4")
-    void registerDeveloperDataSetB4() {
-        app.registerProject(project);
-        assertThrows(IllegalArgumentException.class, () -> {
-            app.registerActivityToProject(activity,project.getID());
-
-        });
-    }
-
+    // Valid project ID and valid activity
     @Test
     @DisplayName("Test case C")
     void registerDeveloperDataSetC() {
         app.registerProject(project);
-        app.registerActivityToProject(activity,project.getID());
-        assertThrows(IllegalArgumentException.class, () -> {
-            app.registerActivityToProject(activity,project.getID());
-        });
+        app.registerActivityToProject(activity, project.getID());
+        assertEquals("name: 'Coding", project.getActivity("Coding").toString());
     }
 
+    // Activity name already exists in project
     @Test
     @DisplayName("Test case D")
     void registerDeveloperDataSetD() {
         app.registerProject(project);
-        app.registerActivityToProject(activity,project.getID());
-        assertThrows(IllegalArgumentException.class, () -> {
-            app.registerActivityToProject(activity,project.getID());
+        app.registerActivityToProject(activity, project.getID());
+
+        Exception exception = assertThrows(IllegalAccessException.class, () ->{
+                app.registerActivityToProject(activity, project.getID());
         });
+        String expectedMessage = "Not a valid name";
+        String actualMessage = exception.getMessage();
+
+        assertTrue(actualMessage.contains(expectedMessage));
+
     }
 
+    // Activity is added correctly and the activity size is 1 at the given project
     @Test
     @DisplayName("Test case E")
     void registerDeveloperDataSetE() {
-       app.registerProject(project);
-       app.registerActivityToProject(activity,project.getID());
-       assertEquals(1,app.getProjectHM().get(project.getID()).getActivityList().size());
+        app.registerProject(project);
+        app.registerActivityToProject(activity, project.getID());
+        assertEquals(1, app.getProjectHM().get(project.getID()).getActivityList().size());
     }
 
+    // Set invalid end date
     @Test
     @DisplayName("Test case F")
-    void registerDeveloperDataSetF() throws Exception {
-    }
+    void registerDeveloperDataSetF() {
+        app.registerProject(project);
+        app.registerActivityToProject(activity, project.getID());
+        Exception exception = assertThrows(IllegalArgumentException.class, ()->{
+            app.setActivityDate(false,project.getID(),activity.getName(),2020,29);
+        });
+        String expectedMessage = "Invalid date";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
 
+    }
 
 
 }
