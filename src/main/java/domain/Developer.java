@@ -1,11 +1,10 @@
 package domain;
 
-import de.vandermeer.asciitable.AsciiTable;
-
 public class Developer {
     protected String firstName;
     protected String lastName;
     protected String ID;
+
 
     public String getLastName() {
         return lastName;
@@ -31,11 +30,10 @@ public class Developer {
             throw new IllegalArgumentException("Developer names must be 2 letters or larger and can only contain alphabetic letters");
         }
     }
-
     @Override
     public String toString() {
-        return "First name='" + firstName + '\'' +
-                ", Last name='" + lastName + '\'' +
-                ", ID='" + ID + '\'';
+        return "First name:'" + firstName + '\'' +
+                ", Last name:'" + lastName + '\'' +
+                ", ID:'" + ID + '\'';
     }
 }

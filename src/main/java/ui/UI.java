@@ -200,9 +200,6 @@ public class UI extends ActionView {
             }
         }
     }
-    //FIXME
-    // Throw exception if invalid input or no input at all
-
 
     class ShowProjectsAction extends ActionView {
         public ShowProjectsAction() {
@@ -256,7 +253,6 @@ public class UI extends ActionView {
 
         }
     }
-
 
     class removeActivityFromProjectAction extends ActionView {
 

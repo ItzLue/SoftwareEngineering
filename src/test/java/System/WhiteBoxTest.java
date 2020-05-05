@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 class WhiteBoxTest {
 

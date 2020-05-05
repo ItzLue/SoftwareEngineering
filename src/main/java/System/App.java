@@ -197,6 +197,4 @@ public class App {
             throw new NullPointerException("Project doesnt exist");
         }
     }
-
-
 }
