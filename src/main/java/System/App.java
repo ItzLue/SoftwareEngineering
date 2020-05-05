@@ -15,9 +15,9 @@ public class App {
     protected HashMap<String, Project> projectHM = new HashMap<String, Project>();
     public DateServer dateServer = new DateServer();
 
-    public void registerDeveloper(Developer developer){
-            developer.setID(makeDeveloperID(developer));
-            developerHM.put(developer.getID(), developer);
+    public void registerDeveloper(Developer developer) {
+        developer.setID(makeDeveloperID(developer));
+        developerHM.put(developer.getID(), developer);
     }
 
     public String makeDeveloperID(Developer developer) {
@@ -31,8 +31,8 @@ public class App {
     }
 
     public void registerActivityToProject(Activity activity, String projectID) {
-        if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper){
-                boolean nameExists = false;
+        if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
+            boolean nameExists = false;
             try {
                 if (projectHM.containsKey(projectID)) {
 
@@ -61,7 +61,7 @@ public class App {
     }
 
     public void removeActivityFromProject(Activity activity, String projectID) {
-        if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper){
+        if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
             int counter = 0;
             if (projectHM.containsKey(projectID)) {
                 for (Activity a : projectHM.get(projectID).getActivityList()) {
@@ -88,8 +88,8 @@ public class App {
     }
 
     public App() {
-//        registerDeveloper(new Developer("Hans","Hansen"));
-//        registerProject(new Project("Minecraft"));
+        registerDeveloper(new Developer("Jane","Doe"));
+        registerProject(new Project("Minecraft"));
     }
 
     public String makeProjectID() {
@@ -119,7 +119,7 @@ public class App {
     public void setActiveDeveloper(String ID) {
         if (developerHM.containsKey(ID)) {
             setActiveDeveloper(developerHM.get(ID));
-        }else {
+        } else {
             throw new IllegalArgumentException("Invalid ID");
         }
 
@@ -170,7 +170,6 @@ public class App {
 
     public void setInterval() {
 
-
     }
 
     public void setProjectDate(boolean startOrEnd, String projectID, int year, int week) throws IllegalAccessException {
@@ -204,12 +203,12 @@ public class App {
             throw new NullPointerException("Project doesn't exist");
         }
     }
-    public void setDeveloperToActivity(String activityName,String projectID, String developerID) throws Exception {
+
+    public void setDeveloperToActivity(String activityName, String projectID, String developerID) throws Exception {
         if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
             projectHM.get(projectID).getActivity(activityName).addDeveloper(developerHM.get(developerID));
             developerHM.get(developerID).addActivity(projectHM.get(projectID).getActivity(activityName));
-        }
-        else {
+        } else {
             throw new IllegalAccessException("You don't have access");
         }
     }

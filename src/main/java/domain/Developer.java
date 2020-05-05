@@ -51,5 +51,4 @@ public class Developer {
     public void addActivity(Activity activity) {
         activityList.add(activity);
     }
-
 }

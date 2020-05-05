@@ -78,6 +78,7 @@ public class UI extends ActionView {
         activityMenu.addMenuItem(new showActivityAction());
         activityMenu.addMenuItem(new AddActivityAction());
         activityMenu.addMenuItem(new removeActivityFromProjectAction());
+        activityMenu.addMenuItem(new addDeveloperToActivityAction());
         return activityMenu;
     }
 
@@ -212,8 +213,8 @@ public class UI extends ActionView {
         public void executeCustomAction() {
 
             try {
-                String ID = this.prompt("Enter the project ID",String.class);
-                System.out.println(app.getProjectHM().get(ID).getActivityList().toString());
+                String ID = this.prompt("Enter the project ID: ",String.class);
+
 
             } catch (IllegalArgumentException | NullPointerException e) {
                 System.out.println(e.getMessage());
@@ -288,6 +289,23 @@ public class UI extends ActionView {
                 app.removeActivityFromProject(name, ID);
 
             } catch(NullPointerException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    class addDeveloperToActivityAction extends ActionView{
+        public addDeveloperToActivityAction(){
+            super("Add developer to activity","Add developer to activity");
+        }
+        @Override
+        public void executeCustomAction() {
+            try{
+                String projectID = this.prompt("Enter the ID for the project",String.class);
+                String activityName = this.prompt("Enter name for the activity",String.class);
+                String developerID = this.prompt("Enter ID of the developer",String.class);
+                app.setDeveloperToActivity(activityName,projectID,developerID);
+            }catch (Exception e){
                 System.out.println(e.getMessage());
             }
         }

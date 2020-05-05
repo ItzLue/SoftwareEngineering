@@ -17,6 +17,7 @@ public class AddActivityToProject {
     private final Project project = new Project("Enigma Codebreaker");
     private final Activity activity = new Activity("Coding");
 
+    // Test input for names
     @Test
     @DisplayName("Test case A")
     void registerDeveloperDataSetA() {
@@ -79,9 +80,6 @@ public class AddActivityToProject {
         });
     }
 
-
-
-
     @Test
     @DisplayName("Test case E")
     void registerDeveloperDataSetE() {
@@ -89,5 +87,12 @@ public class AddActivityToProject {
        app.registerActivityToProject(activity,project.getID());
        assertEquals(1,app.getProjectHM().get(project.getID()).getActivityList().size());
     }
+
+    @Test
+    @DisplayName("Test case F")
+    void registerDeveloperDataSetF() throws Exception {
+    }
+
+
 
 }
