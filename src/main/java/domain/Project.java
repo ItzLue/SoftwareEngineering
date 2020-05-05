@@ -88,7 +88,7 @@ public class Project {
         } else {
             return "Name:'" + name + '\'' +
                     ", ID: '" + ID + '\'' +
-                    ", Project Leader: " + projectLeader + '\'' +
+                    ", Project Leader: '" + projectLeader + '\'' +
                     ", Activity list: " + activityList.toString();
         }
     }

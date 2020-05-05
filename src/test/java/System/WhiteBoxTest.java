@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.runner.JUnitCore;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -33,14 +34,42 @@ class WhiteBoxTest {
         );
     }
 
+
     @Test
     void registerProject() {
-        app.registerProject(project);
+        // Within a code block, if an assertion fails the
+        // subsequent code in the same block will be skipped.
         assertAll("project",
-                () -> assertEquals("20191", app.projectHM.get("20191").getID()),
-                () -> assertEquals("Enigma Coding", app.projectHM.get("20191").getName())
+                () -> {
+                    app.registerProject(project);
+                    assertNotNull(app.getProjectHM().get("20191"));
+
+                    // Executed only if the previous assertion is valid.
+                    assertAll("project name",
+                            () -> assertEquals("20191",app.projectHM.get("20191").getID()),
+                            () -> assertEquals("Enigma Coding", app.projectHM.get("20191").getName())
+                    );
+                },
+                () -> {
+                    // Grouped assertion, so processed independently
+                    // of results of first name assertions.
+                    Developer projectLeader = app.getProjectHM().get("20191").getProjectLeader();
+                    Exception exception = assertThrows(NullPointerException.class, () ->
+                            app.getProjectHM().get("20191").getProjectLeader());
+                    assertNull(exception.getMessage());
+
+
+                    // Executed only if the previous assertion is valid.
+                    assertAll("name",
+                            () -> assertTrue(app.getActiveDeveloper().getFirstName().startsWith("J")),
+                            () -> assertTrue(app.getActiveDeveloper().getLastName().startsWith("D"))
+                    );
+                }
         );
     }
+
+
+
 
 //    @Test
 //    void setProjectLeader() {
