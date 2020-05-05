@@ -57,6 +57,17 @@ public class ProjectSteps {
         }
         assertTrue(nameExists);
     }
+    @Then("the activity with name {string} is not in the project")
+    public void theActivityWithNameIsNotInTheProject(String name) {
+        boolean nameExists = false;
+        for (Activity a : projectHelper.getProject().getActivityList()) {
+            System.out.println("Activity name: " + a.getName());
+            if (a.getName().equals(name)) {
+                nameExists = true;
+            }
+        }
+        assertFalse(nameExists);
+    }
 
 
     @Given("the developer is set as project leader for project with name {string}")
@@ -69,10 +80,9 @@ public class ProjectSteps {
     public void theProjectWithNameHasTheDeveloperWithFirstNameAndLastNameAsProjectLeader(String string, String string2, String string3) {
         assertEquals(projectHelper.getProject().getProjectLeader().getFirstName(),string2);
         assertEquals(projectHelper.getProject().getProjectLeader().getLastName(),string3);
+        assertEquals(projectHelper.getProject().getProjectLeader(),developerHelper.getDeveloper());
 
     }
-
-
 
     @When("the developer with first name {string} and last name {string} is set as project leader for project with name {string}")
     public void theDeveloperWithFirstNameAndLastNameIsSetAsProjectLeaderForProjectWithName(String string, String string2, String string3) throws Exception {
@@ -112,6 +122,16 @@ public class ProjectSteps {
     public void thereIsAnActivityWithName(String string) {
         activityHelper.setActivity(new Activity(string));
     }
+
+    @Given("the project leader is the active user")
+    public void theProjectLeaderIsTheActiveUser() {
+        assertEquals(app.getActiveDeveloper(),developerHelper.getDeveloper());
+    }
+    @Given("the project leader is not the active user")
+    public void theProjectLeaderIsNotTheActiveUser() {
+        assertNotEquals(projectHelper.getProject().getProjectLeader(),app.getActiveDeveloper());
+    }
+
 
     @Then("The error message {string} is given")
     public void theErrorMessageIsGiven(String string) {

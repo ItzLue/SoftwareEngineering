@@ -7,12 +7,14 @@ Feature: Create a project
     Given A project with name "Enigma Codebreaker" is created
     When The project is added to the system
     Then the project is registered in the system
+    And The project ID fits the current date
 
-    #second scenario
-  Scenario: The project ID fits the current date
-    Given A project with name "Enigma Codebreaker" is created
-    Then The project is added to the system
-    Then The project ID fits the current date
+
+#    #second scenario
+#  Scenario: The project ID fits the current date
+#    Given A project with name "Enigma Codebreaker" is created
+#    Then The project is added to the system
+#    Then The project ID fits the current date
 
 
 

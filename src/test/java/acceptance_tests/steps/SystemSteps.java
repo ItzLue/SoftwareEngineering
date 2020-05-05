@@ -103,9 +103,11 @@ public class SystemSteps {
         assertTrue(test.equals(projectHelper.getProject().getID()));
     }
 
-    @When("a developer isn't selected as an active developer")
-    public void aDeveloperIsnTSelectedAsAnActiveDeveloper() {
+    @Then("a developer hasn't been selected as an active developer")
+    public void aDeveloperHasnTBeenSelectedAsAnActiveDeveloper() {
+        assertEquals(app.getActiveDeveloper(),null);
     }
+
 
     @Then("the active developer variable has the value null")
     public void theActiveDeveloperVariableHasTheValueNull() {

@@ -4,11 +4,10 @@ Feature: Change project name, dates, and activities in the project
 
   Background: There is an uninitialized project registered in the system
     Given A project with name "Enigma Codebreaker" is created
-    When The project is added to the system
-    Then the project is registered in the system
-    When there is an activity with name "Coding"
-    Then the activity with name "Coding" is added to the project
+    And The project is added to the system
     And The project has not been initialized
+    Given there is an activity with name "Coding"
+    And the activity with name "Coding" is added to the project
 
 
   Scenario: The project name is changed
