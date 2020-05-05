@@ -220,7 +220,7 @@ public class UI extends ActionView {
 
 
 
-            } catch (IllegalArgumentException | IllegalAccessException | NullPointerException e) {
+            } catch (IllegalArgumentException | NullPointerException e) {
                 System.out.println(e.getMessage());
             }
         }

@@ -1,5 +1,6 @@
 package System;
 
+import domain.Activity;
 import domain.Developer;
 import domain.Project;
 import gherkin.lexer.De;
@@ -29,55 +30,41 @@ class WhiteBoxTest {
     }
 
     @Test
-    void groupedAssertions() {
-        assertAll("developer",
-                () -> assertEquals("Jane", developer.getFirstName()),
-                () -> assertEquals("Doe", developer.getLastName())
-        );
-    }
-
-    @Test
     void registerProject() {
         // Within a code block, if an assertion fails the
         // subsequent code in the same block will be skipped.
-
-
-        assertAll("properties",
+        app.registerDeveloper(developer);
+        app.registerProject(project);
+        String projectID = "20191";
+        String developerID = "JADO01";
+        assertAll("project",
                 () -> {
-                    app.registerDeveloper(developer);
-                    app.registerProject(project);
-                    String projectID = "20191";
-                    String developerID = "JADO01";
+            assertNotNull(app.getProjectHM().get(projectID));
                     assertAll("project properties",
                             () -> assertEquals("20191", app.getProjectHM().get(projectID).getID()),
                             () -> assertEquals("Enigma Coding", app.getProjectHM().get(projectID).getName()),
                             () -> assertNull(app.projectHM.get(projectID).getInterval().getStartDate()),
                             () -> assertEquals(0, app.getProjectHM().get(projectID).getActivityList().size())
                     );
-
                 },
                 () -> {
-
-            assertAll("Register activities");
+            app.registerActivityToProject(new Activity("Coding"),projectID);
+            app.setActivityDate(true,projectID,"Coding",2020,26);
+            assertAll("Register activities",
+                    () -> assertEquals(1,app.getProjectHM().get(projectID).getActivityList().size()),
+                    () -> assertEquals("Coding",app.getProjectHM().get(projectID).getActivity("Coding").toString()),
+                    () -> assertEquals(26,app.getProjectHM().get(projectID).getActivity("Coding").getInterval().getStartDate().get(Calendar.WEEK_OF_YEAR)),
+                    () -> assertEquals(2020,app.getProjectHM().get(projectID).getActivity("Coding").getInterval().getStartDate().get(Calendar.YEAR))
+                    );
+                },
+                () -> {
+                    app.setProjectLeader(projectID,developerID);
+                    assertAll("Set project leader",
+                            ()->assertNotNull(app.getProjectHM().get(projectID).getProjectLeader().getID())
+                    );
                 }
         );
     }
-
-
-//        assertAll("project",
-//                () -> {
-//                    assertNotNull(app.getProjectHM().get("20191"));
-//
-//                    // Executed only if the previous assertion is valid.
-//                    assertAll("project name",
-//                            () -> assertEquals("20191",app.projectHM.get("20191").getID()),
-//                            () -> assertEquals("Enigma Coding", app.projectHM.get("20191").getName()),
-//                            app.getProjectHM().get(projectID).getProjectLeader().getID());
-//                },
-//                assertAll("project leader",
-//                        ()-> assertEquals(developerID,app.projectHM.get(projectID).getProjectLeader().getID()));
-//    }
-
 
     @Test
     void setProjectLeader() {
