@@ -57,11 +57,44 @@ Feature: Change project name, dates, and activities in the project
     When The end date of the activity is set to year 2020 and week 30
     Then The activity has the ending year 2020 and the ending week 30
 
-  Scenario: The activity start date is set and the start date is not null
+  Scenario: The activity start date is set and the end date is not null
+    When The end date of the activity is set to year 2020 and week 32
+    Then The activity has the ending year 2020 and the ending week 32
+    When The start date of the activity is set to year 2020 and week 30
+    Then The activity has the starting year 2020 and the starting week 30
+
+  Scenario: The activity end date is set and the start date is not null
+    When The start date of the activity is set to year 2020 and week 30
+    Then The activity has the starting year 2020 and the starting week 30
+    When The end date of the activity is set to year 2020 and week 35
+    Then The activity has the ending year 2020 and the ending week 35
+
+  Scenario: The activity start date is set and the project start date is not null
     When The start date of the project is set to year 2020 and week 30
     Then The project has the starting year 2020 and the starting week 30
     When The start date of the activity is set to year 2020 and week 30
     Then The activity has the starting year 2020 and the starting week 30
+
+  Scenario: The activity end date is set and the project end date is not null
+    When The end date of the project is set to year 2020 and week 35
+    Then The project has the ending year 2020 and the ending week 35
+    When The end date of the activity is set to year 2020 and week 35
+    Then The activity has the ending year 2020 and the ending week 35
+
+  Scenario: An invalid activity start date is set
+    When The end date of the activity is set to year 2020 and week 32
+    Then The activity has the ending year 2020 and the ending week 32
+    Then An exception is expected
+    When The start date of the activity is set to year 2020 and week 34
+    Then An exception is given
+
+  Scenario: An invalid activity end date is set
+    When The start date of the activity is set to year 2020 and week 32
+    Then The activity has the starting year 2020 and the starting week 32
+    Then An exception is expected
+    When The end date of the activity is set to year 2020 and week 31
+    Then An exception is given
+
 
 #  Scenario: The interval end date is set and then the start date is set to after the end date
 #    When The end date of the project is set to year 2020 and week 35

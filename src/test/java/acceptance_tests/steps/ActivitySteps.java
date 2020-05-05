@@ -37,7 +37,12 @@ public class ActivitySteps {
 
     @When("The start date of the activity is set to year {int} and week {int}")
     public void theStartDateOfTheActivityIsSetToYearAndWeek(int year, int week) throws IllegalAccessException {
-        app.setActivityDate(true, projectHelper.getProject().getID(), activityHelper.getActivity().getName(), year, week);
+        try {
+            app.setActivityDate(true, projectHelper.getProject().getID(), activityHelper.getActivity().getName(), year, week);
+        } catch (RuntimeException e) {
+            exceptionHandler.add(e);
+        }
+
     }
 
     @Then("The activity has the starting year {int} and the starting week {int}")
@@ -48,7 +53,12 @@ public class ActivitySteps {
 
     @When("The end date of the activity is set to year {int} and week {int}")
     public void theEndDateOfTheActivityIsSetToYearAndWeek(int year, int week) throws IllegalAccessException {
-        app.setActivityDate(false, projectHelper.getProject().getID(), activityHelper.getActivity().getName(), year, week);
+        try {
+            app.setActivityDate(false, projectHelper.getProject().getID(), activityHelper.getActivity().getName(), year, week);
+        } catch (RuntimeException e) {
+            exceptionHandler.add(e);
+        }
+
     }
 
     @Then("The activity has the ending year {int} and the ending week {int}")
