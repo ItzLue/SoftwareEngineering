@@ -34,8 +34,11 @@ public class UI extends ActionView {
         Developer developer = new Developer("Jane","Doe");
         app.registerDeveloper(developer);
         app.registerProject(new Project("Minecraft"));
-        app.registerActivityToProject(new Activity("Coding"),"20191");
-        app.setDeveloperToActivity("Coding","20191","JADO01");
+        app.registerActivityToProject(new Activity("backend"),"20191");
+        app.setActivityDate(true,"20191","backend",2020,26);
+        app.registerActivityToProject(new Activity("frontend"),"20191");
+        app.setActivityDate(true,"20191","frontend",2020,27);
+//        app.setDeveloperToActivity("Coding","20191","JADO01");
         app.setActiveDeveloper(developer);
 
         MenuView rootMenu = new MenuView("Welcome to SoftwareHuset A/S", "");
@@ -111,7 +114,7 @@ public class UI extends ActionView {
         public void executeCustomAction() throws NullPointerException {
             try {
                 setActiveDeveloperMenu();
-            } catch (NullPointerException e) {
+            } catch (IllegalArgumentException e) {
                 System.out.println("Not a valid ID");
             }
         }
@@ -223,7 +226,7 @@ public class UI extends ActionView {
 
             try {
                 System.out.println(app.getActiveDeveloper().getActivityList().size());
-                System.out.println(app.getActiveDeveloper().getActivityList().get(0).toString());
+                System.out.println(app.getActiveDeveloper().getActivityList().toString());
 
 
             } catch (IllegalArgumentException | NullPointerException e) {
@@ -315,6 +318,7 @@ public class UI extends ActionView {
                 String activityName = this.prompt("Enter name for the activity: ",String.class);
                 String developerID = this.prompt("Enter ID of the developer: ",String.class);
                 app.setDeveloperToActivity(activityName,projectID,developerID);
+                this.actionSuccessful();
             }catch (Exception e){
                 System.out.println(e.getMessage());
             }

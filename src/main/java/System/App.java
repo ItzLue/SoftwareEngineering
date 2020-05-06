@@ -39,6 +39,7 @@ public class App {
                     for (Activity a : projectHM.get(projectID).getActivityList()) {
                         if (a.getName().equals(activity.getName())) {
                             nameExists = true;
+                            break;
                         }
                     }
                     if (!nameExists) {
@@ -90,7 +91,7 @@ public class App {
     public String makeProjectID() {
         String weekNumber = Integer.toString(getDate().get(Calendar.WEEK_OF_YEAR));
         String year = Integer.toString(getDate().get(Calendar.YEAR)).substring(2);
-        String runningNumber = "";
+        String runningNumber;
         if (projectHM.size() > 9) {
             runningNumber = "0" + Integer.toString(projectHM.size() + 1);
         } else {
@@ -143,7 +144,6 @@ public class App {
         for (Project project : projectHM.values()) {
             System.out.println(project);
         }
-
     }
 
     public Calendar getDate() {
