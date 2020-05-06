@@ -56,7 +56,6 @@ class SetActiveDeveloper {
         String expectedMessage = "Invalid ID";
         String actualMessage = exception.getMessage();
         assertTrue(actualMessage.contains(expectedMessage));
-
     }
 
     @Test
@@ -64,6 +63,13 @@ class SetActiveDeveloper {
     void registerDeveloperDataSetC() {
         app.setActiveDeveloper(developer);
         assertNotNull(app.getActiveDeveloper());
+    }
 
+    @Test
+    @DisplayName("Test case D")
+    void registerDeveloperDataSetD() {
+        app.registerDeveloper(developer);
+        app.setActiveDeveloper(developer.getID());
+        assertEquals(developer.getID(), app.getActiveDeveloper().getID());
     }
 }

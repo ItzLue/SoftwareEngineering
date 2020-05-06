@@ -1,11 +1,15 @@
 package Junit;
 
+import com.jparams.verifier.tostring.NameStyle;
+import com.jparams.verifier.tostring.ToStringVerifier;
 import domain.Activity;
 import domain.Developer;
 import domain.Project;
 import System.App;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.util.Calendar;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -63,13 +67,12 @@ public class AddActivityToProject {
 
     // Activity name already exists in project
     @Test
-    @DisplayName("Test case D")
-    void registerDeveloperDataSetD() {
+    @DisplayName("Test case D1")
+    void registerDeveloperDataSetD1() {
         app.registerProject(project);
         app.registerActivityToProject(activity, project.getID());
-
-        Exception exception = assertThrows(IllegalAccessException.class, () ->{
-                app.registerActivityToProject(activity, project.getID());
+        Exception exception = assertThrows(IllegalAccessException.class, () -> {
+            app.registerActivityToProject(activity, project.getID());
         });
         String expectedMessage = "Not a valid name";
         String actualMessage = exception.getMessage();
@@ -77,6 +80,22 @@ public class AddActivityToProject {
         assertTrue(actualMessage.contains(expectedMessage));
 
     }
+
+    // Activity with same name is not in project
+    @Test
+    @DisplayName("Test case D2")
+    void registerDeveloperDataSetD2() {
+        assertFalse(project.activityExists(activity.getName()));
+    }
+
+    // Add activity to project
+    @Test
+    @DisplayName("Test case D3")
+    void registerDeveloperDataSetD3() {
+        project.addActivity(activity);
+
+    }
+
 
     // Activity is added correctly and the activity size is 1 at the given project
     @Test
@@ -93,8 +112,8 @@ public class AddActivityToProject {
     void registerDeveloperDataSetF() {
         app.registerProject(project);
         app.registerActivityToProject(activity, project.getID());
-        Exception exception = assertThrows(IllegalArgumentException.class, ()->{
-            app.setActivityDate(false,project.getID(),activity.getName(),2020,29);
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            app.setActivityDate(false, project.getID(), activity.getName(), 2020, 29);
         });
         String expectedMessage = "Invalid date";
         String actualMessage = exception.getMessage();
@@ -102,5 +121,29 @@ public class AddActivityToProject {
 
     }
 
+    // No activities
+    @Test
+    @DisplayName("Test case G")
+    void registerDeveloperDataSetDG() {
+        assertNull(project.getActivity(activity.getName()));
+    }
 
+    // No project leader
+    @Test
+    @DisplayName("Test case H1")
+    void registerDeveloperDataSetH1() {
+
+        String expectedMessage = "Name:'" + project.getName() + '\'' +
+                ", ID: '" + project.getID() + '\'' +
+                ", Project Leader: " + '\'' +
+                null + '\''
+                + ", Start date: " + '\'' +
+                "Week: " + null +
+                " Year: " +
+                null +
+                '\'' +
+                ", Activity list:";
+        String actualMessage = project.toString();
+        assertTrue(actualMessage.contains(expectedMessage));
+    }
 }

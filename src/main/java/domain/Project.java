@@ -112,9 +112,9 @@ public class Project {
         return this.interval;
     }
 
-    public void setInterval(Interval interval) {
-        this.interval = interval;
-    }
+//    public void setInterval(Interval interval) {
+//        this.interval = interval;
+//    }
 
     public ArrayList<Activity> getActivityList() {
         return this.activityList;

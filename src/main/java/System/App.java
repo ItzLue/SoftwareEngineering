@@ -140,7 +140,6 @@ public class App {
     }
 
     public void getProjectValues() {
-
         for (Project project : projectHM.values()) {
             System.out.println(project);
         }
@@ -163,9 +162,9 @@ public class App {
         }
     }
 
-    public void setInterval() {
-
-    }
+//    public void setInterval() {
+//
+//    }
 
     public void setProjectDate(boolean startOrEnd, String projectID, int year, int week) throws IllegalAccessException {
         if (projectHM.containsKey(projectID)) {

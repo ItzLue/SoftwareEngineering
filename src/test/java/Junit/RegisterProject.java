@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("Register Project")
 public class RegisterProject {
     private final App app = new App();
-    private final Developer developer = new Developer("Jane","Doe");
+    private final Developer developer = new Developer("Jane", "Doe");
     private final Project project = new Project("Enigma Codebreaker");
 
 
@@ -52,7 +52,7 @@ public class RegisterProject {
     @DisplayName("Test case C")
     void registerDeveloperDataSetC() {
         app.registerProject(project);
-        assertEquals(0,app.getProjectHM().get(project.getID()).getActivityList().size());
+        assertEquals(0, app.getProjectHM().get(project.getID()).getActivityList().size());
     }
 
     @Test
@@ -63,6 +63,26 @@ public class RegisterProject {
         assertEquals("20191", projectID);
         assertEquals("Enigma Codebreaker", app.getProjectHM().get(projectID).getName());
     }
+
+    // Change project name
+    @Test
+    @DisplayName("Test case E")
+    void registerDeveloperDataSetE() {
+        app.registerProject(project);
+        assertAll("make project",
+                () -> {
+                    assertEquals("Enigma Codebreaker", app.getProjectHM().get("20191").getName());
+                    app.setProjectName("20191", "Minecraft");
+                    assertAll("Change name",
+                            () -> assertEquals("Minecraft", app.getProjectHM().get("20191").getName()),
+                            () -> assertEquals("20191", app.getProjectHM().get("20191").getID())
+                    );
+                }
+        );
+    }
+}
+
+
 
     /*
     Project tests
@@ -110,5 +130,3 @@ public class RegisterProject {
 //        );
 //    }
 
-
-}

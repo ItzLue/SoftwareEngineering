@@ -8,8 +8,8 @@ import java.util.HashMap;
 public class Activity {
     protected String name;
     protected Interval interval;
-    protected double plannedHours;
-    protected double workedHours;
+//    protected double plannedHours;
+//    protected double workedHours;
     public HashMap<String, Developer> developerHM = new HashMap<String, Developer>();
 
 
@@ -24,13 +24,13 @@ public class Activity {
 
     public Interval getInterval() { return this.interval; }
 
-    public double getPlannedHours() {
-        return this.plannedHours;
-    }
+//    public double getPlannedHours() {
+//        return this.plannedHours;
+//    }
 
-    public void setPlannedHours(double hours) {
-        this.plannedHours = hours;
-    }
+//    public void setPlannedHours(double hours) {
+//        this.plannedHours = hours;
+//    }
 
     public String getName() {
         return name;
