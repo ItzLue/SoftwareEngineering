@@ -63,8 +63,8 @@ public class App {
     }
 
     public void setWorkedHoursForActivity(String activityName, String projectID, double hours) throws IllegalAccessException {
-        if (projectHM.get(projectID).getActivity(activityName).developerHM.containsKey(activeDeveloper.getID())){
-            developerHM.get(activeDeveloper.getID()).setWorkedHours(hours,activeDeveloper.getActivity(activityName));
+        if (projectHM.get(projectID).getActivity(activityName).developerHM.containsKey(activeDeveloper.getID())) {
+            developerHM.get(activeDeveloper.getID()).setWorkedHours(hours, activeDeveloper.getActivity(activityName));
         } else {
             throw new IllegalAccessException("You dont have access");
         }
@@ -133,12 +133,11 @@ public class App {
     /*
     Activity
      */
-    public void registerActivityToProject(Activity activity, String projectID) {
-        if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
+    public void registerActivityToProject(Activity activity, String projectID) throws IllegalAccessException {
+        if (projectHM.containsKey(projectID)) {
             boolean nameExists = false;
             try {
-                if (projectHM.containsKey(projectID)) {
-
+                if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
                     for (Activity a : projectHM.get(projectID).getActivityList()) {
                         if (a.getName().equals(activity.getName())) {
                             nameExists = true;
@@ -148,19 +147,16 @@ public class App {
                     if (!nameExists) {
                         projectHM.get(projectID).getActivityList().add(activity);
                     } else {
-                        throw new IllegalAccessException("Not a valid name");
+                        throw new IllegalArgumentException("Not a valid name");
                     }
                 } else {
                     throw new IllegalArgumentException("Project does not exist");
                 }
-            } catch (IllegalAccessException | IllegalArgumentException e) {
-                if (e instanceof IllegalArgumentException) {
-                    System.out.println(e.getMessage());
-                }
-                if (e instanceof IllegalAccessException) {
-                    System.out.println(e.getMessage());
-                }
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
             }
+        } else {
+            throw new NullPointerException("Project does not exist");
         }
     }
 
@@ -211,10 +207,10 @@ public class App {
         }
     }
 
-    public void setPlannedHoursForActivity(String activityName,String projectID, double hours) throws IllegalAccessException {
+    public void setPlannedHoursForActivity(String activityName, String projectID, double hours) throws IllegalAccessException {
         if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
             projectHM.get(projectID).getActivity(activityName).setPlannedHours(hours);
-        }else {
+        } else {
             throw new IllegalAccessException("You don't have access");
         }
     }
@@ -223,13 +219,15 @@ public class App {
         if (projectHM.get(projectID).getActivity(activityName).getPlannedHours() == 0) {
             //something
         } else {
-           return projectHM.get(projectID).getActivity(activityName).getPlannedHours();
+            return projectHM.get(projectID).getActivity(activityName).getPlannedHours();
         }
         return 0;
     }
+
     public Calendar getDate() {
         return dateServer.getDate();
     }
+
     public void setDateServer(DateServer dateServer) {
         this.dateServer = dateServer;
     }

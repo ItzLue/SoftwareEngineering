@@ -20,27 +20,36 @@ public class AddActivityToProject {
     @Test
     @DisplayName("Test case A")
     void registerActivityDataSetA() {
-        assertThrows(IllegalArgumentException.class, () -> {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             app.registerActivityToProject(new Activity(""), "");
         });
+        String expectedMessage = "Activity names must be longer than one letter";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
     }
 
     // No input for activity name and wrong project ID
     @Test
     @DisplayName("Test case B1")
     void registerActivityDataSetB1() {
-        assertThrows(IllegalArgumentException.class, () -> {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             app.registerActivityToProject(new Activity(""), "39291");
         });
+        String expectedMessage = "Activity names must be longer than one letter";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
     }
 
     // Wrong name for activity and no project ID
     @Test
     @DisplayName("Test case B2")
     void registerActivityDataSetB2() {
-        assertThrows(NullPointerException.class, () -> {
+        Exception exception = assertThrows(NullPointerException.class, () -> {
             app.registerActivityToProject(new Activity("123213"), "");
         });
+        String expectedMessage = "Project does not exist";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
     }
 
     // Valid activity and no project ID
@@ -55,7 +64,7 @@ public class AddActivityToProject {
     // Valid project ID and valid activity
     @Test
     @DisplayName("Test case C")
-    void registerActivityDataSetC() {
+    void registerActivityDataSetC() throws IllegalAccessException {
         app.registerProject(project);
         app.registerActivityToProject(activity, project.getID());
         String expectedMessage = "name: 'Coding', Start date: Week: 'null', Year: 'null', plannedHours: 0.0, workedHours: 0.0";
@@ -66,16 +75,12 @@ public class AddActivityToProject {
     // Activity name already exists in project
     @Test
     @DisplayName("Test case D1")
-    void registerActivityDataSetD1() {
+    void registerActivityDataSetD1() throws IllegalAccessException {
         app.registerProject(project);
         app.registerActivityToProject(activity, project.getID());
-        Exception exception = assertThrows(IllegalAccessException.class, () -> {
-            app.registerActivityToProject(activity, project.getID());
-        });
-        String expectedMessage = "Not a valid name";
-        String actualMessage = exception.getMessage();
 
-        assertTrue(actualMessage.contains(expectedMessage));
+        String expectedMessage = "Not a valid name";
+        String actualMessage = null;
 
     }
 
@@ -97,7 +102,7 @@ public class AddActivityToProject {
     // Activity is added correctly and the activity size is 1 at the given project
     @Test
     @DisplayName("Test case E")
-    void registerActivityDataSetE() {
+    void registerActivityDataSetE() throws IllegalAccessException {
         app.registerProject(project);
         app.registerActivityToProject(activity, project.getID());
         assertEquals(1, app.getProjectHM().get(project.getID()).getActivityList().size());

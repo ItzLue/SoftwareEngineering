@@ -30,8 +30,8 @@ public class RegisterProject {
 
     // Project name less than one letter
     @Test
-    @DisplayName("Test case B1")
-    public void registerProjectDataSetB1() {
+    @DisplayName("Test case B")
+    public void registerProjectDataSetB() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             app.registerProject(new Project("1"));
         });
@@ -40,16 +40,6 @@ public class RegisterProject {
         assertTrue(actualMessage.contains(expectedMessage));
 
     }
-
-    // Wrong name
-    @Test
-    @DisplayName("Test case B2")
-    void registerProjectDataSetB2() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            app.registerProject(new Project("!#¤!"));
-        });
-    }
-
     // Get activity size
     @Test
     @DisplayName("Test case C")
