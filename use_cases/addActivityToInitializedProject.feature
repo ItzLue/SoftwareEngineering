@@ -27,4 +27,4 @@ Feature: Add activities to an initialized project
     When The developer is set as the active developer
     Given the project leader is not the active user
     When the activity with name "Coding" is added to the project
-    Then the activity with name "Coding" is not in the project
+    Then an error message "Only the project leader has access to add activities when the project is initialized" is given

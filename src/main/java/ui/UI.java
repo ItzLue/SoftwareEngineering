@@ -157,9 +157,9 @@ public class UI extends ActionView {
             } catch (NullPointerException e) {
                 System.out.println("No developers here " + e);
             }
-
         }
     }
+
     class showActivitiesAction extends ActionView {
         public showActivitiesAction() {
             super("Show activities", "Show activities");
@@ -187,19 +187,15 @@ public class UI extends ActionView {
         }
 
         public void executeCustomAction() {
-
-            String activityName = this.prompt("Enter the activity: ", String.class);
-            String projectID = this.prompt("Enter project ID: ", String.class);
-            double hours = this.prompt("How many hours have you worked? ", Double.class);
-
             try {
+                String activityName = this.prompt("Enter the activity: ", String.class);
+                String projectID = this.prompt("Enter project ID: ", String.class);
+                double hours = this.prompt("How many hours have you worked? ", Double.class);
                 app.setWorkedHoursForActivity(activityName, projectID, hours);
                 this.actionSuccessful();
-            } catch (IllegalAccessException e) {
+            } catch (IllegalAccessException | NullPointerException e) {
                 e.getMessage();
             }
-
-
         }
     }
 
