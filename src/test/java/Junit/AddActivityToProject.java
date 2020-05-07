@@ -1,15 +1,11 @@
 package Junit;
 
-import com.jparams.verifier.tostring.NameStyle;
-import com.jparams.verifier.tostring.ToStringVerifier;
 import domain.Activity;
 import domain.Developer;
 import domain.Project;
 import System.App;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import java.util.Calendar;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -106,21 +102,6 @@ public class AddActivityToProject {
         assertEquals(1, app.getProjectHM().get(project.getID()).getActivityList().size());
     }
 
-    // Set invalid end date
-    @Test
-    @DisplayName("Test case F")
-    void registerActivityDataSetF() {
-        app.registerProject(project);
-        app.registerActivityToProject(activity, project.getID());
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            app.setActivityDate(false, project.getID(), activity.getName(), 2020, 29);
-        });
-        String expectedMessage = "Invalid date";
-        String actualMessage = exception.getMessage();
-        assertTrue(actualMessage.contains(expectedMessage));
-
-    }
-
     // No activities
     @Test
     @DisplayName("Test case G")
@@ -149,25 +130,42 @@ public class AddActivityToProject {
     @DisplayName("Test case I1")
     void registerActivityDataSetI1() throws IllegalAccessException {
         app.registerProject(project);
+        app.registerDeveloper(developer);
         app.registerActivityToProject(activity,project.getID());
-        app.setActivityDate(true,project.getID(),activity.getName(),2020,29);
-        app.getProjectHM().get(project.getID()).getActivity(activity.getName()).setPlannedHours(20.0);
-        double plannedHours = activity.getPlannedHours();
-        assertEquals(20.0,plannedHours);
+        app.getProjectHM().get(project.getID()).getActivity(activity.getName()).addDeveloper(developer);
+        app.setPlannedHoursForActivity(activity.getName(),project.getID(),50);
+
+        assertEquals(50,app.getPlannedHoursForActivity(activity.getName(),project.getID()));
     }
     // Set worked hours
     @Test
     @DisplayName("Test case I2")
     void registerActivityDataSetI2() throws IllegalAccessException {
+        app.registerProject(project);
+        app.registerDeveloper(developer);
+        app.registerActivityToProject(activity,project.getID());
+        app.getProjectHM().get(project.getID()).getActivity(activity.getName()).addDeveloper(developer);
+        app.setPlannedHoursForActivity(activity.getName(),project.getID(),50);
+        app.setActiveDeveloper(developer.getID());
+        app.setWorkedHoursForActivity(activity.getName(),project.getID(),20);
+        assertEquals(20,app.getProjectHM().get(project.getID()).getActivity(activity.getName()).getWorkedHours());
 
+    }
+
+    //
+    @Test
+    @DisplayName("Test case I3")
+    void registerActivityDataSetI3() throws IllegalAccessException {
         app.registerProject(project);
         app.registerDeveloper(developer);
         app.registerActivityToProject(activity,project.getID());
         app.getProjectHM().get(project.getID()).getActivity(activity.getName()).addDeveloper(developer);
         app.getProjectHM().get(project.getID()).getActivity(activity.getName()).setPlannedHours(20);
-        developer.setWorkHours(10);
-        app.setWorkHoursForActivity(developer.getID(),activity.getName(),project.getID(),developer.getWorkHours());
+//        developer.setWorkedHours(10);
+//        app.setWorkedHoursForActivity(developer.getID(),activity.getName(),project.getID(),developer.getWorkHours());
         assertEquals(10,app.getProjectHM().get(project.getID()).getActivity(activity.getName()).getWorkedHours());
     }
+
+
 
 }

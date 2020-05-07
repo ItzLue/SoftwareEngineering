@@ -24,15 +24,16 @@ public class Developer {
         return ID;
     }
 
-    public void setWorkHours(double workHours) {
+    public void setWorkedHours(double workHours, Activity activity) throws IllegalAccessException {
         if (workHours >= 0.5){
             this.workHours = workHours;
+            activity.setWorkedHours(workHours);
         }else {
             throw new IllegalArgumentException("Please provide a valid input");
         }
     }
 
-    public double getWorkHours() {
+    public double getWorkedHours() {
         return workHours;
     }
 
@@ -57,6 +58,15 @@ public class Developer {
         return "First name:'" + firstName + '\'' +
                 ", Last name:'" + lastName + '\'' +
                 ", ID:'" + ID + '\'';
+    }
+
+    public Activity getActivity(String activityName) {
+        for (Activity activity: activityList) {
+            if (activityName.equals(activity.getName())) {
+                return activity;
+            }
+        }
+        return null;
     }
 
     public void addActivity(Activity activity) {

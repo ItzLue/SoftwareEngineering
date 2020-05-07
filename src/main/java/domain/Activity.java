@@ -33,10 +33,11 @@ public class Activity {
     }
 
     public void setWorkedHours(double workedHours) throws IllegalAccessException {
-        if (workedHours < plannedHours){
-            this.workedHours = workedHours;
+        if (workedHours + this.workedHours <= plannedHours){
+            this.workedHours += workedHours;
         } else {
-            throw new IllegalAccessException("Worked hours cannot be greater than" + getPlannedHours());
+            this.workedHours += workedHours;
+            System.out.println("Planned hours have been exceeded by " + (workedHours - plannedHours) );
         }
     }
 
@@ -62,7 +63,6 @@ public class Activity {
 
     public void addDeveloper(Developer developer) {
         developerHM.put(developer.getID(),developer);
+        developer.addActivity(this);
     }
-
-
 }

@@ -79,30 +79,6 @@ public class Project {
     }
 
 
-    @Override
-    public String toString() {
-        if (projectLeader != null){
-            return "Name:'" + name + '\'' +
-                    ", ID: '" + ID + '\'' +
-                    ", Project Leader: " + '\'' + getProjectLeader().getID() + '\'' +
-                    ", Start date: " + '\'' + "Week: " + /*interval.getStartDate().get(Calendar.WEEK_OF_YEAR) + " Year: " +
-                    interval.getStartDate().get(Calendar.YEAR) + '\'' +*/
-                    ", Activity list: " + activityList.toString();
-                 
-        } else {
-            return "Name:'" + name + '\'' +
-                    ", ID: '" + ID + '\'' +
-                    ", Project Leader: " + '\'' +
-                    null + '\''
-                    + ", Start date: " + '\'' +
-                    "Week: " + interval.getStartDate().get(Calendar.WEEK_OF_YEAR)  +
-                    " Year: " +
-                    interval.getStartDate().get(Calendar.YEAR) + ", Activity list: " + activityList;
-        }
-    }
-    //FIXME
-    // - Tostring!!!
-
     public boolean isInitialized() {
         return initialized;
     }
@@ -231,5 +207,29 @@ public class Project {
             return true;
         } else return getInterval().getEndDate() == null;
     }
+
+    @Override
+    public String toString() {
+        if (projectLeader != null){
+            return "Name:'" + name + '\'' +
+                    ", ID: '" + ID + '\'' +
+                    ", Project Leader: " + '\'' + getProjectLeader().getID() + '\'' +
+                    ", Start date: " + '\'' + "Week: " + /*interval.getStartDate().get(Calendar.WEEK_OF_YEAR) + " Year: " +
+                    interval.getStartDate().get(Calendar.YEAR) + '\'' +*/
+                    ", Activity list: " + activityList.toString();
+
+        } else {
+            return "Name:'" + name + '\'' +
+                    ", ID: '" + ID + '\'' +
+                    ", Project Leader: " + '\'' +
+                    null + '\''
+                    + ", Start date: " + '\'' +
+                    "Week: "+ null  +
+                    " Year: " +
+                    null + ", Activity list: " + activityList;
+        }
+    }
+    //FIXME
+    // - Tostring!!!
 
 }

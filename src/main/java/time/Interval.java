@@ -11,18 +11,20 @@ public class Interval {
     protected Calendar startHour;
     protected Calendar endHour;
 
+
     public Calendar getEndDate() {
-        if(endDate == null) {
-            return null;
+        if( endDate != null){
+            return endDate;
         }
-        return endDate;
+
+        return null;
     }
 
     public Calendar getStartDate() {
-        if(startDate == null) {
-            return null;
+        if( startDate != null){
+            return startDate;
         }
-        return startDate;
+        return null;
     }
 
     public void setEndDate(int year, int week) {

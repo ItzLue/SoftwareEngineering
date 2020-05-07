@@ -17,7 +17,6 @@ public class UI extends ActionView {
     public MenuView projectLeaderMenu;
 
 
-
     public static void main(String[] args) throws Exception {
         new UI("", "");
     }
@@ -31,15 +30,15 @@ public class UI extends ActionView {
 
         MenuView activityMenu = getActivityMenu();
 
-        Developer developer = new Developer("Jane","Doe");
+        Developer developer = new Developer("Jane", "Doe");
         Activity activity = new Activity("frontend");
         Project project = new Project("Minecraft");
 
         app.registerProject(project);
-        app.registerActivityToProject(activity,project.getID());
+        app.registerActivityToProject(activity, project.getID());
         app.registerDeveloper(developer);
-        app.setPlannedHoursForActivity(activity.getName(),project.getID(),20);
-
+        app.setPlannedHoursForActivity(activity.getName(), project.getID(), 20);
+        app.getProjectHM().get(project.getID()).getActivity(activity.getName()).addDeveloper(developer);
 //        app.registerActivityToProject(new Activity("backend"),"20191");
 //        app.setActivityDate(true,"20191","backend",2020,26);
 //        app.setActivityDate(true,"20191","frontend",2020,27);
@@ -66,7 +65,7 @@ public class UI extends ActionView {
         developerMenu.addMenuItem(new setActiveDeveloperAction());
         developerMenu.addMenuItem(new ShowDevelopersAction());
         developerMenu.addMenuItem(new AddDeveloperAction());
-        developerMenu.addMenuItem(new SetWorkHoursAction());
+        developerMenu.addMenuItem(new SetWorkedHoursAction());
         return developerMenu;
     }
 
@@ -91,7 +90,7 @@ public class UI extends ActionView {
 
     public MenuView getActivityMenu() {
         MenuView activityMenu = new MenuView("Activity menu", "Activity menu");
-        activityMenu.addMenuItem(new showActivityAction());
+        activityMenu.addMenuItem(new showWorkedHours());
         activityMenu.addMenuItem(new AddActivityAction());
         activityMenu.addMenuItem(new removeActivityFromProjectAction());
         activityMenu.addMenuItem(new addDeveloperToActivityAction());
@@ -105,7 +104,8 @@ public class UI extends ActionView {
         activeDeveloperMenu = new MenuView("Welcome " + app.getActiveDeveloper().getFirstName(), "");
         activeDeveloperMenu.addMenuItem(getDeveloperMenu());
         activeDeveloperMenu.addMenuItem(getProjectMenu());
-        activeDeveloperMenu.addMenuItem(new showActivityAction());
+        activeDeveloperMenu.addMenuItem(new showActivitiesAction());
+        activeDeveloperMenu.addMenuItem(new showWorkedHours());
         this.setParentView(activeDeveloperMenu);
         this.actionSuccessful();
         this.display();
@@ -161,19 +161,36 @@ public class UI extends ActionView {
         }
     }
 
-    class SetWorkHoursAction extends ActionView {
-        public SetWorkHoursAction() {
-            super("Enter your worked hours", "Set work hours");
+    class showActivitiesAction extends ActionView {
+        public showActivitiesAction() {
+            super("Show your activities", "Show your activities");
         }
 
         public void executeCustomAction() {
-            String developerID = this.prompt("ID: ",String.class);
-            double hours = this.prompt("How many hours have you worked? ",double.class);
 
-            app.setDevhours(developerID,hours);
-//            String projectID = this.prompt("Enter the project ID: ",String.class);
-//            String activityName = this.prompt("Enter the activity name: ", String.class);
-//            app.getDeveloperHM().get(developerID).setWorkHours(hours);
+            System.out.println(app.getActiveDeveloper().getActivityList());
+
+        }
+    }
+
+    class SetWorkedHoursAction extends ActionView {
+        public SetWorkedHoursAction() {
+            super("Enter your worked hours", "Set worked hours");
+        }
+
+        public void executeCustomAction() {
+
+            String activityName = this.prompt("Enter the activity: ", String.class);
+            String projectID = this.prompt("Enter project ID: ", String.class);
+            double hours = this.prompt("How many hours have you worked? ", Double.class);
+
+            try {
+                app.setWorkedHoursForActivity(activityName, projectID, hours);
+                this.actionSuccessful();
+            } catch (IllegalAccessException e) {
+                e.getMessage();
+            }
+
 
         }
     }
@@ -221,7 +238,7 @@ public class UI extends ActionView {
                 int weekPlanned = this.prompt("Enter the start week for this activity: ", Integer.class);
                 int yearPlanned = this.prompt("Enter the start year for this activity: ", Integer.class);
 
-                app.setActivityDate(true,ID,name,yearPlanned,weekPlanned);
+                app.setActivityDate(true, ID, name, yearPlanned, weekPlanned);
                 this.actionSuccessful();
 
             } catch (IllegalArgumentException | IllegalAccessException | NullPointerException e) {
@@ -230,14 +247,15 @@ public class UI extends ActionView {
         }
     }
 
-    class showActivityAction extends ActionView {
-        public showActivityAction() {
-            super("Show activities", "Show activities");
+    class showWorkedHours extends ActionView {
+        public showWorkedHours() {
+            super("Show worked hours", "Show worked hours");
         }
 
         @Override
         public void executeCustomAction() {
-
+            String ID = app.getActiveDeveloper().getID();
+            System.out.println(app.getDeveloperHM().get(ID).getWorkedHours());
         }
     }
 
@@ -307,25 +325,26 @@ public class UI extends ActionView {
                 String ID = this.prompt("Enter ID of the project: ", String.class);
                 app.removeActivityFromProject(name, ID);
 
-            } catch(NullPointerException e) {
+            } catch (NullPointerException e) {
                 System.out.println(e.getMessage());
             }
         }
     }
 
-    class addDeveloperToActivityAction extends ActionView{
-        public addDeveloperToActivityAction(){
-            super("Add developer to activity","Add developer to activity");
+    class addDeveloperToActivityAction extends ActionView {
+        public addDeveloperToActivityAction() {
+            super("Add developer to activity", "Add developer to activity");
         }
+
         @Override
         public void executeCustomAction() {
-            try{
-                String projectID = this.prompt("Enter the ID for the project: ",String.class);
-                String activityName = this.prompt("Enter name for the activity: ",String.class);
-                String developerID = this.prompt("Enter ID of the developer: ",String.class);
-                app.setDeveloperToActivity(activityName,projectID,developerID);
+            try {
+                String projectID = this.prompt("Enter the ID for the project: ", String.class);
+                String activityName = this.prompt("Enter name for the activity: ", String.class);
+                String developerID = this.prompt("Enter ID of the developer: ", String.class);
+                app.setDeveloperToActivity(activityName, projectID, developerID);
                 this.actionSuccessful();
-            }catch (Exception e){
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -338,7 +357,7 @@ public class UI extends ActionView {
 
         @Override
         public void executeCustomAction() {
-            String ID = this.prompt("Enter ID for project: ",String.class);
+            String ID = this.prompt("Enter ID for project: ", String.class);
             int week = this.prompt("Enter the week: ", Integer.class);
             int year = this.prompt("Enter the year: ", Integer.class);
             try {
@@ -349,6 +368,7 @@ public class UI extends ActionView {
             }
         }
     }
+
     class setEndDateAction extends ActionView {
         public setEndDateAction() {
             super("Set end date for a project", "Set end date for a project");
@@ -356,7 +376,7 @@ public class UI extends ActionView {
 
         @Override
         public void executeCustomAction() {
-            String ID = this.prompt("Enter ID for project: ",String.class);
+            String ID = this.prompt("Enter ID for project: ", String.class);
             int week = this.prompt("Enter the week: ", Integer.class);
             int year = this.prompt("Enter the year: ", Integer.class);
             try {
@@ -375,12 +395,10 @@ public class UI extends ActionView {
 
         @Override
         public void executeCustomAction() {
-            app.getProjectValues();
-            String projectID = this.prompt("Enter the ID of the project: ",String.class);
-            String activityName = this.prompt("Enter the name of the activity: ",String.class);
-            double hours = this.prompt("Enter the planned hours: ",double.class);
+            String projectID = this.prompt("Enter the ID of the project: ", String.class);
+            String activityName = this.prompt("Enter the name of the activity: ", String.class);
+            double hours = this.prompt("Enter the planned hours: ", double.class);
             app.getProjectHM().get(projectID).getActivity(activityName).setPlannedHours(hours);
-
         }
     }
 }
