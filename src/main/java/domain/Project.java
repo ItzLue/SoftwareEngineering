@@ -88,15 +88,16 @@ public class Project {
                     ", Start date: " + '\'' + "Week: " + /*interval.getStartDate().get(Calendar.WEEK_OF_YEAR) + " Year: " +
                     interval.getStartDate().get(Calendar.YEAR) + '\'' +*/
                     ", Activity list: " + activityList.toString();
+                 
         } else {
             return "Name:'" + name + '\'' +
                     ", ID: '" + ID + '\'' +
                     ", Project Leader: " + '\'' +
                     null + '\''
                     + ", Start date: " + '\'' +
-                    "Week: " + null +
+                    "Week: " + interval.getStartDate().get(Calendar.WEEK_OF_YEAR)  +
                     " Year: " +
-                   null + ", Activity list: " + activityList;
+                    interval.getStartDate().get(Calendar.YEAR) + ", Activity list: " + activityList;
         }
     }
     //FIXME

@@ -79,7 +79,8 @@ public class UI extends ActionView {
         projectMenu.addMenuItem(new AddProjectAction());
         projectMenu.addMenuItem(getActivityMenu());
         projectMenu.addMenuItem(new AddProjectLeaderAction());
-        projectMenu.addMenuItem(new setIntervalAction());
+        projectMenu.addMenuItem(new setStartDateAction());
+        projectMenu.addMenuItem(new setEndDateAction());
         projectMenu.addMenuItem(new ChangeProjectNameAction());
         return projectMenu;
     }
@@ -166,9 +167,6 @@ public class UI extends ActionView {
         }
 
         public void executeCustomAction() {
-
-
-
             String developerID = this.prompt("ID: ",String.class);
             double hours = this.prompt("How many hours have you worked? ",double.class);
 
@@ -333,8 +331,8 @@ public class UI extends ActionView {
         }
     }
 
-    class setIntervalAction extends ActionView {
-        public setIntervalAction() {
+    class setStartDateAction extends ActionView {
+        public setStartDateAction() {
             super("Set start date for a project", "Set start date for a project");
         }
 
@@ -345,6 +343,24 @@ public class UI extends ActionView {
             int year = this.prompt("Enter the year: ", Integer.class);
             try {
                 app.setProjectDate(true, ID, year, week);
+                this.actionSuccessful();
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+    class setEndDateAction extends ActionView {
+        public setEndDateAction() {
+            super("Set end date for a project", "Set end date for a project");
+        }
+
+        @Override
+        public void executeCustomAction() {
+            String ID = this.prompt("Enter ID for project: ",String.class);
+            int week = this.prompt("Enter the week: ", Integer.class);
+            int year = this.prompt("Enter the year: ", Integer.class);
+            try {
+                app.setProjectDate(false, ID, year, week);
                 this.actionSuccessful();
             } catch (Exception e) {
                 System.out.println(e.getMessage());

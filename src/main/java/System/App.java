@@ -234,7 +234,6 @@ public class App {
     public Calendar getDate() {
         return dateServer.getDate();
     }
-
     public void setDateServer(DateServer dateServer) {
         this.dateServer = dateServer;
     }
