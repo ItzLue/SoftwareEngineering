@@ -18,9 +18,6 @@ public class Developer {
     }
 
     public String getID() {
-        if(ID == null) {
-            return null;
-        }
         return ID;
     }
 

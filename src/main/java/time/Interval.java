@@ -8,8 +8,6 @@ public class Interval {
 
     protected Calendar startDate;
     protected Calendar endDate;
-    protected Calendar startHour;
-    protected Calendar endHour;
 
     public Calendar getEndDate() {
         if(endDate == null) {
@@ -45,19 +43,6 @@ public class Interval {
 
     public void setStartDate(Calendar startDate) { this.startDate = startDate; }
 
-    public Calendar getStartHour() { return startHour; }
-
-    public void setStartHour(Calendar startHour) {
-        this.startHour = startHour;
-    }
-
-    public Calendar getEndHour() {
-        return endHour;
-    }
-
-    public void setEndHour(Calendar endHour) {
-        this.endHour = endHour;
-    }
 
 
 }

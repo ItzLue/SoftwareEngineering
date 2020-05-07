@@ -97,7 +97,7 @@ public class SystemSteps {
     public void theProjectIDFitsTheCurrentDate() {
         String weekNumber = Integer.toString(app.getDate().get(Calendar.WEEK_OF_YEAR));
         String year = Integer.toString(app.getDate().get(Calendar.YEAR)).substring(2);
-        String runningNumber = Integer.toString(app.getProjectHM().size());
+        String runningNumber = "0" + Integer.toString(app.getProjectHM().size());
         String test = year + weekNumber + runningNumber;
 
         assertTrue(test.equals(projectHelper.getProject().getID()));

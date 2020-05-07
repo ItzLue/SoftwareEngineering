@@ -160,17 +160,13 @@ public class Project {
         if (startOrEnd) {
             testDate.set(Calendar.SECOND, testDate.get(Calendar.SECOND)+1); //start week can be the same as projects
             for (Activity activity: activityList) {
-                if (activity.getInterval().getStartDate() != null && (activity.getInterval().getStartDate().after(testDate))) {
-                    return true;
-                }
+                if (activity.getInterval().getStartDate() != null && (activity.getInterval().getStartDate().after(testDate))) { return true; }
             }
         }
         else {
             testDate.set(Calendar.SECOND, testDate.get(Calendar.SECOND)-1); //start week can be the same as projects
             for (Activity activity: activityList) {
-                if (activity.getInterval().getEndDate() != null && (activity.getInterval().getEndDate().before(testDate))) {
-                    return true;
-                }
+                if (activity.getInterval().getEndDate() != null && (activity.getInterval().getEndDate().before(testDate))) { return true; }
             }
         }
         return false;
