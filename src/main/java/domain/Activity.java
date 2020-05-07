@@ -32,12 +32,16 @@ public class Activity {
         this.plannedHours = hours;
     }
 
-    public void setWorkedHours(double workedHours) throws IllegalAccessException {
-        if (workedHours + this.workedHours <= plannedHours){
-            this.workedHours += workedHours;
-        } else {
-            this.workedHours += workedHours;
-            System.out.println("Planned hours have been exceeded by " + (workedHours - plannedHours) );
+    public void setWorkedHours(double workedHours) throws IllegalArgumentException {
+        if (interval.getStartDate() != null) {
+            if (workedHours + this.workedHours <= plannedHours) {
+                this.workedHours += workedHours;
+            } else {
+                this.workedHours += workedHours;
+                System.out.println("Planned hours have been exceeded by " + (workedHours - plannedHours));
+            }
+        }else {
+            System.out.println("The activity " + this.getName() + " is not started yet");
         }
     }
 

@@ -78,8 +78,8 @@ public class UI extends ActionView {
         projectMenu.addMenuItem(new AddProjectAction());
         projectMenu.addMenuItem(getActivityMenu());
         projectMenu.addMenuItem(new AddProjectLeaderAction());
-        projectMenu.addMenuItem(new setStartDateAction());
-        projectMenu.addMenuItem(new setEndDateAction());
+        projectMenu.addMenuItem(new setStartDateProjectAction());
+        projectMenu.addMenuItem(new setEndDateProjectAction());
         projectMenu.addMenuItem(new ChangeProjectNameAction());
         return projectMenu;
     }
@@ -168,7 +168,6 @@ public class UI extends ActionView {
         public void executeCustomAction() {
             String ID = this.prompt("Enter project ID: ",String.class);
             System.out.println(app.getProjectHM().get(ID).getActivityList());
-
         }
     }
 
@@ -178,9 +177,7 @@ public class UI extends ActionView {
         }
 
         public void executeCustomAction() {
-
             System.out.println(app.getActiveDeveloper().getActivityList());
-
         }
     }
 
@@ -248,7 +245,6 @@ public class UI extends ActionView {
                 app.registerActivityToProject(new Activity(name), ID);
                 int weekPlanned = this.prompt("Enter the start week for this activity: ", Integer.class);
                 int yearPlanned = this.prompt("Enter the start year for this activity: ", Integer.class);
-
                 app.setActivityDate(true, ID, name, yearPlanned, weekPlanned);
                 this.actionSuccessful();
 
@@ -361,8 +357,8 @@ public class UI extends ActionView {
         }
     }
 
-    class setStartDateAction extends ActionView {
-        public setStartDateAction() {
+    class setStartDateProjectAction extends ActionView {
+        public setStartDateProjectAction() {
             super("Set start date for a project", "Set start date for a project");
         }
 
@@ -380,8 +376,8 @@ public class UI extends ActionView {
         }
     }
 
-    class setEndDateAction extends ActionView {
-        public setEndDateAction() {
+    class setEndDateProjectAction extends ActionView {
+        public setEndDateProjectAction() {
             super("Set end date for a project", "Set end date for a project");
         }
 

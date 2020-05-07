@@ -31,8 +31,6 @@ public class Project {
             throw new IllegalArgumentException("Project names must be longer than one letter");
         }
     }
-    //FIXME
-    // - Be able to use space but not only numbers for a name
 
     public boolean activityExists(String activityName) {
         for (Activity activity: activityList) {
@@ -104,9 +102,6 @@ public class Project {
         return this.interval;
     }
 
-//    public void setInterval(Interval interval) {
-//        this.interval = interval;
-//    }
 
     public ArrayList<Activity> getActivityList() {
         return this.activityList;
