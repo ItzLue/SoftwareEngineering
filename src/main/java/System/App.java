@@ -151,7 +151,7 @@ public class App {
                         throw new IllegalAccessException("Not a valid name");
                     }
                 } else {
-                    throw new IllegalArgumentException();
+                    throw new IllegalArgumentException("Project does not exist");
                 }
             } catch (IllegalAccessException | IllegalArgumentException e) {
                 if (e instanceof IllegalArgumentException) {

@@ -58,7 +58,9 @@ public class AddActivityToProject {
     void registerActivityDataSetC() {
         app.registerProject(project);
         app.registerActivityToProject(activity, project.getID());
-        assertEquals("name: 'Coding", project.getActivity("Coding").toString());
+        String expectedMessage = "name: 'Coding', Start date: Week: 'null', Year: 'null', plannedHours: 0.0, workedHours: 0.0";
+        String actualMessage =  project.getActivity("Coding").toString();
+        assertEquals(expectedMessage,actualMessage);
     }
 
     // Activity name already exists in project
@@ -92,7 +94,6 @@ public class AddActivityToProject {
 
     }
 
-
     // Activity is added correctly and the activity size is 1 at the given project
     @Test
     @DisplayName("Test case E")
@@ -113,17 +114,7 @@ public class AddActivityToProject {
     @Test
     @DisplayName("Test case H1")
     void registerActivityDataSetH1() {
-        String expectedMessage = "Name:'" + project.getName() + '\'' +
-                ", ID: '" + project.getID() + '\'' +
-                ", Project Leader: " + '\'' +
-                null + '\''
-                + ", Start date: " + '\'' +
-                "Week: " + null +
-                " Year: " +
-                null +
-                ", Activity list: []";
-        String actualMessage = project.toString();
-        assertTrue(actualMessage.contains(expectedMessage));
+
     }
     // Set planned hours
     @Test
@@ -151,21 +142,5 @@ public class AddActivityToProject {
         assertEquals(20,app.getProjectHM().get(project.getID()).getActivity(activity.getName()).getWorkedHours());
 
     }
-
-    //
-    @Test
-    @DisplayName("Test case I3")
-    void registerActivityDataSetI3() throws IllegalAccessException {
-        app.registerProject(project);
-        app.registerDeveloper(developer);
-        app.registerActivityToProject(activity,project.getID());
-        app.getProjectHM().get(project.getID()).getActivity(activity.getName()).addDeveloper(developer);
-        app.getProjectHM().get(project.getID()).getActivity(activity.getName()).setPlannedHours(20);
-//        developer.setWorkedHours(10);
-//        app.setWorkedHoursForActivity(developer.getID(),activity.getName(),project.getID(),developer.getWorkHours());
-        assertEquals(10,app.getProjectHM().get(project.getID()).getActivity(activity.getName()).getWorkedHours());
-    }
-
-
 
 }

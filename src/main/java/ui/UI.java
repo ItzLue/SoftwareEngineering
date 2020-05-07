@@ -90,7 +90,7 @@ public class UI extends ActionView {
 
     public MenuView getActivityMenu() {
         MenuView activityMenu = new MenuView("Activity menu", "Activity menu");
-        activityMenu.addMenuItem(new showWorkedHours());
+        activityMenu.addMenuItem(new showActivitiesAction());
         activityMenu.addMenuItem(new AddActivityAction());
         activityMenu.addMenuItem(new removeActivityFromProjectAction());
         activityMenu.addMenuItem(new addDeveloperToActivityAction());
@@ -104,7 +104,7 @@ public class UI extends ActionView {
         activeDeveloperMenu = new MenuView("Welcome " + app.getActiveDeveloper().getFirstName(), "");
         activeDeveloperMenu.addMenuItem(getDeveloperMenu());
         activeDeveloperMenu.addMenuItem(getProjectMenu());
-        activeDeveloperMenu.addMenuItem(new showActivitiesAction());
+        activeDeveloperMenu.addMenuItem(new showActivitiesActiveDeveloperAction());
         activeDeveloperMenu.addMenuItem(new showWorkedHours());
         this.setParentView(activeDeveloperMenu);
         this.actionSuccessful();
@@ -160,9 +160,20 @@ public class UI extends ActionView {
 
         }
     }
-
     class showActivitiesAction extends ActionView {
         public showActivitiesAction() {
+            super("Show activities", "Show activities");
+        }
+
+        public void executeCustomAction() {
+            String ID = this.prompt("Enter project ID: ",String.class);
+            System.out.println(app.getProjectHM().get(ID).getActivityList());
+
+        }
+    }
+
+    class showActivitiesActiveDeveloperAction extends ActionView {
+        public showActivitiesActiveDeveloperAction() {
             super("Show your activities", "Show your activities");
         }
 
