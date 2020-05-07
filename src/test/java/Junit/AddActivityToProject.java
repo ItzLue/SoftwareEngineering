@@ -150,27 +150,24 @@ public class AddActivityToProject {
     void registerActivityDataSetI1() throws IllegalAccessException {
         app.registerProject(project);
         app.registerActivityToProject(activity,project.getID());
-
+        app.setActivityDate(true,project.getID(),activity.getName(),2020,29);
         app.getProjectHM().get(project.getID()).getActivity(activity.getName()).setPlannedHours(20.0);
-
         double plannedHours = activity.getPlannedHours();
-
         assertEquals(20.0,plannedHours);
     }
     // Set worked hours
     @Test
     @DisplayName("Test case I2")
     void registerActivityDataSetI2() throws IllegalAccessException {
+
         app.registerProject(project);
+        app.registerDeveloper(developer);
         app.registerActivityToProject(activity,project.getID());
-        app.getProjectHM().get(project.getID()).getActivity(activity.getName()).setPlannedHours(20);
         app.getProjectHM().get(project.getID()).getActivity(activity.getName()).addDeveloper(developer);
-        developer.setWorkHours(9.5);
+        app.getProjectHM().get(project.getID()).getActivity(activity.getName()).setPlannedHours(20);
+        developer.setWorkHours(10);
         app.setWorkHoursForActivity(developer.getID(),activity.getName(),project.getID(),developer.getWorkHours());
-
-        assertEquals(9.5,app.getProjectHM().get(project.getID()).getActivity(activity.getName()).getWorkedHours());
-
-
+        assertEquals(10,app.getProjectHM().get(project.getID()).getActivity(activity.getName()).getWorkedHours());
     }
 
 }

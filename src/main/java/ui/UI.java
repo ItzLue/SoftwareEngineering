@@ -32,14 +32,18 @@ public class UI extends ActionView {
         MenuView activityMenu = getActivityMenu();
 
         Developer developer = new Developer("Jane","Doe");
+        Activity activity = new Activity("frontend");
+        Project project = new Project("Minecraft");
+
+        app.registerProject(project);
+        app.registerActivityToProject(activity,project.getID());
         app.registerDeveloper(developer);
-        app.registerProject(new Project("Minecraft"));
-        app.registerActivityToProject(new Activity("backend"),"20191");
-        app.setActivityDate(true,"20191","backend",2020,26);
-        app.registerActivityToProject(new Activity("frontend"),"20191");
-        app.setActivityDate(true,"20191","frontend",2020,27);
-//        app.setDeveloperToActivity("Coding","20191","JADO01");
-        app.setActiveDeveloper(developer);
+        app.setPlannedHoursForActivity(activity.getName(),project.getID(),20);
+
+//        app.registerActivityToProject(new Activity("backend"),"20191");
+//        app.setActivityDate(true,"20191","backend",2020,26);
+//        app.setActivityDate(true,"20191","frontend",2020,27);
+
 
         MenuView rootMenu = new MenuView("Welcome to SoftwareHuset A/S", "");
         rootMenu.addMenuItem(developerMenu);
@@ -162,6 +166,17 @@ public class UI extends ActionView {
         }
 
         public void executeCustomAction() {
+
+
+
+            String developerID = this.prompt("ID: ",String.class);
+            double hours = this.prompt("How many hours have you worked? ",double.class);
+
+            app.setDevhours(developerID,hours);
+//            String projectID = this.prompt("Enter the project ID: ",String.class);
+//            String activityName = this.prompt("Enter the activity name: ", String.class);
+//            app.getDeveloperHM().get(developerID).setWorkHours(hours);
+
         }
     }
 
@@ -225,14 +240,6 @@ public class UI extends ActionView {
         @Override
         public void executeCustomAction() {
 
-            try {
-                System.out.println(app.getActiveDeveloper().getActivityList().size());
-                System.out.println(app.getActiveDeveloper().getActivityList().toString());
-
-
-            } catch (IllegalArgumentException | NullPointerException e) {
-                System.out.println(e.getMessage());
-            }
         }
     }
 
@@ -352,14 +359,12 @@ public class UI extends ActionView {
 
         @Override
         public void executeCustomAction() {
-            String ID = this.prompt("Enter the ID of the project: ",String.class);
+            app.getProjectValues();
+            String projectID = this.prompt("Enter the ID of the project: ",String.class);
             String activityName = this.prompt("Enter the name of the activity: ",String.class);
             double hours = this.prompt("Enter the planned hours: ",double.class);
-            try {
-                app.setPlannedHoursForActivity(activityName,ID,hours);
-            } catch (IllegalAccessException e) {
-                e.getMessage();
-            }
+            app.getProjectHM().get(projectID).getActivity(activityName).setPlannedHours(hours);
+
         }
     }
 }

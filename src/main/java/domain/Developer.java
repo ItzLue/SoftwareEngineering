@@ -24,9 +24,12 @@ public class Developer {
         return ID;
     }
 
-    public double setWorkHours(double workHours) {
-        this.workHours = workHours;
-        return workHours;
+    public void setWorkHours(double workHours) {
+        if (workHours >= 0.5){
+            this.workHours = workHours;
+        }else {
+            throw new IllegalArgumentException("Please provide a valid input");
+        }
     }
 
     public double getWorkHours() {

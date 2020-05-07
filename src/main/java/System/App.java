@@ -61,10 +61,17 @@ public class App {
             System.out.println(developer);
         }
     }
-
-    public void setWorkHoursForActivity(String developerID, String activityName, String projectID, double hours) throws IllegalAccessException {
+    public void setDevhours(String developerID,double hours){
         developerHM.get(developerID).setWorkHours(hours);
-        projectHM.get(projectID).getActivity(activityName).setWorkedHours(developerHM.get(developerID).getWorkHours());
+    }
+
+    public void setWorkHoursForActivity(String developerID, String activityName, String projectID, double hours) throws NullPointerException, IllegalAccessException {
+        if (projectHM.get(projectID).getActivity(activityName).developerHM.containsKey(developerID) || !getActiveDeveloper().getID().equals(developerID)){
+            developerHM.get(developerID).setWorkHours(hours);
+            projectHM.get(projectID).getActivity(activityName).setWorkedHours(developerHM.get(developerID).getWorkHours());
+        } else {
+            throw new NullPointerException("The developer with ID " + developerID + " is not in the activity " + activityName);
+        }
     }
     /*
     Project
