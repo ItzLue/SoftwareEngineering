@@ -8,8 +8,8 @@ import java.util.HashMap;
 public class Activity {
     protected String name;
     protected Interval interval;
-//    protected double plannedHours;
-//    protected double workedHours;
+    protected double plannedHours;
+    protected double workedHours;
     public HashMap<String, Developer> developerHM = new HashMap<String, Developer>();
 
 
@@ -24,13 +24,25 @@ public class Activity {
 
     public Interval getInterval() { return this.interval; }
 
-//    public double getPlannedHours() {
-//        return this.plannedHours;
-//    }
+    public double getPlannedHours() {
+       return this.plannedHours;
+    }
 
-//    public void setPlannedHours(double hours) {
-//        this.plannedHours = hours;
-//    }
+    public void setPlannedHours(double hours) {
+        this.plannedHours = hours;
+    }
+
+    public void setWorkedHours(double workedHours) throws IllegalAccessException {
+        if (workedHours < plannedHours){
+            this.workedHours = workedHours;
+        } else {
+            throw new IllegalAccessException("Worked hours cannot be greater than" + getPlannedHours());
+        }
+    }
+
+    public double getWorkedHours() {
+        return workedHours;
+    }
 
     public String getName() {
         return name;
@@ -38,7 +50,8 @@ public class Activity {
 
     @Override
     public String toString() {
-    return      "name: '" + name; /*+ '\'' +
+    return      "name: '" + name + '\'';
+    /* +
                 ", Start date: " + "Week: " + '\'' + interval.getStartDate().get(Calendar.WEEK_OF_YEAR) + '\'' + ", Year: " +
                 '\'' + interval.getStartDate().get(Calendar.YEAR) + '\''
 //                ", plannedHours=" + plannedHours +

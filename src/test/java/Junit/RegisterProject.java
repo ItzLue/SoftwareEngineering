@@ -28,6 +28,7 @@ public class RegisterProject {
         assertTrue(actualMessage.contains(expectedMessage));
     }
 
+    // Project name less than one letter
     @Test
     @DisplayName("Test case B1")
     public void registerProjectDataSetB1() {
@@ -40,6 +41,7 @@ public class RegisterProject {
 
     }
 
+    // Wrong name
     @Test
     @DisplayName("Test case B2")
     void registerProjectDataSetB2() {
@@ -48,6 +50,7 @@ public class RegisterProject {
         });
     }
 
+    // Get activity size
     @Test
     @DisplayName("Test case C")
     void registerDeveloperDataSetC() {
@@ -55,6 +58,7 @@ public class RegisterProject {
         assertEquals(0, app.getProjectHM().get(project.getID()).getActivityList().size());
     }
 
+    // Get project name and ID
     @Test
     @DisplayName("Test case D")
     void registerDeveloperDataSetD() {
@@ -80,6 +84,8 @@ public class RegisterProject {
                 }
         );
     }
+
+
 }
 
 

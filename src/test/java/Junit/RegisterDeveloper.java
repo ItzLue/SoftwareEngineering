@@ -56,7 +56,7 @@ class RegisterDeveloper {
 
     }
 
-    // Numer and string as input
+    // Number and string as input
     @Test
     @DisplayName("Test case B3")
     void registerDeveloperDataSetB3() {
@@ -115,10 +115,8 @@ class RegisterDeveloper {
                 () -> assertEquals("Tobias", app.getDeveloperHM().get("TOHO07").getFirstName()),
                 () -> assertEquals("Nikolaj", app.getDeveloperHM().get("NIBA08").getFirstName()),
                 () -> assertEquals("Oscar", app.getDeveloperHM().get("OSLA09").getFirstName()),
-                () -> assertEquals("Anders", app.getDeveloperHM().get("ANLI010").getFirstName()),
+                () -> assertEquals("Anders", app.getDeveloperHM().get("ANLI10").getFirstName()),
                 () -> assertEquals("Sofia", app.getDeveloperHM().get("SOHO11").getFirstName())
-//FIXME
-// - Dev 10 har ID 010!
 
         );
     }

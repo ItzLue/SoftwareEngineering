@@ -90,6 +90,7 @@ public class UI extends ActionView {
         activityMenu.addMenuItem(new AddActivityAction());
         activityMenu.addMenuItem(new removeActivityFromProjectAction());
         activityMenu.addMenuItem(new addDeveloperToActivityAction());
+        activityMenu.addMenuItem(new setPlannedHoursAction());
         return activityMenu;
     }
 
@@ -340,6 +341,24 @@ public class UI extends ActionView {
                 this.actionSuccessful();
             } catch (Exception e) {
                 System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    class setPlannedHoursAction extends ActionView {
+        public setPlannedHoursAction() {
+            super("Set the planned hours for an activity", "Set the planned hours for an activity");
+        }
+
+        @Override
+        public void executeCustomAction() {
+            String ID = this.prompt("Enter the ID of the project: ",String.class);
+            String activityName = this.prompt("Enter the name of the activity: ",String.class);
+            double hours = this.prompt("Enter the planned hours: ",double.class);
+            try {
+                app.setPlannedHoursForActivity(activityName,ID,hours);
+            } catch (IllegalAccessException e) {
+                e.getMessage();
             }
         }
     }

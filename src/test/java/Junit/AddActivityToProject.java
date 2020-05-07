@@ -23,7 +23,7 @@ public class AddActivityToProject {
     // No input for names
     @Test
     @DisplayName("Test case A")
-    void registerDeveloperDataSetA() {
+    void registerActivityDataSetA() {
         assertThrows(IllegalArgumentException.class, () -> {
             app.registerActivityToProject(new Activity(""), "");
         });
@@ -32,7 +32,7 @@ public class AddActivityToProject {
     // No input for activity name and wrong project ID
     @Test
     @DisplayName("Test case B1")
-    void registerDeveloperDataSetB1() {
+    void registerActivityDataSetB1() {
         assertThrows(IllegalArgumentException.class, () -> {
             app.registerActivityToProject(new Activity(""), "39291");
         });
@@ -41,7 +41,7 @@ public class AddActivityToProject {
     // Wrong name for activity and no project ID
     @Test
     @DisplayName("Test case B2")
-    void registerDeveloperDataSetB2() {
+    void registerActivityDataSetB2() {
         assertThrows(NullPointerException.class, () -> {
             app.registerActivityToProject(new Activity("123213"), "");
         });
@@ -50,7 +50,7 @@ public class AddActivityToProject {
     // Valid activity and no project ID
     @Test
     @DisplayName("Test case B3")
-    void registerDeveloperDataSetB3() {
+    void registerActivityDataSetB3() {
         assertThrows(NullPointerException.class, () -> {
             app.registerActivityToProject(activity, "");
         });
@@ -59,7 +59,7 @@ public class AddActivityToProject {
     // Valid project ID and valid activity
     @Test
     @DisplayName("Test case C")
-    void registerDeveloperDataSetC() {
+    void registerActivityDataSetC() {
         app.registerProject(project);
         app.registerActivityToProject(activity, project.getID());
         assertEquals("name: 'Coding", project.getActivity("Coding").toString());
@@ -68,7 +68,7 @@ public class AddActivityToProject {
     // Activity name already exists in project
     @Test
     @DisplayName("Test case D1")
-    void registerDeveloperDataSetD1() {
+    void registerActivityDataSetD1() {
         app.registerProject(project);
         app.registerActivityToProject(activity, project.getID());
         Exception exception = assertThrows(IllegalAccessException.class, () -> {
@@ -84,14 +84,14 @@ public class AddActivityToProject {
     // Activity with same name is not in project
     @Test
     @DisplayName("Test case D2")
-    void registerDeveloperDataSetD2() {
+    void registerActivityDataSetD2() {
         assertFalse(project.activityExists(activity.getName()));
     }
 
     // Add activity to project
     @Test
     @DisplayName("Test case D3")
-    void registerDeveloperDataSetD3() {
+    void registerActivityDataSetD3() {
         project.addActivity(activity);
 
     }
@@ -100,7 +100,7 @@ public class AddActivityToProject {
     // Activity is added correctly and the activity size is 1 at the given project
     @Test
     @DisplayName("Test case E")
-    void registerDeveloperDataSetE() {
+    void registerActivityDataSetE() {
         app.registerProject(project);
         app.registerActivityToProject(activity, project.getID());
         assertEquals(1, app.getProjectHM().get(project.getID()).getActivityList().size());
@@ -109,7 +109,7 @@ public class AddActivityToProject {
     // Set invalid end date
     @Test
     @DisplayName("Test case F")
-    void registerDeveloperDataSetF() {
+    void registerActivityDataSetF() {
         app.registerProject(project);
         app.registerActivityToProject(activity, project.getID());
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
@@ -124,15 +124,14 @@ public class AddActivityToProject {
     // No activities
     @Test
     @DisplayName("Test case G")
-    void registerDeveloperDataSetDG() {
+    void registerActivityDataSetG() {
         assertNull(project.getActivity(activity.getName()));
     }
 
-    // No project leader
+    // No project leader and no activities
     @Test
     @DisplayName("Test case H1")
-    void registerDeveloperDataSetH1() {
-
+    void registerActivityDataSetH1() {
         String expectedMessage = "Name:'" + project.getName() + '\'' +
                 ", ID: '" + project.getID() + '\'' +
                 ", Project Leader: " + '\'' +
@@ -141,9 +140,37 @@ public class AddActivityToProject {
                 "Week: " + null +
                 " Year: " +
                 null +
-                '\'' +
-                ", Activity list:";
+                ", Activity list: []";
         String actualMessage = project.toString();
         assertTrue(actualMessage.contains(expectedMessage));
     }
+    // Set planned hours
+    @Test
+    @DisplayName("Test case I1")
+    void registerActivityDataSetI1() throws IllegalAccessException {
+        app.registerProject(project);
+        app.registerActivityToProject(activity,project.getID());
+
+        app.getProjectHM().get(project.getID()).getActivity(activity.getName()).setPlannedHours(20.0);
+
+        double plannedHours = activity.getPlannedHours();
+
+        assertEquals(20.0,plannedHours);
+    }
+    // Set worked hours
+    @Test
+    @DisplayName("Test case I2")
+    void registerActivityDataSetI2() throws IllegalAccessException {
+        app.registerProject(project);
+        app.registerActivityToProject(activity,project.getID());
+        app.getProjectHM().get(project.getID()).getActivity(activity.getName()).setPlannedHours(20);
+        app.getProjectHM().get(project.getID()).getActivity(activity.getName()).addDeveloper(developer);
+        developer.setWorkHours(9.5);
+        app.setWorkHoursForActivity(developer.getID(),activity.getName(),project.getID(),developer.getWorkHours());
+
+        assertEquals(9.5,app.getProjectHM().get(project.getID()).getActivity(activity.getName()).getWorkedHours());
+
+
+    }
+
 }

@@ -7,8 +7,7 @@ public class Developer {
     protected String lastName;
     protected String ID;
     protected ArrayList<Activity> activityList = new ArrayList<Activity>();
-
-
+    protected double workHours;
 
     public String getLastName() {
         return lastName;
@@ -23,6 +22,15 @@ public class Developer {
             return null;
         }
         return ID;
+    }
+
+    public double setWorkHours(double workHours) {
+        this.workHours = workHours;
+        return workHours;
+    }
+
+    public double getWorkHours() {
+        return workHours;
     }
 
     public ArrayList<Activity> getActivityList() {
