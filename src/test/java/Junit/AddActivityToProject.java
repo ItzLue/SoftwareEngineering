@@ -15,6 +15,7 @@ public class AddActivityToProject {
     private final Developer developer = new Developer("Jane", "Doe");
     private final Project project = new Project("Enigma Codebreaker");
     private final Activity activity = new Activity("Coding");
+    private final Activity activity2 = new Activity("Coding");
 
     // No input for names
     @Test
