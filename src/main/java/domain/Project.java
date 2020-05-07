@@ -16,10 +16,6 @@ public class Project {
     private String ID = "";
     protected String name;
 
-    public Calendar getTestDate() {
-        return testDate;
-    }
-
     public Calendar testDate = new GregorianCalendar();
 
     public Project(String name) {

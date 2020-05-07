@@ -17,9 +17,7 @@ public class Developer {
         return firstName;
     }
 
-    public String getID() {
-        return ID;
-    }
+    public String getID() { return ID; }
 
     public void setWorkedHours(double workHours, Activity activity) throws IllegalAccessException {
         if (workHours >= 0.5){
@@ -30,17 +28,11 @@ public class Developer {
         }
     }
 
-    public double getWorkedHours() {
-        return workHours;
-    }
+    public double getWorkedHours() { return workHours; }
 
-    public ArrayList<Activity> getActivityList() {
-        return activityList;
-    }
+    public ArrayList<Activity> getActivityList() { return activityList; }
 
-    public void setID(String ID) {
-        this.ID = ID;
-    }
+    public void setID(String ID) { this.ID = ID; }
 
     public Developer(String firstName, String lastName) {
         if(firstName.matches("^[a-zA-Z]*$") && lastName.matches("^[a-zA-Z]*$") && firstName.length() > 1 && lastName.length() > 1) {

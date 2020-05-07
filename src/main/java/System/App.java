@@ -98,9 +98,7 @@ public class App {
         }
     }
 
-    public HashMap<String, Project> getProjectHM() {
-        return this.projectHM;
-    }
+    public HashMap<String, Project> getProjectHM() { return this.projectHM; }
 
     public void getProjectValues() {
         for (Project project : projectHM.values()) {
@@ -220,9 +218,7 @@ public class App {
         return 0;
     }
 
-    public Calendar getDate() {
-        return dateServer.getDate();
-    }
+    public Calendar getDate() { return dateServer.getDate(); }
 
     public void setDateServer(DateServer dateServer) {
         this.dateServer = dateServer;
