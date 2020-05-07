@@ -62,6 +62,13 @@ public class Project {
         return projectLeader;
     }
 
+    public String getProjectLeaderID() {
+        if(projectLeader == null) {
+            return null;
+        }
+        return projectLeader.getID();
+    }
+
     public void setName(String name) { this.name = name; }
 
     public void setID(String ID) {
@@ -77,7 +84,18 @@ public class Project {
     public String getName() {
         return name;
     }
+    
+    public String toString() {
+        return "Name:" + '\'' + name + '\'' +
+            ", ID: " + '\'' + ID + '\'' +
+            ", Project Leader: " + '\'' + getProjectLeaderID() + '\'' +
+            ", Start date: " + "Week: " + '\'' + interval.getStartWeek() + '\'' + " Year: " +
+            '\'' + interval.getStartYear() + '\'' +
+            ", Activity list: " + activityList.size();
 
+    }
+    //FIXME
+    // - Tostring!!!
 
     public boolean isInitialized() {
         return initialized;

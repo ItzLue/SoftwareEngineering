@@ -49,12 +49,11 @@ public class Activity {
         return name;
     }
 
-
     @Override
     public String toString() {
     return      "name: '" + name + '\'' +
-            ", Start date: " + "Week: " + '\'' + /*interval.getStartDate().get(Calendar.WEEK_OF_YEAR)*/ + '\'' + ", Year: " +
-                '\'' /*+ interval.getStartDate().get(Calendar.YEAR) + '\'' */+
+            ", Start date: " + "Week: " + '\'' + interval.getStartWeek() + '\'' + ", Year: " +
+                '\'' + interval.getStartYear() + '\'' +
                 ", plannedHours: " + plannedHours +
                 ", workedHours: " + workedHours;
     }

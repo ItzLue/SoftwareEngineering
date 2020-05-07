@@ -27,6 +27,20 @@ public class Interval {
         return null;
     }
 
+    public String getStartWeek() {
+        if(startDate == null) {
+            return null;
+        }
+        return ""+startDate.get(Calendar.WEEK_OF_YEAR);
+    }
+
+    public String getStartYear() {
+        if(startDate == null) {
+            return null;
+        }
+        return ""+startDate.get(Calendar.YEAR);
+    }
+
     public void setEndDate(int year, int week) {
         Calendar calendar = new GregorianCalendar();
         calendar.set(Calendar.YEAR, year);
