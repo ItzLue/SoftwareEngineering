@@ -84,7 +84,8 @@ public class Project {
     public String getName() {
         return name;
     }
-    
+
+    @Override
     public String toString() {
         return "Name:" + '\'' + name + '\'' +
             ", ID: " + '\'' + ID + '\'' +
@@ -94,8 +95,6 @@ public class Project {
             ", Activity list: " + activityList.size();
 
     }
-    //FIXME
-    // - Tostring!!!
 
     public boolean isInitialized() {
         return initialized;
@@ -222,28 +221,5 @@ public class Project {
         } else return getInterval().getEndDate() == null;
     }
 
-    @Override
-    public String toString() {
-        if (projectLeader != null){
-            return "Name:'" + name + '\'' +
-                    ", ID: '" + ID + '\'' +
-                    ", Project Leader: " + '\'' + getProjectLeader().getID() + '\'' +
-                    ", Start date: " + '\'' + "Week: " + /*interval.getStartDate().get(Calendar.WEEK_OF_YEAR) + " Year: " +
-                    interval.getStartDate().get(Calendar.YEAR) + '\'' +*/
-                    ", Activity list: " + activityList.toString();
-
-        } else {
-            return "Name:'" + name + '\'' +
-                    ", ID: '" + ID + '\'' +
-                    ", Project Leader: " + '\'' +
-                    null + '\''
-                    + ", Start date: " + '\'' +
-                    "Week: "+ null  +
-                    " Year: " +
-                    null + ", Activity list: " + activityList;
-        }
-    }
-    //FIXME
-    // - Tostring!!!
 
 }
