@@ -64,7 +64,7 @@ public class RegisterProject {
     void registerDeveloperDataSetD() {
         app.registerProject(project);
         String projectID = project.getID();
-        assertEquals("20191", projectID);
+        assertEquals("201901", projectID);
         assertEquals("Enigma Codebreaker", app.getProjectHM().get(projectID).getName());
     }
 
@@ -75,18 +75,37 @@ public class RegisterProject {
         app.registerProject(project);
         assertAll("make project",
                 () -> {
-                    assertEquals("Enigma Codebreaker", app.getProjectHM().get("20191").getName());
-                    app.setProjectName("20191", "Minecraft");
+                    assertEquals("Enigma Codebreaker", app.getProjectHM().get("201901").getName());
+                    app.setProjectName("201901", "Minecraft");
                     assertAll("Change name",
-                            () -> assertEquals("Minecraft", app.getProjectHM().get("20191").getName()),
-                            () -> assertEquals("20191", app.getProjectHM().get("20191").getID())
+                            () -> assertEquals("Minecraft", app.getProjectHM().get("201901").getName()),
+                            () -> assertEquals("201901", app.getProjectHM().get("201901").getID())
                     );
                 }
         );
     }
 
+    @Test
+    @DisplayName("Test case F")
+    void registerDeveloperDataSetF() {
+        app.registerProject(project);
+        String projectID = project.getID();
+        project.setProjectStartDate(2020, 29);
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            project.setProjectEndDate(2019, 30);
+        });
+        String expectedMessage = "Invalid date";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
+
+    }
 
 }
+
+
+
+
 
 
 

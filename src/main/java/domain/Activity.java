@@ -33,10 +33,11 @@ public class Activity {
     }
 
     public void setWorkedHours(double workedHours) throws IllegalAccessException {
-        if (workedHours < plannedHours){
-            this.workedHours = workedHours;
+        if (workedHours + this.workedHours <= plannedHours){
+            this.workedHours += workedHours;
         } else {
-            throw new IllegalAccessException("Worked hours cannot be greater than" + getPlannedHours());
+            this.workedHours += workedHours;
+            System.out.println("Planned hours have been exceeded by " + (workedHours - plannedHours) );
         }
     }
 
@@ -48,12 +49,11 @@ public class Activity {
         return name;
     }
 
-
     @Override
     public String toString() {
     return      "name: '" + name + '\'' +
-            ", Start date: " + "Week: " + '\'' + /*interval.getStartDate().get(Calendar.WEEK_OF_YEAR)*/ + '\'' + ", Year: " +
-                '\'' /*+ interval.getStartDate().get(Calendar.YEAR) + '\'' */+
+            ", Start date: " + "Week: " + '\'' + interval.getStartWeek() + '\'' + ", Year: " +
+                '\'' + interval.getStartYear() + '\'' +
                 ", plannedHours: " + plannedHours +
                 ", workedHours: " + workedHours;
     }
@@ -62,7 +62,6 @@ public class Activity {
 
     public void addDeveloper(Developer developer) {
         developerHM.put(developer.getID(),developer);
+        developer.addActivity(this);
     }
-
-
 }

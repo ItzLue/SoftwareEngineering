@@ -9,18 +9,34 @@ public class Interval {
     protected Calendar startDate;
     protected Calendar endDate;
 
+
     public Calendar getEndDate() {
-        if(endDate == null) {
-            return null;
+        if( endDate != null){
+            return endDate;
         }
-        return endDate;
+
+        return null;
     }
 
     public Calendar getStartDate() {
+        if( startDate != null){
+            return startDate;
+        }
+        return null;
+    }
+
+    public String getStartWeek() {
         if(startDate == null) {
             return null;
         }
-        return startDate;
+        return ""+startDate.get(Calendar.WEEK_OF_YEAR);
+    }
+
+    public String getStartYear() {
+        if(startDate == null) {
+            return null;
+        }
+        return ""+startDate.get(Calendar.YEAR);
     }
 
     public void setEndDate(int year, int week) {
