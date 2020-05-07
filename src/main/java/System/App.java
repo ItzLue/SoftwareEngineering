@@ -136,7 +136,6 @@ public class App {
     public void registerActivityToProject(Activity activity, String projectID) throws IllegalAccessException {
         if (projectHM.containsKey(projectID)) {
             boolean nameExists = false;
-            try {
                 if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
                     for (Activity a : projectHM.get(projectID).getActivityList()) {
                         if (a.getName().equals(activity.getName())) {
@@ -150,11 +149,8 @@ public class App {
                         throw new IllegalArgumentException("Not a valid name");
                     }
                 } else {
-                    throw new IllegalArgumentException("Project does not exist");
+                    throw new IllegalAccessException("Only the project leader has access to add activities when the project is initialized");
                 }
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-            }
         } else {
             throw new NullPointerException("Project does not exist");
         }
