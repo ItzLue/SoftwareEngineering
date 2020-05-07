@@ -1,7 +1,12 @@
+C:\Users\Loui\IdeaProjects\SoftwareEngineering\src\test\java\acceptance_tests\helper\DeveloperHelper.java
 C:\Users\Loui\IdeaProjects\SoftwareEngineering\src\test\java\acceptance_tests\steps\ProjectSteps.java
-C:\Users\Loui\IdeaProjects\SoftwareEngineering\src\test\java\acceptance_tests\steps\ErrorMessageHolder.java
+C:\Users\Loui\IdeaProjects\SoftwareEngineering\src\test\java\acceptance_tests\helper\ExceptionHandler.java
+C:\Users\Loui\IdeaProjects\SoftwareEngineering\src\test\java\acceptance_tests\steps\IntervalSteps.java
+C:\Users\Loui\IdeaProjects\SoftwareEngineering\src\test\java\acceptance_tests\helper\ErrorMessageHolder.java
 C:\Users\Loui\IdeaProjects\SoftwareEngineering\src\test\java\acceptance_tests\steps\MockDateHolder.java
-C:\Users\Loui\IdeaProjects\SoftwareEngineering\src\test\java\acceptance_tests\steps\ProjectHelper.java
+C:\Users\Loui\IdeaProjects\SoftwareEngineering\src\test\java\System\WhiteBoxTest.java
+C:\Users\Loui\IdeaProjects\SoftwareEngineering\src\test\java\acceptance_tests\helper\ActivityHelper.java
+C:\Users\Loui\IdeaProjects\SoftwareEngineering\src\test\java\acceptance_tests\steps\ActivitySteps.java
 C:\Users\Loui\IdeaProjects\SoftwareEngineering\src\test\java\acceptance_tests\AcceptanceTest.java
 C:\Users\Loui\IdeaProjects\SoftwareEngineering\src\test\java\acceptance_tests\steps\SystemSteps.java
-C:\Users\Loui\IdeaProjects\SoftwareEngineering\src\test\java\acceptance_tests\steps\DeveloperHelper.java
+C:\Users\Loui\IdeaProjects\SoftwareEngineering\src\test\java\acceptance_tests\helper\ProjectHelper.java

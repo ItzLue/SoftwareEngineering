@@ -1,10 +1,13 @@
 package domain;
 
+import java.util.ArrayList;
+
 public class Developer {
     protected String firstName;
     protected String lastName;
     protected String ID;
-
+    protected ArrayList<Activity> activityList = new ArrayList<Activity>();
+    protected double workHours;
 
     public String getLastName() {
         return lastName;
@@ -19,6 +22,22 @@ public class Developer {
             return null;
         }
         return ID;
+    }
+
+    public void setWorkHours(double workHours) {
+        if (workHours >= 0.5){
+            this.workHours = workHours;
+        }else {
+            throw new IllegalArgumentException("Please provide a valid input");
+        }
+    }
+
+    public double getWorkHours() {
+        return workHours;
+    }
+
+    public ArrayList<Activity> getActivityList() {
+        return activityList;
     }
 
     public void setID(String ID) {
@@ -38,5 +57,9 @@ public class Developer {
         return "First name:'" + firstName + '\'' +
                 ", Last name:'" + lastName + '\'' +
                 ", ID:'" + ID + '\'';
+    }
+
+    public void addActivity(Activity activity) {
+        activityList.add(activity);
     }
 }

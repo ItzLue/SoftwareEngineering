@@ -6,7 +6,7 @@ import java.util.GregorianCalendar;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import java.text.SimpleDateFormat;
+
 import System.App;
 
 public class MockDateHolder {

@@ -1,16 +1,13 @@
 package ui;
 
-import Exceptions.InvalidActivityNameException;
 import System.App;
 import domain.Activity;
 import domain.Developer;
 import domain.Project;
 import io.bretty.console.view.ActionView;
 import io.bretty.console.view.MenuView;
-import time.Interval;
 
 import java.util.InputMismatchException;
-import java.util.regex.Pattern;
 
 public class UI extends ActionView {
     App app = new App();
@@ -19,11 +16,13 @@ public class UI extends ActionView {
     public MenuView activeDeveloperMenu;
     public MenuView projectLeaderMenu;
 
-    public static void main(String[] args) {
+
+
+    public static void main(String[] args) throws Exception {
         new UI("", "");
     }
 
-    public UI(String runningTitle, String nameInParentMenu) {
+    public UI(String runningTitle, String nameInParentMenu) throws Exception {
         super(runningTitle, nameInParentMenu);
 
         MenuView projectMenu = getProjectMenu();
@@ -31,6 +30,19 @@ public class UI extends ActionView {
         MenuView developerMenu = getDeveloperMenu();
 
         MenuView activityMenu = getActivityMenu();
+
+        Developer developer = new Developer("Jane","Doe");
+        Activity activity = new Activity("frontend");
+        Project project = new Project("Minecraft");
+
+        app.registerProject(project);
+        app.registerActivityToProject(activity,project.getID());
+        app.registerDeveloper(developer);
+        app.setPlannedHoursForActivity(activity.getName(),project.getID(),20);
+
+//        app.registerActivityToProject(new Activity("backend"),"20191");
+//        app.setActivityDate(true,"20191","backend",2020,26);
+//        app.setActivityDate(true,"20191","frontend",2020,27);
 
 
         MenuView rootMenu = new MenuView("Welcome to SoftwareHuset A/S", "");
@@ -81,6 +93,8 @@ public class UI extends ActionView {
         activityMenu.addMenuItem(new showActivityAction());
         activityMenu.addMenuItem(new AddActivityAction());
         activityMenu.addMenuItem(new removeActivityFromProjectAction());
+        activityMenu.addMenuItem(new addDeveloperToActivityAction());
+        activityMenu.addMenuItem(new setPlannedHoursAction());
         return activityMenu;
     }
 
@@ -90,6 +104,7 @@ public class UI extends ActionView {
         activeDeveloperMenu = new MenuView("Welcome " + app.getActiveDeveloper().getFirstName(), "");
         activeDeveloperMenu.addMenuItem(getDeveloperMenu());
         activeDeveloperMenu.addMenuItem(getProjectMenu());
+        activeDeveloperMenu.addMenuItem(new showActivityAction());
         this.setParentView(activeDeveloperMenu);
         this.actionSuccessful();
         this.display();
@@ -104,7 +119,7 @@ public class UI extends ActionView {
         public void executeCustomAction() throws NullPointerException {
             try {
                 setActiveDeveloperMenu();
-            } catch (NullPointerException e) {
+            } catch (IllegalArgumentException e) {
                 System.out.println("Not a valid ID");
             }
         }
@@ -151,6 +166,17 @@ public class UI extends ActionView {
         }
 
         public void executeCustomAction() {
+
+
+
+            String developerID = this.prompt("ID: ",String.class);
+            double hours = this.prompt("How many hours have you worked? ",double.class);
+
+            app.setDevhours(developerID,hours);
+//            String projectID = this.prompt("Enter the project ID: ",String.class);
+//            String activityName = this.prompt("Enter the activity name: ", String.class);
+//            app.getDeveloperHM().get(developerID).setWorkHours(hours);
+
         }
     }
 
@@ -181,7 +207,6 @@ public class UI extends ActionView {
             }
         }
     }
-
 
     class AddActivityAction extends ActionView {
         public AddActivityAction() {
@@ -215,14 +240,6 @@ public class UI extends ActionView {
         @Override
         public void executeCustomAction() {
 
-            try {
-                String ID = this.prompt("Enter the project ID",String.class);
-                System.out.println(app.getProjectHM().get(ID).getActivityList().toString());
-
-
-            } catch (IllegalArgumentException | NullPointerException e) {
-                System.out.println(e.getMessage());
-            }
         }
     }
 
@@ -298,6 +315,24 @@ public class UI extends ActionView {
         }
     }
 
+    class addDeveloperToActivityAction extends ActionView{
+        public addDeveloperToActivityAction(){
+            super("Add developer to activity","Add developer to activity");
+        }
+        @Override
+        public void executeCustomAction() {
+            try{
+                String projectID = this.prompt("Enter the ID for the project: ",String.class);
+                String activityName = this.prompt("Enter name for the activity: ",String.class);
+                String developerID = this.prompt("Enter ID of the developer: ",String.class);
+                app.setDeveloperToActivity(activityName,projectID,developerID);
+                this.actionSuccessful();
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
     class setIntervalAction extends ActionView {
         public setIntervalAction() {
             super("Set start date for a project", "Set start date for a project");
@@ -314,6 +349,22 @@ public class UI extends ActionView {
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
+        }
+    }
+
+    class setPlannedHoursAction extends ActionView {
+        public setPlannedHoursAction() {
+            super("Set the planned hours for an activity", "Set the planned hours for an activity");
+        }
+
+        @Override
+        public void executeCustomAction() {
+            app.getProjectValues();
+            String projectID = this.prompt("Enter the ID of the project: ",String.class);
+            String activityName = this.prompt("Enter the name of the activity: ",String.class);
+            double hours = this.prompt("Enter the planned hours: ",double.class);
+            app.getProjectHM().get(projectID).getActivity(activityName).setPlannedHours(hours);
+
         }
     }
 }

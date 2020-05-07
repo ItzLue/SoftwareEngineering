@@ -28,9 +28,11 @@ public class Project {
             this.initialized = false;
             this.interval = new Interval();
         } else {
-            throw new IllegalArgumentException("Project names must be longer than one letter ");
+            throw new IllegalArgumentException("Project names must be longer than one letter");
         }
     }
+    //FIXME
+    // - Be able to use space but not only numbers for a name
 
     public boolean activityExists(String activityName) {
         for (Activity activity: activityList) {
@@ -82,19 +84,23 @@ public class Project {
         if (projectLeader != null){
             return "Name:'" + name + '\'' +
                     ", ID: '" + ID + '\'' +
-                    ", Project Leader: " + '\'' + projectLeader.getID() + '\'' +
-                    ", Start date: " + '\'' + "Week: " + interval.getStartDate().get(Calendar.WEEK_OF_YEAR) + " Year: " +
-                    interval.getStartDate().get(Calendar.YEAR) + '\'' +
+                    ", Project Leader: " + '\'' + getProjectLeader().getID() + '\'' +
+                    ", Start date: " + '\'' + "Week: " + /*interval.getStartDate().get(Calendar.WEEK_OF_YEAR) + " Year: " +
+                    interval.getStartDate().get(Calendar.YEAR) + '\'' +*/
                     ", Activity list: " + activityList.toString();
         } else {
             return "Name:'" + name + '\'' +
                     ", ID: '" + ID + '\'' +
-                    ", Project Leader: " + '\'' + projectLeader + '\'' +
-                    ", Start date: " + '\'' + "Week: " + interval.getStartDate().get(Calendar.WEEK_OF_YEAR) + " Year: " +
-                    interval.getStartDate().get(Calendar.YEAR) + '\'' +
-                    ", Activity list: " + activityList;
+                    ", Project Leader: " + '\'' +
+                    null + '\''
+                    + ", Start date: " + '\'' +
+                    "Week: " + null +
+                    " Year: " +
+                   null + ", Activity list: " + activityList;
         }
     }
+    //FIXME
+    // - Tostring!!!
 
     public boolean isInitialized() {
         return initialized;
@@ -104,9 +110,9 @@ public class Project {
         return this.interval;
     }
 
-    public void setInterval(Interval interval) {
-        this.interval = interval;
-    }
+//    public void setInterval(Interval interval) {
+//        this.interval = interval;
+//    }
 
     public ArrayList<Activity> getActivityList() {
         return this.activityList;
@@ -213,11 +219,7 @@ public class Project {
         testDate.set(Calendar.SECOND, testDate.get(Calendar.SECOND)+1); //start week can be the same as projects
         if (getInterval().getStartDate() != null && getInterval().getStartDate().before(testDate)) {
             return true;
-        } else if (getInterval().getStartDate() == null) {
-            return true;
-        } else {
-            return false;
-        }
+        } else return getInterval().getStartDate() == null;
     }
 
     public boolean activityEndDateIsValid(int year, int week) {
@@ -226,11 +228,7 @@ public class Project {
         testDate.set(Calendar.SECOND, testDate.get(Calendar.SECOND)-1); //end week can be the same as projects
         if (getInterval().getEndDate() != null && getInterval().getEndDate().after(testDate)) {
             return true;
-        } else if (getInterval().getEndDate() == null)  {
-            return true;
-        } else {
-            return false;
-        }
+        } else return getInterval().getEndDate() == null;
     }
 
 }

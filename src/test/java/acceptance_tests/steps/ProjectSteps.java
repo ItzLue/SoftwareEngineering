@@ -45,6 +45,11 @@ public class ProjectSteps {
     public void theActivityWithNameIsAddedToTheProject(String name) throws IllegalAccessException {
         app.registerActivityToProject(activityHelper.getActivity(), projectHelper.getProject().getID());
     }
+    @When("the activity with name {string} is removed from the project")
+    public void theActivityWithNameIsRemovedFromTheProject(String string) {
+        app.removeActivityFromProject(activityHelper.getActivity(),projectHelper.getProject().getID());
+
+    }
 
     @Then("the activity with name {string} is in the project")
     public void theActivityWithNameIsInTheProject(String name) {
@@ -74,6 +79,8 @@ public class ProjectSteps {
     public void theDeveloperIsSetAsProjectLeaderForProjectWithName(String string) {
         assertEquals(projectHelper.getProject().getName(), string);
         app.setProjectLeader(projectHelper.getProject().getID(), developerHelper.getDeveloper().getID());
+        System.out.println("project leader: " + app.getActiveDeveloper());
+
     }
 
     @Then("the project with name {string} has the developer with first name {string} and last name {string} as project leader")
