@@ -160,11 +160,9 @@ public class App {
             if (projectHM.containsKey(projectID)) {
                 for (Activity a : projectHM.get(projectID).getActivityList()) {
                     if (a.equals(activity)) {
+                        // Removing the activities from the developers activitylist
                         for (Developer d : a.developerHM.values()) {
-                            System.out.println("Før:" + d.getActivityList().size());
                             d.getActivityList().remove((a));
-                            System.out.println("Efter:" + d.getActivityList().size());
-
                         }
                         projectHM.get(projectID).getActivityList().remove(a);
 
