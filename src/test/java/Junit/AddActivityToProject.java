@@ -81,6 +81,26 @@ public class AddActivityToProject {
 
     }
 
+    // Project is initialized - but a developer who is not project leader tries to set activity date
+    @Test
+    @DisplayName("Test case D")
+    void registerActivityDataSetD() throws IllegalAccessException {
+        app.registerProject(project);
+        app.registerDeveloper(developer);
+        app.registerDeveloper(new Developer("Ole","Hansen"));
+        app.registerActivityToProject(activity, project.getID());
+        app.setProjectLeader(project.getID(),developer.getID());
+        Exception exception = assertThrows(IllegalAccessException.class, () -> {
+           app.setActivityDate(true,project.getID(),activity.getName(),2020,20);
+        });
+        String expectedMessage = "You don't have access";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
+
+    }
+
+
+
     // Activity is added correctly and the activity size is 1 at the given project
     @Test
     @DisplayName("Test case E")
@@ -130,5 +150,7 @@ public class AddActivityToProject {
         assertEquals(20,project.getActivity(activity.getName()).getWorkedHours());
 
     }
+
+
 
 }
