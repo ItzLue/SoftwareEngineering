@@ -336,7 +336,7 @@ public class UI extends ActionView {
                 String ID = this.prompt("Enter ID of the project: ", String.class);
                 app.removeActivityFromProject(activityName, ID);
                 this.actionSuccessful();
-            } catch (NullPointerException e) {
+            } catch ( NullPointerException | IllegalAccessException e) {
                 System.out.println(e.getMessage());
             }
         }
