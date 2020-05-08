@@ -66,7 +66,8 @@ public class ActivitySteps {
         try {
             app.setDeveloperToActivity(activityHelper.getActivity().getName(),projectHelper.getProject().getID(),
                     developerHelper.getDeveloper().getID());
-        } catch (Exception e) {
+        } catch (IllegalAccessException e) {
+            errorMessageHolder.setErrorMessage(e.getMessage());
 
         }
 
@@ -74,8 +75,7 @@ public class ActivitySteps {
 
     @Then("the error message {string} is given")
     public void theErrorMessageIsGiven(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        assertEquals(string, this.errorMessageHolder.getErrorMessage());
     }
 
 
