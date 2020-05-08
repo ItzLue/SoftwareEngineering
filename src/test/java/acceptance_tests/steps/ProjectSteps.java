@@ -3,10 +3,12 @@ package acceptance_tests.steps;
 import System.App;
 import acceptance_tests.helper.*;
 import domain.Activity;
-import domain.Developer;
+import domain.Project;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import java.util.Calendar;
 
 import static org.junit.Assert.*;
 
@@ -30,15 +32,88 @@ public class ProjectSteps {
         this.exceptionHandler = exceptionHandler;
     }
 
+
+    @Given("A project with name {string} is created")
+    public void aProjectWithNameIsCreated(String name) throws Exception{
+        projectHelper.setProject(new Project(name));
+    }
+
+    @When("The project is added to the system")
+    public void theProjectIsAddedToTheSystem() throws Exception{
+        app.registerProject(projectHelper.getProject());
+    }
+
+    @Then("the project is registered in the system")
+    public void theProjectIsRegisteredInTheSystem() {
+        assertTrue(app.getProjectHM().containsValue(projectHelper.getProject()));
+    }
+
+    @Then("There is a project registered in the system with name {string}")
+    public void thereIsAProjectRegisteredInTheSystemWithName(String string) {
+        assertTrue(projectHelper.getProject().getName().equals(string));
+        assertTrue(app.getProjectHM().containsValue(projectHelper.getProject()));
+    }
+
+    @Then("The project ID fits the current date")
+    public void theProjectIDFitsTheCurrentDate() {
+        String weekNumber = Integer.toString(app.getDate().get(Calendar.WEEK_OF_YEAR));
+        String year = Integer.toString(app.getDate().get(Calendar.YEAR)).substring(2);
+        String runningNumber = "0" + Integer.toString(app.getProjectHM().size());
+        String test = year + weekNumber + runningNumber;
+
+        assertTrue(test.equals(projectHelper.getProject().getID()));
+    }
+
+    @When("the active developer removes the project from the system")
+    public void theActiveDeveloperRemovesTheProjectFromTheSystem() throws IllegalAccessException{
+        try {
+            app.removeProject(projectHelper.getProject().getID());
+        }catch (IllegalAccessException e) {
+            errorMessageHolder.setErrorMessage(e.getMessage());
+        }
+    }
+
+    @Then("the project is not contained in the system")
+    public void theProjectIsNotContainedInTheSystem() {
+        assertFalse(app.getProjectHM().containsValue(projectHelper.getProject()));
+    }
+
     @Given("The project has not been initialized")
     public void theProjectHasNotBeenInitialized() {
         assertFalse(projectHelper.getProject().isInitialized());
     }
 
+    @Given("the developer is set as project leader for project with name {string}")
+    public void theDeveloperIsSetAsProjectLeaderForProjectWithName(String string) {
+        assertEquals(projectHelper.getProject().getName(), string);
+        app.setProjectLeader(projectHelper.getProject().getID(), developerHelper.getDeveloper().getID());
+    }
+
+    @Then("the project with name {string} has the developer with first name {string} and last name {string} as project leader")
+    public void theProjectWithNameHasTheDeveloperWithFirstNameAndLastNameAsProjectLeader(String projectName, String firstName, String lastName) {
+        assertEquals(projectHelper.getProject().getProjectLeader().getFirstName(),firstName);
+        assertEquals(projectHelper.getProject().getProjectLeader().getLastName(),lastName);
+        assertEquals(projectHelper.getProject().getProjectLeader(),developerHelper.getDeveloper());
+    }
 
     @Then("The project is initialized")
     public void theProjectIsInitialized() {
         assertTrue(projectHelper.getProject().isInitialized());
+    }
+
+    @Given("the project leader is the active user")
+    public void theProjectLeaderIsTheActiveUser() {
+        assertEquals(app.getActiveDeveloper(),developerHelper.getDeveloper());
+    }
+    @Given("the project leader is not the active user")
+    public void theProjectLeaderIsNotTheActiveUser() {
+        assertNotEquals(projectHelper.getProject().getProjectLeader(),app.getActiveDeveloper());
+    }
+
+    @Then("the project with name {string} has the developer as project leader")
+    public void theProjectWithNameHasTheDeveloperAsProjectLeader(String string) {
+        assertEquals(projectHelper.getProject().getName(), string);
+        assertEquals(projectHelper.getProject().getProjectLeader(), developerHelper.getDeveloper());
     }
 
     @When("the activity with name {string} is added to the project")
@@ -49,21 +124,6 @@ public class ProjectSteps {
             errorMessageHolder.setErrorMessage(e.getMessage());
         }
     }
-    @When("the activity with name {string} is removed from the project")
-    public void theActivityWithNameIsRemovedFromTheProject(String string) throws IllegalAccessException {
-        try {
-            app.removeActivityFromProject(activityHelper.getActivity().getName(),projectHelper.getProject().getID());
-        }catch (IllegalAccessException e) {
-            errorMessageHolder.setErrorMessage(e.getMessage());
-        }
-    }
-
-    @Then("an error message {string} is given")
-    public void anErrorWithMessageIsGiven(String string) {
-        assertEquals(string, this.errorMessageHolder.getErrorMessage());
-    }
-
-
 
     @Then("the activity with name {string} is in the project")
     public void theActivityWithNameIsInTheProject(String name) {
@@ -76,6 +136,16 @@ public class ProjectSteps {
         }
         assertTrue(nameExists);
     }
+
+    @When("the activity with name {string} is removed from the project")
+    public void theActivityWithNameIsRemovedFromTheProject(String string) throws IllegalAccessException {
+        try {
+            app.removeActivityFromProject(activityHelper.getActivity().getName(),projectHelper.getProject().getID());
+        }catch (IllegalAccessException e) {
+            errorMessageHolder.setErrorMessage(e.getMessage());
+        }
+    }
+
     @Then("the activity with name {string} is not in the project")
     public void theActivityWithNameIsNotInTheProject(String name) {
         boolean nameExists = false;
@@ -88,84 +158,14 @@ public class ProjectSteps {
         assertFalse(nameExists);
     }
 
-
-    @Given("the developer is set as project leader for project with name {string}")
-    public void theDeveloperIsSetAsProjectLeaderForProjectWithName(String string) {
-        assertEquals(projectHelper.getProject().getName(), string);
-        app.setProjectLeader(projectHelper.getProject().getID(), developerHelper.getDeveloper().getID());
-
+    @Then("the project does not contain any activities")
+    public void theProjectDoesNotContainAnyActivities() {
+        assertTrue(projectHelper.getProject().getActivityList().isEmpty());
     }
-
-    @Then("the project with name {string} has the developer with first name {string} and last name {string} as project leader")
-    public void theProjectWithNameHasTheDeveloperWithFirstNameAndLastNameAsProjectLeader(String string, String string2, String string3) {
-        assertEquals(projectHelper.getProject().getProjectLeader().getFirstName(),string2);
-        assertEquals(projectHelper.getProject().getProjectLeader().getLastName(),string3);
-        assertEquals(projectHelper.getProject().getProjectLeader(),developerHelper.getDeveloper());
-
-    }
-
-    @When("the developer with first name {string} and last name {string} is set as project leader for project with name {string}")
-    public void theDeveloperWithFirstNameAndLastNameIsSetAsProjectLeaderForProjectWithName(String string, String string2, String string3) throws Exception {
-        assertEquals(developerHelper.getDeveloper().getFirstName(), string);
-        assertEquals(developerHelper.getDeveloper().getLastName(), string2);
-        assertEquals(projectHelper.getProject().getName(), string3);
-        app.setProjectLeader(projectHelper.getProject().getID(), developerHelper.getDeveloper().getID());
-    }
-
-    @Then("the project with name {string} has the developer as project leader")
-    public void theProjectWithNameHasTheDeveloperAsProjectLeader(String string) {
-        assertEquals(projectHelper.getProject().getName(), string);
-        assertEquals(projectHelper.getProject().getProjectLeader(), developerHelper.getDeveloper());
-
-    }
-
-
-    @Given("a developer with first name {string} and last name {string} is added to the system")
-    public void aDeveloperWithFirstNameAndLastNameIsAddedToTheSystem(String string, String string2) {
-        developerHelper.setDeveloper(new Developer(string, string2));
-        app.registerDeveloper(developerHelper.getDeveloper());
-    }
-
 
     @When("The name of the project is changed to {string}")
     public void theNameOfTheProjectIsChangedTo(String string) {
         projectHelper.getProject().setName(string);
-    }
-
-    @When("The name of the activity with name {string} is changed to {string}")
-    public void theNameOfTheActivityWithNameIsChangedTo(String string, String string2) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-
-    @Given("there is an activity with name {string}")
-    public void thereIsAnActivityWithName(String string) {
-        activityHelper.setActivity(new Activity(string));
-    }
-
-    @Given("the project leader is the active user")
-    public void theProjectLeaderIsTheActiveUser() {
-        assertEquals(app.getActiveDeveloper(),developerHelper.getDeveloper());
-    }
-    @Given("the project leader is not the active user")
-    public void theProjectLeaderIsNotTheActiveUser() {
-        assertNotEquals(projectHelper.getProject().getProjectLeader(),app.getActiveDeveloper());
-    }
-
-
-    @Then("The error message {string} is given")
-    public void theErrorMessageIsGiven(String string) {
-
-    }
-
-    @Then("An exception is expected")
-    public void anExceptionIsExpected() {
-        exceptionHandler.expectException();
-    }
-
-    @Then("An exception is given")
-    public void anExceptionIsGiven() {
-        assertFalse(exceptionHandler.getExceptions().isEmpty());
     }
 
     @When("The start date of a project that doesnt exist is set")
@@ -175,12 +175,10 @@ public class ProjectSteps {
         } catch (RuntimeException e) {
             errorMessageHolder.setErrorMessage(e.getMessage());
         }
-
     }
 
     @When("the project is printed")
     public void theProjectIsPrinted() {
         projectHelper.getProject().toString();
     }
-
 }

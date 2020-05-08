@@ -1,19 +1,11 @@
 package acceptance_tests.steps;
 
 import acceptance_tests.helper.*;
-import domain.Developer;
-import domain.Project;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
 import System.App;
-
-import java.util.Calendar;
-import java.util.List;
 
 public class SystemSteps {
 
@@ -35,141 +27,25 @@ public class SystemSteps {
         this.exceptionHandler = exceptionHandler;
     }
 
-    @Given("There is a Developer with first name {string} and last name {string}")
-    public void thereIsADeveloperWithFirstNameAndLastName(String firstName, String lastName) {
-        developerHelper.setDeveloper(new Developer(firstName, lastName));
-        assertTrue(developerHelper.getDeveloper().getFirstName() == firstName && developerHelper.getDeveloper().getLastName() == lastName);
-    }
-
-    @When("the developer is added to the system")
-    public void theDeveloperIsAddedToTheSystem() throws Exception {
-        app.registerDeveloper(developerHelper.getDeveloper());
-    }
-    @When("the developer is being removed from the system")
-    public void theDeveloperIsBeingRemovedFromTheSystem() {
-        app.removeDeveloper(developerHelper.getDeveloper().getID());
-
-    }
-
-    @Then("the activty does not contain the developer")
-    public void theActivtyDoesNotContainTheDeveloper() {
-        assertFalse(activityHelper.getActivity().developerHM.containsValue(developerHelper.getDeveloper()));
+    @Then("an error message {string} is given")
+    public void anErrorWithMessageIsGiven(String string) {
+        assertEquals(string, this.errorMessageHolder.getErrorMessage());
     }
 
 
-    @Then("the developer is in the system with an appropriate ID")
-    public void theDeveloperIsInTheSystemWithAnAppropriateID() {
-        String testID;
-        if (app.getDeveloperHM().size() > 9) {
-            testID = developerHelper.getDeveloper().getFirstName().substring(0,2).toUpperCase() + developerHelper.getDeveloper().getLastName().substring(0,2).toUpperCase() + (app.developerHM.size());
-        } else {
-            testID = developerHelper.getDeveloper().getFirstName().substring(0,2).toUpperCase() + developerHelper.getDeveloper().getLastName().substring(0,2).toUpperCase() + 0 + (app.developerHM.size());
-        }
 
-        assertTrue(testID.equals(developerHelper.getDeveloper().getID()));
-        assertTrue(app.getDeveloperHM().containsKey(developerHelper.getDeveloper().getID()));
+    /*
+    @Then("An exception is given")
+    public void anExceptionIsGiven() {
+        assertFalse(exceptionHandler.getExceptions().isEmpty());
     }
 
-    @Then("the developer is not contained in the system")
-    public void theDeveloperIsNotContainedInTheSystem() {
-        assertFalse(app.getDeveloperHM().containsValue(developerHelper.getDeveloper()));
+    @Then("An exception is expected")
+    public void anExceptionIsExpected() {
+        exceptionHandler.expectException();
     }
+     */
 
-
-    @Given("The following developers are registered in the system")
-    public void theFollowingDeveloperSIsAreRegisteredInTheSystem(List<List<String>> developers) {
-        for (List<String> developerInfo : developers) {
-            app.registerDeveloper(new Developer(developerInfo.get(0), developerInfo.get(1)));
-        }
-    }
-
-    @Given("A project with name {string} is created")
-    public void aProjectWithNameIsCreated(String name) throws Exception{
-        projectHelper.setProject(new Project(name));
-    }
-    @When("The project is added to the system")
-    public void theProjectIsAddedToTheSystem() throws Exception{
-        app.registerProject(projectHelper.getProject());
-    }
-    @When("the active developer removes the project from the system")
-    public void theActiveDeveloperRemovesTheProjectFromTheSystem() throws IllegalAccessException{
-
-        try {
-            app.removeProject(projectHelper.getProject().getID());
-        }catch (IllegalAccessException e) {
-            errorMessageHolder.setErrorMessage(e.getMessage());
-        }
-    }
-
-
-    @Then("the project is registered in the system")
-    public void theProjectIsRegisteredInTheSystem() {
-        assertTrue(app.getProjectHM().containsValue(projectHelper.getProject()));
-    }
-
-    @Then("the project is not contained in the system")
-    public void theProjectIsNotContainedInTheSystem() {
-        assertFalse(app.getProjectHM().containsValue(projectHelper.getProject()));
-    }
-
-    @Then("There is a project registered in the system with name {string}")
-    public void thereIsAProjectRegisteredInTheSystemWithName(String string) {
-        assertTrue(projectHelper.getProject().getName().equals(string));
-        assertTrue(app.getProjectHM().containsValue(projectHelper.getProject()));
-    }
-
-    @Then("The project with name {string} is uninitialized in the system")
-    public void theProjectWithNameIsUninitializedInTheSystem(String string) {
-        assertFalse(projectHelper.getProject().isInitialized());
-    }
-
-    @Then("the project does not contain any activities")
-    public void theProjectDoesNotContainAnyActivities() {
-        assertTrue(projectHelper.getProject().getActivityList().isEmpty());
-    }
-
-    @Then("The project ID fits the current date")
-    public void theProjectIDFitsTheCurrentDate() {
-        String weekNumber = Integer.toString(app.getDate().get(Calendar.WEEK_OF_YEAR));
-        String year = Integer.toString(app.getDate().get(Calendar.YEAR)).substring(2);
-        String runningNumber = "0" + Integer.toString(app.getProjectHM().size());
-        String test = year + weekNumber + runningNumber;
-
-        assertTrue(test.equals(projectHelper.getProject().getID()));
-    }
-
-    @Then("a developer hasn't been selected as an active developer")
-    public void aDeveloperHasnTBeenSelectedAsAnActiveDeveloper() {
-        assertEquals(app.getActiveDeveloper(),null);
-    }
-
-
-    @Then("the active developer variable has the value null")
-    public void theActiveDeveloperVariableHasTheValueNull() {
-        assertTrue(app.getActiveDeveloper() == null);
-    }
-
-    @When("The developer is set as the active developer")
-    public void theDeveloperIsSetAsTheActiveDeveloper() throws Exception{
-        app.setActiveDeveloper(developerHelper.getDeveloper());
-    }
-
-
-    @Then("the developer is the active developer")
-    public void theDeveloperIsTheActiveDeveloper() {
-        assertEquals(app.getActiveDeveloper(),developerHelper.getDeveloper());
-
-    }
-
-    @When("All projects are printed")
-    public void allProjectsArePrinted() {
-       app.getProjectValues();
-    }
-
-    @When("All developers are printed")
-    public void allDevelopersArePrinted() {
-        app.getDevValues();
-    }
 
     @When("The project leader searches for available developers for the project and activity")
     public void theProjectLeaderSearchesForAvailableDevelopersForTheProjectAndActivity() throws IllegalAccessException {
@@ -178,8 +54,27 @@ public class SystemSteps {
         } catch (Exception e) {
             errorMessageHolder.setErrorMessage(e.getMessage());
         }
-
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
