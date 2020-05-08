@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Add activity to project")
-public class AddActivityToProject {
+public class RegisterActivityToProject {
     private final App app = new App();
     private final Developer developer = new Developer("Jane", "Doe");
     private final Project project = new Project("Enigma Codebreaker");
@@ -52,8 +52,8 @@ public class AddActivityToProject {
 
     // Activity name already exists in project
     @Test
-    @DisplayName("Test case C")
-    void registerActivityDataSetC() throws IllegalAccessException {
+    @DisplayName("Test case C1")
+    void registerActivityDataSetC1() throws IllegalAccessException {
         app.registerProject(project);
         app.registerActivityToProject(activity, project.getID());
 
@@ -83,8 +83,8 @@ public class AddActivityToProject {
 
     // Project is initialized - but a developer who is not project leader tries to set activity date
     @Test
-    @DisplayName("Test case D")
-    void registerActivityDataSetD() throws IllegalAccessException {
+    @DisplayName("Test case D1")
+    void registerActivityDataSetD1() throws IllegalAccessException {
         app.registerProject(project);
         app.registerDeveloper(developer);
         app.registerDeveloper(new Developer("Ole","Hansen"));
@@ -99,7 +99,22 @@ public class AddActivityToProject {
 
     }
 
+    // Developer is added twice to the same activity
+    @Test
+    @DisplayName("Test case D2")
+    void registerActivityDataSetD2() throws IllegalAccessException {
+        app.registerProject(project);
+        app.registerDeveloper(developer);
+        app.registerActivityToProject(activity,project.getID());
+      app.setDeveloperToActivity(activity.getName(),project.getID(),developer.getID());
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            app.setDeveloperToActivity(activity.getName(),project.getID(),developer.getID());
+        });
+        String expectedMessage = "The developer is already assigned to this activity";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
 
+    }
 
     // Activity is added correctly and the activity size is 1 at the given project
     @Test
