@@ -14,7 +14,7 @@ public class Activity {
 
 
     public Activity(String name) {
-        if(name.length() > 1) {
+        if (name.length() > 1) {
             this.name = name;
             this.interval = new Interval();
         } else {
@@ -22,10 +22,12 @@ public class Activity {
         }
     }
 
-    public Interval getInterval() { return this.interval; }
+    public Interval getInterval() {
+        return this.interval;
+    }
 
     public double getPlannedHours() {
-       return this.plannedHours;
+        return this.plannedHours;
     }
 
     public void setPlannedHours(double hours) {
@@ -33,17 +35,14 @@ public class Activity {
     }
 
     public void setWorkedHours(double workedHours) throws IllegalArgumentException {
-        if (interval.getStartDate() != null) {
-            if (workedHours + this.workedHours <= plannedHours) {
-                this.workedHours += workedHours;
-            } else {
-                this.workedHours += workedHours;
-                System.out.println("Planned hours have been exceeded by " + (workedHours - plannedHours));
-            }
-        }else {
-            System.out.println("The activity " + this.getName() + " is not started yet");
+        if (workedHours + this.workedHours <= plannedHours) {
+            this.workedHours += workedHours;
+        } else {
+            this.workedHours += workedHours;
+            System.out.println("Planned hours have been exceeded by " + (workedHours - plannedHours));
         }
     }
+
 
     public double getWorkedHours() {
         return workedHours;
@@ -55,15 +54,15 @@ public class Activity {
 
     @Override
     public String toString() {
-    return      "name: " + '\'' + name + '\'' +
-            ", Start date: " + "Week: " + '\'' + interval.getStartWeek() + '\'' + ", Year: " +
+        return "name: " + '\'' + name + '\'' +
+                ", Start date: " + "Week: " + '\'' + interval.getStartWeek() + '\'' + ", Year: " +
                 '\'' + interval.getStartYear() + '\'' +
                 ", plannedHours: " + plannedHours +
                 ", workedHours: " + workedHours;
     }
 
     public void addDeveloper(Developer developer) {
-        developerHM.put(developer.getID(),developer);
+        developerHM.put(developer.getID(), developer);
         developer.addActivity(this);
     }
 }

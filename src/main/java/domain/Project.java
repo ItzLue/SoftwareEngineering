@@ -1,6 +1,5 @@
 package domain;
 
-import de.vandermeer.asciitable.AsciiTable;
 import time.Interval;
 
 import java.util.ArrayList;

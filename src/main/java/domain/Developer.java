@@ -20,11 +20,13 @@ public class Developer {
     public String getID() { return ID; }
 
     public void setWorkedHours(double workHours, Activity activity) throws IllegalAccessException {
-        if (workHours >= 0.5){
-            this.workHours = workHours;
-            activity.setWorkedHours(workHours);
-        }else {
-            throw new IllegalArgumentException("Please provide a valid input");
+        if (activity.getInterval().getStartDate() != null) {
+            if (workHours >= 0.5) {
+                this.workHours = workHours;
+                activity.setWorkedHours(workHours);
+            } else {
+                throw new IllegalArgumentException("Please provide a valid input");
+            }
         }
     }
 
