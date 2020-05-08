@@ -235,9 +235,8 @@ public class App {
         return projectHM.get(projectID).getActivity(activityName).getPlannedHours();
     }
 
-    public ArrayList<Developer> searchAvailableDevelopers(String projectID, String activityName) {
+    public ArrayList<Developer> searchAvailableDevelopers(String projectID, String activityName) throws IllegalAccessException {
         ArrayList<Developer> availableDevelopers = new ArrayList<>();
-
         if(activeDeveloper == projectHM.get(projectID).getProjectLeader()) {
             for (Developer developer : developerHM.values()) {
                 if (!projectHM.get(projectID).getActivity(activityName).developerHM.containsValue(developer) && developer.isAvailable(projectHM.get(projectID).getActivity(activityName).getInterval())) {
@@ -245,7 +244,7 @@ public class App {
                 }
             }
         } else {
-            throw new NullPointerException("Only the project leader may search for available developers");
+            throw new IllegalAccessException("Only the project leader may search for available developers");
         }
         return availableDevelopers;
     }

@@ -441,7 +441,7 @@ public class UI extends ActionView {
 
                 System.out.println(app.searchAvailableDevelopers(projectID,activityName));
 
-            } catch(NullPointerException e) {
+            } catch(NullPointerException | IllegalAccessException e) {
                 System.out.println(e.getMessage());
             }
 
