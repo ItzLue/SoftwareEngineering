@@ -11,12 +11,13 @@ Feature: Search for available developers
     And the activity with name "Coding" is added to the project
     Given the developer is set as project leader for project with name "Enigma Codebreaker"
     And The project is initialized
+    When the active developer assigns the developer to the activity
 
     #main scenario
-  Scenario: The projectleader searches for available developers
+  Scenario: The project leader searches for available developers
     And The developer is set as the active developer
     When The project leader searches for available developers for the project and activity
 
-  Scenario: The projectleader searches for available developers
+  Scenario: A developer searches for available developers
     When The project leader searches for available developers for the project and activity
     Then an error message "Only the project leader may search for available developers" is given
