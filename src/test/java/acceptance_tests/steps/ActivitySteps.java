@@ -98,6 +98,16 @@ public class ActivitySteps {
         assertTrue(developerHelper.getDeveloper().getActivityList().contains(activityHelper.getActivity()));
     }
 
+    @When("The developer sets their worked hours for the activity to {double}")
+    public void theDeveloperSetsTheirWorkedHoursForTheActivityTo(Double hours) throws IllegalAccessException {
+        app.setWorkedHoursForActivity(activityHelper.getActivity().getName(),projectHelper.getProject().getID(), hours);
+    }
+
+    @Then("The developer and activity worked hours are {double}")
+    public void theDeveloperAndActivityWorkedHoursAre(Double hours) {
+        assertTrue(hours == developerHelper.getDeveloper().getWorkedHours());
+        assertTrue(hours == activityHelper.getActivity().getWorkedHours());
+    }
 
 
 
