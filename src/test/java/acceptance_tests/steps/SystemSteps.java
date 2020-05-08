@@ -45,6 +45,11 @@ public class SystemSteps {
     public void theDeveloperIsAddedToTheSystem() throws Exception {
         app.registerDeveloper(developerHelper.getDeveloper());
     }
+    @When("the developer is being removed from the system")
+    public void theDeveloperIsBeingRemovedFromTheSystem() {
+        app.removeDeveloper(developerHelper.getDeveloper().getID());
+
+    }
 
 
     @Then("the developer is in the system with an appropriate ID")
@@ -58,6 +63,11 @@ public class SystemSteps {
 
         assertTrue(testID.equals(developerHelper.getDeveloper().getID()));
         assertTrue(app.getDeveloperHM().containsKey(developerHelper.getDeveloper().getID()));
+    }
+
+    @Then("the developer is not contained in the system")
+    public void theDeveloperIsNotContainedInTheSystem() {
+        assertFalse(app.getDeveloperHM().containsValue(developerHelper.getDeveloper()));
     }
 
 
@@ -76,21 +86,41 @@ public class SystemSteps {
     public void theProjectIsAddedToTheSystem() throws Exception{
         app.registerProject(projectHelper.getProject());
     }
+    @When("the active developer removes the project from the system")
+    public void theActiveDeveloperRemovesTheProjectFromTheSystem() throws IllegalAccessException{
+
+        try {
+            app.removeProject(projectHelper.getProject().getID());
+        }catch (IllegalAccessException e) {
+            errorMessageHolder.setErrorMessage(e.getMessage());
+        }
+    }
+
 
     @Then("the project is registered in the system")
     public void theProjectIsRegisteredInTheSystem() {
         assertTrue(app.getProjectHM().containsValue(projectHelper.getProject()));
     }
+
+    @Then("the project is not contained in the system")
+    public void theProjectIsNotContainedInTheSystem() {
+        assertFalse(app.getProjectHM().containsValue(projectHelper.getProject()));
+    }
+
     @Then("There is a project registered in the system with name {string}")
     public void thereIsAProjectRegisteredInTheSystemWithName(String string) {
         assertTrue(projectHelper.getProject().getName().equals(string));
         assertTrue(app.getProjectHM().containsValue(projectHelper.getProject()));
     }
 
-
     @Then("The project with name {string} is uninitialized in the system")
     public void theProjectWithNameIsUninitializedInTheSystem(String string) {
         assertFalse(projectHelper.getProject().isInitialized());
+    }
+
+    @Then("the project does not contain any activities")
+    public void theProjectDoesNotContainAnyActivities() {
+        assertTrue(projectHelper.getProject().getActivityList().isEmpty());
     }
 
     @Then("The project ID fits the current date")
