@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class RegisterProject {
     private final App app = new App();
     private final Project project = new Project("Enigma Codebreaker");
+    private final Developer developer = new Developer("Jane","Doe");
 
     @Test
     @DisplayName("Test Failing Asserts")
@@ -65,8 +66,8 @@ public class RegisterProject {
 
     // Change project name
     @Test
-    @DisplayName("Test case E")
-    void registerDeveloperDataSetE() {
+    @DisplayName("Test case E1")
+    void registerDeveloperDataSetE1() {
         app.registerProject(project);
         assertAll("make project",
                 () -> {
@@ -78,6 +79,22 @@ public class RegisterProject {
                     );
                 }
         );
+    }
+
+    // Change name - project does not exist
+    @Test
+    @DisplayName("Test case E2")
+    void registerDeveloperDataSet2() {
+        app.registerDeveloper(developer);
+        app.registerDeveloper(new Developer("Ole","Hansen"));
+        app.setProjectLeader(project.getID(),developer.getID());
+        Exception exception = assertThrows(NullPointerException.class, () -> {
+            app.setProjectName(project.getID(),"What a Name!");
+        });
+        String expectedMessage = "Project with ID: " + project.getName() +  "doesn't exist";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
+
     }
 
     @Test

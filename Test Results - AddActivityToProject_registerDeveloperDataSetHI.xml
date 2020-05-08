@@ -10,12 +10,12 @@
             </pattern>
         </extension>
         <option name="PACKAGE_NAME" value="Junit"/>
-        <option name="MAIN_CLASS_NAME" value="Junit.AddActivityToProject"/>
+        <option name="MAIN_CLASS_NAME" value="Junit.RegisterActivityToProject"/>
         <option name="METHOD_NAME" value="registerDeveloperDataSetHI"/>
         <option name="TEST_OBJECT" value="method"/>
     </config>
-    <suite duration="16" locationUrl="java:suite://Junit.AddActivityToProject" name="Add activity to project" status="failed">
-        <test duration="16" locationUrl="java:test://Junit.AddActivityToProject/registerDeveloperDataSetHI" name="Test case I" metainfo="" status="failed">
+    <suite duration="16" locationUrl="java:suite://Junit.RegisterActivityToProject" name="Add activity to project" status="failed">
+        <test duration="16" locationUrl="java:test://Junit.RegisterActivityToProject/registerDeveloperDataSetHI" name="Test case I" metainfo="" status="failed">
             <output type="stdout"/>
             <output type="stderr">org.opentest4j.AssertionFailedError: 
 </output>
@@ -33,7 +33,7 @@
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:70)&#13;
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:65)&#13;
 	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:868)&#13;
-	at Junit.AddActivityToProject.registerDeveloperDataSetHI(AddActivityToProject.java:159)&#13;
+	at Junit.RegisterActivityToProject.registerDeveloperDataSetHI(AddActivityToProject.java:159)&#13;
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
