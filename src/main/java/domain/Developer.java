@@ -94,9 +94,9 @@ public class Developer {
                 startWeek = interval.getStartWeek() + (-startShift*52);
             }
             if (endShift > 0) {
-                startWeekThis = personalActivity.getInterval().getEndWeek() + (endShift*52);
+                endWeekThis = personalActivity.getInterval().getEndWeek() + (endShift*52);
             } else if (endShift < 0) {
-                startWeek = interval.getEndWeek() + (-endShift*52);
+                endWeek = interval.getEndWeek() + (-endShift*52);
             }
 
             if((startWeekThis >= startWeek && startWeekThis <= endWeek ||

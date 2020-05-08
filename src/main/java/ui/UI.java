@@ -296,8 +296,8 @@ public class UI extends ActionView {
             int startWeek = this.prompt("Enter the start week for this personal activity: ", Integer.class);
             int startYear = this.prompt("Enter the start year for this personal activity: ", Integer.class);
             app.setPersonalActivityDate(true, name, startYear, startWeek);
-            int endWeek = this.prompt("Enter the start week for this personal activity: ", Integer.class);
-            int endYear = this.prompt("Enter the start year for this personal activity: ", Integer.class);
+            int endWeek = this.prompt("Enter the end week for this personal activity: ", Integer.class);
+            int endYear = this.prompt("Enter the end year for this personal activity: ", Integer.class);
             app.setPersonalActivityDate(false, name, endYear, endWeek);
             this.actionSuccessful();
         }
