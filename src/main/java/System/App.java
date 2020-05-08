@@ -40,6 +40,11 @@ public class App {
     }
     public void removeDeveloper(String developerID) {
         assert developerHM.containsKey(developerID) : "Precondition developer ";
+        
+        for (Activity a : developerHM.get(developerID).getActivityList()) {
+            a.developerHM.remove(developerID);
+
+        }
         developerHM.remove(developerID);
         assert !developerHM.containsKey(developerID): "Post condition removed ";
     }

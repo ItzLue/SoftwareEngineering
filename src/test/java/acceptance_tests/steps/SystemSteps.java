@@ -51,6 +51,11 @@ public class SystemSteps {
 
     }
 
+    @Then("the activty does not contain the developer")
+    public void theActivtyDoesNotContainTheDeveloper() {
+        assertFalse(activityHelper.getActivity().developerHM.containsValue(developerHelper.getDeveloper()));
+    }
+
 
     @Then("the developer is in the system with an appropriate ID")
     public void theDeveloperIsInTheSystemWithAnAppropriateID() {

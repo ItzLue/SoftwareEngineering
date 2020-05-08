@@ -15,4 +15,5 @@ Feature: Remove a developer from the system
    Scenario:
      When the developer is being removed from the system
      Then the developer is not contained in the system
+     And the activty does not contain the developer
 
