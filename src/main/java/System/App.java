@@ -34,6 +34,12 @@ public class App {
         }
         return ID;
     }
+    public void removeDeveloper(String developerID) {
+        if(developerHM.containsKey(developerID)) {
+            developerHM.get(developerID).getActivityList();
+            developerHM.remove(developerID);
+        }
+    }
 
     public void setActiveDeveloper(String ID) {
         if (developerHM.containsKey(ID)) {
@@ -88,6 +94,23 @@ public class App {
             runningNumber = Integer.toString(projectHM.size() + 1);
         }
         return year + weekNumber + runningNumber;
+    }
+    public void removeProject(String projectID) throws IllegalAccessException{
+        if(!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
+            if (projectHM.containsKey(projectID)) {
+                for(Activity a : projectHM.get(projectID).getActivityList()) {
+                    removeActivityFromProject(a.getName(),projectID);
+                    if(!projectHM.get(projectID).getActivityList().contains(a)) {
+                        break;
+                    }
+                }
+                projectHM.get(projectID).getActivityList().clear();
+                projectHM.remove(projectID);
+            }
+        }else {
+            throw new IllegalAccessException("Only the project leader has access to remove the project");
+        }
+
     }
 
     public void setProjectLeader(String projectID, String developerID) {
@@ -169,7 +192,6 @@ public class App {
                         // Removing the activities from the developers activitylist
                         for (Developer d : a.developerHM.values()) {
                             d.getActivityList().remove((a));
-                            //break;
                         }
                         projectHM.get(projectID).getActivityList().remove(a);
 

@@ -12,6 +12,8 @@ Feature: Remove activities from an initialized project
     Given the developer is set as project leader for project with name "Enigma Codebreaker"
     Given there is an activity with name "Coding"
     And the activity with name "Coding" is added to the project
+    And the active developer assigns the developer to the activity
+
 
     #Main scenario
   Scenario: Activity is succesfully removed from an initialized project
@@ -20,7 +22,7 @@ Feature: Remove activities from an initialized project
     Then the activity with name "Coding" is not in the project
 
      # Fail scenario :
-  Scenario: Activity is unsuccesfully removec from an initialized project
+  Scenario: Activity is unsuccesfully removed from an initialized project
     Given There is a Developer with first name "Birte" and last name "Rasmussen"
     And the developer is added to the system
     When The developer is set as the active developer
