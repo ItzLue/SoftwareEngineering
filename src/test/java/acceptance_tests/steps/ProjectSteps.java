@@ -35,7 +35,6 @@ public class ProjectSteps {
         assertFalse(projectHelper.getProject().isInitialized());
     }
 
-
     @Then("The project is initialized")
     public void theProjectIsInitialized() {
         assertTrue(projectHelper.getProject().isInitialized());

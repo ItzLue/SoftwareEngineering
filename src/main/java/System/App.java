@@ -179,6 +179,7 @@ public class App {
                 throw new NullPointerException("The project with ID: " + projectID + " does not exist");
             }
         }
+
     }
 
     public void setActivityDate(boolean startOrEnd, String projectID, String activityName, int year, int week) throws IllegalAccessException {
