@@ -36,12 +36,14 @@ public class UI extends ActionView {
 
         app.registerProject(project);
         app.registerActivityToProject(activity, project.getID());
+        app.setActivityDate(true,"201901","frontend",2020,27);
+        app.setActivityDate(false,"201901","frontend",2020,29);
         app.registerDeveloper(developer);
         app.setPlannedHoursForActivity(activity.getName(), project.getID(), 20);
         app.getProjectHM().get(project.getID()).getActivity(activity.getName()).addDeveloper(developer);
 //        app.registerActivityToProject(new Activity("backend"),"20191");
 //        app.setActivityDate(true,"20191","backend",2020,26);
-//        app.setActivityDate(true,"20191","frontend",2020,27);
+
 
 
         MenuView rootMenu = new MenuView("Welcome to SoftwareHuset A/S", "");
@@ -95,6 +97,7 @@ public class UI extends ActionView {
         activityMenu.addMenuItem(new removeActivityFromProjectAction());
         activityMenu.addMenuItem(new addDeveloperToActivityAction());
         activityMenu.addMenuItem(new setPlannedHoursAction());
+        activityMenu.addMenuItem(new searchForAvailableDevelopers());
         return activityMenu;
     }
 
@@ -247,9 +250,12 @@ public class UI extends ActionView {
                 String name = this.prompt("Enter the name for the activity: ", String.class);
                 String ID = this.prompt("Enter the ID for the project: ", String.class);
                 app.registerActivityToProject(new Activity(name), ID);
-                int weekPlanned = this.prompt("Enter the start week for this activity: ", Integer.class);
-                int yearPlanned = this.prompt("Enter the start year for this activity: ", Integer.class);
-                app.setActivityDate(true, ID, name, yearPlanned, weekPlanned);
+                int startWeek = this.prompt("Enter the start week for this activity: ", Integer.class);
+                int startYear = this.prompt("Enter the start year for this activity: ", Integer.class);
+                app.setActivityDate(true, ID, name, startYear, startWeek);
+                int endWeek = this.prompt("Enter the start week for this activity: ", Integer.class);
+                int endYear = this.prompt("Enter the start year for this activity: ", Integer.class);
+                app.setActivityDate(true, ID, name, endYear, endWeek);
                 this.actionSuccessful();
 
             } catch (IllegalArgumentException | IllegalAccessException | NullPointerException e) {
@@ -311,14 +317,14 @@ public class UI extends ActionView {
         public void executeCustomAction() throws NullPointerException {
             try {
                 String ID = this.prompt("Enter a valid ID for a project: ", String.class);
-                boolean confirmed = this.confirmDialog("Do u want to change the name for the project " + app.getProjectHM().get(ID).getName());
+                boolean confirmed = this.confirmDialog("Do you want to change the name for the project " + app.getProjectHM().get(ID).getName());
                 if (confirmed) {
                     String name = this.prompt("Please enter the new name for the project: ", String.class);
                     app.setProjectName(ID, name);
                     this.actionSuccessful();
                 }
             } catch (NullPointerException e) {
-                System.out.println("The project does not exist ");
+                System.out.println(e.getMessage());
             }
 
         }
@@ -415,9 +421,30 @@ public class UI extends ActionView {
                 }
                 double dhours = Double.parseDouble(hours);
                 app.getProjectHM().get(projectID).getActivity(activityName).setPlannedHours(dhours);
+                this.actionSuccessful();
             } catch(NullPointerException e) {
                 System.out.println("Error in input. Please try again");
             }
+        }
+    }
+
+    class searchForAvailableDevelopers extends ActionView {
+        public searchForAvailableDevelopers() {
+            super("Search for available developers", "Search for available developers");
+        }
+
+        @Override
+        public void executeCustomAction() {
+            try{
+                String projectID = this.prompt("Enter the ID of the project: ", String.class);
+                String activityName = this.prompt("Enter the name of the activity: ", String.class);
+
+                System.out.println(app.searchAvailableDevelopers(projectID,activityName));
+
+            } catch(NullPointerException e) {
+                System.out.println(e.getMessage());
+            }
+
         }
     }
 }

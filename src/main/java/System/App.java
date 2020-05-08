@@ -4,7 +4,9 @@ import domain.Activity;
 import domain.Developer;
 import domain.Project;
 import time.DateServer;
+import time.Interval;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 
@@ -122,9 +124,15 @@ public class App {
         }
     }
 
-    public void setProjectName(String ID, String name) {
-        if (projectHM.containsKey(ID)) {
-            projectHM.get(ID).setName(name);
+    public void setProjectName(String projectID, String name) {
+        if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
+            if (projectHM.containsKey(projectID)) {
+                projectHM.get(projectID).setName(name);
+            } else {
+                throw new NullPointerException("Project with ID: " + projectID + " doesn't exist");
+            }
+        } else {
+            throw new NullPointerException("Only the project leader can change the name of an initialized project");
         }
     }
 
@@ -226,21 +234,28 @@ public class App {
     }
 
     public double getPlannedHoursForActivity(String activityName, String projectID) {
-        if (projectHM.get(projectID).getActivity(activityName).getPlannedHours() == 0) {
-            //something
-        } else {
-            return projectHM.get(projectID).getActivity(activityName).getPlannedHours();
-        }
-        return 0;
+        return projectHM.get(projectID).getActivity(activityName).getPlannedHours();
     }
+
+    public ArrayList<Developer> searchAvailableDevelopers(String projectID, String activityName) {
+        ArrayList<Developer> availableDevelopers = new ArrayList<>();
+
+        if(activeDeveloper == projectHM.get(projectID).getProjectLeader()) {
+            for (Developer developer : developerHM.values()) {
+                if (!projectHM.get(projectID).getActivity(activityName).developerHM.containsValue(developer) && developer.isAvailable(projectHM.get(projectID).getActivity(activityName).getInterval())) {
+                    availableDevelopers.add(developer);
+                }
+            }
+        } else {
+            throw new NullPointerException("Only the project leader may search for available developers");
+        }
+        return availableDevelopers;
+    }
+
 
     public Calendar getDate() { return dateServer.getDate(); }
 
     public void setDateServer(DateServer dateServer) {
         this.dateServer = dateServer;
     }
-
-//    public void setInterval() {
-//
-//    }
 }

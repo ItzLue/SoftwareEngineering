@@ -10,14 +10,6 @@ public class Interval {
     protected Calendar endDate;
 
 
-    public Calendar getEndDate() {
-        if( endDate != null){
-            return endDate;
-        }
-
-        return null;
-    }
-
     public Calendar getStartDate() {
         if( startDate != null){
             return startDate;
@@ -37,6 +29,14 @@ public class Interval {
             return null;
         }
         return ""+startDate.get(Calendar.YEAR);
+    }
+
+    public Calendar getEndDate() {
+        if( endDate != null){
+            return endDate;
+        }
+
+        return null;
     }
 
     public void setEndDate(int year, int week) {

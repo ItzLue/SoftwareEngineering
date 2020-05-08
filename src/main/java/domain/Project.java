@@ -97,7 +97,6 @@ public class Project {
         return this.interval;
     }
 
-
     public ArrayList<Activity> getActivityList() {
         return this.activityList;
     }
