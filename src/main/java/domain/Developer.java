@@ -21,12 +21,14 @@ public class Developer {
 
     public void setWorkedHours(double workHours, Activity activity) throws IllegalAccessException {
         if (activity.getInterval().getStartDate() != null) {
-            if (workHours >= 0.5) {
+            if (workHours > 0.5) {
                 this.workHours = workHours;
                 activity.setWorkedHours(workHours);
             } else {
                 throw new IllegalArgumentException("Please provide a valid input");
             }
+        } else {
+            throw new IllegalArgumentException("The activity is not started yet");
         }
     }
 

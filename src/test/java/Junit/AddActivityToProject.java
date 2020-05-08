@@ -140,12 +140,12 @@ public class AddActivityToProject {
     void registerActivityDataSetI2() throws IllegalAccessException {
         app.registerProject(project);
         app.registerDeveloper(developer);
+        app.setActiveDeveloper(developer);
         app.registerActivityToProject(activity,project.getID());
         app.getProjectHM().get(project.getID()).getActivity(activity.getName()).addDeveloper(developer);
         app.setPlannedHoursForActivity(activity.getName(),project.getID(),50);
         activity.getInterval().setStartDate(2020,29);
-        app.setWorkedHoursForActivity(activity.getName(),project.getID(),20);
-        app.setActiveDeveloper(developer.getID());
+        app.setWorkedHoursForActivity(activity.getName(),project.getID(),app.getActiveDeveloper().getWorkedHours());
         assertEquals(20,project.getActivity(activity.getName()).getWorkedHours());
 
     }

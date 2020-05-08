@@ -167,7 +167,11 @@ public class UI extends ActionView {
 
         public void executeCustomAction() {
             String ID = this.prompt("Enter project ID: ",String.class);
-            System.out.println(app.getProjectHM().get(ID).getActivityList());
+            if(ID.equals("")) {
+                System.out.println("Please try again");
+            } else {
+                System.out.println(app.getProjectHM().get(ID).getActivityList());
+            }
         }
     }
 
@@ -190,8 +194,12 @@ public class UI extends ActionView {
             try {
                 String activityName = this.prompt("Enter the activity: ", String.class);
                 String projectID = this.prompt("Enter project ID: ", String.class);
-                double hours = this.prompt("How many hours have you worked? ", Double.class);
-                app.setWorkedHoursForActivity(activityName, projectID, hours);
+                String hours = this.prompt("How many hours have you worked? ", String.class);
+                if(hours.equals("")) {
+                    hours = "0";
+                }
+                double dhours = Double.valueOf(hours);
+                app.setWorkedHoursForActivity(activityName, projectID, dhours);
                 this.actionSuccessful();
             } catch (IllegalAccessException | NullPointerException e) {
                 e.getMessage();
@@ -324,10 +332,10 @@ public class UI extends ActionView {
 
         public void executeCustomAction() {
             try {
-                Activity name = this.prompt("Enter activity name: ", Activity.class);
+                String activityName = this.prompt("Enter activity name: ", String.class);
                 String ID = this.prompt("Enter ID of the project: ", String.class);
-                app.removeActivityFromProject(name, ID);
-
+                app.removeActivityFromProject(activityName, ID);
+                this.actionSuccessful();
             } catch (NullPointerException e) {
                 System.out.println(e.getMessage());
             }
