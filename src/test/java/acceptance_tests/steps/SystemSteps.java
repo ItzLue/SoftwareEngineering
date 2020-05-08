@@ -166,4 +166,15 @@ public class SystemSteps {
         app.getDevValues();
     }
 
+    @When("The project leader searches for available developers for the project and activity")
+    public void theProjectLeaderSearchesForAvailableDevelopersForTheProjectAndActivity() throws IllegalAccessException {
+        try {
+            app.searchAvailableDevelopers(projectHelper.getProject().getID(), activityHelper.getActivity().getName());
+        } catch (Exception e) {
+            errorMessageHolder.setErrorMessage(e.getMessage());
+        }
+
+    }
+
+
 }

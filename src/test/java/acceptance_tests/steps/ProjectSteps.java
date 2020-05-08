@@ -93,7 +93,6 @@ public class ProjectSteps {
     public void theDeveloperIsSetAsProjectLeaderForProjectWithName(String string) {
         assertEquals(projectHelper.getProject().getName(), string);
         app.setProjectLeader(projectHelper.getProject().getID(), developerHelper.getDeveloper().getID());
-        System.out.println("project leader: " + app.getActiveDeveloper());
 
     }
 
