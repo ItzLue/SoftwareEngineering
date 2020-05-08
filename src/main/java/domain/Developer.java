@@ -71,15 +71,23 @@ public class Developer {
     public boolean isAvailable(Interval interval) {
         int counter = 0;
 
+        int startWeek = 0;
+        int endWeek = 0;
+        int startWeekThis = 0;
+        int endWeekThis = 0;
+
         for (PersonalActivity personalActivity : getPersonalActivityList()) {
-            if((personalActivity.getInterval().getStartWeek() >= interval.getStartWeek() && personalActivity.getInterval().getStartWeek() <= interval.getEndWeek()) ||
-                    (personalActivity.getInterval().getEndWeek() >= interval.getStartWeek() && personalActivity.getInterval().getEndWeek() <= interval.getEndWeek())) {
-                return false;
-            }
-//            if((personalActivity.getInterval().getStartDate().after(interval.getStartDate()) && personalActivity.getInterval().getStartDate().before(interval.getEndDate())) ||
-//                    (personalActivity.getInterval().getEndDate().after(interval.getStartDate()) && personalActivity.getInterval().getEndDate().before(interval.getEndDate()))) {
+//            if((personalActivity.getInterval().getStartWeek() >= interval.getStartWeek() && personalActivity.getInterval().getStartWeek() <= interval.getEndWeek()) ||
+//                    (personalActivity.getInterval().getEndWeek() >= interval.getStartWeek() && personalActivity.getInterval().getEndWeek() <= interval.getEndWeek()) ||
+//                    (personalActivity.getInterval().getStartWeek() <= interval.getStartWeek() && personalActivity.getInterval().getEndWeek() >= interval.getEndWeek())) {
 //                return false;
 //            }
+
+            if((personalActivity.getInterval().getStartDate().after(interval.getStartDate()) && personalActivity.getInterval().getStartDate().before(interval.getEndDate())) ||
+                    (personalActivity.getInterval().getEndDate().after(interval.getStartDate()) && personalActivity.getInterval().getEndDate().before(interval.getEndDate())) ||
+                    (personalActivity.getInterval().getStartDate().before(interval.getStartWeek()) && personalActivity.getInterval().getEndDate().after(interval.getEndWeek()))) {
+                return false;
+            }
         }
 
         for (Activity activity : getActivityList()) {
