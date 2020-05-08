@@ -154,7 +154,7 @@ public class App {
         }
     }
 
-    public void removeActivityFromProject(String activityName, String projectID) {
+    public void removeActivityFromProject(String activityName, String projectID) throws IllegalAccessException {
         if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
             int counter = 0;
             if (projectHM.containsKey(projectID)) {
@@ -179,6 +179,8 @@ public class App {
             } else {
                 throw new NullPointerException("The project with ID: " + projectID + " does not exist");
             }
+        } else {
+            throw new IllegalAccessException("Only the project leader has access to remove activities from a project");
         }
 
     }
