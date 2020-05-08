@@ -12,6 +12,14 @@ class RegisterDeveloper {
     private final App app = new App();
     private final Developer developer = new Developer("Jane", "Doe");
 
+
+    @Test
+    @DisplayName("Test failing asserts")
+    void testFailingAsserts(){
+        app.registerDeveloper(developer);
+        System.out.println(app.getDeveloperHM().get(developer.getID()));
+    }
+
     // No input
     @Test
     @DisplayName("Test case A")

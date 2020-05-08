@@ -43,7 +43,6 @@ public class Activity {
         }
     }
 
-
     public double getWorkedHours() {
         return workedHours;
     }

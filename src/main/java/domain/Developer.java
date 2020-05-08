@@ -9,7 +9,7 @@ public class Developer {
     protected String lastName;
     protected String ID;
     protected ArrayList<Activity> activityList = new ArrayList<Activity>();
-    protected double workHours;
+    protected double workedHours;
 
     public String getLastName() {
         return lastName;
@@ -21,11 +21,11 @@ public class Developer {
 
     public String getID() { return ID; }
 
-    public void setWorkedHours(double workHours, Activity activity) throws IllegalAccessException {
+    public void setWorkedHours(double workedHours, Activity activity) throws IllegalAccessException {
         if (activity.getInterval().getStartDate() != null) {
-            if (workHours > 0.5) {
-                this.workHours = workHours;
-                activity.setWorkedHours(workHours);
+            if (workedHours > 0.5) {
+                this.workedHours = workedHours;
+                activity.setWorkedHours(workedHours);
             } else {
                 throw new IllegalArgumentException("Please provide a valid input");
             }
@@ -34,7 +34,7 @@ public class Developer {
         }
     }
 
-    public double getWorkedHours() { return workHours; }
+    public double getWorkedHours() { return workedHours; }
 
     public ArrayList<Activity> getActivityList() { return activityList; }
 

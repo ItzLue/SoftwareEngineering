@@ -9,7 +9,7 @@ import java.util.GregorianCalendar;
 public class Project {
     protected Developer projectLeader;
 
-    protected ArrayList<Activity> activityList = new ArrayList<Activity>();
+    protected ArrayList<Activity> activityList = new ArrayList<>();
     protected boolean initialized;
     protected Interval interval;
     private String ID = "";
@@ -18,7 +18,7 @@ public class Project {
     public Calendar testDate = new GregorianCalendar();
 
     public Project(String name) {
-        if(name.length() > 1) {
+        if (name.length() > 1) {
             this.name = name;
             this.initialized = false;
             this.interval = new Interval();
@@ -28,7 +28,7 @@ public class Project {
     }
 
     public boolean activityExists(String activityName) {
-        for (Activity activity: activityList) {
+        for (Activity activity : activityList) {
             if (activity.getName().equals(activityName)) {
                 return true;
             }
@@ -56,13 +56,15 @@ public class Project {
     }
 
     public String getProjectLeaderID() {
-        if(projectLeader == null) {
+        if (projectLeader == null) {
             return null;
         }
         return projectLeader.getID();
     }
 
-    public void setName(String name) { this.name = name; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public void setID(String ID) {
         if (this.ID.equals("")) {
@@ -81,12 +83,11 @@ public class Project {
     @Override
     public String toString() {
         return "Name:" + '\'' + name + '\'' +
-            ", ID: " + '\'' + ID + '\'' +
-            ", Project Leader: " + '\'' + getProjectLeaderID() + '\'' +
-            ", Start date: " + "Week: " + '\'' + interval.getStartWeek() + '\'' + " Year: " +
-            '\'' + interval.getStartYear() + '\'' +
-            ", Activity list: " + activityList.size();
-
+                ", ID: " + '\'' + ID + '\'' +
+                ", Project Leader: " + '\'' + getProjectLeaderID() + '\'' +
+                ", Start date: " + "Week: " + '\'' + interval.getStartWeek() + '\'' + " Year: " +
+                '\'' + interval.getStartYear() + '\'' +
+                ", Activity list: " + activityList.size();
     }
 
     public boolean isInitialized() {
@@ -104,7 +105,7 @@ public class Project {
     public void setProjectStartDate(int year, int week) {
         if (!invalidActivityDates(true, year, week)) {
             if (getInterval().getEndDate() == null) {
-                    getInterval().setStartDate(year, week);
+                getInterval().setStartDate(year, week);
             } else {
                 testDate.set(Calendar.YEAR, year);
                 testDate.set(Calendar.WEEK_OF_YEAR, week);
@@ -124,8 +125,8 @@ public class Project {
             if (getInterval().getStartDate() == null) {
                 getInterval().setEndDate(year, week);
             } else {
-                        testDate.set(Calendar.YEAR, year);
-                        testDate.set(Calendar.WEEK_OF_YEAR, week);
+                testDate.set(Calendar.YEAR, year);
+                testDate.set(Calendar.WEEK_OF_YEAR, week);
                 if (getInterval().getStartDate().before(testDate)) {
                     getInterval().setEndDate(year, week);
                 } else {
@@ -141,22 +142,25 @@ public class Project {
         testDate.set(Calendar.YEAR, year);
         testDate.set(Calendar.WEEK_OF_YEAR, week);
         if (startOrEnd) {
-            testDate.set(Calendar.SECOND, testDate.get(Calendar.SECOND)+1); //start week can be the same as projects
-            for (Activity activity: activityList) {
-                if (activity.getInterval().getStartDate() != null && (activity.getInterval().getStartDate().before(testDate))) { return true; }
+            testDate.set(Calendar.SECOND, testDate.get(Calendar.SECOND) + 1); //start week can be the same as projects
+            for (Activity activity : activityList) {
+                if (activity.getInterval().getStartDate() != null && (activity.getInterval().getStartDate().before(testDate))) {
+                    return true;
+                }
             }
-        }
-        else {
-            testDate.set(Calendar.SECOND, testDate.get(Calendar.SECOND)-1); //start week can be the same as projects
-            for (Activity activity: activityList) {
-                if (activity.getInterval().getEndDate() != null && (activity.getInterval().getEndDate().after(testDate))) { return true; }
+        } else {
+            testDate.set(Calendar.SECOND, testDate.get(Calendar.SECOND) - 1); //start week can be the same as projects
+            for (Activity activity : activityList) {
+                if (activity.getInterval().getEndDate() != null && (activity.getInterval().getEndDate().after(testDate))) {
+                    return true;
+                }
             }
         }
         return false;
     }
 
     public Activity getActivity(String activityName) {
-        for (Activity activity: activityList) {
+        for (Activity activity : activityList) {
             if (activityName.equals(activity.getName())) {
                 return activity;
             }
@@ -195,7 +199,7 @@ public class Project {
     public boolean activityStartDateIsValid(int year, int week) {
         testDate.set(Calendar.YEAR, year);
         testDate.set(Calendar.WEEK_OF_YEAR, week);
-        testDate.set(Calendar.SECOND, testDate.get(Calendar.SECOND)+1); //start week can be the same as projects
+        testDate.set(Calendar.SECOND, testDate.get(Calendar.SECOND) + 1); //start week can be the same as projects
         if (getInterval().getStartDate() != null && getInterval().getStartDate().before(testDate)) {
             return true;
         } else return getInterval().getStartDate() == null;
@@ -204,7 +208,7 @@ public class Project {
     public boolean activityEndDateIsValid(int year, int week) {
         testDate.set(Calendar.YEAR, year);
         testDate.set(Calendar.WEEK_OF_YEAR, week);
-        testDate.set(Calendar.SECOND, testDate.get(Calendar.SECOND)-1); //end week can be the same as projects
+        testDate.set(Calendar.SECOND, testDate.get(Calendar.SECOND) - 1); //end week can be the same as projects
         if (getInterval().getEndDate() != null && getInterval().getEndDate().after(testDate)) {
             return true;
         } else return getInterval().getEndDate() == null;

@@ -12,9 +12,14 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("Register Project")
 public class RegisterProject {
     private final App app = new App();
-    private final Developer developer = new Developer("Jane", "Doe");
     private final Project project = new Project("Enigma Codebreaker");
 
+    @Test
+    @DisplayName("Test Failing Asserts")
+    public void testFailingAsserts() {
+       app.registerProject(project);
+        System.out.println(app.getProjectHM().get(project.getID()).getName());
+    }
 
     // No input
     @Test
@@ -79,7 +84,6 @@ public class RegisterProject {
     @DisplayName("Test case F")
     void registerDeveloperDataSetF() {
         app.registerProject(project);
-        String projectID = project.getID();
         project.setProjectStartDate(2020, 29);
 
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
@@ -89,6 +93,42 @@ public class RegisterProject {
         String actualMessage = exception.getMessage();
         assertTrue(actualMessage.contains(expectedMessage));
 
+    }
+
+    // Add over 10 projects
+    @Test
+    @DisplayName("Test case G")
+    void registerDeveloperDataSetG() {
+        // In a grouped assertion all assertions are executed, and all
+        // failures will be reported together.
+        app.registerProject(new Project("Codebreaker"));
+        app.registerProject(new Project("Codebreaker"));
+        app.registerProject(new Project("Codebreaker"));
+        app.registerProject(new Project("Codebreaker"));
+        app.registerProject(new Project("Codebreaker"));
+        app.registerProject(new Project("Codebreaker"));
+        app.registerProject(new Project("Codebreaker"));
+        app.registerProject(new Project("Codebreaker"));
+        app.registerProject(new Project("Codebreaker"));
+        app.registerProject(new Project("Codebreaker"));
+        app.registerProject(new Project("Codebreaker"));
+        app.registerProject(new Project("Codebreaker"));
+
+        assertAll("project",
+                () -> assertEquals("201901", app.getProjectHM().get("201901").getID()),
+                () -> assertEquals("201902", app.getProjectHM().get("201902").getID()),
+                () -> assertEquals("201903", app.getProjectHM().get("201903").getID()),
+                () -> assertEquals("201904", app.getProjectHM().get("201904").getID()),
+                () -> assertEquals("201905", app.getProjectHM().get("201905").getID()),
+                () -> assertEquals("201906", app.getProjectHM().get("201906").getID()),
+                () -> assertEquals("201907", app.getProjectHM().get("201907").getID()),
+                () -> assertEquals("201908", app.getProjectHM().get("201908").getID()),
+                () -> assertEquals("201909", app.getProjectHM().get("201909").getID()),
+                () -> assertEquals("201910", app.getProjectHM().get("201910").getID()),
+                () -> assertEquals("201911", app.getProjectHM().get("201911").getID()),
+                () -> assertEquals("201912", app.getProjectHM().get("201912").getID())
+
+        );
     }
 
 }

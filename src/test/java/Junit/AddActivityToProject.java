@@ -17,6 +17,15 @@ public class AddActivityToProject {
     private final Activity activity = new Activity("Coding");
     private final Activity activity2 = new Activity("Coding");
 
+    @Test
+    @DisplayName("Test failing asserts")
+    void testFailingAsserts() throws IllegalAccessException {
+        app.registerProject(project);
+        app.registerActivityToProject(activity,project.getID());
+        System.out.println(project.getActivity(activity.getName()));
+    }
+
+
     // No input for names
     @Test
     @DisplayName("Test case A")
@@ -31,8 +40,8 @@ public class AddActivityToProject {
 
     // No input for activity name and wrong project ID
     @Test
-    @DisplayName("Test case B1")
-    void registerActivityDataSetB1() {
+    @DisplayName("Test case B")
+    void registerActivityDataSetB() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             app.registerActivityToProject(new Activity(""), "39291");
         });
@@ -41,60 +50,32 @@ public class AddActivityToProject {
         assertTrue(actualMessage.contains(expectedMessage));
     }
 
-    // Wrong name for activity and no project ID
-    @Test
-    @DisplayName("Test case B2")
-    void registerActivityDataSetB2() {
-        Exception exception = assertThrows(NullPointerException.class, () -> {
-            app.registerActivityToProject(new Activity("123213"), "");
-        });
-        String expectedMessage = "Project does not exist";
-        String actualMessage = exception.getMessage();
-        assertTrue(actualMessage.contains(expectedMessage));
-    }
-
-    // Valid activity and no project ID
-    @Test
-    @DisplayName("Test case B3")
-    void registerActivityDataSetB3() {
-        assertThrows(NullPointerException.class, () -> {
-            app.registerActivityToProject(activity, "");
-        });
-    }
-
-    // Valid project ID and valid activity
+    // Activity name already exists in project
     @Test
     @DisplayName("Test case C")
     void registerActivityDataSetC() throws IllegalAccessException {
         app.registerProject(project);
         app.registerActivityToProject(activity, project.getID());
-        String expectedMessage = "name: 'Coding', Start date: Week: 'null', Year: 'null', plannedHours: 0.0, workedHours: 0.0";
-        String actualMessage =  project.getActivity("Coding").toString();
-        assertEquals(expectedMessage,actualMessage);
-    }
 
-    // Activity name already exists in project
-    @Test
-    @DisplayName("Test case D1")
-    void registerActivityDataSetD1() throws IllegalAccessException {
-        app.registerProject(project);
-        app.registerActivityToProject(activity, project.getID());
-
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            app.registerActivityToProject(activity2, project.getID());
+        });
         String expectedMessage = "Not a valid name";
-        String actualMessage = null;
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
 
     }
 
     // Activity with same name is not in project
     @Test
-    @DisplayName("Test case D2")
-    void registerActivityDataSetD2() {
+    @DisplayName("Test case C2")
+    void registerActivityDataSetC2() {
         assertFalse(project.activityExists(activity.getName()));
     }
 
     // Add activity to project
     @Test
-    @DisplayName("Test case D3")
+    @DisplayName("Test case C3")
     void registerActivityDataSetD3() {
         project.addActivity(activity);
 
@@ -145,7 +126,7 @@ public class AddActivityToProject {
         app.getProjectHM().get(project.getID()).getActivity(activity.getName()).addDeveloper(developer);
         app.setPlannedHoursForActivity(activity.getName(),project.getID(),50);
         activity.getInterval().setStartDate(2020,29);
-        app.setWorkedHoursForActivity(activity.getName(),project.getID(),app.getActiveDeveloper().getWorkedHours());
+        app.setWorkedHoursForActivity(activity.getName(),project.getID(),20);
         assertEquals(20,project.getActivity(activity.getName()).getWorkedHours());
 
     }

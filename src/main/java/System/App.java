@@ -21,8 +21,11 @@ public class App {
     Developer
      */
     public void registerDeveloper(Developer developer) {
+        assert developer.getFirstName() != null : "Precondition first name";
+        assert developer.getLastName() != null : "Precondition last name";
         developer.setID(makeDeveloperID(developer));
         developerHM.put(developer.getID(), developer);
+        assert developerHM.get(developer.getID()).getID().equals(developer.getID()) : "Postcondition added";
     }
 
     public String makeDeveloperID(Developer developer) {
@@ -35,10 +38,9 @@ public class App {
         return ID;
     }
     public void removeDeveloper(String developerID) {
-        if(developerHM.containsKey(developerID)) {
-            developerHM.get(developerID).getActivityList();
-            developerHM.remove(developerID);
-        }
+        assert developerHM.containsKey(developerID) : "Precondition developer ";
+        developerHM.remove(developerID);
+        assert !developerHM.containsKey(developerID): "Post condition removed ";
     }
 
     public void setActiveDeveloper(String ID) {
@@ -80,8 +82,10 @@ public class App {
      */
 
     public void registerProject(Project project) {
+        assert project.getName() != null : "Precondition name";
         project.setID(makeProjectID());
         projectHM.put(project.getID(), project);
+        assert getProjectHM().containsKey(project.getID()) : "Postcondition name";
     }
 
     public String makeProjectID() {
@@ -161,6 +165,7 @@ public class App {
     Activity
      */
     public void registerActivityToProject(Activity activity, String projectID) throws IllegalAccessException {
+        assert projectHM.containsKey(projectID) : "Precondition";
         if (projectHM.containsKey(projectID)) {
             boolean nameExists = false;
                 if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
