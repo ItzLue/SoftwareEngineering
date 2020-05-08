@@ -10,15 +10,17 @@ Feature: Add activities to an uninitialized project
     And The project has not been initialized
     Given there is an activity with name "Coding"
 
-
-
     #first scenario
   Scenario: Activity is added to an uninitialized project
   When the activity with name "Coding" is added to the project
   Then the activity with name "Coding" is in the project
 
-
-
+   #fail scenario
+  Scenario: Activity is added to an uninitialized project
+    When the activity with name "Coding" is added to the project
+    Then the activity with name "Coding" is in the project
+    When the activity with name "Coding" is added to the project
+    Then an error message "Not a valid name" is given
 
 #
 #  Scenario: A developer creates a project with a name, activities, and start/end dates.

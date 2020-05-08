@@ -58,6 +58,10 @@ Feature: Change project name, dates, and activities in the project
     When The end date of the activity is set to year 2020 and week 30
     Then The activity has the ending year 2020 and the ending week 30
 
+  Scenario: set start date for activity that doesnt exist
+    When The start date of a nonexistent activity is set
+    Then an error message "Project doesn't exist" is given
+
   Scenario: The activity start date is set and the end date is not null
     When The end date of the activity is set to year 2020 and week 32
     Then The activity has the ending year 2020 and the ending week 32
@@ -111,6 +115,10 @@ Feature: Change project name, dates, and activities in the project
     Then The activity has the ending year 2020 and the ending week 32
     When The end date of the project is set to year 2020 and week 30
     Then an error message "Activity end dates are after the set date" is given
+
+  Scenario: Set date for projectID that doesnt exist
+    When The start date of a project that doesnt exist is set
+    Then an error message "Project doesn't exist" is given
 
   Scenario: print project
     When the project is printed

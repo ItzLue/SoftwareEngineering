@@ -44,7 +44,7 @@ public class ProjectSteps {
     public void theActivityWithNameIsAddedToTheProject(String name) throws IllegalAccessException {
         try {
             app.registerActivityToProject(activityHelper.getActivity(), projectHelper.getProject().getID());
-        } catch(IllegalAccessException e) {
+        } catch(Exception e) {
             errorMessageHolder.setErrorMessage(e.getMessage());
         }
     }
@@ -165,6 +165,16 @@ public class ProjectSteps {
     @Then("An exception is given")
     public void anExceptionIsGiven() {
         assertFalse(exceptionHandler.getExceptions().isEmpty());
+    }
+
+    @When("The start date of a project that doesnt exist is set")
+    public void theStartDateOfAProjectThatDoesntExistIsSet() throws IllegalAccessException {
+        try {
+            app.setProjectDate(true,"badID",2020,35);
+        } catch (RuntimeException e) {
+            errorMessageHolder.setErrorMessage(e.getMessage());
+        }
+
     }
 
     @When("the project is printed")

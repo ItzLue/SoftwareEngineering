@@ -33,7 +33,7 @@ public class IntervalSteps {
     public void theStartDateOfTheProjectIsSetToYearAndWeek(int year, int week) throws IllegalAccessException {
         try {
             app.setProjectDate(true, projectHelper.getProject().getID(), year, week);
-        } catch (RuntimeException e) {
+        } catch (Exception e) {
             errorMessageHolder.setErrorMessage(e.getMessage());
         }
 
@@ -49,7 +49,7 @@ public class IntervalSteps {
     public void theEndDateOfTheProjectIsSetToYearAndWeek(int year, int week) throws IllegalAccessException {
         try {
             app.setProjectDate(false, projectHelper.getProject().getID(), year, week);
-        } catch (RuntimeException e) {
+        } catch (Exception e) {
             errorMessageHolder.setErrorMessage(e.getMessage());
         }
     }

@@ -57,9 +57,7 @@ public class App {
     }
 
     public void getDevValues() {
-        for (Developer developer : developerHM.values()) {
-            System.out.println(developer);
-        }
+        for (Developer developer : developerHM.values()) { System.out.println(developer); }
     }
 
     public void setWorkedHoursForActivity(String activityName, String projectID, double hours) throws IllegalAccessException {
@@ -163,7 +161,7 @@ public class App {
                         // Removing the activities from the developers activitylist
                         for (Developer d : a.developerHM.values()) {
                             d.getActivityList().remove((a));
-                            break;
+                            //break;
                         }
                         projectHM.get(projectID).getActivityList().remove(a);
 
@@ -216,22 +214,12 @@ public class App {
         }
     }
 
-    public double getPlannedHoursForActivity(String activityName, String projectID) throws IllegalAccessException {
-        if (projectHM.get(projectID).getActivity(activityName).getPlannedHours() == 0) {
-            //something
-        } else {
-            return projectHM.get(projectID).getActivity(activityName).getPlannedHours();
-        }
-        return 0;
+    public double getPlannedHoursForActivity(String activityName, String projectID) {
+        return projectHM.get(projectID).getActivity(activityName).getPlannedHours();
     }
 
     public Calendar getDate() { return dateServer.getDate(); }
 
-    public void setDateServer(DateServer dateServer) {
-        this.dateServer = dateServer;
-    }
+    public void setDateServer(DateServer dateServer) { this.dateServer = dateServer; }
 
-//    public void setInterval() {
-//
-//    }
 }

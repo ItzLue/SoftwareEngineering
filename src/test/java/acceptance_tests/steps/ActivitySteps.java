@@ -117,9 +117,23 @@ public class ActivitySteps {
 
     @Given("The activity planned hours is set to {double}")
     public void theActivityPlannedHoursIsSetTo(Double hours) throws IllegalAccessException {
-        app.setPlannedHoursForActivity(activityHelper.getActivity().getName(),projectHelper.getProject().getID(),hours);
+        try {
+            app.setPlannedHoursForActivity(activityHelper.getActivity().getName(),projectHelper.getProject().getID(),hours);
+        } catch (Exception e) {
+            errorMessageHolder.setErrorMessage(e.getMessage());
+        }
+
     }
 
+    @When("The start date of a nonexistent activity is set")
+    public void theStartDateOfANonexistentActivityIsSet() {
+        try {
+            app.setActivityDate(true,projectHelper.getProject().getID(),"invalidName",2020,35);
+        } catch (Exception e) {
+            errorMessageHolder.setErrorMessage(e.getMessage());
+        }
+
+    }
 
 
 
