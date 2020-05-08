@@ -10,7 +10,7 @@ public class Developer {
     protected String ID;
     protected ArrayList<Activity> activityList = new ArrayList<Activity>();
     protected ArrayList<PersonalActivity> personalActivityList = new ArrayList<>();
-    protected double workHours;
+    protected double workedHours;
 
     public String getLastName() {
         return lastName;
