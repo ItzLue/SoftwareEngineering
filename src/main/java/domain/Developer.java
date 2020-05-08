@@ -100,7 +100,7 @@ public class Developer {
             }
 
             if((startWeekThis >= startWeek && startWeekThis <= endWeek ||
-                      (endWeekThis>= startWeek && endWeekThis <= endWeek ||
+                      (endWeekThis >= startWeek && endWeekThis <= endWeek ||
                       (startWeekThis <= startWeek && endWeekThis >= endWeek)))) {
                   return false;
               }
