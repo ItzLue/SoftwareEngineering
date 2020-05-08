@@ -180,7 +180,6 @@ public class App {
                 throw new NullPointerException("The project with ID: " + projectID + " does not exist");
             }
         }
-
     }
 
     public void setActivityDate(boolean startOrEnd, String projectID, String activityName, int year, int week) throws IllegalAccessException {
@@ -200,11 +199,19 @@ public class App {
     }
 
     public void setDeveloperToActivity(String activityName, String projectID, String developerID) throws IllegalAccessException {
-        if (projectHM.get(projectID).isInitialized() && projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
-            projectHM.get(projectID).getActivity(activityName).addDeveloper(developerHM.get(developerID));
-            developerHM.get(developerID).addActivity(projectHM.get(projectID).getActivity(activityName));
+        if(projectHM.containsKey(projectID)) {
+            if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
+                if (!projectHM.get(projectID).getActivity(activityName).developerHM.containsKey(developerID)) {
+                    projectHM.get(projectID).getActivity(activityName).addDeveloper(developerHM.get(developerID));
+                    developerHM.get(developerID).addActivity(projectHM.get(projectID).getActivity(activityName));
+                } else {
+                    throw new IllegalArgumentException("The developer is already assigned to this activity");
+                }
+            } else {
+                throw new IllegalAccessException("Only the project leader has access to assign developers to activities");
+            }
         } else {
-            throw new IllegalAccessException("Only the project leader has access to assign developers to activities");
+            throw new NullPointerException("The project with ID: " + projectID + " does not exist");
         }
     }
 
@@ -216,7 +223,7 @@ public class App {
         }
     }
 
-    public double getPlannedHoursForActivity(String activityName, String projectID) throws IllegalAccessException {
+    public double getPlannedHoursForActivity(String activityName, String projectID) {
         if (projectHM.get(projectID).getActivity(activityName).getPlannedHours() == 0) {
             //something
         } else {

@@ -198,7 +198,7 @@ public class UI extends ActionView {
                 if(hours.equals("")) {
                     hours = "0";
                 }
-                double dhours = Double.valueOf(hours);
+                double dhours = Double.parseDouble(hours);
                 app.setWorkedHoursForActivity(activityName, projectID, dhours);
                 this.actionSuccessful();
             } catch (IllegalAccessException | NullPointerException e) {
@@ -318,7 +318,7 @@ public class UI extends ActionView {
                     this.actionSuccessful();
                 }
             } catch (NullPointerException e) {
-                System.out.println("The project does not exist " + e);
+                System.out.println("The project does not exist ");
             }
 
         }
@@ -355,7 +355,7 @@ public class UI extends ActionView {
                 String developerID = this.prompt("Enter ID of the developer: ", String.class);
                 app.setDeveloperToActivity(activityName, projectID, developerID);
                 this.actionSuccessful();
-            } catch (Exception e) {
+            } catch (IllegalAccessException | IllegalArgumentException | NullPointerException e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -406,10 +406,18 @@ public class UI extends ActionView {
 
         @Override
         public void executeCustomAction() {
-            String projectID = this.prompt("Enter the ID of the project: ", String.class);
-            String activityName = this.prompt("Enter the name of the activity: ", String.class);
-            double hours = this.prompt("Enter the planned hours: ", double.class);
-            app.getProjectHM().get(projectID).getActivity(activityName).setPlannedHours(hours);
+            try {
+                String projectID = this.prompt("Enter the ID of the project: ", String.class);
+                String activityName = this.prompt("Enter the name of the activity: ", String.class);
+                String hours = this.prompt("Enter the planned hours: ", String.class);
+                if (hours.equals("")) {
+                    hours = "0";
+                }
+                double dhours = Double.parseDouble(hours);
+                app.getProjectHM().get(projectID).getActivity(activityName).setPlannedHours(dhours);
+            } catch(NullPointerException e) {
+                System.out.println("Error in input. Please try again");
+            }
         }
     }
 }
