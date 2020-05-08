@@ -2,6 +2,7 @@ package acceptance_tests.steps;
 
 import System.App;
 import acceptance_tests.helper.*;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -99,8 +100,13 @@ public class ActivitySteps {
     }
 
     @When("The developer sets their worked hours for the activity to {double}")
-    public void theDeveloperSetsTheirWorkedHoursForTheActivityTo(Double hours) throws IllegalAccessException {
-        app.setWorkedHoursForActivity(activityHelper.getActivity().getName(),projectHelper.getProject().getID(), hours);
+    public void theDeveloperSetsTheirWorkedHoursForTheActivityTo(Double hours) throws IllegalArgumentException {
+        try {
+            app.setWorkedHoursForActivity(activityHelper.getActivity().getName(),projectHelper.getProject().getID(), hours);
+        } catch(IllegalArgumentException | IllegalAccessException e) {
+            errorMessageHolder.setErrorMessage(e.getMessage());
+        }
+
     }
 
     @Then("The developer and activity worked hours are {double}")
@@ -109,7 +115,10 @@ public class ActivitySteps {
         assertTrue(hours == activityHelper.getActivity().getWorkedHours());
     }
 
-
+    @Given("The activity planned hours is set to {double}")
+    public void theActivityPlannedHoursIsSetTo(Double hours) throws IllegalAccessException {
+        app.setPlannedHoursForActivity(activityHelper.getActivity().getName(),projectHelper.getProject().getID(),hours);
+    }
 
 
 

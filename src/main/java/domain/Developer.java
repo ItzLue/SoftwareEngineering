@@ -53,9 +53,7 @@ public class Developer {
 
     public Activity getActivity(String activityName) {
         for (Activity activity: activityList) {
-            if (activityName.equals(activity.getName())) {
-                return activity;
-            }
+            if (activityName.equals(activity.getName())) { return activity; }
         }
         return null;
     }

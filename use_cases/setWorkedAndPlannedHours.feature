@@ -9,7 +9,7 @@ Feature: the active developer is chosen
     And The developer is set as the active developer
     Given A project with name "Enigma Codebreaker" is created
     And The project is added to the system
-    And The project has not been initialized
+    Given the developer is set as project leader for project with name "Enigma Codebreaker"
     Given there is an activity with name "Coding"
     And the activity with name "Coding" is added to the project
     When the active developer assigns the developer to the activity
@@ -21,9 +21,19 @@ Feature: the active developer is chosen
     Then The activity has the ending year 2020 and the ending week 35
 
     # Main scenario
-  Scenario: A developer set worked hours for the activity
+  Scenario: A developer set worked hours for the activity with no planned hours
     When The developer sets their worked hours for the activity to 8.0
     Then The developer and activity worked hours are 8.0
+
+  Scenario: A developer set worked hours for the activity with planned hours
+    Given The activity planned hours is set to 10.0
+    When The developer sets their worked hours for the activity to 8.0
+    Then The developer and activity worked hours are 8.0
+
+    #fail scenario
+  Scenario: A developer set invalid worked hours for the activity
+    When The developer sets their worked hours for the activity to 0.4
+    Then an error message "Please provide a valid input" is given
 
 
 
