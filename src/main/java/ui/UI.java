@@ -288,7 +288,11 @@ public class UI extends ActionView {
             String name = this.prompt("Please enter a name for the personal activity: ", String.class);
             String ID = app.getActiveDeveloper().getID();
             // Add a personal activity to the Active developer's personalActivityList
-            app.addPersonalActivity(new PersonalActivity(name),ID);
+            try {
+                app.addPersonalActivity(new PersonalActivity(name),ID);
+            } catch (IllegalAccessException e) {
+                e.getMessage();
+            }
             int startWeek = this.prompt("Enter the start week for this personal activity: ", Integer.class);
             int startYear = this.prompt("Enter the start year for this personal activity: ", Integer.class);
             app.setPersonalActivityDate(true, name, startYear, startWeek);

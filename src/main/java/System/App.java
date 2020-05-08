@@ -83,6 +83,7 @@ public class App {
             throw new IllegalAccessException("You dont have access");
         }
     }
+
     /*
     Project
      */
@@ -106,6 +107,7 @@ public class App {
         return year + weekNumber + runningNumber;
     }
     public void removeProject(String projectID) throws IllegalAccessException{
+        assert projectHM.containsKey(projectID) : "Precondition project";
         if(!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
             if (projectHM.containsKey(projectID)) {
                 for(Activity a : projectHM.get(projectID).getActivityList()) {
@@ -120,7 +122,7 @@ public class App {
         }else {
             throw new IllegalAccessException("Only the project leader has access to remove the project");
         }
-
+        assert !projectHM.containsKey(projectID) : "Postcondition removed";
     }
 
     public void setProjectLeader(String projectID, String developerID) {
@@ -283,18 +285,24 @@ public class App {
         return availableDevelopers;
     }
 
-    public void addPersonalActivity(PersonalActivity personalActivity, String developerID) {
+    public void addPersonalActivity(PersonalActivity personalActivity, String developerID) throws IllegalAccessException {
+        assert developerHM.containsKey(developerID) : "Precondition developer";
         if(developerHM.get(developerID) == activeDeveloper) {
             activeDeveloper.addPersonalActivity(personalActivity);
+        } else{
+            throw new IllegalAccessException("You have to be an active developer to add personal activities");
         }
+        assert activeDeveloper.getPersonalActivityList().size() == 1;
     }
 
     public void setPersonalActivityDate(boolean startOrEnd, String personalActivityName, int year, int week) {
+        assert activeDeveloper != null : "Precondtion developer";
         if(startOrEnd) {
             activeDeveloper.getPersonalActivity(personalActivityName).getInterval().setStartDate(year,week);
         } else {
             activeDeveloper.getPersonalActivity(personalActivityName).getInterval().setEndDate(year,week);
         }
+        assert activeDeveloper.getPersonalActivity(personalActivityName).getInterval().getStartWeek() != 0 || activeDeveloper.getPersonalActivity(personalActivityName).getInterval().getStartYear() != 0;
     }
 
     public Calendar getDate() { return dateServer.getDate(); }

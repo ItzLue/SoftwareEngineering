@@ -11,7 +11,7 @@ Feature: Remove a project
     Given there is an activity with name "Coding"
     And the activity with name "Coding" is added to the project
 
-  # a developer removes an uninitialized project succesfully
+  # a developer removes an uninitialized project successfully
   Scenario: A developer removes an uninitialized registered project succesfully
     When the active developer removes the project from the system
     Then the project is not contained in the system
@@ -24,7 +24,7 @@ Feature: Remove a project
     Then the project is not contained in the system
     And the project does not contain any activities
 
-  #Fail scenario a developer removes an initialized project unsuccesfully
+  #Fail scenario a developer removes an initialized project unsuccessfully
   Scenario: a developer removes an initialized project unsuccesfully
     Given the developer is set as project leader for project with name "Enigma Codebreaker"
     And There is a Developer with first name "Birte" and last name "Rasmussen"

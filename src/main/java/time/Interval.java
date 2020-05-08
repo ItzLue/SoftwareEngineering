@@ -63,8 +63,12 @@ public class Interval {
         setStartDate(calendar);
     }
 
+    public int getEndYear() {
+        if(endDate == null) {
+            return -1;
+        }
+        return endDate.get(Calendar.YEAR);
+    }
+
     public void setStartDate(Calendar startDate) { this.startDate = startDate; }
-
-
-
 }

@@ -32,8 +32,8 @@ public class PersonalActivity {
     public String toString() {
         return "{ name: " + '\'' + name + '\'' +
                 ", Start date: " + "Week: " + '\'' + interval.getStartWeek() + '\'' + ", Year: " +
-                '\'' + interval.getStartYear() + '\'' + ", End date: " + "Week: " + '\'' + interval.getStartWeek() +
-                '\'' + ", Year: " + '\'' + interval.getStartYear() + '\'' + " } \n";
+                '\'' + interval.getStartYear() + '\'' + ", End date: " + "Week: " + '\'' + interval.getEndWeek() +
+                '\'' + ", Year: " + '\'' + interval.getEndYear() + '\'' + " } \n";
     }
 
 

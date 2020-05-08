@@ -14,14 +14,14 @@ Feature: Add activities to an initialized project
     And The project is initialized
 
   #first scenarios
-  Scenario: Activity is succesfully added to an initialized project
+  Scenario: Activity is successfully added to an initialized project
     Given the project leader is the active user
     When the activity with name "Coding" is added to the project
     Then the activity with name "Coding" is in the project
 
 
   # Fail scenario :
-  Scenario: Activity is unsuccesfully added to an initialized project
+  Scenario: Activity is unsuccessfully added to an initialized project
     Given There is a Developer with first name "Birte" and last name "Rasmussen"
     And the developer is added to the system
     When The developer is set as the active developer
