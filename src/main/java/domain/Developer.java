@@ -1,5 +1,7 @@
 package domain;
 
+import time.Interval;
+
 import java.util.ArrayList;
 
 public class Developer {
@@ -48,9 +50,9 @@ public class Developer {
     }
     @Override
     public String toString() {
-        return "First name:'" + firstName + '\'' +
+        return "[ First name:'" + firstName + '\'' +
                 ", Last name:'" + lastName + '\'' +
-                ", ID:'" + ID + '\'';
+                ", ID:'" + ID + '\'' + " ]";
     }
 
     public Activity getActivity(String activityName) {
@@ -62,5 +64,19 @@ public class Developer {
 
     public void addActivity(Activity activity) {
         activityList.add(activity);
+    }
+
+
+    public boolean isAvailable(Interval interval) {
+        int counter = 0;
+
+        for (Activity activity : getActivityList()) {
+            if(activity.getInterval().getEndDate().before(interval.getStartDate()) || activity.getInterval().getStartDate().after(interval.getEndDate())) {
+                continue;
+            } else {
+                counter++;
+            }
+        }
+        return counter<10;
     }
 }

@@ -4,7 +4,9 @@ import domain.Activity;
 import domain.Developer;
 import domain.Project;
 import time.DateServer;
+import time.Interval;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 
@@ -120,9 +122,15 @@ public class App {
         }
     }
 
-    public void setProjectName(String ID, String name) {
-        if (projectHM.containsKey(ID)) {
-            projectHM.get(ID).setName(name);
+    public void setProjectName(String projectID, String name) {
+        if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
+            if (projectHM.containsKey(projectID)) {
+                projectHM.get(projectID).setName(name);
+            } else {
+                throw new NullPointerException("Project with ID: " + projectID + " doesn't exist");
+            }
+        } else {
+            throw new NullPointerException("Only the project leader can change the name of an initialized project");
         }
     }
 
@@ -152,7 +160,7 @@ public class App {
         }
     }
 
-    public void removeActivityFromProject(String activityName, String projectID) {
+    public void removeActivityFromProject(String activityName, String projectID) throws IllegalAccessException {
         if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
             int counter = 0;
             if (projectHM.containsKey(projectID)) {
@@ -177,8 +185,9 @@ public class App {
             } else {
                 throw new NullPointerException("The project with ID: " + projectID + " does not exist");
             }
+        } else {
+            throw new IllegalAccessException("Only the project leader has access to remove activities from a project");
         }
-
     }
 
     public void setActivityDate(boolean startOrEnd, String projectID, String activityName, int year, int week) throws IllegalAccessException {
@@ -198,11 +207,19 @@ public class App {
     }
 
     public void setDeveloperToActivity(String activityName, String projectID, String developerID) throws IllegalAccessException {
-        if (projectHM.get(projectID).isInitialized() && projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
-            projectHM.get(projectID).getActivity(activityName).addDeveloper(developerHM.get(developerID));
-            developerHM.get(developerID).addActivity(projectHM.get(projectID).getActivity(activityName));
+        if(projectHM.containsKey(projectID)) {
+            if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
+                if (!projectHM.get(projectID).getActivity(activityName).developerHM.containsKey(developerID)) {
+                    projectHM.get(projectID).getActivity(activityName).addDeveloper(developerHM.get(developerID));
+                    developerHM.get(developerID).addActivity(projectHM.get(projectID).getActivity(activityName));
+                } else {
+                    throw new IllegalArgumentException("The developer is already assigned to this activity");
+                }
+            } else {
+                throw new IllegalAccessException("Only the project leader has access to assign developers to activities");
+            }
         } else {
-            throw new IllegalAccessException("Only the project leader has access to assign developers to activities");
+            throw new NullPointerException("The project with ID: " + projectID + " does not exist");
         }
     }
 
@@ -217,6 +234,22 @@ public class App {
     public double getPlannedHoursForActivity(String activityName, String projectID) {
         return projectHM.get(projectID).getActivity(activityName).getPlannedHours();
     }
+
+    public ArrayList<Developer> searchAvailableDevelopers(String projectID, String activityName) {
+        ArrayList<Developer> availableDevelopers = new ArrayList<>();
+
+        if(activeDeveloper == projectHM.get(projectID).getProjectLeader()) {
+            for (Developer developer : developerHM.values()) {
+                if (!projectHM.get(projectID).getActivity(activityName).developerHM.containsValue(developer) && developer.isAvailable(projectHM.get(projectID).getActivity(activityName).getInterval())) {
+                    availableDevelopers.add(developer);
+                }
+            }
+        } else {
+            throw new NullPointerException("Only the project leader may search for available developers");
+        }
+        return availableDevelopers;
+    }
+
 
     public Calendar getDate() { return dateServer.getDate(); }
 

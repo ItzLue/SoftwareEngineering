@@ -35,6 +35,7 @@ public class ProjectSteps {
         assertFalse(projectHelper.getProject().isInitialized());
     }
 
+
     @Then("The project is initialized")
     public void theProjectIsInitialized() {
         assertTrue(projectHelper.getProject().isInitialized());
@@ -48,20 +49,21 @@ public class ProjectSteps {
             errorMessageHolder.setErrorMessage(e.getMessage());
         }
     }
+    @When("the activity with name {string} is removed from the project")
+    public void theActivityWithNameIsRemovedFromTheProject(String string) throws IllegalAccessException {
+        try {
+            app.removeActivityFromProject(activityHelper.getActivity().getName(),projectHelper.getProject().getID());
+        }catch (IllegalAccessException e) {
+            errorMessageHolder.setErrorMessage(e.getMessage());
+        }
+    }
 
     @Then("an error message {string} is given")
     public void anErrorWithMessageIsGiven(String string) {
         assertEquals(string, this.errorMessageHolder.getErrorMessage());
     }
 
-    @When("the activity with name {string} is removed from the project")
-    public void theActivityWithNameIsRemovedFromTheProject(String string) {
-        System.out.println(developerHelper.getDeveloper().getActivityList().size());
 
-        app.removeActivityFromProject(activityHelper.getActivity().getName(),projectHelper.getProject().getID());
-        System.out.println(developerHelper.getDeveloper().getActivityList().size());
-        System.out.println("tester");
-    }
 
     @Then("the activity with name {string} is in the project")
     public void theActivityWithNameIsInTheProject(String name) {

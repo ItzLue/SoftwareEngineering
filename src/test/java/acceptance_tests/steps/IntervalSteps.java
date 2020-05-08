@@ -36,7 +36,6 @@ public class IntervalSteps {
         } catch (Exception e) {
             errorMessageHolder.setErrorMessage(e.getMessage());
         }
-
     }
 
     @Then("The project has the starting year {int} and the starting week {int}")

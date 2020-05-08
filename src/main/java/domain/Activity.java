@@ -54,11 +54,11 @@ public class Activity {
 
     @Override
     public String toString() {
-        return "name: " + '\'' + name + '\'' +
+        return "{ name: " + '\'' + name + '\'' +
                 ", Start date: " + "Week: " + '\'' + interval.getStartWeek() + '\'' + ", Year: " +
                 '\'' + interval.getStartYear() + '\'' +
                 ", plannedHours: " + plannedHours +
-                ", workedHours: " + workedHours;
+                ", workedHours: " + workedHours + " } \n";
     }
 
     public void addDeveloper(Developer developer) {
