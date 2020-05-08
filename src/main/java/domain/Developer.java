@@ -3,6 +3,7 @@ package domain;
 import time.Interval;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class Developer {
     protected String firstName;
@@ -75,19 +76,46 @@ public class Developer {
         int endWeek = 0;
         int startWeekThis = 0;
         int endWeekThis = 0;
+        int startShift = 0;
+        int endShift = 0;
 
         for (PersonalActivity personalActivity : getPersonalActivityList()) {
+            startWeek = interval.getStartWeek();
+            endWeek = interval.getEndWeek();
+            startWeekThis = personalActivity.getInterval().getStartWeek();
+            endWeekThis = personalActivity.getInterval().getEndWeek();
+
+            startShift = personalActivity.getInterval().getStartDate().get(Calendar.YEAR) - interval.getStartDate().get(Calendar.YEAR);
+            endShift = personalActivity.getInterval().getEndDate().get(Calendar.YEAR) - interval.getEndDate().get(Calendar.YEAR);
+
+            if (startShift > 0) {
+                startWeekThis = personalActivity.getInterval().getStartWeek() + (startShift*52);
+            } else if (startShift < 0) {
+                startWeek = interval.getStartWeek() + (-startShift*52);
+            }
+            if (endShift > 0) {
+                startWeekThis = personalActivity.getInterval().getEndWeek() + (endShift*52);
+            } else if (endShift < 0) {
+                startWeek = interval.getEndWeek() + (-endShift*52);
+            }
+
+            if((startWeekThis >= startWeek && startWeekThis <= endWeek ||
+                      (endWeekThis>= startWeek && endWeekThis <= endWeek ||
+                      (startWeekThis <= startWeek && endWeekThis >= endWeek)))) {
+                  return false;
+              }
+
 //            if((personalActivity.getInterval().getStartWeek() >= interval.getStartWeek() && personalActivity.getInterval().getStartWeek() <= interval.getEndWeek()) ||
 //                    (personalActivity.getInterval().getEndWeek() >= interval.getStartWeek() && personalActivity.getInterval().getEndWeek() <= interval.getEndWeek()) ||
 //                    (personalActivity.getInterval().getStartWeek() <= interval.getStartWeek() && personalActivity.getInterval().getEndWeek() >= interval.getEndWeek())) {
 //                return false;
 //            }
 
-            if((personalActivity.getInterval().getStartDate().after(interval.getStartDate()) && personalActivity.getInterval().getStartDate().before(interval.getEndDate())) ||
-                    (personalActivity.getInterval().getEndDate().after(interval.getStartDate()) && personalActivity.getInterval().getEndDate().before(interval.getEndDate())) ||
-                    (personalActivity.getInterval().getStartDate().before(interval.getStartWeek()) && personalActivity.getInterval().getEndDate().after(interval.getEndWeek()))) {
-                return false;
-            }
+//            if((personalActivity.getInterval().getStartDate().after(interval.getStartDate()) && personalActivity.getInterval().getStartDate().before(interval.getEndDate())) ||
+//                    (personalActivity.getInterval().getEndDate().after(interval.getStartDate()) && personalActivity.getInterval().getEndDate().before(interval.getEndDate())) ||
+//                    (personalActivity.getInterval().getStartDate().before(interval.getStartWeek()) && personalActivity.getInterval().getEndDate().after(interval.getEndWeek()))) {
+//                return false;
+//            }
         }
 
         for (Activity activity : getActivityList()) {
