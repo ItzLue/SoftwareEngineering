@@ -22,3 +22,9 @@ Feature: Add project leader to project
     And a developer with first name "Birte" and last name "Rasmussen" is added to the system
     Given the developer is set as project leader for project with name "Enigma Codebreaker"
     Then the project with name "Enigma Codebreaker" has the developer with first name "Birte" and last name "Rasmussen" as project leader
+
+  Scenario: print project with projectleader
+    Given the developer is set as project leader for project with name "Enigma Codebreaker"
+    When the project with name "Enigma Codebreaker" has the developer as project leader
+    And The project is initialized
+    When the project is printed

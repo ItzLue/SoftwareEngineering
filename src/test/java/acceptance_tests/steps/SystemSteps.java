@@ -126,5 +126,14 @@ public class SystemSteps {
 
     }
 
+    @When("All projects are printed")
+    public void allProjectsArePrinted() {
+       app.getProjectValues();
+    }
+
+    @When("All developers are printed")
+    public void allDevelopersArePrinted() {
+        app.getDevValues();
+    }
 
 }
