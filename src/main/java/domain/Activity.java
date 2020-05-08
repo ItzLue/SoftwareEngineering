@@ -55,14 +55,12 @@ public class Activity {
 
     @Override
     public String toString() {
-    return      "name: '" + name + '\'' +
+    return      "name: " + '\'' + name + '\'' +
             ", Start date: " + "Week: " + '\'' + interval.getStartWeek() + '\'' + ", Year: " +
                 '\'' + interval.getStartYear() + '\'' +
                 ", plannedHours: " + plannedHours +
                 ", workedHours: " + workedHours;
     }
-    //FIXME
-    // - ToString
 
     public void addDeveloper(Developer developer) {
         developerHM.put(developer.getID(),developer);
