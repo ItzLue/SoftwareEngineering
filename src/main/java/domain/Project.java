@@ -28,7 +28,7 @@ public class Project {
     }
 
     public boolean activityExists(String activityName) {
-        for (Activity activity : activityList) {
+        for (Activity activity: getActivityList()) {
             if (activity.getName().equals(activityName)) {
                 return true;
             }

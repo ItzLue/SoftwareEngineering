@@ -3,6 +3,7 @@ package ui;
 import System.App;
 import domain.Activity;
 import domain.Developer;
+import domain.PersonalActivity;
 import domain.Project;
 import io.bretty.console.view.ActionView;
 import io.bretty.console.view.MenuView;
@@ -109,6 +110,7 @@ public class UI extends ActionView {
         activeDeveloperMenu.addMenuItem(getProjectMenu());
         activeDeveloperMenu.addMenuItem(new showActivitiesActiveDeveloperAction());
         activeDeveloperMenu.addMenuItem(new showWorkedHours());
+        activeDeveloperMenu.addMenuItem(new addPersonalActivity());
         this.setParentView(activeDeveloperMenu);
         this.actionSuccessful();
         this.display();
@@ -255,7 +257,7 @@ public class UI extends ActionView {
                 app.setActivityDate(true, ID, name, startYear, startWeek);
                 int endWeek = this.prompt("Enter the start week for this activity: ", Integer.class);
                 int endYear = this.prompt("Enter the start year for this activity: ", Integer.class);
-                app.setActivityDate(true, ID, name, endYear, endWeek);
+                app.setActivityDate(false, ID, name, endYear, endWeek);
                 this.actionSuccessful();
 
             } catch (IllegalArgumentException | IllegalAccessException | NullPointerException e) {
@@ -276,6 +278,26 @@ public class UI extends ActionView {
         }
     }
 
+    class addPersonalActivity extends ActionView {
+        public addPersonalActivity() {
+            super("Add personal Activity", "Add personal Activity");
+        }
+
+        @Override
+        public void executeCustomAction() {
+            String name = this.prompt("Please enter a name for the personal activity: ", String.class);
+            String ID = app.getActiveDeveloper().getID();
+            // Add a personal activity to the Active developer's personalActivityList
+            app.addPersonalActivity(new PersonalActivity(name),ID);
+            int startWeek = this.prompt("Enter the start week for this personal activity: ", Integer.class);
+            int startYear = this.prompt("Enter the start year for this personal activity: ", Integer.class);
+            app.setPersonalActivityDate(true, name, startYear, startWeek);
+            int endWeek = this.prompt("Enter the start week for this personal activity: ", Integer.class);
+            int endYear = this.prompt("Enter the start year for this personal activity: ", Integer.class);
+            app.setPersonalActivityDate(false, name, endYear, endWeek);
+            this.actionSuccessful();
+        }
+    }
 
     class ShowProjectsAction extends ActionView {
         public ShowProjectsAction() {
@@ -296,7 +318,7 @@ public class UI extends ActionView {
         @Override
         public void executeCustomAction() {
             try {
-                String name = this.prompt("Please a name for the project: ", String.class);
+                String name = this.prompt("Please enter a name for the project: ", String.class);
                 app.registerProject(new Project(name));
                 actionSuccessful();
             } catch (IllegalArgumentException e) {

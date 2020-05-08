@@ -55,7 +55,8 @@ public class Activity {
     public String toString() {
         return "{ name: " + '\'' + name + '\'' +
                 ", Start date: " + "Week: " + '\'' + interval.getStartWeek() + '\'' + ", Year: " +
-                '\'' + interval.getStartYear() + '\'' +
+                '\'' + interval.getStartYear() + '\'' + ", End date: " + "Week: " + '\'' + interval.getStartWeek() +
+                '\'' + ", Year: " + '\'' + interval.getStartYear() + '\'' +
                 ", plannedHours: " + plannedHours +
                 ", workedHours: " + workedHours + " } \n";
     }

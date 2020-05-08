@@ -11,7 +11,11 @@
         "steps": [
           {
             "result": {
+<<<<<<< Updated upstream
               "duration": 622000000,
+=======
+              "duration": 748000000,
+>>>>>>> Stashed changes
               "status": "passed"
             },
             "line": 6,
@@ -74,6 +78,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 10,
@@ -91,7 +96,10 @@
           },
           {
             "result": {
+<<<<<<< Updated upstream
               "duration": 3000000,
+=======
+>>>>>>> Stashed changes
               "status": "passed"
             },
             "line": 11,
@@ -126,6 +134,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 13,
@@ -138,9 +147,15 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:57:00.173Z",
         "line": 16,
         "name": "The projectleader searches for available developers",
+=======
+        "start_timestamp": "2020-05-08T16:14:34.780Z",
+        "line": 17,
+        "name": "Activity is succesfully added to an initialized project",
+>>>>>>> Stashed changes
         "description": "",
         "id": "search-for-available-developers;the-projectleader-searches-for-available-developers",
         "type": "scenario",
@@ -201,6 +216,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -212,6 +228,20 @@
           },
           {
             "result": {
+<<<<<<< Updated upstream
+=======
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "The developer is set as the active developer",
+            "match": {
+              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsSetAsTheActiveDeveloper()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+>>>>>>> Stashed changes
               "status": "passed"
             },
             "line": 8,
@@ -304,9 +334,15 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:57:00.907Z",
         "line": 20,
         "name": "The projectleader searches for available developers",
+=======
+        "start_timestamp": "2020-05-08T16:14:35.647Z",
+        "line": 24,
+        "name": "Activity is unsuccesfully added to an initialized project",
+>>>>>>> Stashed changes
         "description": "",
         "id": "search-for-available-developers;the-projectleader-searches-for-available-developers",
         "type": "scenario",
@@ -362,7 +398,11 @@
         "steps": [
           {
             "result": {
+<<<<<<< Updated upstream
               "duration": 409000000,
+=======
+              "duration": 1000000,
+>>>>>>> Stashed changes
               "status": "passed"
             },
             "line": 7,
@@ -422,10 +462,28 @@
               "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
+<<<<<<< Updated upstream
           },
           {
             "result": {
               "duration": 2000000,
+=======
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-05-08T16:14:35.668Z",
+        "line": 16,
+        "name": "Activity is added to an uninitialized project",
+        "description": "",
+        "id": "add-activities-to-an-uninitialized-project;activity-is-added-to-an-uninitialized-project",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1000000,
+>>>>>>> Stashed changes
               "status": "passed"
             },
             "line": 11,
@@ -484,9 +542,15 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:45:10.763Z",
         "line": 17,
         "name": "Activity is succesfully added to an initialized project",
+=======
+        "start_timestamp": "2020-05-08T16:14:35.682Z",
+        "line": 6,
+        "name": "A developer is successfully added to the system",
+>>>>>>> Stashed changes
         "description": "",
         "id": "add-activities-to-an-initialized-project;activity-is-succesfully-added-to-an-initialized-project",
         "type": "scenario",
@@ -494,6 +558,10 @@
         "steps": [
           {
             "result": {
+<<<<<<< Updated upstream
+=======
+              "duration": 2000000,
+>>>>>>> Stashed changes
               "status": "passed"
             },
             "line": 18,
@@ -540,8 +608,47 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "line": 6,
         "name": "There is an uninitialized project and an activity in the system",
+=======
+        "start_timestamp": "2020-05-08T16:14:35.695Z",
+        "line": 11,
+        "name": "print all developers",
+        "description": "",
+        "id": "add-a-developer-to-the-system;print-all-developers",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "All developers are printed",
+            "match": {
+              "location": "acceptance_tests.steps.SystemSteps.allDevelopersArePrinted()"
+            },
+            "keyword": "When "
+          }
+        ]
+      }
+    ],
+    "name": "Add a developer to the system",
+    "description": "  Description: A developer is added to the system\n  Actors: Developer",
+    "id": "add-a-developer-to-the-system",
+    "keyword": "Feature",
+    "uri": "file:use_cases/addDeveloperToSystem.feature",
+    "tags": []
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 5,
+        "name": "There is a developer and a project registered in the system",
+>>>>>>> Stashed changes
         "description": "",
         "type": "background",
         "keyword": "Background",
@@ -580,6 +687,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -619,10 +727,38 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
+<<<<<<< Updated upstream
             "line": 12,
             "name": "there is an activity with name \"Coding\"",
+=======
+            "line": 10,
+            "name": "The project has not been initialized",
+            "match": {
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectHasNotBeenInitialized()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-05-08T16:14:35.704Z",
+        "line": 13,
+        "name": "A developer is successfully being added as project leader to a project",
+        "description": "",
+        "id": "add-project-leader-to-project;a-developer-is-successfully-being-added-as-project-leader-to-a-project",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "the developer is set as project leader for project with name \"Enigma Codebreaker\"",
+>>>>>>> Stashed changes
             "match": {
               "arguments": [
                 {
@@ -675,6 +811,10 @@
         "steps": [
           {
             "result": {
+<<<<<<< Updated upstream
+=======
+              "duration": 2000000,
+>>>>>>> Stashed changes
               "status": "passed"
             },
             "line": 25,
@@ -812,6 +952,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 10,
@@ -841,9 +982,15 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:45:11.253Z",
         "line": 14,
         "name": "Activity is added to an uninitialized project",
+=======
+        "start_timestamp": "2020-05-08T16:14:35.720Z",
+        "line": 20,
+        "name": "A developer is successfully added as project leader to a project with an existing project leader",
+>>>>>>> Stashed changes
         "description": "",
         "id": "add-activities-to-an-uninitialized-project;activity-is-added-to-an-uninitialized-project",
         "type": "scenario",
@@ -912,6 +1059,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -3126,7 +3274,10 @@
         "steps": [
           {
             "result": {
+<<<<<<< Updated upstream
               "duration": 1000000,
+=======
+>>>>>>> Stashed changes
               "status": "passed"
             },
             "line": 6,
@@ -3202,9 +3353,15 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:45:11.431Z",
         "line": 31,
         "name": "The project end date is set and the start date is not null but valid",
+=======
+        "start_timestamp": "2020-05-08T16:14:35.759Z",
+        "line": 26,
+        "name": "print project with projectleader",
+>>>>>>> Stashed changes
         "description": "",
         "id": "change-project-name--dates--and-activities-in-the-project;the-project-end-date-is-set-and-the-start-date-is-not-null-but-valid",
         "type": "scenario",
@@ -3347,9 +3504,41 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
+<<<<<<< Updated upstream
+=======
+            "name": "A project with name \"Enigma Codebreaker\" is created",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Enigma Codebreaker\"",
+                  "offset": 20
+                }
+              ],
+              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "The project is added to the system",
+            "match": {
+              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 11,
+>>>>>>> Stashed changes
             "name": "there is an activity with name \"Coding\"",
             "match": {
               "arguments": [
@@ -3382,9 +3571,15 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:45:11.439Z",
         "line": 37,
         "name": "The project start date is set and the end date is not null and not valid",
+=======
+        "start_timestamp": "2020-05-08T16:14:35.778Z",
+        "line": 17,
+        "name": "A project leader assigns a developer to an activty",
+>>>>>>> Stashed changes
         "description": "",
         "id": "change-project-name--dates--and-activities-in-the-project;the-project-start-date-is-set-and-the-end-date-is-not-null-and-not-valid",
         "type": "scenario",
@@ -3482,6 +3677,7 @@
         "steps": [
           {
             "result": {
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 6,
@@ -3525,6 +3721,38 @@
               "status": "passed"
             },
             "line": 9,
+<<<<<<< Updated upstream
+=======
+            "name": "A project with name \"Enigma Codebreaker\" is created",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Enigma Codebreaker\"",
+                  "offset": 20
+                }
+              ],
+              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "The project is added to the system",
+            "match": {
+              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 11,
+>>>>>>> Stashed changes
             "name": "there is an activity with name \"Coding\"",
             "match": {
               "arguments": [
@@ -3539,6 +3767,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 10,
@@ -3553,13 +3782,50 @@
               "location": "acceptance_tests.steps.ProjectSteps.theActivityWithNameIsAddedToTheProject(java.lang.String)"
             },
             "keyword": "And "
+<<<<<<< Updated upstream
+=======
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "the developer is set as project leader for project with name \"Enigma Codebreaker\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Enigma Codebreaker\"",
+                  "offset": 61
+                }
+              ],
+              "location": "acceptance_tests.steps.ProjectSteps.theDeveloperIsSetAsProjectLeaderForProjectWithName(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "The project is initialized",
+            "match": {
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsInitialized()"
+            },
+            "keyword": "And "
+>>>>>>> Stashed changes
           }
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:45:11.446Z",
         "line": 45,
         "name": "The project start date is set and the end date is not null and not valid",
+=======
+        "start_timestamp": "2020-05-08T16:14:35.789Z",
+        "line": 23,
+        "name": "A non-project leader tries to assign a developer to an activty",
+>>>>>>> Stashed changes
         "description": "",
         "id": "change-project-name--dates--and-activities-in-the-project;the-project-start-date-is-set-and-the-end-date-is-not-null-and-not-valid",
         "type": "scenario",
@@ -3686,6 +3952,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 8,
@@ -3732,9 +3999,15 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:45:11.454Z",
         "line": 53,
         "name": "The activity start date is set and the end date is null",
+=======
+        "start_timestamp": "2020-05-08T16:14:35.799Z",
+        "line": 13,
+        "name": "The project name is changed",
+>>>>>>> Stashed changes
         "description": "",
         "id": "change-project-name--dates--and-activities-in-the-project;the-activity-start-date-is-set-and-the-end-date-is-null",
         "type": "scenario",
@@ -3868,9 +4141,15 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:45:11.459Z",
         "line": 57,
         "name": "The activity end date is set and the start date is null",
+=======
+        "start_timestamp": "2020-05-08T16:14:35.812Z",
+        "line": 17,
+        "name": "The project start date is set and the end date is null",
+>>>>>>> Stashed changes
         "description": "",
         "id": "change-project-name--dates--and-activities-in-the-project;the-activity-end-date-is-set-and-the-start-date-is-null",
         "type": "scenario",
@@ -3878,6 +4157,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 58,
@@ -4004,9 +4284,15 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:45:11.465Z",
         "line": 61,
         "name": "set start date for activity that doesnt exist",
+=======
+        "start_timestamp": "2020-05-08T16:14:35.825Z",
+        "line": 21,
+        "name": "The project end date is set and the start date is null",
+>>>>>>> Stashed changes
         "description": "",
         "id": "change-project-name--dates--and-activities-in-the-project;set-start-date-for-activity-that-doesnt-exist",
         "type": "scenario",
@@ -4025,6 +4311,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 63,
@@ -4068,6 +4355,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -4079,7 +4367,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 8,
@@ -4126,9 +4413,15 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:45:11.474Z",
         "line": 65,
         "name": "The activity start date is set and the end date is not null",
+=======
+        "start_timestamp": "2020-05-08T16:14:35.846Z",
+        "line": 25,
+        "name": "The project start date is set and the end date is not null but valid",
+>>>>>>> Stashed changes
         "description": "",
         "id": "change-project-name--dates--and-activities-in-the-project;the-activity-start-date-is-set-and-the-end-date-is-not-null",
         "type": "scenario",
@@ -4246,7 +4539,11 @@
           },
           {
             "result": {
+<<<<<<< Updated upstream
               "duration": 2000000,
+=======
+              "duration": 1000000,
+>>>>>>> Stashed changes
               "status": "passed"
             },
             "line": 7,
@@ -4305,9 +4602,15 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:45:11.481Z",
         "line": 71,
         "name": "The activity end date is set and the start date is not null",
+=======
+        "start_timestamp": "2020-05-08T16:14:35.862Z",
+        "line": 31,
+        "name": "The project end date is set and the start date is not null but valid",
+>>>>>>> Stashed changes
         "description": "",
         "id": "change-project-name--dates--and-activities-in-the-project;the-activity-end-date-is-set-and-the-start-date-is-not-null",
         "type": "scenario",
@@ -4315,6 +4618,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 72,
@@ -4408,7 +4712,11 @@
         "steps": [
           {
             "result": {
+<<<<<<< Updated upstream
               "duration": 1000000,
+=======
+              "duration": 5000000,
+>>>>>>> Stashed changes
               "status": "passed"
             },
             "line": 6,
@@ -4483,9 +4791,15 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:45:11.489Z",
         "line": 77,
         "name": "The activity start date is set and the project start date is not null",
+=======
+        "start_timestamp": "2020-05-08T16:14:35.879Z",
+        "line": 37,
+        "name": "The project start date is set and the end date is not null and not valid",
+>>>>>>> Stashed changes
         "description": "",
         "id": "change-project-name--dates--and-activities-in-the-project;the-activity-start-date-is-set-and-the-project-start-date-is-not-null",
         "type": "scenario",
@@ -4493,6 +4807,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 78,
@@ -4603,6 +4918,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -4660,9 +4976,15 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:45:11.495Z",
         "line": 83,
         "name": "The activity end date is set and the project end date is not null",
+=======
+        "start_timestamp": "2020-05-08T16:14:35.899Z",
+        "line": 45,
+        "name": "The project start date is set and the end date is not null and not valid",
+>>>>>>> Stashed changes
         "description": "",
         "id": "change-project-name--dates--and-activities-in-the-project;the-activity-end-date-is-set-and-the-project-end-date-is-not-null",
         "type": "scenario",
@@ -4838,9 +5160,15 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:45:11.502Z",
         "line": 89,
         "name": "An invalid activity start date is set",
+=======
+        "start_timestamp": "2020-05-08T16:14:35.914Z",
+        "line": 53,
+        "name": "The activity start date is set and the end date is null",
+>>>>>>> Stashed changes
         "description": "",
         "id": "change-project-name--dates--and-activities-in-the-project;an-invalid-activity-start-date-is-set",
         "type": "scenario",
@@ -4848,6 +5176,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 90,
@@ -4954,7 +5283,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -5012,9 +5340,15 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:45:11.506Z",
         "line": 97,
         "name": "An invalid activity end date is set",
+=======
+        "start_timestamp": "2020-05-08T16:14:35.924Z",
+        "line": 57,
+        "name": "The activity end date is set and the start date is null",
+>>>>>>> Stashed changes
         "description": "",
         "id": "change-project-name--dates--and-activities-in-the-project;an-invalid-activity-end-date-is-set",
         "type": "scenario",
@@ -5128,6 +5462,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -5185,9 +5520,15 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:45:11.510Z",
         "line": 105,
         "name": "The project start date is set but the activity start date is before that",
+=======
+        "start_timestamp": "2020-05-08T16:14:35.933Z",
+        "line": 61,
+        "name": "The activity start date is set and the end date is not null",
+>>>>>>> Stashed changes
         "description": "",
         "id": "change-project-name--dates--and-activities-in-the-project;the-project-start-date-is-set-but-the-activity-start-date-is-before-that",
         "type": "scenario",
@@ -5285,7 +5626,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 6,
@@ -5360,9 +5700,15 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:45:11.516Z",
         "line": 113,
         "name": "The project end date is set but the activity end date is after that",
+=======
+        "start_timestamp": "2020-05-08T16:14:35.944Z",
+        "line": 67,
+        "name": "The activity end date is set and the start date is not null",
+>>>>>>> Stashed changes
         "description": "",
         "id": "change-project-name--dates--and-activities-in-the-project;the-project-end-date-is-set-but-the-activity-end-date-is-after-that",
         "type": "scenario",
@@ -5460,6 +5806,27 @@
         "steps": [
           {
             "result": {
+<<<<<<< Updated upstream
+=======
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "A project with name \"Enigma Codebreaker\" is created",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Enigma Codebreaker\"",
+                  "offset": 20
+                }
+              ],
+              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+>>>>>>> Stashed changes
               "status": "passed"
             },
             "line": 7,
@@ -5482,6 +5849,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -5518,9 +5886,15 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:57:01.309Z",
         "line": 119,
         "name": "Set date for projectID that doesnt exist",
+=======
+        "start_timestamp": "2020-05-08T16:14:35.954Z",
+        "line": 73,
+        "name": "The activity start date is set and the project start date is not null",
+>>>>>>> Stashed changes
         "description": "",
         "id": "change-project-name--dates--and-activities-in-the-project;set-date-for-projectid-that-doesnt-exist",
         "type": "scenario",
@@ -5528,10 +5902,59 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
+<<<<<<< Updated upstream
             "line": 120,
             "name": "The start date of a project that doesnt exist is set",
+=======
+            "line": 74,
+            "name": "The start date of the project is set to year 2020 and week 30",
+            "match": {
+              "arguments": [
+                {
+                  "val": "2020",
+                  "offset": 45
+                },
+                {
+                  "val": "30",
+                  "offset": 59
+                }
+              ],
+              "location": "acceptance_tests.steps.IntervalSteps.theStartDateOfTheProjectIsSetToYearAndWeek(int,int)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 75,
+            "name": "The project has the starting year 2020 and the starting week 30",
+            "match": {
+              "arguments": [
+                {
+                  "val": "2020",
+                  "offset": 34
+                },
+                {
+                  "val": "30",
+                  "offset": 61
+                }
+              ],
+              "location": "acceptance_tests.steps.IntervalSteps.theProjectHasTheStartingYearAndTheStartingWeek(int,int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 76,
+            "name": "The start date of the activity is set to year 2020 and week 30",
+>>>>>>> Stashed changes
             "match": {
               "location": "acceptance_tests.steps.ProjectSteps.theStartDateOfAProjectThatDoesntExistIsSet()"
             },
@@ -5583,6 +6006,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -5640,9 +6064,15 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:45:11.520Z",
         "line": 119,
         "name": "Set date for projectID that doesnt exist",
+=======
+        "start_timestamp": "2020-05-08T16:14:35.968Z",
+        "line": 79,
+        "name": "The activity end date is set and the project end date is not null",
+>>>>>>> Stashed changes
         "description": "",
         "id": "change-project-name--dates--and-activities-in-the-project;set-date-for-projectid-that-doesnt-exist",
         "type": "scenario",
@@ -5650,6 +6080,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 120,
@@ -5744,6 +6175,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 10,
@@ -5762,9 +6194,15 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:45:11.531Z",
         "line": 123,
         "name": "print project",
+=======
+        "start_timestamp": "2020-05-08T16:14:35.979Z",
+        "line": 85,
+        "name": "An invalid activity start date is set",
+>>>>>>> Stashed changes
         "description": "",
         "id": "change-project-name--dates--and-activities-in-the-project;print-project",
         "type": "scenario",
@@ -5772,6 +6210,51 @@
         "steps": [
           {
             "result": {
+<<<<<<< Updated upstream
+=======
+              "status": "passed"
+            },
+            "line": 86,
+            "name": "The end date of the activity is set to year 2020 and week 32",
+            "match": {
+              "arguments": [
+                {
+                  "val": "2020",
+                  "offset": 44
+                },
+                {
+                  "val": "32",
+                  "offset": 58
+                }
+              ],
+              "location": "acceptance_tests.steps.ActivitySteps.theEndDateOfTheActivityIsSetToYearAndWeek(int,int)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 87,
+            "name": "The activity has the ending year 2020 and the ending week 32",
+            "match": {
+              "arguments": [
+                {
+                  "val": "2020",
+                  "offset": 33
+                },
+                {
+                  "val": "32",
+                  "offset": 58
+                }
+              ],
+              "location": "acceptance_tests.steps.ActivitySteps.theActivityHasTheEndingYearAndTheEndingWeek(int,int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+>>>>>>> Stashed changes
               "status": "passed"
             },
             "line": 124,
@@ -5805,6 +6288,10 @@
         "steps": [
           {
             "result": {
+<<<<<<< Updated upstream
+=======
+              "duration": 2000000,
+>>>>>>> Stashed changes
               "status": "passed"
             },
             "line": 7,
@@ -5829,7 +6316,23 @@
             "match": {
               "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
             },
+<<<<<<< Updated upstream
             "keyword": "When "
+=======
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "The project has not been initialized",
+            "match": {
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectHasNotBeenInitialized()"
+            },
+            "keyword": "And "
+>>>>>>> Stashed changes
           },
           {
             "result": {
@@ -5868,8 +6371,14 @@
     "line": 1,
     "elements": [
       {
+<<<<<<< Updated upstream
         "line": 6,
         "name": "There is an uninitialized project in the system",
+=======
+        "start_timestamp": "2020-05-08T16:14:35.991Z",
+        "line": 93,
+        "name": "An invalid activity end date is set",
+>>>>>>> Stashed changes
         "description": "",
         "type": "background",
         "keyword": "Background",
@@ -5947,6 +6456,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 12,
@@ -6010,9 +6520,15 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:45:11.543Z",
         "line": 19,
         "name": "Activity is succesfully removed from an initialized project",
+=======
+        "start_timestamp": "2020-05-08T16:14:36.003Z",
+        "line": 101,
+        "name": "The project start date is set but the activity start date is before that",
+>>>>>>> Stashed changes
         "description": "",
         "id": "remove-activities-from-an-initialized-project;activity-is-succesfully-removed-from-an-initialized-project",
         "type": "scenario",
@@ -6107,6 +6623,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -6211,9 +6728,15 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:45:11.549Z",
         "line": 25,
         "name": "Activity is unsuccesfully removed from an initialized project",
+=======
+        "start_timestamp": "2020-05-08T16:14:36.013Z",
+        "line": 109,
+        "name": "The project end date is set but the activity end date is after that",
+>>>>>>> Stashed changes
         "description": "",
         "id": "remove-activities-from-an-initialized-project;activity-is-unsuccesfully-removed-from-an-initialized-project",
         "type": "scenario",
@@ -6448,9 +6971,46 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:45:11.558Z",
         "line": 17,
         "name": "Activity is removed from an uninitialized project without any developers on the activity",
+=======
+        "start_timestamp": "2020-05-08T16:14:36.022Z",
+        "line": 115,
+        "name": "print project",
+        "description": "",
+        "id": "change-project-name--dates--and-activities-in-the-project;print-project",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 116,
+            "name": "the project is printed",
+            "match": {},
+            "keyword": "When "
+          }
+        ]
+      }
+    ],
+    "name": "Change project name, dates, and activities in the project",
+    "description": "  Description: A developer changes an uninitialized project\n  Actors: Developer",
+    "id": "change-project-name--dates--and-activities-in-the-project",
+    "keyword": "Feature",
+    "uri": "file:use_cases/modifyUninitializedProject.feature",
+    "tags": []
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2020-05-08T16:14:36.031Z",
+        "line": 6,
+        "name": "A developer creates and registers a project",
+>>>>>>> Stashed changes
         "description": "",
         "id": "remove-activities-from-project;activity-is-removed-from-an-uninitialized-project-without-any-developers-on-the-activity",
         "type": "scenario",
@@ -6621,9 +7181,15 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:45:11.562Z",
         "line": 22,
         "name": "Activity is removed from an uninitialized project developers on the activity",
+=======
+        "start_timestamp": "2020-05-08T16:14:36.040Z",
+        "line": 17,
+        "name": "Activity is succesfully removed from an initialized project",
+>>>>>>> Stashed changes
         "description": "",
         "id": "remove-activities-from-project;activity-is-removed-from-an-uninitialized-project-developers-on-the-activity",
         "type": "scenario",
@@ -6685,6 +7251,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 6,
@@ -6758,7 +7325,29 @@
             "result": {
               "status": "passed"
             },
+<<<<<<< Updated upstream
             "line": 11,
+=======
+            "line": 12,
+            "name": "the developer is set as project leader for project with name \"Enigma Codebreaker\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Enigma Codebreaker\"",
+                  "offset": 61
+                }
+              ],
+              "location": "acceptance_tests.steps.ProjectSteps.theDeveloperIsSetAsProjectLeaderForProjectWithName(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 13,
+>>>>>>> Stashed changes
             "name": "there is an activity with name \"Coding\"",
             "match": {
               "arguments": [
@@ -6802,9 +7391,15 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:45:11.567Z",
         "line": 15,
         "name": "",
+=======
+        "start_timestamp": "2020-05-08T16:14:36.051Z",
+        "line": 23,
+        "name": "Activity is unsuccesfully removec from an initialized project",
+>>>>>>> Stashed changes
         "description": "",
         "id": "remove-a-developer-from-the-system;",
         "type": "scenario",
@@ -6951,6 +7546,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -7108,9 +7704,15 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:45:11.578Z",
         "line": 21,
         "name": "A developer set worked hours for the activity with no planned hours",
+=======
+        "start_timestamp": "2020-05-08T16:14:36.062Z",
+        "line": 17,
+        "name": "Activity is removed from an uninitialized project without any developers on the activity",
+>>>>>>> Stashed changes
         "description": "",
         "id": "the-active-developer-is-chosen;a-developer-set-worked-hours-for-the-activity-with-no-planned-hours",
         "type": "scenario",
@@ -7264,6 +7866,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 11,
@@ -7323,7 +7926,22 @@
               "location": "acceptance_tests.steps.ProjectSteps.theActivityWithNameIsAddedToTheProject(java.lang.String)"
             },
             "keyword": "And "
+<<<<<<< Updated upstream
           },
+=======
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-05-08T16:14:36.073Z",
+        "line": 22,
+        "name": "Activity is removed from an uninitialized project developers on the activity",
+        "description": "",
+        "id": "remove-activities-from-project;activity-is-removed-from-an-uninitialized-project-developers-on-the-activity",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+>>>>>>> Stashed changes
           {
             "result": {
               "status": "passed"
@@ -7414,6 +8032,7 @@
             "result": {
               "status": "passed"
             },
+<<<<<<< Updated upstream
             "line": 30,
             "name": "The activity planned hours is set to 10.0",
             "match": {
@@ -7427,6 +8046,26 @@
             },
             "keyword": "Given "
           },
+=======
+            "line": 9,
+            "name": "a developer hasn\u0027t been selected as an active developer",
+            "match": {
+              "location": "acceptance_tests.steps.SystemSteps.aDeveloperHasnTBeenSelectedAsAnActiveDeveloper()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-05-08T16:14:36.081Z",
+        "line": 13,
+        "name": "A developer is set as the active developer",
+        "description": "",
+        "id": "the-active-developer-is-chosen;a-developer-is-set-as-the-active-developer",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+>>>>>>> Stashed changes
           {
             "result": {
               "status": "passed"
@@ -7631,9 +8270,15 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:45:11.597Z",
         "line": 35,
         "name": "A developer set invalid worked hours for the activity",
+=======
+        "start_timestamp": "2020-05-08T16:14:36.092Z",
+        "line": 21,
+        "name": "A developer set worked hours for the activity with no planned hours",
+>>>>>>> Stashed changes
         "description": "",
         "id": "the-active-developer-is-chosen;a-developer-set-invalid-worked-hours-for-the-activity",
         "type": "scenario",
@@ -7641,6 +8286,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 36,
@@ -7726,7 +8372,11 @@
         "steps": [
           {
             "result": {
+<<<<<<< Updated upstream
               "duration": 1000000,
+=======
+              "duration": 3000000,
+>>>>>>> Stashed changes
               "status": "passed"
             },
             "line": 7,
@@ -7884,9 +8534,15 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:45:11.607Z",
         "line": 42,
         "name": "Set worked hours on a not yet started activity",
+=======
+        "start_timestamp": "2020-05-08T16:14:36.106Z",
+        "line": 27,
+        "name": "A developer set worked hours for the activity with planned hours",
+>>>>>>> Stashed changes
         "description": "",
         "id": "the-active-developer-is-chosen;set-worked-hours-on-a-not-yet-started-activity",
         "type": "scenario",
@@ -7949,7 +8605,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 6,
@@ -8180,6 +8835,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 11,
@@ -8215,9 +8871,15 @@
         ]
       },
       {
+<<<<<<< Updated upstream
         "start_timestamp": "2020-05-08T16:45:11.619Z",
         "line": 21,
         "name": "A project leader removes his registered project succesfully",
+=======
+        "start_timestamp": "2020-05-08T16:14:36.117Z",
+        "line": 35,
+        "name": "A developer set invalid worked hours for the activity",
+>>>>>>> Stashed changes
         "description": "",
         "id": "remove-a-project;a-project-leader-removes-his-registered-project-succesfully",
         "type": "scenario",
@@ -8345,6 +9007,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 10,
@@ -8468,8 +9131,24 @@
             "match": {
               "location": "acceptance_tests.steps.ProjectSteps.theProjectLeaderIsNotTheActiveUser()"
             },
+<<<<<<< Updated upstream
             "keyword": "Given "
           },
+=======
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-05-08T16:14:36.126Z",
+        "line": 42,
+        "name": "Set worked hours on a not yet started activity",
+        "description": "",
+        "id": "the-active-developer-is-chosen;set-worked-hours-on-a-not-yet-started-activity",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+>>>>>>> Stashed changes
           {
             "result": {
               "status": "passed"

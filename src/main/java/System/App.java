@@ -2,6 +2,7 @@ package System;
 
 import domain.Activity;
 import domain.Developer;
+import domain.PersonalActivity;
 import domain.Project;
 import time.DateServer;
 import time.Interval;
@@ -93,7 +94,7 @@ public class App {
         String year = Integer.toString(getDate().get(Calendar.YEAR)).substring(2);
         String runningNumber = "";
         if (projectHM.size() < 9) {
-            runningNumber = "0" + Integer.toString(projectHM.size() + 1);
+            runningNumber = "0" + (projectHM.size() + 1);
         } else {
             runningNumber = Integer.toString(projectHM.size() + 1);
         }
@@ -266,6 +267,7 @@ public class App {
         ArrayList<Developer> availableDevelopers = new ArrayList<>();
         if(activeDeveloper == projectHM.get(projectID).getProjectLeader()) {
             for (Developer developer : developerHM.values()) {
+
                 if (!projectHM.get(projectID).getActivity(activityName).developerHM.containsValue(developer) && developer.isAvailable(projectHM.get(projectID).getActivity(activityName).getInterval())) {
                     availableDevelopers.add(developer);
                 }
@@ -276,6 +278,19 @@ public class App {
         return availableDevelopers;
     }
 
+    public void addPersonalActivity(PersonalActivity personalActivity, String developerID) {
+        if(developerHM.get(developerID) == activeDeveloper) {
+            activeDeveloper.addPersonalActivity(personalActivity);
+        }
+    }
+
+    public void setPersonalActivityDate(boolean startOrEnd, String personalActivityName, int year, int week) {
+        if(startOrEnd) {
+            activeDeveloper.getPersonalActivity(personalActivityName).getInterval().setStartDate(year,week);
+        } else {
+            activeDeveloper.getPersonalActivity(personalActivityName).getInterval().setEndDate(year,week);
+        }
+    }
 
     public Calendar getDate() { return dateServer.getDate(); }
 

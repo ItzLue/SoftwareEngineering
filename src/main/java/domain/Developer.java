@@ -9,7 +9,8 @@ public class Developer {
     protected String lastName;
     protected String ID;
     protected ArrayList<Activity> activityList = new ArrayList<Activity>();
-    protected double workedHours;
+    protected ArrayList<PersonalActivity> personalActivityList = new ArrayList<>();
+    protected double workHours;
 
     public String getLastName() {
         return lastName;
@@ -70,6 +71,17 @@ public class Developer {
     public boolean isAvailable(Interval interval) {
         int counter = 0;
 
+        for (PersonalActivity personalActivity : getPersonalActivityList()) {
+            if((personalActivity.getInterval().getStartWeek() >= interval.getStartWeek() && personalActivity.getInterval().getStartWeek() <= interval.getEndWeek()) ||
+                    (personalActivity.getInterval().getEndWeek() >= interval.getStartWeek() && personalActivity.getInterval().getEndWeek() <= interval.getEndWeek())) {
+                return false;
+            }
+//            if((personalActivity.getInterval().getStartDate().after(interval.getStartDate()) && personalActivity.getInterval().getStartDate().before(interval.getEndDate())) ||
+//                    (personalActivity.getInterval().getEndDate().after(interval.getStartDate()) && personalActivity.getInterval().getEndDate().before(interval.getEndDate()))) {
+//                return false;
+//            }
+        }
+
         for (Activity activity : getActivityList()) {
             if(activity.getInterval().getEndDate().before(interval.getStartDate()) || activity.getInterval().getStartDate().after(interval.getEndDate())) {
                 continue;
@@ -79,4 +91,23 @@ public class Developer {
         }
         return counter<10;
     }
+
+    public void addPersonalActivity(PersonalActivity activity) {
+        personalActivityList.add(activity);
+    }
+
+    public ArrayList<PersonalActivity> getPersonalActivityList() {
+        return personalActivityList;
+    }
+
+    public PersonalActivity getPersonalActivity(String personalActivityName) {
+        for (PersonalActivity personalActivity: personalActivityList) {
+            if (personalActivityName.equals(personalActivity.getName())) {
+                return personalActivity;
+            }
+        }
+        return null;
+    }
+
+
 }

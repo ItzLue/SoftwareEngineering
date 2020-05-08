@@ -17,26 +17,32 @@ public class Interval {
         return null;
     }
 
-    public String getStartWeek() {
+    public int getStartWeek() {
         if(startDate == null) {
-            return null;
+            return -1;
         }
-        return ""+startDate.get(Calendar.WEEK_OF_YEAR);
+        return startDate.get(Calendar.WEEK_OF_YEAR);
     }
 
-    public String getStartYear() {
+    public int getStartYear() {
         if(startDate == null) {
-            return null;
+            return -1;
         }
-        return ""+startDate.get(Calendar.YEAR);
+        return startDate.get(Calendar.YEAR);
     }
 
     public Calendar getEndDate() {
-        if( endDate != null){
+        if(endDate != null){
             return endDate;
         }
-
         return null;
+    }
+
+    public int getEndWeek() {
+        if(endDate == null) {
+            return -1;
+        }
+        return endDate.get(Calendar.WEEK_OF_YEAR);
     }
 
     public void setEndDate(int year, int week) {
