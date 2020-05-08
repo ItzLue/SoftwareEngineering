@@ -25,7 +25,9 @@ Feature: Assign developer to project-activity
     And the developer is added to the system
     And The developer is set as the active developer
     When the active developer assigns the developer to the activity
-    #Then the error message "You don't have access" is given
+    Then the error message "Only the project leader has access to assign developers to activities" is given
+
+
 
 
 

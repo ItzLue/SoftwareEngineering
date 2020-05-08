@@ -160,7 +160,14 @@ public class App {
             if (projectHM.containsKey(projectID)) {
                 for (Activity a : projectHM.get(projectID).getActivityList()) {
                     if (a.equals(activity)) {
+                        for (Developer d : a.developerHM.values()) {
+                            System.out.println("Før:" + d.getActivityList().size());
+                            d.getActivityList().remove((a));
+                            System.out.println("Efter:" + d.getActivityList().size());
+
+                        }
                         projectHM.get(projectID).getActivityList().remove(a);
+
                         counter++;
                         if (projectHM.get(projectID).getActivityList().size() == 0) {
                             break;
@@ -192,12 +199,12 @@ public class App {
         }
     }
 
-    public void setDeveloperToActivity(String activityName, String projectID, String developerID) throws Exception {
+    public void setDeveloperToActivity(String activityName, String projectID, String developerID) throws IllegalAccessException {
         if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
             projectHM.get(projectID).getActivity(activityName).addDeveloper(developerHM.get(developerID));
             developerHM.get(developerID).addActivity(projectHM.get(projectID).getActivity(activityName));
         } else {
-            throw new IllegalAccessException("You don't have access");
+            throw new IllegalAccessException("Only the project leader has access to assign developers to activities");
         }
     }
 

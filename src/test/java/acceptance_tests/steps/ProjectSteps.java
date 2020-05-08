@@ -57,7 +57,11 @@ public class ProjectSteps {
 
     @When("the activity with name {string} is removed from the project")
     public void theActivityWithNameIsRemovedFromTheProject(String string) {
+        System.out.println(developerHelper.getDeveloper().getActivityList().size());
+
         app.removeActivityFromProject(activityHelper.getActivity(),projectHelper.getProject().getID());
+        System.out.println(developerHelper.getDeveloper().getActivityList().size());
+        System.out.println("tester");
     }
 
     @Then("the activity with name {string} is in the project")

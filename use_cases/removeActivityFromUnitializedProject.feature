@@ -14,6 +14,11 @@ Feature: Remove activities from project
     And the activity with name "Coding" is added to the project
 
     #first scenario
-  Scenario: Activity is removed from an uninitialized project
+  Scenario: Activity is removed from an uninitialized project without any developers on the activity
+    When the activity with name "Coding" is removed from the project
+    Then the activity with name "Coding" is not in the project
+
+     #Second scenario
+  Scenario: Activity is removed from an uninitialized project developers on the activity
     When the activity with name "Coding" is removed from the project
     Then the activity with name "Coding" is not in the project
