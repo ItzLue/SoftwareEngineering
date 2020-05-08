@@ -34,7 +34,7 @@ public class IntervalSteps {
         try {
             app.setProjectDate(true, projectHelper.getProject().getID(), year, week);
         } catch (RuntimeException e) {
-            exceptionHandler.add(e);
+            errorMessageHolder.setErrorMessage(e.getMessage());
         }
 
     }
@@ -50,7 +50,7 @@ public class IntervalSteps {
         try {
             app.setProjectDate(false, projectHelper.getProject().getID(), year, week);
         } catch (RuntimeException e) {
-            exceptionHandler.add(e);
+            errorMessageHolder.setErrorMessage(e.getMessage());
         }
     }
 

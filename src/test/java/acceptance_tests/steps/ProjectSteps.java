@@ -166,4 +166,10 @@ public class ProjectSteps {
     public void anExceptionIsGiven() {
         assertFalse(exceptionHandler.getExceptions().isEmpty());
     }
+
+    @When("the project is printed")
+    public void theProjectIsPrinted() {
+        projectHelper.getProject().toString();
+    }
+
 }

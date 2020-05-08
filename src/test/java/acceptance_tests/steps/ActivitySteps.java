@@ -35,7 +35,7 @@ public class ActivitySteps {
         try {
             app.setActivityDate(true, projectHelper.getProject().getID(), activityHelper.getActivity().getName(), year, week);
         } catch (RuntimeException e) {
-            exceptionHandler.add(e);
+            errorMessageHolder.setErrorMessage(e.getMessage());
         }
 
     }
@@ -51,7 +51,7 @@ public class ActivitySteps {
         try {
             app.setActivityDate(false, projectHelper.getProject().getID(), activityHelper.getActivity().getName(), year, week);
         } catch (RuntimeException e) {
-            exceptionHandler.add(e);
+            errorMessageHolder.setErrorMessage(e.getMessage());
         }
 
     }
