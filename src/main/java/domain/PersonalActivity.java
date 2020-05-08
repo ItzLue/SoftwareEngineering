@@ -35,6 +35,4 @@ public class PersonalActivity {
                 '\'' + interval.getStartYear() + '\'' + ", End date: " + "Week: " + '\'' + interval.getEndWeek() +
                 '\'' + ", Year: " + '\'' + interval.getEndYear() + '\'' + " } \n";
     }
-
-
 }

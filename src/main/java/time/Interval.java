@@ -52,6 +52,7 @@ public class Interval {
         return endDate.get(Calendar.YEAR);
     }
 
+
     public void setEndDate(int year, int week) {
         Calendar calendar = new GregorianCalendar();
         calendar.set(Calendar.YEAR, year);
@@ -68,13 +69,6 @@ public class Interval {
         calendar.set(Calendar.YEAR, year);
         calendar.set(Calendar.WEEK_OF_YEAR, week);
         setStartDate(calendar);
-    }
-
-    public int getEndYear() {
-        if(endDate == null) {
-            return -1;
-        }
-        return endDate.get(Calendar.YEAR);
     }
 
     public void setStartDate(Calendar startDate) { this.startDate = startDate; }
