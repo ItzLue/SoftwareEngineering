@@ -154,20 +154,21 @@ public class App {
         }
     }
 
-    public void removeActivityFromProject(Activity activity, String projectID) {
+    public void removeActivityFromProject(String activityName, String projectID) {
         if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
             int counter = 0;
             if (projectHM.containsKey(projectID)) {
                 for (Activity a : projectHM.get(projectID).getActivityList()) {
-                    if (a.equals(activity)) {
+                    if (a.getName().equals(activityName)) {
                         // Removing the activities from the developers activitylist
                         for (Developer d : a.developerHM.values()) {
                             d.getActivityList().remove((a));
+                            break;
                         }
                         projectHM.get(projectID).getActivityList().remove(a);
 
                         counter++;
-                        if (projectHM.get(projectID).getActivityList().size() == 0) {
+                        if (!projectHM.get(projectID).getActivityList().contains(a)) {
                             break;
                         }
                     }

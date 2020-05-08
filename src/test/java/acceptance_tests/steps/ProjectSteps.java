@@ -58,7 +58,7 @@ public class ProjectSteps {
     public void theActivityWithNameIsRemovedFromTheProject(String string) {
         System.out.println(developerHelper.getDeveloper().getActivityList().size());
 
-        app.removeActivityFromProject(activityHelper.getActivity(),projectHelper.getProject().getID());
+        app.removeActivityFromProject(activityHelper.getActivity().getName(),projectHelper.getProject().getID());
         System.out.println(developerHelper.getDeveloper().getActivityList().size());
         System.out.println("tester");
     }

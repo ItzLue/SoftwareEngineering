@@ -144,8 +144,9 @@ public class AddActivityToProject {
         app.getProjectHM().get(project.getID()).getActivity(activity.getName()).addDeveloper(developer);
         app.setPlannedHoursForActivity(activity.getName(),project.getID(),50);
         activity.getInterval().setStartDate(2020,29);
-        app.setWorkedHoursForActivity(activity.getName(),project.getID(),20);
         app.setActiveDeveloper(developer.getID());
+        app.setWorkedHoursForActivity(activity.getName(),project.getID(),20);
+
         assertEquals(20,project.getActivity(activity.getName()).getWorkedHours());
 
     }

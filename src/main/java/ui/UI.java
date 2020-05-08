@@ -332,10 +332,10 @@ public class UI extends ActionView {
 
         public void executeCustomAction() {
             try {
-                Activity name = this.prompt("Enter activity name: ", Activity.class);
+                String activityName = this.prompt("Enter activity name: ", String.class);
                 String ID = this.prompt("Enter ID of the project: ", String.class);
-                app.removeActivityFromProject(name, ID);
-
+                app.removeActivityFromProject(activityName, ID);
+                this.actionSuccessful();
             } catch (NullPointerException e) {
                 System.out.println(e.getMessage());
             }
