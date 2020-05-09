@@ -362,7 +362,7 @@ public class UI extends ActionView {
                 try {
                     app.removeProject(projectID);
                 } catch (IllegalAccessException e) {
-                    e.getMessage();
+                    System.out.println(e.getMessage());
                 }
             }
         }
