@@ -2,6 +2,7 @@ package acceptance_tests.steps;
 
 import acceptance_tests.helper.*;
 import domain.Developer;
+import domain.PersonalActivity;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -19,15 +20,17 @@ public class DeveloperSteps {
     private ProjectHelper projectHelper;
     private MockDateHolder dateHolder;
     private ActivityHelper activityHelper;
+    private PersonalActivityHelper personalActivityHelper;
     private ExceptionHandler exceptionHandler;
 
-    public DeveloperSteps(App app, ErrorMessageHolder errorMessageHolder, DeveloperHelper developerHelper, ProjectHelper projectHelper, MockDateHolder dateHolder, ActivityHelper activityHelper, ExceptionHandler exceptionHandler) {
+    public DeveloperSteps(App app, ErrorMessageHolder errorMessageHolder, DeveloperHelper developerHelper, ProjectHelper projectHelper, MockDateHolder dateHolder, ActivityHelper activityHelper, ExceptionHandler exceptionHandler,PersonalActivityHelper personalActivityHelper) {
         this.app = app;
         this.errorMessageHolder = errorMessageHolder;
         this.developerHelper = developerHelper;
         this.projectHelper = projectHelper;
         this.dateHolder = dateHolder;
         this.activityHelper = activityHelper;
+        this.personalActivityHelper = personalActivityHelper;
         this.exceptionHandler = exceptionHandler;
     }
 
@@ -80,6 +83,27 @@ public class DeveloperSteps {
     public void theDeveloperIsTheActiveDeveloper() {
         assertEquals(app.getActiveDeveloper(),developerHelper.getDeveloper());
     }
+
+    @When("the personal activity is added to the developer")
+    public void thePersonalActivityIsAddedToTheDeveloper() {
+        developerHelper.getDeveloper().addPersonalActivity(personalActivityHelper.getPersonalActivity());
+    }
+
+    @Then("the developer contains the personal activity")
+    public void theDeveloperContainsThePersonalActivity() {
+        assertTrue(app.getDeveloperHM().get(developerHelper.getDeveloper().getID()).getPersonalActivityList().contains(personalActivityHelper.getPersonalActivity()));
+    }
+
+    @When("the developer removes the personal activity")
+    public void theDeveloperRemovesThePersonalActivity() {
+        developerHelper.getDeveloper().removePersonalActivity(personalActivityHelper.getPersonalActivity());
+    }
+
+    @Then("the personal activity is not contained in the developer")
+    public void thePersonalActivityIsNotContainedInTheDeveloper() {
+        assertFalse(developerHelper.getDeveloper().getPersonalActivityList().contains(personalActivityHelper.getPersonalActivity()));
+    }
+
 
     @Then("a developer hasn't been selected as an active developer")
     public void aDeveloperHasnTBeenSelectedAsAnActiveDeveloper() {
