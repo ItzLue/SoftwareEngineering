@@ -11,7 +11,7 @@
         "steps": [
           {
             "result": {
-              "duration": 512000000,
+              "duration": 600000000,
               "status": "passed"
             },
             "line": 6,
@@ -62,7 +62,7 @@
           },
           {
             "result": {
-              "duration": 2000000,
+              "duration": 3000000,
               "status": "passed"
             },
             "line": 9,
@@ -91,6 +91,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 11,
@@ -148,7 +149,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:21.264Z",
+        "start_timestamp": "2020-05-09T14:34:44.667Z",
         "line": 17,
         "name": "The project leader searches for available developers",
         "description": "",
@@ -169,7 +170,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 19,
@@ -240,6 +240,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -285,7 +286,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 12,
@@ -326,7 +326,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:21.873Z",
+        "start_timestamp": "2020-05-09T14:34:45.371Z",
         "line": 21,
         "name": "A developer searches for available developers",
         "description": "",
@@ -384,6 +384,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -455,7 +456,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 12,
@@ -502,7 +502,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:21.882Z",
+        "start_timestamp": "2020-05-09T14:34:45.386Z",
         "line": 17,
         "name": "Activity is successfully added to an initialized project",
         "description": "",
@@ -540,6 +540,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 20,
@@ -610,6 +611,7 @@
           },
           {
             "result": {
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 10,
@@ -685,7 +687,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:21.891Z",
+        "start_timestamp": "2020-05-09T14:34:45.406Z",
         "line": 24,
         "name": "Activity is unsuccessfully added to an initialized project",
         "description": "",
@@ -727,6 +729,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 27,
@@ -803,6 +806,120 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "A project with name \"Enigma Codebreaker\" is created",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Enigma Codebreaker\"",
+                  "offset": 20
+                }
+              ],
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "The project is added to the system",
+            "match": {
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "The project has not been initialized",
+            "match": {
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectHasNotBeenInitialized()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "there is an activity with name \"Coding\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Coding\"",
+                  "offset": 31
+                }
+              ],
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-05-09T14:34:45.426Z",
+        "line": 14,
+        "name": "Activity is added to an uninitialized project",
+        "description": "",
+        "id": "add-activities-to-an-uninitialized-project;activity-is-added-to-an-uninitialized-project",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "the activity with name \"Coding\" is added to the project",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Coding\"",
+                  "offset": 23
+                }
+              ],
+              "location": "acceptance_tests.steps.ProjectSteps.theActivityWithNameIsAddedToTheProject(java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "the activity with name \"Coding\" is in the project",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Coding\"",
+                  "offset": 23
+                }
+              ],
+              "location": "acceptance_tests.steps.ProjectSteps.theActivityWithNameIsInTheProject(java.lang.String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 6,
+        "name": "There is an uninitialized project in the system",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 8,
@@ -861,117 +978,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:21.898Z",
-        "line": 14,
-        "name": "Activity is added to an uninitialized project",
-        "description": "",
-        "id": "add-activities-to-an-uninitialized-project;activity-is-added-to-an-uninitialized-project",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "status": "passed"
-            },
-            "line": 15,
-            "name": "the activity with name \"Coding\" is added to the project",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Coding\"",
-                  "offset": 23
-                }
-              ],
-              "location": "acceptance_tests.steps.ProjectSteps.theActivityWithNameIsAddedToTheProject(java.lang.String)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "status": "passed"
-            },
-            "line": 16,
-            "name": "the activity with name \"Coding\" is in the project",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Coding\"",
-                  "offset": 23
-                }
-              ],
-              "location": "acceptance_tests.steps.ProjectSteps.theActivityWithNameIsInTheProject(java.lang.String)"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 6,
-        "name": "There is an uninitialized project in the system",
-        "description": "",
-        "type": "background",
-        "keyword": "Background",
-        "steps": [
-          {
-            "result": {
-              "status": "passed"
-            },
-            "line": 8,
-            "name": "A project with name \"Enigma Codebreaker\" is created",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Enigma Codebreaker\"",
-                  "offset": 20
-                }
-              ],
-              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "status": "passed"
-            },
-            "line": 9,
-            "name": "The project is added to the system",
-            "match": {
-              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "passed"
-            },
-            "line": 10,
-            "name": "The project has not been initialized",
-            "match": {
-              "location": "acceptance_tests.steps.ProjectSteps.theProjectHasNotBeenInitialized()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "passed"
-            },
-            "line": 11,
-            "name": "there is an activity with name \"Coding\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Coding\"",
-                  "offset": 31
-                }
-              ],
-              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
-            },
-            "keyword": "Given "
-          }
-        ]
-      },
-      {
-        "start_timestamp": "2020-05-09T13:24:21.904Z",
+        "start_timestamp": "2020-05-09T14:34:45.441Z",
         "line": 19,
         "name": "Activity is added to an uninitialized project",
         "description": "",
@@ -1032,6 +1039,7 @@
           },
           {
             "result": {
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 23,
@@ -1061,7 +1069,7 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2020-05-09T13:24:21.910Z",
+        "start_timestamp": "2020-05-09T14:34:45.460Z",
         "line": 6,
         "name": "A developer is successfully added to the system",
         "description": "",
@@ -1071,6 +1079,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -1103,7 +1112,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -1116,7 +1124,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:21.917Z",
+        "start_timestamp": "2020-05-09T14:34:45.473Z",
         "line": 11,
         "name": "print all developers",
         "description": "",
@@ -1150,7 +1158,7 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2020-05-09T13:24:21.924Z",
+        "start_timestamp": "2020-05-09T14:34:45.480Z",
         "line": 5,
         "name": ": There is a developer and a project registered in the system",
         "description": "",
@@ -1160,7 +1168,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 6,
@@ -1210,6 +1218,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -1252,6 +1261,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 6,
@@ -1324,7 +1334,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:21.932Z",
+        "start_timestamp": "2020-05-09T14:34:45.493Z",
         "line": 13,
         "name": "A developer is successfully being added as project leader to a project",
         "description": "",
@@ -1334,6 +1344,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 14,
@@ -1438,7 +1449,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -1462,7 +1472,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:21.940Z",
+        "start_timestamp": "2020-05-09T14:34:45.505Z",
         "line": 20,
         "name": "A developer is successfully added as project leader to a project with an existing project leader",
         "description": "",
@@ -1489,6 +1499,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 22,
@@ -1611,6 +1622,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -1622,7 +1634,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 10,
@@ -1635,7 +1646,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:21.948Z",
+        "start_timestamp": "2020-05-09T14:34:45.512Z",
         "line": 26,
         "name": "print project with projectleader",
         "description": "",
@@ -1721,6 +1732,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 6,
@@ -1742,6 +1754,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -1781,7 +1794,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 10,
@@ -1856,7 +1868,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:21.959Z",
+        "start_timestamp": "2020-05-09T14:34:45.519Z",
         "line": 17,
         "name": "A project leader assigns a developer to an activty",
         "description": "",
@@ -1908,7 +1920,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 6,
@@ -1969,7 +1981,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 10,
@@ -1998,6 +2009,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 12,
@@ -2044,7 +2056,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:21.966Z",
+        "start_timestamp": "2020-05-09T14:34:45.529Z",
         "line": 23,
         "name": "A non-project leader tries to assign a developer to an activty",
         "description": "",
@@ -2086,7 +2098,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 26,
@@ -2137,172 +2148,6 @@
   {
     "line": 1,
     "elements": [
-      {
-        "line": 5,
-        "name": "There is an uninitialized project and an activity in the system",
-        "description": "",
-        "type": "background",
-        "keyword": "Background",
-        "steps": [
-          {
-            "result": {
-              "duration": 1000000,
-              "status": "passed"
-            },
-            "line": 6,
-            "name": "There is a Developer with first name \"Ole\" and last name \"Smith\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Ole\"",
-                  "offset": 37
-                },
-                {
-                  "val": "\"Smith\"",
-                  "offset": 57
-                }
-              ],
-              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "status": "passed"
-            },
-            "line": 7,
-            "name": "the developer is added to the system",
-            "match": {
-              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 1000000,
-              "status": "passed"
-            },
-            "line": 8,
-            "name": "A project with name \"Enigma Codebreaker\" is created",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Enigma Codebreaker\"",
-                  "offset": 20
-                }
-              ],
-              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "status": "passed"
-            },
-            "line": 9,
-            "name": "The project is added to the system",
-            "match": {
-              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 1000000,
-              "status": "passed"
-            },
-            "line": 10,
-            "name": "there is an activity with name \"Coding\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Coding\"",
-                  "offset": 31
-                }
-              ],
-              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "status": "passed"
-            },
-            "line": 11,
-            "name": "the developer is set as project leader for project with name \"Enigma Codebreaker\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Enigma Codebreaker\"",
-                  "offset": 61
-                }
-              ],
-              "location": "acceptance_tests.steps.ProjectSteps.theDeveloperIsSetAsProjectLeaderForProjectWithName(java.lang.String)"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "status": "passed"
-            },
-            "line": 12,
-            "name": "The project is initialized",
-            "match": {
-              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsInitialized()"
-            },
-            "keyword": "And "
-          }
-        ]
-      },
-      {
-        "start_timestamp": "2020-05-09T13:24:21.975Z",
-        "line": 15,
-        "name": "The developer tries to change the project date without being the active developer",
-        "description": "",
-        "id": "change-project-name;the-developer-tries-to-change-the-project-date-without-being-the-active-developer",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "status": "passed"
-            },
-            "line": 16,
-            "name": "The start date of the project is set to year 2020 and week 30",
-            "match": {
-              "arguments": [
-                {
-                  "val": "2020",
-                  "offset": 45
-                },
-                {
-                  "val": "30",
-                  "offset": 59
-                }
-              ],
-              "location": "acceptance_tests.steps.IntervalSteps.theStartDateOfTheProjectIsSetToYearAndWeek(int,int)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "status": "passed"
-            },
-            "line": 17,
-            "name": "an error message \"You don\u0027t have access\" is given",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"You don\u0027t have access\"",
-                  "offset": 17
-                }
-              ],
-              "location": "acceptance_tests.steps.SystemSteps.anErrorWithMessageIsGiven(java.lang.String)"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
       {
         "line": 5,
         "name": "There is an uninitialized project and an activity in the system",
@@ -2374,6 +2219,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 10,
@@ -2420,7 +2266,174 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:21.987Z",
+        "start_timestamp": "2020-05-09T14:34:45.540Z",
+        "line": 15,
+        "name": "The developer tries to change the project date without being the active developer",
+        "description": "",
+        "id": "change-project-name;the-developer-tries-to-change-the-project-date-without-being-the-active-developer",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 4000000,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "The start date of the project is set to year 2020 and week 30",
+            "match": {
+              "arguments": [
+                {
+                  "val": "2020",
+                  "offset": 45
+                },
+                {
+                  "val": "30",
+                  "offset": 59
+                }
+              ],
+              "location": "acceptance_tests.steps.IntervalSteps.theStartDateOfTheProjectIsSetToYearAndWeek(int,int)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "an error message \"You don\u0027t have access\" is given",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"You don\u0027t have access\"",
+                  "offset": 17
+                }
+              ],
+              "location": "acceptance_tests.steps.SystemSteps.anErrorWithMessageIsGiven(java.lang.String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 5,
+        "name": "There is an uninitialized project and an activity in the system",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 3000000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "There is a Developer with first name \"Ole\" and last name \"Smith\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Ole\"",
+                  "offset": 37
+                },
+                {
+                  "val": "\"Smith\"",
+                  "offset": 57
+                }
+              ],
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "the developer is added to the system",
+            "match": {
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "A project with name \"Enigma Codebreaker\" is created",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Enigma Codebreaker\"",
+                  "offset": 20
+                }
+              ],
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "The project is added to the system",
+            "match": {
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "there is an activity with name \"Coding\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Coding\"",
+                  "offset": 31
+                }
+              ],
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "the developer is set as project leader for project with name \"Enigma Codebreaker\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Enigma Codebreaker\"",
+                  "offset": 61
+                }
+              ],
+              "location": "acceptance_tests.steps.ProjectSteps.theDeveloperIsSetAsProjectLeaderForProjectWithName(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "The project is initialized",
+            "match": {
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsInitialized()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-05-09T14:34:45.558Z",
         "line": 19,
         "name": "The developer tries to set planned hours for the activity",
         "description": "",
@@ -2473,7 +2486,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 6,
@@ -2524,6 +2537,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -2535,6 +2549,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 10,
@@ -2581,7 +2596,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:21.995Z",
+        "start_timestamp": "2020-05-09T14:34:45.571Z",
         "line": 23,
         "name": "The developer tries to set date for the activity",
         "description": "",
@@ -2591,7 +2606,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 24,
@@ -2679,6 +2693,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 8,
@@ -2707,7 +2722,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 10,
@@ -2726,7 +2740,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.003Z",
+        "start_timestamp": "2020-05-09T14:34:45.587Z",
         "line": 13,
         "name": "The project name is changed",
         "description": "",
@@ -2779,7 +2793,7 @@
         "steps": [
           {
             "result": {
-              "duration": 3000000,
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 6,
@@ -2797,7 +2811,7 @@
           },
           {
             "result": {
-              "duration": 1000000,
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 7,
@@ -2855,7 +2869,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.014Z",
+        "start_timestamp": "2020-05-09T14:34:45.601Z",
         "line": 17,
         "name": "The project start date is set and the end date is null",
         "description": "",
@@ -2935,7 +2949,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -2994,7 +3007,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.024Z",
+        "start_timestamp": "2020-05-09T14:34:45.623Z",
         "line": 21,
         "name": "The project end date is set and the start date is null",
         "description": "",
@@ -3025,7 +3038,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 23,
@@ -3074,6 +3086,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -3085,6 +3098,7 @@
           },
           {
             "result": {
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 8,
@@ -3096,7 +3110,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -3132,7 +3145,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.031Z",
+        "start_timestamp": "2020-05-09T14:34:45.635Z",
         "line": 25,
         "name": "The project start date is set and the end date is not null but valid",
         "description": "",
@@ -3235,6 +3248,7 @@
         "steps": [
           {
             "result": {
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 6,
@@ -3309,7 +3323,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.038Z",
+        "start_timestamp": "2020-05-09T14:34:45.649Z",
         "line": 31,
         "name": "The project end date is set and the start date is not null but valid",
         "description": "",
@@ -3319,6 +3333,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 32,
@@ -3361,6 +3376,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 34,
@@ -3412,7 +3428,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 6,
@@ -3452,6 +3468,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -3487,7 +3504,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.043Z",
+        "start_timestamp": "2020-05-09T14:34:45.661Z",
         "line": 37,
         "name": "The project start date is set and the end date is not null and not valid",
         "description": "",
@@ -3615,6 +3632,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 8,
@@ -3626,6 +3644,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -3643,7 +3662,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 10,
@@ -3662,7 +3680,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.051Z",
+        "start_timestamp": "2020-05-09T14:34:45.672Z",
         "line": 45,
         "name": "The project start date is set and the end date is not null and not valid",
         "description": "",
@@ -3735,6 +3753,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 51,
@@ -3761,7 +3780,7 @@
         "steps": [
           {
             "result": {
-              "duration": 2000000,
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 6,
@@ -3837,7 +3856,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.059Z",
+        "start_timestamp": "2020-05-09T14:34:45.689Z",
         "line": 53,
         "name": "The activity start date is set and the end date is null",
         "description": "",
@@ -3847,7 +3866,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 54,
@@ -3869,7 +3887,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 55,
@@ -3900,6 +3917,7 @@
         "steps": [
           {
             "result": {
+              "duration": 3000000,
               "status": "passed"
             },
             "line": 6,
@@ -3974,7 +3992,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.072Z",
+        "start_timestamp": "2020-05-09T14:34:45.701Z",
         "line": 57,
         "name": "The activity end date is set and the start date is null",
         "description": "",
@@ -3984,7 +4002,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 58,
@@ -4111,7 +4128,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.079Z",
+        "start_timestamp": "2020-05-09T14:34:45.714Z",
         "line": 61,
         "name": "set start date for activity that doesnt exist",
         "description": "",
@@ -4121,6 +4138,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 62,
@@ -4158,7 +4176,7 @@
         "steps": [
           {
             "result": {
-              "duration": 2000000,
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 6,
@@ -4198,7 +4216,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -4234,7 +4251,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.087Z",
+        "start_timestamp": "2020-05-09T14:34:45.722Z",
         "line": 65,
         "name": "The activity start date is set and the end date is not null",
         "description": "",
@@ -4337,6 +4354,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 6,
@@ -4354,6 +4372,7 @@
           },
           {
             "result": {
+              "duration": 3000000,
               "status": "passed"
             },
             "line": 7,
@@ -4376,7 +4395,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -4412,7 +4430,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.097Z",
+        "start_timestamp": "2020-05-09T14:34:45.734Z",
         "line": 71,
         "name": "The activity end date is set and the start date is not null",
         "description": "",
@@ -4533,6 +4551,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -4590,7 +4609,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.105Z",
+        "start_timestamp": "2020-05-09T14:34:45.747Z",
         "line": 77,
         "name": "The activity start date is set and the project start date is not null",
         "description": "",
@@ -4642,7 +4661,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 80,
@@ -4694,6 +4712,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 6,
@@ -4711,7 +4730,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -4769,7 +4787,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.110Z",
+        "start_timestamp": "2020-05-09T14:34:45.757Z",
         "line": 83,
         "name": "The activity end date is set and the project end date is not null",
         "description": "",
@@ -4779,6 +4797,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 84,
@@ -4890,6 +4909,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -4947,7 +4967,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.118Z",
+        "start_timestamp": "2020-05-09T14:34:45.763Z",
         "line": 89,
         "name": "An invalid activity start date is set",
         "description": "",
@@ -5063,6 +5083,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -5120,7 +5141,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.123Z",
+        "start_timestamp": "2020-05-09T14:34:45.768Z",
         "line": 97,
         "name": "An invalid activity end date is set",
         "description": "",
@@ -5219,7 +5240,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 6,
@@ -5294,7 +5314,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.127Z",
+        "start_timestamp": "2020-05-09T14:34:45.774Z",
         "line": 105,
         "name": "The project start date is set but the activity start date is before that",
         "description": "",
@@ -5468,7 +5488,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.131Z",
+        "start_timestamp": "2020-05-09T14:34:45.782Z",
         "line": 113,
         "name": "The project end date is set but the activity end date is after that",
         "description": "",
@@ -5478,6 +5498,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 114,
@@ -5567,6 +5588,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 6,
@@ -5606,6 +5628,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -5641,7 +5664,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.134Z",
+        "start_timestamp": "2020-05-09T14:34:45.793Z",
         "line": 119,
         "name": "Set date for projectID that doesnt exist",
         "description": "",
@@ -5662,7 +5685,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 121,
@@ -5689,6 +5711,7 @@
         "steps": [
           {
             "result": {
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 6,
@@ -5728,6 +5751,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -5763,7 +5787,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.138Z",
+        "start_timestamp": "2020-05-09T14:34:45.801Z",
         "line": 123,
         "name": "print project",
         "description": "",
@@ -5773,7 +5797,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 124,
@@ -5797,7 +5820,7 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2020-05-09T13:24:22.144Z",
+        "start_timestamp": "2020-05-09T14:34:45.812Z",
         "line": 6,
         "name": "A developer creates and registers a project",
         "description": "",
@@ -5807,6 +5830,7 @@
         "steps": [
           {
             "result": {
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 7,
@@ -5835,6 +5859,7 @@
           },
           {
             "result": {
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 9,
@@ -5846,6 +5871,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 10,
@@ -6012,7 +6038,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.151Z",
+        "start_timestamp": "2020-05-09T14:34:45.825Z",
         "line": 19,
         "name": "Activity is succesfully removed from an initialized project",
         "description": "",
@@ -6076,7 +6102,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -6165,6 +6190,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 13,
@@ -6211,7 +6237,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.159Z",
+        "start_timestamp": "2020-05-09T14:34:45.832Z",
         "line": 25,
         "name": "Activity is unsuccesfully removed from an initialized project",
         "description": "",
@@ -6292,7 +6318,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 31,
@@ -6374,6 +6399,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 10,
@@ -6430,7 +6456,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 14,
@@ -6449,7 +6474,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.164Z",
+        "start_timestamp": "2020-05-09T14:34:45.841Z",
         "line": 17,
         "name": "Activity is removed from an uninitialized project without any developers on the activity",
         "description": "",
@@ -6502,6 +6527,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -6562,6 +6588,7 @@
           },
           {
             "result": {
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 11,
@@ -6619,7 +6646,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.168Z",
+        "start_timestamp": "2020-05-09T14:34:45.852Z",
         "line": 22,
         "name": "Activity is removed from an uninitialized project developers on the activity",
         "description": "",
@@ -6629,7 +6656,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 23,
@@ -6684,6 +6710,7 @@
         "steps": [
           {
             "result": {
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 6,
@@ -6744,6 +6771,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 10,
@@ -6755,6 +6783,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 11,
@@ -6789,7 +6818,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 13,
@@ -6802,7 +6830,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.172Z",
+        "start_timestamp": "2020-05-09T14:34:45.863Z",
         "line": 15,
         "name": "",
         "description": "",
@@ -6865,6 +6893,7 @@
         "steps": [
           {
             "result": {
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 6,
@@ -6914,6 +6943,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -6926,7 +6956,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.176Z",
+        "start_timestamp": "2020-05-09T14:34:45.874Z",
         "line": 11,
         "name": "",
         "description": "",
@@ -7012,6 +7042,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -7024,7 +7055,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.182Z",
+        "start_timestamp": "2020-05-09T14:34:45.886Z",
         "line": 13,
         "name": "A developer is set as the active developer",
         "description": "",
@@ -7076,7 +7107,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -7148,7 +7178,7 @@
           },
           {
             "result": {
-              "duration": 1000000,
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 12,
@@ -7234,7 +7264,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.197Z",
+        "start_timestamp": "2020-05-09T14:34:45.899Z",
         "line": 21,
         "name": "A developer set worked hours for the activity with no planned hours",
         "description": "",
@@ -7244,6 +7274,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 22,
@@ -7286,6 +7317,7 @@
           },
           {
             "result": {
+              "duration": 3000000,
               "status": "passed"
             },
             "line": 24,
@@ -7329,7 +7361,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 7,
@@ -7390,7 +7422,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 11,
@@ -7487,7 +7518,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.204Z",
+        "start_timestamp": "2020-05-09T14:34:45.915Z",
         "line": 27,
         "name": "A developer set worked hours for the activity with planned hours",
         "description": "",
@@ -7573,6 +7604,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 32,
@@ -7620,6 +7652,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 8,
@@ -7687,6 +7720,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 13,
@@ -7755,7 +7789,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.214Z",
+        "start_timestamp": "2020-05-09T14:34:45.929Z",
         "line": 35,
         "name": "A developer set invalid worked hours for the activity",
         "description": "",
@@ -7786,6 +7820,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 37,
@@ -7850,6 +7885,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -7938,6 +7974,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 13,
@@ -8006,7 +8043,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.220Z",
+        "start_timestamp": "2020-05-09T14:34:45.937Z",
         "line": 42,
         "name": "Set worked hours on a not yet started activity",
         "description": "",
@@ -8016,7 +8053,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 43,
@@ -8071,7 +8107,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 6,
@@ -8132,6 +8168,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 10,
@@ -8178,7 +8215,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.224Z",
+        "start_timestamp": "2020-05-09T14:34:45.948Z",
         "line": 15,
         "name": "A developer removes an uninitialized registered project succesfully",
         "description": "",
@@ -8199,7 +8236,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 17,
@@ -8231,6 +8267,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 6,
@@ -8338,7 +8375,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.230Z",
+        "start_timestamp": "2020-05-09T14:34:45.966Z",
         "line": 21,
         "name": "A project leader removes his registered project succesfully",
         "description": "",
@@ -8407,6 +8444,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 6,
@@ -8450,6 +8488,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -8467,6 +8506,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 10,
@@ -8513,7 +8553,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-09T13:24:22.233Z",
+        "start_timestamp": "2020-05-09T14:34:45.975Z",
         "line": 28,
         "name": "a developer removes an initialized project unsuccesfully",
         "description": "",
@@ -8605,6 +8645,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 35,

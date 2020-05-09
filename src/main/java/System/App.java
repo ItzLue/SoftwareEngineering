@@ -40,17 +40,17 @@ public class App {
     }
 
     public void removeDeveloper(String developerID) {
-        if(!developerHM.containsKey(developerID)) {
+        if(!developerHMContains(developerID)) {
             throw new NullPointerException("The developer with ID: " + developerID + " does not exist");
         }
-        assert developerHM.containsKey(developerID) : "Precondition developer ";
+        assert developerHMContains(developerID) : "Precondition developer ";
 
         for (Activity a : developerHM.get(developerID).getActivityList()) {
             a.developerHM.remove(developerID);
 
         }
         developerHM.remove(developerID);
-        assert !developerHM.containsKey(developerID) : "Post condition removed ";
+        assert !developerHMContains(developerID): "Post condition removed ";
     }
 
     public void setActiveDeveloper(String ID) {
@@ -76,17 +76,19 @@ public class App {
         return this.developerHM;
     }
 
-    public void getDevValues() {
-        for (Developer developer : developerHM.values()) {
-            System.out.println(developer);
-        }
-    }
+
 
     public void setWorkedHoursForActivity(String activityName, String projectID, double hours) throws IllegalAccessException {
         if (projectHM.get(projectID).getActivity(activityName).developerHM.containsKey(activeDeveloper.getID())) {
             developerHM.get(activeDeveloper.getID()).setWorkedHours(hours, activeDeveloper.getActivity(activityName));
         } else {
             throw new IllegalAccessException("You dont have access");
+        }
+    }
+
+    public void getDevValues() {
+        for (Developer developer : developerHM.values()) {
+            System.out.println(developer);
         }
     }
 
@@ -114,13 +116,13 @@ public class App {
     }
 
     public void removeProject(String projectID) throws IllegalAccessException {
-        if(!projectHM.containsKey(projectID)) {
+        if(!projectHMContains(projectID)) {
             throw new NullPointerException("The project with ID: " + projectID + " does not exist");
         }
-        assert projectHM.containsKey(projectID) : "Precondition project";
+        assert projectHMContains(projectID) : "Precondition project";
 
-        if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
-            if (projectHM.containsKey(projectID)) {
+        if (!isProjectInitialized(projectID) || isActiveDeveloperProjectLeader(projectID)) {
+            if (projectHMContains(projectID)) {
                 for (Activity a : projectHM.get(projectID).getActivityList()) {
                     removeActivityFromProject(a.getName(), projectID);
                     if (!projectHM.get(projectID).getActivityList().contains(a)) {
@@ -133,11 +135,11 @@ public class App {
         } else {
             throw new IllegalAccessException("Only the project leader has access to remove the project");
         }
-        assert !projectHM.containsKey(projectID) : "Postcondition removed";
+        assert !projectHMContains(projectID) : "Postcondition removed";
     }
 
     public void setProjectLeader(String projectID, String developerID) {
-        if (projectHM.containsKey(projectID) && developerHM.containsKey(developerID)) {
+        if (projectHMContains(projectID) && developerHMContains(developerID)) {
             projectHM.get(projectID).setProjectLeader(developerHM.get(developerID));
         } else {
             throw new NullPointerException("Incorrect project ID or developer ID");
@@ -155,8 +157,8 @@ public class App {
     }
 
     public void setProjectDate(boolean startOrEnd, String projectID, int year, int week) throws IllegalAccessException {
-        if (projectHM.containsKey(projectID)) {
-            if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
+        if (projectHMContains(projectID)) {
+            if (!isProjectInitialized(projectID) || isActiveDeveloperProjectLeader(projectID)) {
                 if (startOrEnd) {
                     projectHM.get(projectID).setProjectStartDate(year, week);
                 } else {
@@ -171,9 +173,8 @@ public class App {
     }
 
     public void setProjectName(String projectID, String name) throws IllegalAccessException {
-        if (projectHM.containsKey(projectID)) {
-            if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
-
+        if (projectHMContains(projectID)) {
+            if (!isProjectInitialized(projectID) || isActiveDeveloperProjectLeader(projectID)) {
                 projectHM.get(projectID).setName(name);
             } else {
                 throw new IllegalAccessException("Only the project leader can change the name of an initialized project");
@@ -187,10 +188,10 @@ public class App {
     Activity
      */
     public void registerActivityToProject(Activity activity, String projectID) throws IllegalAccessException {
-        assert projectHM.containsKey(projectID) : "Precondition";
-        if (projectHM.containsKey(projectID)) {
+        assert projectHMContains(projectID) : "Precondition";
+        if (projectHMContains(projectID)) {
             boolean nameExists = false;
-            if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
+            if (!isProjectInitialized(projectID) || isActiveDeveloperProjectLeader(projectID)) {
                 for (Activity a : projectHM.get(projectID).getActivityList()) {
                     if (a.getName().equals(activity.getName())) {
                         nameExists = true;
@@ -211,9 +212,9 @@ public class App {
     }
 
     public void removeActivityFromProject(String activityName, String projectID) throws IllegalAccessException {
-        if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
+        if (!isProjectInitialized(projectID) || isActiveDeveloperProjectLeader(projectID)) {
             int counter = 0;
-            if (projectHM.containsKey(projectID)) {
+            if (projectHMContains(projectID)) {
                 for (Activity a : projectHM.get(projectID).getActivityList()) {
                     if (a.getName().equals(activityName)) {
                         // Removing the activities from the developers activitylist
@@ -240,8 +241,8 @@ public class App {
     }
 
     public void setActivityDate(boolean startOrEnd, String projectID, String activityName, int year, int week) throws IllegalAccessException {
-        if (projectHM.containsKey(projectID) && projectHM.get(projectID).activityExists(activityName)) {
-            if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
+        if (projectHMContains(projectID) && projectHM.get(projectID).activityExists(activityName)) {
+            if (!isProjectInitialized(projectID)|| isActiveDeveloperProjectLeader(projectID)) {
                 if (startOrEnd) {
                     projectHM.get(projectID).setActivityStartDate(activityName, year, week);
                 } else {
@@ -256,8 +257,8 @@ public class App {
     }
 
     public void setDeveloperToActivity(String activityName, String projectID, String developerID) throws IllegalAccessException {
-        if (projectHM.containsKey(projectID)) {
-            if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
+        if (projectHMContains(projectID)) {
+            if (!isProjectInitialized(projectID) || isActiveDeveloperProjectLeader(projectID)) {
                 if (!projectHM.get(projectID).getActivity(activityName).developerHM.containsKey(developerID)) {
                     projectHM.get(projectID).getActivity(activityName).addDeveloper(developerHM.get(developerID));
                     developerHM.get(developerID).addActivity(projectHM.get(projectID).getActivity(activityName));
@@ -273,7 +274,7 @@ public class App {
     }
 
     public void setPlannedHoursForActivity(String activityName, String projectID, double hours) throws IllegalAccessException {
-        if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
+        if (!isProjectInitialized(projectID) || isActiveDeveloperProjectLeader(projectID)) {
             projectHM.get(projectID).getActivity(activityName).setPlannedHours(hours);
         } else {
             throw new IllegalAccessException("You don't have access");
@@ -286,7 +287,7 @@ public class App {
 
     public ArrayList<Developer> searchAvailableDevelopers(String projectID, String activityName) throws IllegalAccessException {
         ArrayList<Developer> availableDevelopers = new ArrayList<>();
-        if (activeDeveloper == projectHM.get(projectID).getProjectLeader()) {
+        if (isActiveDeveloperProjectLeader(projectID)) {
             for (Developer developer : developerHM.values()) {
 
                 if (!projectHM.get(projectID).getActivity(activityName).developerHM.containsValue(developer) && developer.isAvailable(projectHM.get(projectID).getActivity(activityName).getInterval())) {
@@ -300,8 +301,8 @@ public class App {
     }
 
     public void addPersonalActivity(PersonalActivity personalActivity, String developerID) throws IllegalAccessException {
-        assert developerHM.containsKey(developerID) : "Precondition developer";
-        if (developerHM.get(developerID) == activeDeveloper) {
+        assert developerHMContains(developerID) : "Precondition developer";
+        if (isActiveDeveloper(developerID)) {
             activeDeveloper.addPersonalActivity(personalActivity);
         } else {
             throw new IllegalAccessException("You have to be an active developer to add personal activities");
@@ -325,6 +326,26 @@ public class App {
 
     public void setDateServer(DateServer dateServer) {
         this.dateServer = dateServer;
+    }
+
+    /*
+    boolean conditions
+     */
+
+    public boolean isActiveDeveloperProjectLeader(String projectID) {
+        return projectHM.get(projectID).getProjectLeader() == activeDeveloper;
+    }
+    public boolean isProjectInitialized(String projectID) {
+        return projectHM.get(projectID).isInitialized();
+    }
+    public boolean isActiveDeveloper(String developerID) {
+        return developerHM.get(developerID) == activeDeveloper;
+    }
+    public boolean projectHMContains(String projectID) {
+        return projectHM.containsKey(projectID);
+    }
+    public boolean developerHMContains(String developerID) {
+        return developerHM.containsKey(developerID);
     }
 
 }
