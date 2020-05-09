@@ -5,8 +5,7 @@ Dette projekt går ud på at lave et program som kan gøre det nemmere for Softw
 
 ## Guide til programmet 
 Vi har lavet et console UI til vores program, for at starte programmet skal filen [UI](src/main/java/ui/UI.java) køres.
-Når programmet startes vil der komme en menu frem hvor man kan vælge mellem *developer menu* eller *project menu*. 
-
+Herefter vises vores hovedmenu med følgende muligheder.
 ### Hovedmenu
 ```console
 Welcome to SoftwareHuset A/S
