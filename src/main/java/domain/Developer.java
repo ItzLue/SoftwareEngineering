@@ -105,6 +105,12 @@ public class Developer {
                   return false;
               }
 
+            if(personalActivity.getInterval().getEndDate().before(interval.getStartDate()) || personalActivity.getInterval().getStartDate().after(interval.getEndDate())) {
+                continue;
+            } else {
+                return false;
+            }
+
 //            if((personalActivity.getInterval().getStartWeek() >= interval.getStartWeek() && personalActivity.getInterval().getStartWeek() <= interval.getEndWeek()) ||
 //                    (personalActivity.getInterval().getEndWeek() >= interval.getStartWeek() && personalActivity.getInterval().getEndWeek() <= interval.getEndWeek()) ||
 //                    (personalActivity.getInterval().getStartWeek() <= interval.getStartWeek() && personalActivity.getInterval().getEndWeek() >= interval.getEndWeek())) {
