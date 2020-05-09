@@ -507,7 +507,6 @@ public class UI extends ActionView {
             } catch (NullPointerException | IllegalAccessException e) {
                 System.out.println(e.getMessage());
             }
-
         }
     }
 }
