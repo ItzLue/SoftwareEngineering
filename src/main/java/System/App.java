@@ -40,6 +40,9 @@ public class App {
     }
 
     public void removeDeveloper(String developerID) {
+        if(!developerHM.containsKey(developerID)) {
+            throw new NullPointerException("The developer with ID: " + developerID + " does not exist");
+        }
         assert developerHM.containsKey(developerID) : "Precondition developer ";
 
         for (Activity a : developerHM.get(developerID).getActivityList()) {
@@ -111,7 +114,11 @@ public class App {
     }
 
     public void removeProject(String projectID) throws IllegalAccessException {
+        if(!projectHM.containsKey(projectID)) {
+            throw new NullPointerException("The project with ID: " + projectID + " does not exist");
+        }
         assert projectHM.containsKey(projectID) : "Precondition project";
+
         if (!projectHM.get(projectID).isInitialized() || projectHM.get(projectID).getProjectLeader() == activeDeveloper) {
             if (projectHM.containsKey(projectID)) {
                 for (Activity a : projectHM.get(projectID).getActivityList()) {

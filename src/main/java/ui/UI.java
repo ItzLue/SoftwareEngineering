@@ -158,11 +158,15 @@ public class UI extends ActionView {
 
         @Override
         public void executeCustomAction() {
-            String developerID = this.prompt("Enter the ID: ", String.class);
-
-            boolean confirmed = this.confirmDialog("Are you sure that you want to remove " + developerID);
-            if (confirmed) {
-                app.removeDeveloper(developerID);
+            try {
+                String developerID = this.prompt("Enter the ID: ", String.class);
+                boolean confirmed = this.confirmDialog("Are you sure that you want to remove " + developerID);
+                if (confirmed) {
+                    app.removeDeveloper(developerID);
+                    this.actionSuccessful();
+                }
+            } catch(NullPointerException e) {
+                System.out.println(e.getMessage());
             }
         }
     }
@@ -356,14 +360,14 @@ public class UI extends ActionView {
         @Override
         public void executeCustomAction() {
             String projectID = this.prompt("Enter the ID: ", String.class);
-
-            boolean confirmed = this.confirmDialog("Are you sure that you want to remove " +projectID);
-            if (confirmed) {
-                try {
+            try {
+                boolean confirmed = this.confirmDialog("Are you sure that you want to remove " +projectID);
+                if (confirmed) {
                     app.removeProject(projectID);
-                } catch (IllegalAccessException e) {
-                    System.out.println(e.getMessage());
+                    this.actionSuccessful();
                 }
+            } catch (IllegalAccessException | NullPointerException e) {
+                System.out.println(e.getMessage());
             }
         }
     }
