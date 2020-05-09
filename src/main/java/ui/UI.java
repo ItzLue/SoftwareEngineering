@@ -97,8 +97,8 @@ public class UI extends ActionView {
         activityMenu.addMenuItem(new ShowActivitiesAction());
         activityMenu.addMenuItem(new AddActivityAction());
         activityMenu.addMenuItem(new RemoveActivityFromProjectAction());
-        activityMenu.addMenuItem(new addDeveloperToActivityAction());
-        activityMenu.addMenuItem(new setPlannedHoursAction());
+        activityMenu.addMenuItem(new AddDeveloperToActivityAction());
+        activityMenu.addMenuItem(new SetPlannedHoursAction());
         activityMenu.addMenuItem(new SearchForAvailableDevelopers());
         return activityMenu;
     }
@@ -411,8 +411,8 @@ public class UI extends ActionView {
         }
     }
 
-    class addDeveloperToActivityAction extends ActionView {
-        public addDeveloperToActivityAction() {
+    class AddDeveloperToActivityAction extends ActionView {
+        public AddDeveloperToActivityAction() {
             super("Add developer to activity", "Add developer to activity");
         }
 
@@ -468,8 +468,8 @@ public class UI extends ActionView {
         }
     }
 
-    class setPlannedHoursAction extends ActionView {
-        public setPlannedHoursAction() {
+    class SetPlannedHoursAction extends ActionView {
+        public SetPlannedHoursAction() {
             super("Set the planned hours for an activity", "Set the planned hours for an activity");
         }
 
