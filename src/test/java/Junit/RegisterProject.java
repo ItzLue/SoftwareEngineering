@@ -84,19 +84,34 @@ public class RegisterProject {
     // Change name - project does not exist
     @Test
     @DisplayName("Test case E2")
-    void registerDeveloperDataSet2() {
+    void registerDeveloperDataSetE2() {
         app.registerDeveloper(developer);
-        app.registerDeveloper(new Developer("Ole","Hansen"));
-        app.setProjectLeader(project.getID(),developer.getID());
         Exception exception = assertThrows(NullPointerException.class, () -> {
-            app.setProjectName(project.getID(),"What a Name!");
+            app.setProjectName(project.getID(),"Minecraft");
         });
-        String expectedMessage = "Project with ID: " + project.getName() +  "doesn't exist";
+        String expectedMessage = "Project doesn't exist";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
+
+    }
+    @Test
+    @DisplayName("Test case E3")
+    void registerDeveloperDataSetE3() {
+        app.registerDeveloper(developer);
+        app.registerProject(project);
+        app.setProjectLeader(project.getID(),developer.getID());
+        app.registerDeveloper(new Developer("Ole","Hansen"));
+        app.setActiveDeveloper("OLHA02");
+        Exception exception = assertThrows(IllegalAccessException.class, () -> {
+            app.setProjectName(project.getID(),"helloWorld");
+        });
+        String expectedMessage = "Only the project leader can change the name of an initialized project";
         String actualMessage = exception.getMessage();
         assertTrue(actualMessage.contains(expectedMessage));
 
     }
 
+    // Invalid end date
     @Test
     @DisplayName("Test case F")
     void registerDeveloperDataSetF() {
@@ -149,56 +164,4 @@ public class RegisterProject {
     }
 
 }
-
-
-
-
-
-
-
-    /*
-    Project tests
-     */
-
-//    @Test
-//    void registerProject() {
-//        // Within a code block, if an assertion fails the
-//        // subsequent code in the same block will be skipped.
-//        app.registerDeveloper(developer);
-//        app.registerProject(project);
-//        String projectID = "20191";
-//        String developerID = "JADO01";
-//        assertAll("project",
-//                () -> {
-//            assertNotNull(app.getProjectHM().get(projectID));
-//                    assertAll("project properties",
-//                            () -> assertEquals("20191", app.getProjectHM().get(projectID).getID()),
-//                            () -> assertEquals("Enigma Coding", app.getProjectHM().get(projectID).getName()),
-//                            () -> assertNull(app.projectHM.get(projectID).getInterval().getStartDate()),
-//                            () -> assertEquals(0, app.getProjectHM().get(projectID).getActivityList().size())
-//                    );
-//                },
-//                () -> {
-//            app.registerActivityToProject(new Activity("Coding"),projectID);
-//            app.setActivityDate(true,projectID,"Coding",2020,26);
-//            app.setActivityDate(false,projectID,"Coding",2020,29);
-//            assertAll("Register activities",
-//                    () -> assertEquals(1,app.getProjectHM().get(projectID).getActivityList().size()),
-//                    () -> assertEquals("Coding",app.getProjectHM().get(projectID).getActivity("Coding").getName())
-//                    );
-//            assertAll("Activity start and end date",
-//                    () -> assertEquals(26,app.getProjectHM().get(projectID).getActivity("Coding").getInterval().getStartDate().get(Calendar.WEEK_OF_YEAR)),
-//                    () -> assertEquals(2020,app.getProjectHM().get(projectID).getActivity("Coding").getInterval().getStartDate().get(Calendar.YEAR)),
-//                    () -> assertEquals(29,app.getProjectHM().get(projectID).getActivity("Coding").getInterval().getEndDate().get(Calendar.WEEK_OF_YEAR)),
-//                    () -> assertEquals(2020,app.getProjectHM().get(projectID).getActivity("Coding").getInterval().getEndDate().get(Calendar.YEAR))
-//                    );
-//                },
-//                () -> {
-//                    app.setProjectLeader(projectID,developerID);
-//                    assertAll("Set project leader",
-//                            ()->assertNotNull(app.getProjectHM().get(projectID).getProjectLeader().getID())
-//                    );
-//                }
-//        );
-//    }
 

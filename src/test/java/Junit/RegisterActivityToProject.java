@@ -136,7 +136,8 @@ public class RegisterActivityToProject {
     @Test
     @DisplayName("Test case H1")
     void registerActivityDataSetH1() {
-
+        assertNull(project.getActivity(activity.getName()));
+        assertNull(project.getProjectLeader());
     }
     // Set planned hours
     @Test
@@ -165,7 +166,4 @@ public class RegisterActivityToProject {
         assertEquals(20,project.getActivity(activity.getName()).getWorkedHours());
 
     }
-
-
-
 }
