@@ -213,6 +213,4 @@ public class Project {
             return true;
         } else return getInterval().getEndDate() == null;
     }
-
-
 }
