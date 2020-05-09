@@ -125,6 +125,7 @@ public class Developer {
         }
 
         for (Activity activity : getActivityList()) {
+
             if(activity.getInterval().getEndDate().before(interval.getStartDate()) || activity.getInterval().getStartDate().after(interval.getEndDate())) {
                 continue;
             } else {
