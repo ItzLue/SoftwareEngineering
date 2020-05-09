@@ -1,0 +1,200 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Developer</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">domain</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Developer (domain)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Developer</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    93,8%
+  </span>
+  <span class="absValue">
+    (15/ 16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    81,6%
+  </span>
+  <span class="absValue">
+    (40/ 49)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package domain;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import time.Interval;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import java.util.ArrayList;
+<i>6</i>&nbsp;import java.util.Calendar;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;public class Developer {
+<i>9</i>&nbsp;    protected String firstName;
+<i>10</i>&nbsp;    protected String lastName;
+<i>11</i>&nbsp;    protected String ID;
+<b class="fc"><i>12</i>&nbsp;    protected ArrayList&lt;Activity&gt; activityList = new ArrayList&lt;Activity&gt;();</b>
+<b class="fc"><i>13</i>&nbsp;    protected ArrayList&lt;PersonalActivity&gt; personalActivityList = new ArrayList&lt;&gt;();</b>
+<i>14</i>&nbsp;    protected double workedHours;
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;    public String getLastName() {
+<b class="fc"><i>17</i>&nbsp;        return lastName;</b>
+<i>18</i>&nbsp;    }
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;    public String getFirstName() {
+<b class="fc"><i>21</i>&nbsp;        return firstName;</b>
+<i>22</i>&nbsp;    }
+<i>23</i>&nbsp;
+<b class="fc"><i>24</i>&nbsp;    public String getID() { return ID; }</b>
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;    public void setWorkedHours(double workedHours, Activity activity) throws IllegalAccessException {
+<b class="fc"><i>27</i>&nbsp;        if (activity.getInterval().getStartDate() != null) {</b>
+<b class="fc"><i>28</i>&nbsp;            if (workedHours &gt; 0.5) {</b>
+<b class="fc"><i>29</i>&nbsp;                this.workedHours = workedHours;</b>
+<b class="fc"><i>30</i>&nbsp;                activity.setWorkedHours(workedHours);</b>
+<i>31</i>&nbsp;            } else {
+<b class="fc"><i>32</i>&nbsp;                throw new IllegalArgumentException(&quot;Please provide a valid input&quot;);</b>
+<i>33</i>&nbsp;            }
+<i>34</i>&nbsp;        } else {
+<b class="fc"><i>35</i>&nbsp;            throw new IllegalArgumentException(&quot;The activity is not started yet&quot;);</b>
+<i>36</i>&nbsp;        }
+<b class="fc"><i>37</i>&nbsp;    }</b>
+<i>38</i>&nbsp;
+<b class="fc"><i>39</i>&nbsp;    public double getWorkedHours() { return workedHours; }</b>
+<i>40</i>&nbsp;
+<b class="fc"><i>41</i>&nbsp;    public ArrayList&lt;Activity&gt; getActivityList() { return activityList; }</b>
+<i>42</i>&nbsp;
+<b class="fc"><i>43</i>&nbsp;    public void setID(String ID) { this.ID = ID; }</b>
+<i>44</i>&nbsp;
+<b class="fc"><i>45</i>&nbsp;    public Developer(String firstName, String lastName) {</b>
+<b class="fc"><i>46</i>&nbsp;        if(firstName.matches(&quot;^[a-zA-Z]*$&quot;) &amp;&amp; lastName.matches(&quot;^[a-zA-Z]*$&quot;) &amp;&amp; firstName.length() &gt; 1 &amp;&amp; lastName.length() &gt; 1) {</b>
+<b class="fc"><i>47</i>&nbsp;            this.firstName = firstName;</b>
+<b class="fc"><i>48</i>&nbsp;            this.lastName = lastName;</b>
+<i>49</i>&nbsp;        } else {
+<b class="fc"><i>50</i>&nbsp;            throw new IllegalArgumentException(&quot;Developer names must be 2 letters or larger and can only contain alphabetic letters&quot;);</b>
+<i>51</i>&nbsp;        }
+<b class="fc"><i>52</i>&nbsp;    }</b>
+<i>53</i>&nbsp;    @Override
+<i>54</i>&nbsp;    public String toString() {
+<b class="fc"><i>55</i>&nbsp;        return &quot;[ First name:&#39;&quot; + firstName + &#39;\&#39;&#39; +</b>
+<i>56</i>&nbsp;                &quot;, Last name:&#39;&quot; + lastName + &#39;\&#39;&#39; +
+<i>57</i>&nbsp;                &quot;, ID:&#39;&quot; + ID + &#39;\&#39;&#39; + &quot; ]&quot;;
+<i>58</i>&nbsp;    }
+<i>59</i>&nbsp;
+<i>60</i>&nbsp;    public Activity getActivity(String activityName) {
+<b class="fc"><i>61</i>&nbsp;        for (Activity activity: activityList) {</b>
+<b class="fc"><i>62</i>&nbsp;            if (activityName.equals(activity.getName())) { return activity; }</b>
+<b class="nc"><i>63</i>&nbsp;        }</b>
+<b class="nc"><i>64</i>&nbsp;        return null;</b>
+<i>65</i>&nbsp;    }
+<i>66</i>&nbsp;
+<i>67</i>&nbsp;    public void addActivity(Activity activity) {
+<b class="fc"><i>68</i>&nbsp;        activityList.add(activity);</b>
+<b class="fc"><i>69</i>&nbsp;    }</b>
+<i>70</i>&nbsp;
+<i>71</i>&nbsp;
+<i>72</i>&nbsp;    public boolean isAvailable(Interval interval) {
+<b class="fc"><i>73</i>&nbsp;        int counter = 0;</b>
+<i>74</i>&nbsp;
+<b class="fc"><i>75</i>&nbsp;        for (PersonalActivity personalActivity : getPersonalActivityList()) {</b>
+<i>76</i>&nbsp;
+<b class="fc"><i>77</i>&nbsp;            if(personalActivity.getInterval().getEndDate().before(interval.getStartDate()) || personalActivity.getInterval().getStartDate().after(interval.getEndDate())) {</b>
+<b class="fc"><i>78</i>&nbsp;                continue;</b>
+<i>79</i>&nbsp;            } else {
+<b class="fc"><i>80</i>&nbsp;                return false;</b>
+<i>81</i>&nbsp;            }
+<i>82</i>&nbsp;        }
+<i>83</i>&nbsp;
+<b class="fc"><i>84</i>&nbsp;        for (Activity activity : getActivityList()) {</b>
+<i>85</i>&nbsp;
+<b class="nc"><i>86</i>&nbsp;            if(activity.getInterval().getEndDate().before(interval.getStartDate()) || activity.getInterval().getStartDate().after(interval.getEndDate())) {</b>
+<b class="nc"><i>87</i>&nbsp;                continue;</b>
+<i>88</i>&nbsp;            } else {
+<b class="nc"><i>89</i>&nbsp;                counter++;</b>
+<i>90</i>&nbsp;            }
+<b class="nc"><i>91</i>&nbsp;        }</b>
+<b class="fc"><i>92</i>&nbsp;        return counter&lt;10;</b>
+<i>93</i>&nbsp;    }
+<i>94</i>&nbsp;
+<i>95</i>&nbsp;    public void addPersonalActivity(PersonalActivity activity) {
+<b class="fc"><i>96</i>&nbsp;        personalActivityList.add(activity);</b>
+<b class="fc"><i>97</i>&nbsp;    }</b>
+<i>98</i>&nbsp;
+<i>99</i>&nbsp;    public void removePersonalActivity(PersonalActivity activity) {
+<b class="nc"><i>100</i>&nbsp;        personalActivityList.remove(activity);</b>
+<b class="nc"><i>101</i>&nbsp;    }</b>
+<i>102</i>&nbsp;
+<i>103</i>&nbsp;    public ArrayList&lt;PersonalActivity&gt; getPersonalActivityList() {
+<b class="fc"><i>104</i>&nbsp;        return personalActivityList;</b>
+<i>105</i>&nbsp;    }
+<i>106</i>&nbsp;
+<i>107</i>&nbsp;    public PersonalActivity getPersonalActivity(String personalActivityName) {
+<b class="fc"><i>108</i>&nbsp;        for (PersonalActivity personalActivity: personalActivityList) {</b>
+<b class="fc"><i>109</i>&nbsp;            if (personalActivityName.equals(personalActivity.getName())) {</b>
+<b class="fc"><i>110</i>&nbsp;                return personalActivity;</b>
+<i>111</i>&nbsp;            }
+<b class="nc"><i>112</i>&nbsp;        }</b>
+<b class="fc"><i>113</i>&nbsp;        return null;</b>
+<i>114</i>&nbsp;    }
+<i>115</i>&nbsp;
+<i>116</i>&nbsp;
+<i>117</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-05-09 12:34</div>
+</div>
+</body>
+</html>
