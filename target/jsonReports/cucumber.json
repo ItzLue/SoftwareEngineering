@@ -11,7 +11,7 @@
         "steps": [
           {
             "result": {
-              "duration": 836000000,
+              "duration": 460000000,
               "status": "passed"
             },
             "line": 6,
@@ -27,7 +27,7 @@
                   "offset": 57
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -38,12 +38,13 @@
             "line": 7,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 8,
@@ -55,25 +56,24 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 7000000,
+              "duration": 3000000,
               "status": "passed"
             },
             "line": 9,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 10,
@@ -85,7 +85,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -108,7 +108,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 12,
@@ -150,7 +149,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:21.509Z",
+        "start_timestamp": "2020-05-08T22:33:44.077Z",
         "line": 17,
         "name": "The project leader searches for available developers",
         "description": "",
@@ -165,12 +164,13 @@
             "line": 18,
             "name": "The developer is set as the active developer",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsSetAsTheActiveDeveloper()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsSetAsTheActiveDeveloper()"
             },
             "keyword": "And "
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 19,
@@ -207,7 +207,7 @@
                   "offset": 57
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -218,7 +218,7 @@
             "line": 7,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -235,7 +235,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -247,7 +247,7 @@
             "line": 9,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -265,7 +265,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -316,7 +316,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 14,
@@ -329,7 +328,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:22.494Z",
+        "start_timestamp": "2020-05-08T22:33:44.636Z",
         "line": 21,
         "name": "A developer searches for available developers",
         "description": "",
@@ -361,7 +360,7 @@
                   "offset": 17
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.anErrorWithMessageIsGiven(java.lang.String)"
+              "location": "acceptance_tests.steps.SystemSteps.anErrorWithMessageIsGiven(java.lang.String)"
             },
             "keyword": "Then "
           }
@@ -387,7 +386,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -403,7 +401,7 @@
                   "offset": 57
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -414,7 +412,7 @@
             "line": 8,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -425,7 +423,7 @@
             "line": 9,
             "name": "The developer is set as the active developer",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsSetAsTheActiveDeveloper()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsSetAsTheActiveDeveloper()"
             },
             "keyword": "And "
           },
@@ -442,7 +440,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -454,7 +452,7 @@
             "line": 11,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -471,7 +469,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -506,7 +504,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:22.521Z",
+        "start_timestamp": "2020-05-08T22:33:44.647Z",
         "line": 17,
         "name": "Activity is successfully added to an initialized project",
         "description": "",
@@ -570,7 +568,6 @@
         "steps": [
           {
             "result": {
-              "duration": 2000000,
               "status": "passed"
             },
             "line": 7,
@@ -586,7 +583,7 @@
                   "offset": 57
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -597,7 +594,7 @@
             "line": 8,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -608,7 +605,7 @@
             "line": 9,
             "name": "The developer is set as the active developer",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsSetAsTheActiveDeveloper()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsSetAsTheActiveDeveloper()"
             },
             "keyword": "And "
           },
@@ -625,7 +622,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -636,13 +633,12 @@
             "line": 11,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 12,
@@ -654,7 +650,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -689,7 +685,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:22.540Z",
+        "start_timestamp": "2020-05-08T22:33:44.658Z",
         "line": 24,
         "name": "Activity is unsuccessfully added to an initialized project",
         "description": "",
@@ -714,7 +710,7 @@
                   "offset": 59
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -725,7 +721,7 @@
             "line": 26,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -736,7 +732,7 @@
             "line": 27,
             "name": "The developer is set as the active developer",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsSetAsTheActiveDeveloper()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsSetAsTheActiveDeveloper()"
             },
             "keyword": "When "
           },
@@ -781,7 +777,7 @@
                   "offset": 17
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.anErrorWithMessageIsGiven(java.lang.String)"
+              "location": "acceptance_tests.steps.SystemSteps.anErrorWithMessageIsGiven(java.lang.String)"
             },
             "keyword": "Then "
           }
@@ -819,7 +815,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -830,7 +826,7 @@
             "line": 9,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -858,14 +854,14 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           }
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:22.559Z",
+        "start_timestamp": "2020-05-08T22:33:44.666Z",
         "line": 14,
         "name": "Activity is added to an uninitialized project",
         "description": "",
@@ -875,6 +871,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 15,
@@ -930,19 +927,18 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -959,6 +955,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 11,
@@ -970,14 +967,14 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           }
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:22.592Z",
+        "start_timestamp": "2020-05-08T22:33:44.673Z",
         "line": 19,
         "name": "Activity is added to an uninitialized project",
         "description": "",
@@ -1049,7 +1046,7 @@
                   "offset": 17
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.anErrorWithMessageIsGiven(java.lang.String)"
+              "location": "acceptance_tests.steps.SystemSteps.anErrorWithMessageIsGiven(java.lang.String)"
             },
             "keyword": "Then "
           }
@@ -1067,7 +1064,7 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2020-05-08T22:16:22.617Z",
+        "start_timestamp": "2020-05-08T22:33:44.682Z",
         "line": 6,
         "name": "A developer is successfully added to the system",
         "description": "",
@@ -1077,7 +1074,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 7,
@@ -1093,7 +1090,7 @@
                   "offset": 57
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -1104,7 +1101,7 @@
             "line": 8,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "When "
           },
@@ -1115,14 +1112,14 @@
             "line": 9,
             "name": "the developer is in the system with an appropriate ID",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsInTheSystemWithAnAppropriateID()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsInTheSystemWithAnAppropriateID()"
             },
             "keyword": "Then "
           }
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:22.634Z",
+        "start_timestamp": "2020-05-08T22:33:44.702Z",
         "line": 11,
         "name": "print all developers",
         "description": "",
@@ -1132,13 +1129,13 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 12,
             "name": "All developers are printed",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.allDevelopersArePrinted()"
+              "location": "acceptance_tests.steps.DeveloperSteps.allDevelopersArePrinted()"
             },
             "keyword": "When "
           }
@@ -1180,7 +1177,7 @@
                   "offset": 57
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -1191,12 +1188,13 @@
             "line": 7,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 8,
@@ -1208,7 +1206,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -1220,7 +1218,7 @@
             "line": 9,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -1238,7 +1236,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:22.644Z",
+        "start_timestamp": "2020-05-08T22:33:44.710Z",
         "line": 13,
         "name": "A developer is successfully being added as project leader to a project",
         "description": "",
@@ -1302,7 +1300,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 6,
@@ -1318,7 +1316,7 @@
                   "offset": 57
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -1329,7 +1327,7 @@
             "line": 7,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -1346,7 +1344,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -1357,7 +1355,7 @@
             "line": 9,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -1375,7 +1373,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:22.658Z",
+        "start_timestamp": "2020-05-08T22:33:44.718Z",
         "line": 20,
         "name": "A developer is successfully added as project leader to a project with an existing project leader",
         "description": "",
@@ -1418,7 +1416,7 @@
                   "offset": 50
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.aDeveloperWithFirstNameAndLastNameIsAddedToTheSystem(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.aDeveloperWithFirstNameAndLastNameIsAddedToTheSystem(java.lang.String,java.lang.String)"
             },
             "keyword": "And "
           },
@@ -1475,7 +1473,6 @@
         "steps": [
           {
             "result": {
-              "duration": 2000000,
               "status": "passed"
             },
             "line": 6,
@@ -1491,7 +1488,7 @@
                   "offset": 57
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -1502,12 +1499,13 @@
             "line": 7,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 8,
@@ -1519,18 +1517,19 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -1548,7 +1547,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:22.671Z",
+        "start_timestamp": "2020-05-08T22:33:44.727Z",
         "line": 26,
         "name": "print project with projectleader",
         "description": "",
@@ -1650,7 +1649,7 @@
                   "offset": 57
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -1661,7 +1660,7 @@
             "line": 7,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -1672,7 +1671,7 @@
             "line": 8,
             "name": "The developer is set as the active developer",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsSetAsTheActiveDeveloper()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsSetAsTheActiveDeveloper()"
             },
             "keyword": "And "
           },
@@ -1689,7 +1688,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -1700,7 +1699,7 @@
             "line": 10,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -1718,7 +1717,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -1770,7 +1769,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:22.694Z",
+        "start_timestamp": "2020-05-08T22:33:44.734Z",
         "line": 17,
         "name": "A project leader assigns a developer to an activty",
         "description": "",
@@ -1791,6 +1790,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 19,
@@ -1822,7 +1822,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 6,
@@ -1838,7 +1837,7 @@
                   "offset": 57
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -1849,7 +1848,7 @@
             "line": 7,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -1860,7 +1859,7 @@
             "line": 8,
             "name": "The developer is set as the active developer",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsSetAsTheActiveDeveloper()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsSetAsTheActiveDeveloper()"
             },
             "keyword": "And "
           },
@@ -1877,18 +1876,19 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 10,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -1905,7 +1905,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -1957,7 +1957,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:22.728Z",
+        "start_timestamp": "2020-05-08T22:33:44.744Z",
         "line": 23,
         "name": "A non-project leader tries to assign a developer to an activty",
         "description": "",
@@ -1983,7 +1983,7 @@
                   "offset": 60
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -1994,7 +1994,7 @@
             "line": 25,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -2005,12 +2005,13 @@
             "line": 26,
             "name": "The developer is set as the active developer",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsSetAsTheActiveDeveloper()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsSetAsTheActiveDeveloper()"
             },
             "keyword": "And "
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 27,
@@ -2025,15 +2026,15 @@
               "status": "passed"
             },
             "line": 28,
-            "name": "the error message \"Only the project leader has access to assign developers to activities\" is given",
+            "name": "an error message \"Only the project leader has access to assign developers to activities\" is given",
             "match": {
               "arguments": [
                 {
                   "val": "\"Only the project leader has access to assign developers to activities\"",
-                  "offset": 18
+                  "offset": 17
                 }
               ],
-              "location": "acceptance_tests.steps.ActivitySteps.theErrorMessageIsGiven(java.lang.String)"
+              "location": "acceptance_tests.steps.SystemSteps.anErrorWithMessageIsGiven(java.lang.String)"
             },
             "keyword": "Then "
           }
@@ -2074,7 +2075,7 @@
                   "offset": 57
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -2085,12 +2086,13 @@
             "line": 7,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 8,
@@ -2102,7 +2104,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -2114,13 +2116,12 @@
             "line": 9,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 10,
@@ -2132,7 +2133,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -2167,7 +2168,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:22.744Z",
+        "start_timestamp": "2020-05-08T22:33:44.760Z",
         "line": 15,
         "name": "The developer tries to change the project date without being the active developer",
         "description": "",
@@ -2209,7 +2210,7 @@
                   "offset": 17
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.anErrorWithMessageIsGiven(java.lang.String)"
+              "location": "acceptance_tests.steps.SystemSteps.anErrorWithMessageIsGiven(java.lang.String)"
             },
             "keyword": "Then "
           }
@@ -2240,7 +2241,7 @@
                   "offset": 57
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -2251,13 +2252,13 @@
             "line": 7,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 1000000,
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 8,
@@ -2269,7 +2270,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -2281,7 +2282,7 @@
             "line": 9,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -2298,7 +2299,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -2333,7 +2334,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:22.769Z",
+        "start_timestamp": "2020-05-08T22:33:44.767Z",
         "line": 19,
         "name": "The developer tries to set planned hours for the activity",
         "description": "",
@@ -2372,7 +2373,7 @@
                   "offset": 17
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.anErrorWithMessageIsGiven(java.lang.String)"
+              "location": "acceptance_tests.steps.SystemSteps.anErrorWithMessageIsGiven(java.lang.String)"
             },
             "keyword": "Then "
           }
@@ -2403,7 +2404,7 @@
                   "offset": 57
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -2414,7 +2415,7 @@
             "line": 7,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -2431,19 +2432,19 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 3000000,
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -2460,7 +2461,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -2495,7 +2496,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:22.788Z",
+        "start_timestamp": "2020-05-08T22:33:44.790Z",
         "line": 23,
         "name": "The developer tries to set date for the activity",
         "description": "",
@@ -2538,7 +2539,7 @@
                   "offset": 17
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.anErrorWithMessageIsGiven(java.lang.String)"
+              "location": "acceptance_tests.steps.SystemSteps.anErrorWithMessageIsGiven(java.lang.String)"
             },
             "keyword": "Then "
           }
@@ -2564,7 +2565,7 @@
         "steps": [
           {
             "result": {
-              "duration": 5000000,
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 6,
@@ -2576,7 +2577,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -2587,7 +2588,7 @@
             "line": 7,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -2615,7 +2616,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -2639,7 +2640,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:22.819Z",
+        "start_timestamp": "2020-05-08T22:33:44.800Z",
         "line": 13,
         "name": "The project name is changed",
         "description": "",
@@ -2678,7 +2679,7 @@
                   "offset": 54
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsAProjectRegisteredInTheSystemWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.thereIsAProjectRegisteredInTheSystemWithName(java.lang.String)"
             },
             "keyword": "Then "
           }
@@ -2705,7 +2706,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -2717,7 +2718,7 @@
             "line": 7,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -2745,7 +2746,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -2770,7 +2771,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:22.843Z",
+        "start_timestamp": "2020-05-08T22:33:44.813Z",
         "line": 17,
         "name": "The project start date is set and the end date is null",
         "description": "",
@@ -2780,6 +2781,7 @@
         "steps": [
           {
             "result": {
+              "duration": 7000000,
               "status": "passed"
             },
             "line": 18,
@@ -2843,19 +2845,18 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -2872,6 +2873,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -2883,7 +2885,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -2907,7 +2909,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:22.865Z",
+        "start_timestamp": "2020-05-08T22:33:44.836Z",
         "line": 21,
         "name": "The project end date is set and the start date is null",
         "description": "",
@@ -2917,6 +2919,7 @@
         "steps": [
           {
             "result": {
+              "duration": 4000000,
               "status": "passed"
             },
             "line": 22,
@@ -2968,7 +2971,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
+              "duration": 8000000,
               "status": "passed"
             },
             "line": 6,
@@ -2980,19 +2983,18 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -3020,7 +3022,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -3044,7 +3046,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:22.878Z",
+        "start_timestamp": "2020-05-08T22:33:44.853Z",
         "line": 25,
         "name": "The project start date is set and the end date is not null but valid",
         "description": "",
@@ -3054,6 +3056,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 26,
@@ -3159,7 +3162,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -3170,7 +3173,7 @@
             "line": 7,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -3188,6 +3191,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -3199,7 +3203,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -3223,7 +3227,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:22.894Z",
+        "start_timestamp": "2020-05-08T22:33:44.870Z",
         "line": 31,
         "name": "The project end date is set and the start date is not null but valid",
         "description": "",
@@ -3233,7 +3237,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 32,
@@ -3339,7 +3342,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -3351,7 +3354,7 @@
             "line": 7,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -3379,7 +3382,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -3404,7 +3407,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:22.911Z",
+        "start_timestamp": "2020-05-08T22:33:44.879Z",
         "line": 37,
         "name": "The project start date is set and the end date is not null and not valid",
         "description": "",
@@ -3456,6 +3459,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 41,
@@ -3488,7 +3492,7 @@
                   "offset": 17
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.anErrorWithMessageIsGiven(java.lang.String)"
+              "location": "acceptance_tests.steps.SystemSteps.anErrorWithMessageIsGiven(java.lang.String)"
             },
             "keyword": "Then "
           }
@@ -3503,7 +3507,6 @@
         "steps": [
           {
             "result": {
-              "duration": 4000000,
               "status": "passed"
             },
             "line": 6,
@@ -3515,7 +3518,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -3527,7 +3530,7 @@
             "line": 7,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -3555,7 +3558,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -3580,7 +3583,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:22.928Z",
+        "start_timestamp": "2020-05-08T22:33:44.885Z",
         "line": 45,
         "name": "The project start date is set and the end date is not null and not valid",
         "description": "",
@@ -3665,7 +3668,7 @@
                   "offset": 17
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.anErrorWithMessageIsGiven(java.lang.String)"
+              "location": "acceptance_tests.steps.SystemSteps.anErrorWithMessageIsGiven(java.lang.String)"
             },
             "keyword": "Then "
           }
@@ -3680,7 +3683,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 6,
@@ -3692,7 +3694,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -3704,13 +3706,12 @@
             "line": 7,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 8,
@@ -3733,7 +3734,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -3758,7 +3759,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:22.946Z",
+        "start_timestamp": "2020-05-08T22:33:44.891Z",
         "line": 53,
         "name": "The activity start date is set and the end date is null",
         "description": "",
@@ -3789,6 +3790,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 55,
@@ -3819,7 +3821,7 @@
         "steps": [
           {
             "result": {
-              "duration": 2000000,
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 6,
@@ -3831,7 +3833,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -3843,13 +3845,12 @@
             "line": 7,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 8,
@@ -3872,7 +3873,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -3896,7 +3897,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:22.971Z",
+        "start_timestamp": "2020-05-08T22:33:44.899Z",
         "line": 57,
         "name": "The activity end date is set and the start date is null",
         "description": "",
@@ -3906,6 +3907,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 58,
@@ -3969,7 +3971,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -3981,13 +3983,12 @@
             "line": 7,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 8,
@@ -4010,7 +4011,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -4034,7 +4035,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:22.984Z",
+        "start_timestamp": "2020-05-08T22:33:44.905Z",
         "line": 61,
         "name": "set start date for activity that doesnt exist",
         "description": "",
@@ -4044,12 +4045,13 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 62,
             "name": "The start date of a nonexistent activity is set",
             "match": {
-              "location": "acceptance_tests.steps.ActivitySteps.theStartDateOfANonexistentActivityIsSet()"
+              "location": "acceptance_tests.steps.IntervalSteps.theStartDateOfANonexistentActivityIsSet()"
             },
             "keyword": "When "
           },
@@ -4066,7 +4068,7 @@
                   "offset": 17
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.anErrorWithMessageIsGiven(java.lang.String)"
+              "location": "acceptance_tests.steps.SystemSteps.anErrorWithMessageIsGiven(java.lang.String)"
             },
             "keyword": "Then "
           }
@@ -4093,7 +4095,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -4105,7 +4107,7 @@
             "line": 7,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -4133,12 +4135,13 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 10,
@@ -4157,7 +4160,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:22.996Z",
+        "start_timestamp": "2020-05-08T22:33:44.911Z",
         "line": 65,
         "name": "The activity start date is set and the end date is not null",
         "description": "",
@@ -4273,7 +4276,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -4284,7 +4287,7 @@
             "line": 7,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -4312,7 +4315,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -4336,7 +4339,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:23.006Z",
+        "start_timestamp": "2020-05-08T22:33:44.919Z",
         "line": 71,
         "name": "The activity end date is set and the start date is not null",
         "description": "",
@@ -4453,7 +4456,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -4464,7 +4467,7 @@
             "line": 7,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -4493,7 +4496,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -4517,7 +4520,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:23.018Z",
+        "start_timestamp": "2020-05-08T22:33:44.930Z",
         "line": 77,
         "name": "The activity start date is set and the project start date is not null",
         "description": "",
@@ -4527,6 +4530,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 78,
@@ -4634,7 +4638,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -4646,7 +4650,7 @@
             "line": 7,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -4674,7 +4678,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -4698,7 +4702,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:23.029Z",
+        "start_timestamp": "2020-05-08T22:33:44.936Z",
         "line": 83,
         "name": "The activity end date is set and the project end date is not null",
         "description": "",
@@ -4730,6 +4734,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 85,
@@ -4803,7 +4808,7 @@
         "steps": [
           {
             "result": {
-              "duration": 2000000,
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 6,
@@ -4815,19 +4820,19 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 1000000,
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 7,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -4855,7 +4860,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -4879,7 +4884,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:23.040Z",
+        "start_timestamp": "2020-05-08T22:33:44.951Z",
         "line": 89,
         "name": "An invalid activity start date is set",
         "description": "",
@@ -4965,7 +4970,7 @@
                   "offset": 17
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.anErrorWithMessageIsGiven(java.lang.String)"
+              "location": "acceptance_tests.steps.SystemSteps.anErrorWithMessageIsGiven(java.lang.String)"
             },
             "keyword": "Then "
           }
@@ -4991,19 +4996,18 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -5031,7 +5035,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -5055,7 +5059,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:23.054Z",
+        "start_timestamp": "2020-05-08T22:33:44.961Z",
         "line": 97,
         "name": "An invalid activity end date is set",
         "description": "",
@@ -5139,7 +5143,7 @@
                   "offset": 17
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.anErrorWithMessageIsGiven(java.lang.String)"
+              "location": "acceptance_tests.steps.SystemSteps.anErrorWithMessageIsGiven(java.lang.String)"
             },
             "keyword": "Then "
           }
@@ -5166,7 +5170,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -5178,7 +5182,7 @@
             "line": 7,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -5195,6 +5199,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
@@ -5206,7 +5211,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -5230,7 +5235,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:23.064Z",
+        "start_timestamp": "2020-05-08T22:33:44.966Z",
         "line": 105,
         "name": "The project start date is set but the activity start date is before that",
         "description": "",
@@ -5240,7 +5245,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 106,
@@ -5316,7 +5320,7 @@
                   "offset": 17
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.anErrorWithMessageIsGiven(java.lang.String)"
+              "location": "acceptance_tests.steps.SystemSteps.anErrorWithMessageIsGiven(java.lang.String)"
             },
             "keyword": "Then "
           }
@@ -5342,7 +5346,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -5353,7 +5357,7 @@
             "line": 7,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -5381,7 +5385,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -5405,7 +5409,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:23.078Z",
+        "start_timestamp": "2020-05-08T22:33:44.971Z",
         "line": 113,
         "name": "The project end date is set but the activity end date is after that",
         "description": "",
@@ -5480,7 +5484,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 117,
@@ -5492,7 +5495,7 @@
                   "offset": 17
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.anErrorWithMessageIsGiven(java.lang.String)"
+              "location": "acceptance_tests.steps.SystemSteps.anErrorWithMessageIsGiven(java.lang.String)"
             },
             "keyword": "Then "
           }
@@ -5519,19 +5522,18 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -5559,7 +5561,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -5583,7 +5585,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:23.092Z",
+        "start_timestamp": "2020-05-08T22:33:44.976Z",
         "line": 119,
         "name": "Set date for projectID that doesnt exist",
         "description": "",
@@ -5615,7 +5617,7 @@
                   "offset": 17
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.anErrorWithMessageIsGiven(java.lang.String)"
+              "location": "acceptance_tests.steps.SystemSteps.anErrorWithMessageIsGiven(java.lang.String)"
             },
             "keyword": "Then "
           }
@@ -5630,7 +5632,7 @@
         "steps": [
           {
             "result": {
-              "duration": 3000000,
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 6,
@@ -5642,7 +5644,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -5654,13 +5656,12 @@
             "line": 7,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 8,
@@ -5683,7 +5684,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -5707,7 +5708,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:23.107Z",
+        "start_timestamp": "2020-05-08T22:33:44.982Z",
         "line": 123,
         "name": "print project",
         "description": "",
@@ -5741,7 +5742,7 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2020-05-08T22:16:23.122Z",
+        "start_timestamp": "2020-05-08T22:33:44.988Z",
         "line": 6,
         "name": "A developer creates and registers a project",
         "description": "",
@@ -5763,7 +5764,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -5774,30 +5775,30 @@
             "line": 8,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "When "
-          },
-          {
-            "result": {
-              "status": "passed"
-            },
-            "line": 9,
-            "name": "the project is registered in the system",
-            "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsRegisteredInTheSystem()"
-            },
-            "keyword": "Then "
           },
           {
             "result": {
               "duration": 1000000,
               "status": "passed"
             },
+            "line": 9,
+            "name": "the project is registered in the system",
+            "match": {
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsRegisteredInTheSystem()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
             "line": 10,
             "name": "The project ID fits the current date",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIDFitsTheCurrentDate()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIDFitsTheCurrentDate()"
             },
             "keyword": "And "
           }
@@ -5823,7 +5824,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -5839,7 +5839,7 @@
                   "offset": 57
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -5850,7 +5850,7 @@
             "line": 8,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -5861,7 +5861,7 @@
             "line": 9,
             "name": "The developer is set as the active developer",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsSetAsTheActiveDeveloper()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsSetAsTheActiveDeveloper()"
             },
             "keyword": "And "
           },
@@ -5879,7 +5879,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -5890,12 +5890,13 @@
             "line": 11,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 12,
@@ -5924,7 +5925,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -5959,7 +5960,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:23.135Z",
+        "start_timestamp": "2020-05-08T22:33:44.994Z",
         "line": 19,
         "name": "Activity is succesfully removed from an initialized project",
         "description": "",
@@ -6038,7 +6039,7 @@
                   "offset": 57
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -6050,7 +6051,7 @@
             "line": 8,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -6061,7 +6062,7 @@
             "line": 9,
             "name": "The developer is set as the active developer",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsSetAsTheActiveDeveloper()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsSetAsTheActiveDeveloper()"
             },
             "keyword": "And "
           },
@@ -6078,18 +6079,19 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 11,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -6124,7 +6126,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -6159,7 +6161,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:23.144Z",
+        "start_timestamp": "2020-05-08T22:33:45.001Z",
         "line": 25,
         "name": "Activity is unsuccesfully removed from an initialized project",
         "description": "",
@@ -6184,7 +6186,7 @@
                   "offset": 59
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -6195,7 +6197,7 @@
             "line": 27,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -6206,7 +6208,7 @@
             "line": 28,
             "name": "The developer is set as the active developer",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsSetAsTheActiveDeveloper()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsSetAsTheActiveDeveloper()"
             },
             "keyword": "When "
           },
@@ -6251,7 +6253,7 @@
                   "offset": 17
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.anErrorWithMessageIsGiven(java.lang.String)"
+              "location": "acceptance_tests.steps.SystemSteps.anErrorWithMessageIsGiven(java.lang.String)"
             },
             "keyword": "Then "
           }
@@ -6293,7 +6295,7 @@
                   "offset": 57
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -6305,7 +6307,7 @@
             "line": 8,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -6316,7 +6318,7 @@
             "line": 9,
             "name": "The developer is set as the active developer",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsSetAsTheActiveDeveloper()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsSetAsTheActiveDeveloper()"
             },
             "keyword": "And "
           },
@@ -6333,7 +6335,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -6344,7 +6346,7 @@
             "line": 11,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -6361,6 +6363,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 13,
@@ -6372,7 +6375,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -6397,7 +6400,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:23.160Z",
+        "start_timestamp": "2020-05-08T22:33:45.009Z",
         "line": 17,
         "name": "Activity is removed from an uninitialized project without any developers on the activity",
         "description": "",
@@ -6450,7 +6453,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -6466,7 +6468,7 @@
                   "offset": 57
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -6477,7 +6479,7 @@
             "line": 8,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -6488,7 +6490,7 @@
             "line": 9,
             "name": "The developer is set as the active developer",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsSetAsTheActiveDeveloper()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsSetAsTheActiveDeveloper()"
             },
             "keyword": "And "
           },
@@ -6505,7 +6507,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -6516,7 +6518,7 @@
             "line": 11,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -6545,7 +6547,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -6569,7 +6571,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:23.175Z",
+        "start_timestamp": "2020-05-08T22:33:45.020Z",
         "line": 22,
         "name": "Activity is removed from an uninitialized project developers on the activity",
         "description": "",
@@ -6633,7 +6635,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
+              "duration": 2000000,
               "status": "passed"
             },
             "line": 6,
@@ -6649,7 +6651,7 @@
                   "offset": 57
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -6660,7 +6662,7 @@
             "line": 7,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -6671,7 +6673,7 @@
             "line": 8,
             "name": "The developer is set as the active developer",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsSetAsTheActiveDeveloper()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsSetAsTheActiveDeveloper()"
             },
             "keyword": "And "
           },
@@ -6688,7 +6690,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -6700,7 +6702,7 @@
             "line": 10,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -6718,7 +6720,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -6753,7 +6755,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:23.190Z",
+        "start_timestamp": "2020-05-08T22:33:45.028Z",
         "line": 15,
         "name": "",
         "description": "",
@@ -6768,7 +6770,7 @@
             "line": 16,
             "name": "the developer is being removed from the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsBeingRemovedFromTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsBeingRemovedFromTheSystem()"
             },
             "keyword": "When "
           },
@@ -6779,7 +6781,7 @@
             "line": 17,
             "name": "the developer is not contained in the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsNotContainedInTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsNotContainedInTheSystem()"
             },
             "keyword": "Then "
           },
@@ -6790,7 +6792,7 @@
             "line": 18,
             "name": "the activty does not contain the developer",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theActivtyDoesNotContainTheDeveloper()"
+              "location": "acceptance_tests.steps.ActivitySteps.theActivtyDoesNotContainTheDeveloper()"
             },
             "keyword": "And "
           }
@@ -6816,7 +6818,6 @@
         "steps": [
           {
             "result": {
-              "duration": 3000000,
               "status": "passed"
             },
             "line": 7,
@@ -6832,7 +6833,7 @@
                   "offset": 57
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -6843,7 +6844,7 @@
             "line": 8,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -6854,14 +6855,14 @@
             "line": 9,
             "name": "a developer hasn\u0027t been selected as an active developer",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.aDeveloperHasnTBeenSelectedAsAnActiveDeveloper()"
+              "location": "acceptance_tests.steps.DeveloperSteps.aDeveloperHasnTBeenSelectedAsAnActiveDeveloper()"
             },
             "keyword": "Given "
           }
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:23.205Z",
+        "start_timestamp": "2020-05-08T22:33:45.034Z",
         "line": 13,
         "name": "A developer is set as the active developer",
         "description": "",
@@ -6876,7 +6877,7 @@
             "line": 14,
             "name": "The developer is set as the active developer",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsSetAsTheActiveDeveloper()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsSetAsTheActiveDeveloper()"
             },
             "keyword": "When "
           },
@@ -6887,7 +6888,7 @@
             "line": 15,
             "name": "the developer is the active developer",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsTheActiveDeveloper()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsTheActiveDeveloper()"
             },
             "keyword": "Then "
           }
@@ -6913,7 +6914,7 @@
         "steps": [
           {
             "result": {
-              "duration": 7000000,
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -6929,7 +6930,7 @@
                   "offset": 57
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -6940,7 +6941,7 @@
             "line": 8,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -6951,7 +6952,7 @@
             "line": 9,
             "name": "The developer is set as the active developer",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsSetAsTheActiveDeveloper()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsSetAsTheActiveDeveloper()"
             },
             "keyword": "And "
           },
@@ -6968,7 +6969,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -6979,7 +6980,7 @@
             "line": 11,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -7003,6 +7004,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 13,
@@ -7014,7 +7016,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -7072,7 +7074,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:23.218Z",
+        "start_timestamp": "2020-05-08T22:33:45.038Z",
         "line": 21,
         "name": "A developer set worked hours for the activity with no planned hours",
         "description": "",
@@ -7168,7 +7170,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -7184,18 +7185,19 @@
                   "offset": 57
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 8,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -7206,7 +7208,7 @@
             "line": 9,
             "name": "The developer is set as the active developer",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsSetAsTheActiveDeveloper()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsSetAsTheActiveDeveloper()"
             },
             "keyword": "And "
           },
@@ -7223,7 +7225,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -7235,13 +7237,12 @@
             "line": 11,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 12,
@@ -7270,7 +7271,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -7328,7 +7329,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:23.241Z",
+        "start_timestamp": "2020-05-08T22:33:45.045Z",
         "line": 27,
         "name": "A developer set worked hours for the activity with planned hours",
         "description": "",
@@ -7440,7 +7441,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
@@ -7456,7 +7456,7 @@
                   "offset": 57
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -7467,18 +7467,19 @@
             "line": 8,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 9,
             "name": "The developer is set as the active developer",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsSetAsTheActiveDeveloper()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsSetAsTheActiveDeveloper()"
             },
             "keyword": "And "
           },
@@ -7495,7 +7496,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -7506,7 +7507,7 @@
             "line": 11,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -7540,7 +7541,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -7597,7 +7598,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:23.252Z",
+        "start_timestamp": "2020-05-08T22:33:45.051Z",
         "line": 35,
         "name": "A developer set invalid worked hours for the activity",
         "description": "",
@@ -7607,6 +7608,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 36,
@@ -7677,7 +7679,7 @@
                   "offset": 17
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.anErrorWithMessageIsGiven(java.lang.String)"
+              "location": "acceptance_tests.steps.SystemSteps.anErrorWithMessageIsGiven(java.lang.String)"
             },
             "keyword": "Then "
           }
@@ -7708,7 +7710,7 @@
                   "offset": 57
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -7720,7 +7722,7 @@
             "line": 8,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -7731,12 +7733,13 @@
             "line": 9,
             "name": "The developer is set as the active developer",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsSetAsTheActiveDeveloper()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsSetAsTheActiveDeveloper()"
             },
             "keyword": "And "
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 10,
@@ -7748,7 +7751,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -7760,7 +7763,7 @@
             "line": 11,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -7795,7 +7798,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -7818,7 +7821,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 15,
@@ -7854,7 +7856,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:23.264Z",
+        "start_timestamp": "2020-05-08T22:33:45.058Z",
         "line": 42,
         "name": "Set worked hours on a not yet started activity",
         "description": "",
@@ -7892,7 +7894,7 @@
                   "offset": 17
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.anErrorWithMessageIsGiven(java.lang.String)"
+              "location": "acceptance_tests.steps.SystemSteps.anErrorWithMessageIsGiven(java.lang.String)"
             },
             "keyword": "Then "
           }
@@ -7934,18 +7936,19 @@
                   "offset": 57
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 7,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -7956,7 +7959,7 @@
             "line": 8,
             "name": "The developer is set as the active developer",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsSetAsTheActiveDeveloper()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsSetAsTheActiveDeveloper()"
             },
             "keyword": "And "
           },
@@ -7973,19 +7976,18 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 10,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -8003,7 +8005,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -8028,7 +8030,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:23.276Z",
+        "start_timestamp": "2020-05-08T22:33:45.091Z",
         "line": 15,
         "name": "A developer removes an uninitialized registered project succesfully",
         "description": "",
@@ -8043,7 +8045,7 @@
             "line": 16,
             "name": "the active developer removes the project from the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theActiveDeveloperRemovesTheProjectFromTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theActiveDeveloperRemovesTheProjectFromTheSystem()"
             },
             "keyword": "When "
           },
@@ -8054,7 +8056,7 @@
             "line": 17,
             "name": "the project is not contained in the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsNotContainedInTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsNotContainedInTheSystem()"
             },
             "keyword": "Then "
           },
@@ -8065,7 +8067,7 @@
             "line": 18,
             "name": "the project does not contain any activities",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectDoesNotContainAnyActivities()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectDoesNotContainAnyActivities()"
             },
             "keyword": "And "
           }
@@ -8080,7 +8082,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 6,
@@ -8096,7 +8097,7 @@
                   "offset": 57
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -8107,7 +8108,7 @@
             "line": 7,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -8119,7 +8120,7 @@
             "line": 8,
             "name": "The developer is set as the active developer",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsSetAsTheActiveDeveloper()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsSetAsTheActiveDeveloper()"
             },
             "keyword": "And "
           },
@@ -8136,7 +8137,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -8147,7 +8148,7 @@
             "line": 10,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -8164,7 +8165,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -8188,7 +8189,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:23.289Z",
+        "start_timestamp": "2020-05-08T22:33:45.098Z",
         "line": 21,
         "name": "A project leader removes his registered project succesfully",
         "description": "",
@@ -8220,7 +8221,7 @@
             "line": 23,
             "name": "the active developer removes the project from the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theActiveDeveloperRemovesTheProjectFromTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theActiveDeveloperRemovesTheProjectFromTheSystem()"
             },
             "keyword": "When "
           },
@@ -8231,7 +8232,7 @@
             "line": 24,
             "name": "the project is not contained in the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsNotContainedInTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsNotContainedInTheSystem()"
             },
             "keyword": "Then "
           },
@@ -8242,7 +8243,7 @@
             "line": 25,
             "name": "the project does not contain any activities",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectDoesNotContainAnyActivities()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectDoesNotContainAnyActivities()"
             },
             "keyword": "And "
           }
@@ -8273,7 +8274,7 @@
                   "offset": 57
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -8284,7 +8285,7 @@
             "line": 7,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -8295,7 +8296,7 @@
             "line": 8,
             "name": "The developer is set as the active developer",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsSetAsTheActiveDeveloper()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsSetAsTheActiveDeveloper()"
             },
             "keyword": "And "
           },
@@ -8313,7 +8314,7 @@
                   "offset": 20
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.aProjectWithNameIsCreated(java.lang.String)"
+              "location": "acceptance_tests.steps.ProjectSteps.aProjectWithNameIsCreated(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -8324,12 +8325,13 @@
             "line": 10,
             "name": "The project is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theProjectIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theProjectIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 11,
@@ -8341,7 +8343,7 @@
                   "offset": 31
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.thereIsAnActivityWithName(java.lang.String)"
+              "location": "acceptance_tests.steps.ActivitySteps.thereIsAnActivityWithName(java.lang.String)"
             },
             "keyword": "Given "
           },
@@ -8365,7 +8367,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-08T22:16:23.298Z",
+        "start_timestamp": "2020-05-08T22:33:45.104Z",
         "line": 28,
         "name": "a developer removes an initialized project unsuccesfully",
         "description": "",
@@ -8407,7 +8409,7 @@
                   "offset": 59
                 }
               ],
-              "location": "acceptance_tests.steps.SystemSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
+              "location": "acceptance_tests.steps.DeveloperSteps.thereIsADeveloperWithFirstNameAndLastName(java.lang.String,java.lang.String)"
             },
             "keyword": "And "
           },
@@ -8418,7 +8420,7 @@
             "line": 31,
             "name": "the developer is added to the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsAddedToTheSystem()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsAddedToTheSystem()"
             },
             "keyword": "And "
           },
@@ -8429,7 +8431,7 @@
             "line": 32,
             "name": "The developer is set as the active developer",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theDeveloperIsSetAsTheActiveDeveloper()"
+              "location": "acceptance_tests.steps.DeveloperSteps.theDeveloperIsSetAsTheActiveDeveloper()"
             },
             "keyword": "When "
           },
@@ -8451,7 +8453,7 @@
             "line": 34,
             "name": "the active developer removes the project from the system",
             "match": {
-              "location": "acceptance_tests.steps.SystemSteps.theActiveDeveloperRemovesTheProjectFromTheSystem()"
+              "location": "acceptance_tests.steps.ProjectSteps.theActiveDeveloperRemovesTheProjectFromTheSystem()"
             },
             "keyword": "When "
           },
@@ -8468,7 +8470,7 @@
                   "offset": 17
                 }
               ],
-              "location": "acceptance_tests.steps.ProjectSteps.anErrorWithMessageIsGiven(java.lang.String)"
+              "location": "acceptance_tests.steps.SystemSteps.anErrorWithMessageIsGiven(java.lang.String)"
             },
             "keyword": "Then "
           }

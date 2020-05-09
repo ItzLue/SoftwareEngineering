@@ -58,4 +58,13 @@ public class IntervalSteps {
         assertEquals(year, projectHelper.getProject().getInterval().getEndDate().get(Calendar.YEAR));
         assertEquals(week, projectHelper.getProject().getInterval().getEndDate().get(Calendar.WEEK_OF_YEAR));
     }
+
+    @When("The start date of a nonexistent activity is set")
+    public void theStartDateOfANonexistentActivityIsSet() {
+        try {
+            app.setActivityDate(true,projectHelper.getProject().getID(),"invalidName",2020,35);
+        } catch (Exception e) {
+            errorMessageHolder.setErrorMessage(e.getMessage());
+        }
+    }
 }
