@@ -110,8 +110,10 @@ public class UI extends ActionView {
         activeDeveloperMenu.addMenuItem(getDeveloperMenu());
         activeDeveloperMenu.addMenuItem(getProjectMenu());
         activeDeveloperMenu.addMenuItem(new ShowActivitiesActiveDeveloperAction());
+        activeDeveloperMenu.addMenuItem(new ShowPersonalActivitiesActiveDeveloperAction());
         activeDeveloperMenu.addMenuItem(new ShowWorkedHours());
         activeDeveloperMenu.addMenuItem(new AddPersonalActivity());
+        activeDeveloperMenu.addMenuItem(new RemovePersonalActivity());
         this.setParentView(activeDeveloperMenu);
         this.actionSuccessful();
         this.display();
@@ -208,6 +210,16 @@ public class UI extends ActionView {
 
         public void executeCustomAction() {
             System.out.println(app.getActiveDeveloper().getActivityList());
+        }
+    }
+
+    class ShowPersonalActivitiesActiveDeveloperAction extends ActionView {
+        public ShowPersonalActivitiesActiveDeveloperAction() {
+            super("Show your personal activities", "Show your personal activities");
+        }
+
+        public void executeCustomAction() {
+            System.out.println(app.getActiveDeveloper().getPersonalActivityList());
         }
     }
 
@@ -321,6 +333,19 @@ public class UI extends ActionView {
             int endYear = this.prompt("Enter the end year for this personal activity: ", Integer.class);
             app.setPersonalActivityDate(false, name, endYear, endWeek);
             this.actionSuccessful();
+        }
+    }
+
+    class RemovePersonalActivity extends ActionView {
+        public RemovePersonalActivity() {
+            super("Remove personal Activity", "Remove personal Activity");
+        }
+
+        @Override
+        public void executeCustomAction() {
+            String personalActivityName = this.prompt("Enter the name of your personal activity: ", String.class);
+            app.getActiveDeveloper().removePersonalActivity(app.getActiveDeveloper().getPersonalActivity(personalActivityName));
+
         }
     }
 

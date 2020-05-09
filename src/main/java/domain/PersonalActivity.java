@@ -2,14 +2,9 @@ package domain;
 
 import time.Interval;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-
 public class PersonalActivity {
     protected String name;
     protected Interval interval;
-
-    public Calendar testDate = new GregorianCalendar();
 
     public PersonalActivity(String name) {
         if (name.length() > 1) {
