@@ -127,22 +127,22 @@ public class RegisterActivityToProject {
 
     // No activities
     @Test
-    @DisplayName("Test case G")
-    void registerActivityDataSetG() {
+    @DisplayName("Test case F")
+    void registerActivityDataSetF() {
         assertNull(project.getActivity(activity.getName()));
     }
 
     // No project leader and no activities
     @Test
-    @DisplayName("Test case H1")
-    void registerActivityDataSetH1() {
+    @DisplayName("Test case G1")
+    void registerActivityDataSetG1() {
         assertNull(project.getActivity(activity.getName()));
         assertNull(project.getProjectLeader());
     }
     // Set planned hours
     @Test
-    @DisplayName("Test case I1")
-    void registerActivityDataSetI1() throws IllegalAccessException {
+    @DisplayName("Test case H1")
+    void registerActivityDataSetH1() throws IllegalAccessException {
         app.registerProject(project);
         app.registerDeveloper(developer);
         app.registerActivityToProject(activity,project.getID());
@@ -153,8 +153,8 @@ public class RegisterActivityToProject {
     }
     // Set worked hours
     @Test
-    @DisplayName("Test case I2")
-    void registerActivityDataSetI2() throws IllegalAccessException {
+    @DisplayName("Test case H2")
+    void registerActivityDataSetH2() throws IllegalAccessException {
         app.registerProject(project);
         app.registerDeveloper(developer);
         app.setActiveDeveloper(developer);

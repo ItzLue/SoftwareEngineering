@@ -42,10 +42,10 @@ public class UI extends ActionView {
         app.registerDeveloper(developer);
         app.setPlannedHoursForActivity(activity.getName(), project.getID(), 20);
         app.getProjectHM().get(project.getID()).getActivity(activity.getName()).addDeveloper(developer);
-//        app.registerActivityToProject(new Activity("backend"),"20191");
-//        app.setActivityDate(true,"20191","backend",2020,26);
 
-
+  /*
+    Root menu
+     */
         MenuView rootMenu = new MenuView("Welcome to SoftwareHuset A/S", "");
         rootMenu.addMenuItem(developerMenu);
         rootMenu.addMenuItem(projectMenu);
@@ -54,10 +54,6 @@ public class UI extends ActionView {
 
     public void executeCustomAction() {
     }
-
-    /*
-    Root menu
-     */
 
     /*
     Developer menu
