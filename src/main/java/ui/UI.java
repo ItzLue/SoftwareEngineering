@@ -331,6 +331,19 @@ public class UI extends ActionView {
         }
     }
 
+    class RemoveProjectAction extends ActionView {
+        public RemoveProjectAction() {
+            super("Remove project", "Remove project");
+        }
+
+        @Override
+        public void executeCustomAction() {
+            String projectID = this.prompt("Enter the ID:",String.class);
+            boolean confirmed = this.confirmDialog("Are you sure that you want to rem")
+    }
+
+
+
     /*
         Project leader menus
     */
@@ -349,7 +362,7 @@ public class UI extends ActionView {
                     app.setProjectName(ID, name);
                     this.actionSuccessful();
                 }
-            } catch (NullPointerException e) {
+            } catch (NullPointerException | IllegalAccessException e) {
                 System.out.println(e.getMessage());
             }
 

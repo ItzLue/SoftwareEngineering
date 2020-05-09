@@ -45,13 +45,13 @@ public class Interval {
         return endDate.get(Calendar.WEEK_OF_YEAR);
     }
 
+
     public int getEndYear() {
         if(endDate == null) {
             return -1;
         }
         return endDate.get(Calendar.YEAR);
     }
-
 
     public void setEndDate(int year, int week) {
         Calendar calendar = new GregorianCalendar();

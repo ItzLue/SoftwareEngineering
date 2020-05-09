@@ -85,15 +85,97 @@ public class AddPersonalActivity {
         app.setActiveDeveloper(developer.getID());
         app.addPersonalActivity(personalActivity, developer.getID());
         app.setPersonalActivityDate(true, personalActivity.getName(), 2020, 20);
+        app.setPersonalActivityDate(false, personalActivity.getName(), 2020, 22);
+        assertNotNull(personalActivity.getInterval().getStartDate());
+        assertNotNull(personalActivity.getInterval().getEndDate());
+    }
 
-        Exception exception = assertThrows(IllegalAccessException.class, () -> {
-            app.setPersonalActivityDate(false, personalActivity.getName(), 2020, 19);
-        });
-        String expectedMessage = "Only the project leader has access to remove the project";
-        String actualMessage = exception.getMessage();
-        assertTrue(actualMessage.contains(expectedMessage));
+    // Personal activity and project activity does not overlap
+    @Test
+    @DisplayName("Test case D1")
+    public void addPersonalActivityDataSetD1() throws IllegalArgumentException, IllegalAccessException {
+        app.registerDeveloper(developer);
+        app.registerProject(project);
+        app.setActiveDeveloper(developer.getID());
+        app.registerActivityToProject(activity,project.getID());
+        activity.getInterval().setStartDate(2020,30);
+        activity.getInterval().setEndDate(2020,33);
+        app.addPersonalActivity(personalActivity, developer.getID());
+        app.setPersonalActivityDate(true, personalActivity.getName(), 2020, 20);
+        app.setPersonalActivityDate(false,personalActivity.getName(),2020,23);
+        assertTrue(developer.isAvailable(activity.getInterval()));
+    }
 
+    // Personal activity and project activity does overlap
+    @Test
+    @DisplayName("Test case D2")
+    public void addPersonalActivityDataSetD2() throws IllegalArgumentException, IllegalAccessException {
+        app.registerDeveloper(developer);
+        app.registerProject(project);
+        app.setActiveDeveloper(developer.getID());
+        app.registerActivityToProject(activity,project.getID());
+        activity.getInterval().setStartDate(2020,20);
+        activity.getInterval().setEndDate(2020,25);
+        app.addPersonalActivity(personalActivity, developer.getID());
+        app.setPersonalActivityDate(true, personalActivity.getName(), 2020, 20);
+        app.setPersonalActivityDate(false,personalActivity.getName(),2020,23);
+        assertFalse(developer.isAvailable(activity.getInterval()));
+    }
 
+    // Personal activity and project activity does overlap
+    @Test
+    @DisplayName("Test case D3")
+    public void addPersonalActivityDataSetD3() throws IllegalArgumentException, IllegalAccessException {
+        app.registerDeveloper(developer);
+        app.registerProject(project);
+        app.setActiveDeveloper(developer.getID());
+        app.registerActivityToProject(activity,project.getID());
+        activity.getInterval().setStartDate(2020,20);
+        activity.getInterval().setEndDate(2020,25);
+        app.addPersonalActivity(personalActivity, developer.getID());
+        app.setPersonalActivityDate(true, personalActivity.getName(), 2020, 20);
+        app.setPersonalActivityDate(false,personalActivity.getName(),2020,23);
+        assertFalse(developer.isAvailable(activity.getInterval()));
+    }
+
+    // Different years activity 1 year later than personal activity
+    @Test
+    @DisplayName("Test case D4")
+    public void addPersonalActivityDataSetD4() throws IllegalArgumentException, IllegalAccessException {
+        app.registerDeveloper(developer);
+        app.registerProject(project);
+        app.setActiveDeveloper(developer.getID());
+        app.registerActivityToProject(activity,project.getID());
+        activity.getInterval().setStartDate(2021,20);
+        activity.getInterval().setEndDate(2021,25);
+        app.addPersonalActivity(personalActivity, developer.getID());
+        app.setPersonalActivityDate(true, personalActivity.getName(), 2020, 20);
+        app.setPersonalActivityDate(false,personalActivity.getName(),2020,23);
+        assertTrue(developer.isAvailable(activity.getInterval()));
+    }
+
+    // Different years
+    @Test
+    @DisplayName("Test case D5")
+    public void addPersonalActivityDataSetD5() throws IllegalArgumentException, IllegalAccessException {
+        app.registerDeveloper(developer);
+        app.registerProject(project);
+        app.setActiveDeveloper(developer.getID());
+        app.registerActivityToProject(activity,project.getID());
+        activity.getInterval().setStartDate(2020,20);
+        activity.getInterval().setEndDate(2020,25);
+        app.addPersonalActivity(personalActivity, developer.getID());
+        app.setPersonalActivityDate(true, personalActivity.getName(), 2021, 20);
+        app.setPersonalActivityDate(false,personalActivity.getName(),2021,23);
+        assertTrue(developer.isAvailable(activity.getInterval()));
+    }
+
+    // No personal activities
+    @Test
+    @DisplayName("Test case E")
+    public void addPersonalActivityDataSetE() throws IllegalArgumentException, IllegalAccessException {
+       app.registerDeveloper(developer);
+       assertNull(developer.getPersonalActivity(personalActivity.getName()));
     }
 
 }

@@ -105,23 +105,11 @@ public class Developer {
                   return false;
               }
 
-            if(personalActivity.getInterval().getEndDate().before(interval.getStartDate()) || personalActivity.getInterval().getStartDate().after(interval.getEndDate())) {
+           if(personalActivity.getInterval().getEndDate().before(interval.getStartDate()) || personalActivity.getInterval().getStartDate().after(interval.getEndDate())) {
                 continue;
             } else {
                 return false;
             }
-
-//            if((personalActivity.getInterval().getStartWeek() >= interval.getStartWeek() && personalActivity.getInterval().getStartWeek() <= interval.getEndWeek()) ||
-//                    (personalActivity.getInterval().getEndWeek() >= interval.getStartWeek() && personalActivity.getInterval().getEndWeek() <= interval.getEndWeek()) ||
-//                    (personalActivity.getInterval().getStartWeek() <= interval.getStartWeek() && personalActivity.getInterval().getEndWeek() >= interval.getEndWeek())) {
-//                return false;
-//            }
-
-//            if((personalActivity.getInterval().getStartDate().after(interval.getStartDate()) && personalActivity.getInterval().getStartDate().before(interval.getEndDate())) ||
-//                    (personalActivity.getInterval().getEndDate().after(interval.getStartDate()) && personalActivity.getInterval().getEndDate().before(interval.getEndDate())) ||
-//                    (personalActivity.getInterval().getStartDate().before(interval.getStartWeek()) && personalActivity.getInterval().getEndDate().after(interval.getEndWeek()))) {
-//                return false;
-//            }
         }
 
         for (Activity activity : getActivityList()) {
