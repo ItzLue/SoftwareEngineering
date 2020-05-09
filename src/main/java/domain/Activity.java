@@ -2,7 +2,6 @@ package domain;
 
 import time.Interval;
 
-import java.util.Calendar;
 import java.util.HashMap;
 
 public class Activity {
@@ -11,7 +10,6 @@ public class Activity {
     protected double plannedHours;
     protected double workedHours;
     public HashMap<String, Developer> developerHM = new HashMap<String, Developer>();
-
 
     public Activity(String name) {
         if (name.length() > 1) {
@@ -22,34 +20,14 @@ public class Activity {
         }
     }
 
-    public Interval getInterval() {
-        return this.interval;
+    public void addDeveloper(Developer developer) {
+        developerHM.put(developer.getID(), developer);
+        developer.addActivity(this);
     }
 
-    public double getPlannedHours() {
-        return this.plannedHours;
-    }
-
-    public void setPlannedHours(double hours) {
-        this.plannedHours = hours;
-    }
-
-    public void setWorkedHours(double workedHours) throws IllegalArgumentException {
-        if (workedHours + this.workedHours <= plannedHours) {
-            this.workedHours += workedHours;
-        } else {
-            this.workedHours += workedHours;
-            System.out.println("Planned hours have been exceeded by " + (workedHours - plannedHours));
-        }
-    }
-
-    public double getWorkedHours() {
-        return workedHours;
-    }
-
-    public String getName() {
-        return name;
-    }
+    /*
+    toString method
+     */
 
     @Override
     public String toString() {
@@ -61,8 +39,36 @@ public class Activity {
                 ", workedHours: " + workedHours + " } \n";
     }
 
-    public void addDeveloper(Developer developer) {
-        developerHM.put(developer.getID(), developer);
-        developer.addActivity(this);
+    /*
+    Get/Set methods
+     */
+
+    public String getName() {
+        return name;
+    }
+
+    public double getPlannedHours() {
+        return this.plannedHours;
+    }
+
+    public void setPlannedHours(double hours) {
+        this.plannedHours = hours;
+    }
+
+    public double getWorkedHours() {
+        return workedHours;
+    }
+
+    public void setWorkedHours(double workedHours) throws IllegalArgumentException {
+        if (workedHours + this.workedHours <= plannedHours) {
+            this.workedHours += workedHours;
+        } else {
+            this.workedHours += workedHours;
+            System.out.println("Planned hours have been exceeded by " + (workedHours - plannedHours));
+        }
+    }
+
+    public Interval getInterval() {
+        return this.interval;
     }
 }

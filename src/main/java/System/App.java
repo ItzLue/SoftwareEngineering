@@ -1,5 +1,6 @@
 package System;
 
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 import domain.Activity;
 import domain.Developer;
 import domain.PersonalActivity;
@@ -29,6 +30,20 @@ public class App {
         assert developerHM.get(developer.getID()).getID().equals(developer.getID()) : "Postcondition added";
     }
 
+    public void removeDeveloper(String developerID) {
+        if(!developerHMContains(developerID)) {
+            throw new NullPointerException("The developer with ID: " + developerID + " does not exist");
+        }
+        assert developerHMContains(developerID) : "Precondition developer ";
+
+        for (Activity a : developerHM.get(developerID).getActivityList()) {
+            a.developerHM.remove(developerID);
+        }
+        developerHM.remove(developerID);
+
+        assert !developerHMContains(developerID): "Post condition removed ";
+    }
+
     public String makeDeveloperID(Developer developer) {
         String ID;
         if (developerHM.size() >= 9) {
@@ -39,26 +54,16 @@ public class App {
         return ID;
     }
 
-    public void removeDeveloper(String developerID) {
-        if(!developerHMContains(developerID)) {
-            throw new NullPointerException("The developer with ID: " + developerID + " does not exist");
-        }
-        assert developerHMContains(developerID) : "Precondition developer ";
-
-        for (Activity a : developerHM.get(developerID).getActivityList()) {
-            a.developerHM.remove(developerID);
-
-        }
-        developerHM.remove(developerID);
-        assert !developerHMContains(developerID): "Post condition removed ";
-    }
-
     public void setActiveDeveloper(String ID) {
         if (developerHM.containsKey(ID)) {
             setActiveDeveloper(developerHM.get(ID));
         } else {
             throw new IllegalArgumentException("Invalid ID");
         }
+    }
+
+    public void setActiveDeveloper(Developer developer) {
+        this.activeDeveloper = developer;
     }
 
     public Developer getActiveDeveloper() {
@@ -68,22 +73,23 @@ public class App {
         return activeDeveloper;
     }
 
-    public void setActiveDeveloper(Developer developer) {
-        this.activeDeveloper = developer;
+    public ArrayList<Developer> searchAvailableDevelopers(String projectID, String activityName) throws IllegalAccessException {
+        ArrayList<Developer> availableDevelopers = new ArrayList<>();
+        if (isActiveDeveloperProjectLeader(projectID)) {
+            for (Developer developer : developerHM.values()) {
+
+                if (!projectHM.get(projectID).getActivity(activityName).developerHM.containsValue(developer) && developer.isAvailable(projectHM.get(projectID).getActivity(activityName).getInterval())) {
+                    availableDevelopers.add(developer);
+                }
+            }
+        } else {
+            throw new IllegalAccessException("Only the project leader may search for available developers");
+        }
+        return availableDevelopers;
     }
 
     public HashMap<String, Developer> getDeveloperHM() {
         return this.developerHM;
-    }
-
-
-
-    public void setWorkedHoursForActivity(String activityName, String projectID, double hours) throws IllegalAccessException {
-        if (projectHM.get(projectID).getActivity(activityName).developerHM.containsKey(activeDeveloper.getID())) {
-            developerHM.get(activeDeveloper.getID()).setWorkedHours(hours, activeDeveloper.getActivity(activityName));
-        } else {
-            throw new IllegalAccessException("You dont have access");
-        }
     }
 
     public void getDevValues() {
@@ -146,13 +152,15 @@ public class App {
         }
     }
 
-    public HashMap<String, Project> getProjectHM() {
-        return this.projectHM;
-    }
-
-    public void getProjectValues() {
-        for (Project project : projectHM.values()) {
-            System.out.println(project);
+    public void setProjectName(String projectID, String name) throws IllegalAccessException {
+        if (projectHMContains(projectID)) {
+            if (!isProjectInitialized(projectID) || isActiveDeveloperProjectLeader(projectID)) {
+                projectHM.get(projectID).setName(name);
+            } else {
+                throw new IllegalAccessException("Only the project leader can change the name of an initialized project");
+            }
+        } else {
+            throw new NullPointerException("Project doesn't exist");
         }
     }
 
@@ -172,15 +180,13 @@ public class App {
         }
     }
 
-    public void setProjectName(String projectID, String name) throws IllegalAccessException {
-        if (projectHMContains(projectID)) {
-            if (!isProjectInitialized(projectID) || isActiveDeveloperProjectLeader(projectID)) {
-                projectHM.get(projectID).setName(name);
-            } else {
-                throw new IllegalAccessException("Only the project leader can change the name of an initialized project");
-            }
-        } else {
-            throw new NullPointerException("Project doesn't exist");
+    public HashMap<String, Project> getProjectHM() {
+        return this.projectHM;
+    }
+
+    public void getProjectValues() {
+        for (Project project : projectHM.values()) {
+            System.out.println(project);
         }
     }
 
@@ -240,22 +246,6 @@ public class App {
         }
     }
 
-    public void setActivityDate(boolean startOrEnd, String projectID, String activityName, int year, int week) throws IllegalAccessException {
-        if (projectHMContains(projectID) && projectHM.get(projectID).activityExists(activityName)) {
-            if (!isProjectInitialized(projectID)|| isActiveDeveloperProjectLeader(projectID)) {
-                if (startOrEnd) {
-                    projectHM.get(projectID).setActivityStartDate(activityName, year, week);
-                } else {
-                    projectHM.get(projectID).setActivityEndDate(activityName, year, week);
-                }
-            } else {
-                throw new IllegalAccessException("You don't have access");
-            }
-        } else {
-            throw new NullPointerException("Project doesn't exist");
-        }
-    }
-
     public void setDeveloperToActivity(String activityName, String projectID, String developerID) throws IllegalAccessException {
         if (projectHMContains(projectID)) {
             if (!isProjectInitialized(projectID) || isActiveDeveloperProjectLeader(projectID)) {
@@ -273,6 +263,22 @@ public class App {
         }
     }
 
+    public void setActivityDate(boolean startOrEnd, String projectID, String activityName, int year, int week) throws IllegalAccessException {
+        if (projectHMContains(projectID) && projectHM.get(projectID).activityExists(activityName)) {
+            if (!isProjectInitialized(projectID)|| isActiveDeveloperProjectLeader(projectID)) {
+                if (startOrEnd) {
+                    projectHM.get(projectID).setActivityStartDate(activityName, year, week);
+                } else {
+                    projectHM.get(projectID).setActivityEndDate(activityName, year, week);
+                }
+            } else {
+                throw new IllegalAccessException("You don't have access");
+            }
+        } else {
+            throw new NullPointerException("Project doesn't exist");
+        }
+    }
+
     public void setPlannedHoursForActivity(String activityName, String projectID, double hours) throws IllegalAccessException {
         if (!isProjectInitialized(projectID) || isActiveDeveloperProjectLeader(projectID)) {
             projectHM.get(projectID).getActivity(activityName).setPlannedHours(hours);
@@ -285,19 +291,12 @@ public class App {
         return projectHM.get(projectID).getActivity(activityName).getPlannedHours();
     }
 
-    public ArrayList<Developer> searchAvailableDevelopers(String projectID, String activityName) throws IllegalAccessException {
-        ArrayList<Developer> availableDevelopers = new ArrayList<>();
-        if (isActiveDeveloperProjectLeader(projectID)) {
-            for (Developer developer : developerHM.values()) {
-
-                if (!projectHM.get(projectID).getActivity(activityName).developerHM.containsValue(developer) && developer.isAvailable(projectHM.get(projectID).getActivity(activityName).getInterval())) {
-                    availableDevelopers.add(developer);
-                }
-            }
+    public void setWorkedHoursForActivity(String activityName, String projectID, double hours) throws IllegalAccessException {
+        if (projectHM.get(projectID).getActivity(activityName).developerHM.containsKey(activeDeveloper.getID())) {
+            developerHM.get(activeDeveloper.getID()).setWorkedHours(hours, activeDeveloper.getActivity(activityName));
         } else {
-            throw new IllegalAccessException("Only the project leader may search for available developers");
+            throw new IllegalAccessException("You dont have access");
         }
-        return availableDevelopers;
     }
 
     public void addPersonalActivity(PersonalActivity personalActivity, String developerID) throws IllegalAccessException {
@@ -319,6 +318,10 @@ public class App {
         }
         assert activeDeveloper.getPersonalActivity(personalActivityName).getInterval().getStartWeek() != 0 || activeDeveloper.getPersonalActivity(personalActivityName).getInterval().getStartYear() != 0;
     }
+
+    /*
+    Calander
+     */
 
     public Calendar getDate() {
         return dateServer.getDate();
@@ -347,5 +350,4 @@ public class App {
     public boolean developerHMContains(String developerID) {
         return developerHM.containsKey(developerID);
     }
-
 }
