@@ -37,14 +37,13 @@ public class UI extends ActionView {
 
         app.registerProject(project);
         app.registerActivityToProject(activity, project.getID());
-        app.setActivityDate(true,"201901","frontend",2020,27);
-        app.setActivityDate(false,"201901","frontend",2020,29);
+        app.setActivityDate(true, "201901", "frontend", 2020, 27);
+        app.setActivityDate(false, "201901", "frontend", 2020, 29);
         app.registerDeveloper(developer);
         app.setPlannedHoursForActivity(activity.getName(), project.getID(), 20);
         app.getProjectHM().get(project.getID()).getActivity(activity.getName()).addDeveloper(developer);
 //        app.registerActivityToProject(new Activity("backend"),"20191");
 //        app.setActivityDate(true,"20191","backend",2020,26);
-
 
 
         MenuView rootMenu = new MenuView("Welcome to SoftwareHuset A/S", "");
@@ -69,6 +68,7 @@ public class UI extends ActionView {
         developerMenu.addMenuItem(new ShowDevelopersAction());
         developerMenu.addMenuItem(new AddDeveloperAction());
         developerMenu.addMenuItem(new SetWorkedHoursAction());
+        developerMenu.addMenuItem(new RemoveDeveloperAction());
         return developerMenu;
     }
 
@@ -81,9 +81,10 @@ public class UI extends ActionView {
         projectMenu.addMenuItem(new AddProjectAction());
         projectMenu.addMenuItem(getActivityMenu());
         projectMenu.addMenuItem(new AddProjectLeaderAction());
-        projectMenu.addMenuItem(new setStartDateProjectAction());
-        projectMenu.addMenuItem(new setEndDateProjectAction());
+        projectMenu.addMenuItem(new SetStartDateProjectAction());
+        projectMenu.addMenuItem(new SetEndDateProjectAction());
         projectMenu.addMenuItem(new ChangeProjectNameAction());
+        projectMenu.addMenuItem(new RemoveProjectAction());
         return projectMenu;
     }
 
@@ -93,12 +94,12 @@ public class UI extends ActionView {
 
     public MenuView getActivityMenu() {
         MenuView activityMenu = new MenuView("Activity menu", "Activity menu");
-        activityMenu.addMenuItem(new showActivitiesAction());
+        activityMenu.addMenuItem(new ShowActivitiesAction());
         activityMenu.addMenuItem(new AddActivityAction());
-        activityMenu.addMenuItem(new removeActivityFromProjectAction());
+        activityMenu.addMenuItem(new RemoveActivityFromProjectAction());
         activityMenu.addMenuItem(new addDeveloperToActivityAction());
         activityMenu.addMenuItem(new setPlannedHoursAction());
-        activityMenu.addMenuItem(new searchForAvailableDevelopers());
+        activityMenu.addMenuItem(new SearchForAvailableDevelopers());
         return activityMenu;
     }
 
@@ -108,9 +109,9 @@ public class UI extends ActionView {
         activeDeveloperMenu = new MenuView("Welcome " + app.getActiveDeveloper().getFirstName(), "");
         activeDeveloperMenu.addMenuItem(getDeveloperMenu());
         activeDeveloperMenu.addMenuItem(getProjectMenu());
-        activeDeveloperMenu.addMenuItem(new showActivitiesActiveDeveloperAction());
-        activeDeveloperMenu.addMenuItem(new showWorkedHours());
-        activeDeveloperMenu.addMenuItem(new addPersonalActivity());
+        activeDeveloperMenu.addMenuItem(new ShowActivitiesActiveDeveloperAction());
+        activeDeveloperMenu.addMenuItem(new ShowWorkedHours());
+        activeDeveloperMenu.addMenuItem(new AddPersonalActivity());
         this.setParentView(activeDeveloperMenu);
         this.actionSuccessful();
         this.display();
@@ -150,6 +151,22 @@ public class UI extends ActionView {
         }
     }
 
+    class RemoveDeveloperAction extends ActionView {
+        public RemoveDeveloperAction() {
+            super("Remove developer", "Remove developer");
+        }
+
+        @Override
+        public void executeCustomAction() {
+            String developerID = this.prompt("Enter the ID: ", String.class);
+
+            boolean confirmed = this.confirmDialog("Are you sure that you want to remove " + developerID);
+            if (confirmed) {
+                app.removeDeveloper(developerID);
+            }
+        }
+    }
+
     class ShowDevelopersAction extends ActionView {
         public ShowDevelopersAction() {
             super("Table of developers", "Show developers");
@@ -165,14 +182,14 @@ public class UI extends ActionView {
         }
     }
 
-    class showActivitiesAction extends ActionView {
-        public showActivitiesAction() {
+    class ShowActivitiesAction extends ActionView {
+        public ShowActivitiesAction() {
             super("Show activities", "Show activities");
         }
 
         public void executeCustomAction() {
-            String ID = this.prompt("Enter project ID: ",String.class);
-            if(ID.equals("")) {
+            String ID = this.prompt("Enter project ID: ", String.class);
+            if (ID.equals("")) {
                 System.out.println("Please try again");
             } else {
                 System.out.println(app.getProjectHM().get(ID).getActivityList());
@@ -180,8 +197,8 @@ public class UI extends ActionView {
         }
     }
 
-    class showActivitiesActiveDeveloperAction extends ActionView {
-        public showActivitiesActiveDeveloperAction() {
+    class ShowActivitiesActiveDeveloperAction extends ActionView {
+        public ShowActivitiesActiveDeveloperAction() {
             super("Show your activities", "Show your activities");
         }
 
@@ -200,7 +217,7 @@ public class UI extends ActionView {
                 String activityName = this.prompt("Enter the activity: ", String.class);
                 String projectID = this.prompt("Enter project ID: ", String.class);
                 String hours = this.prompt("How many hours have you worked? ", String.class);
-                if(hours.equals("")) {
+                if (hours.equals("")) {
                     hours = "0";
                 }
                 double dhours = Double.parseDouble(hours);
@@ -266,8 +283,8 @@ public class UI extends ActionView {
         }
     }
 
-    class showWorkedHours extends ActionView {
-        public showWorkedHours() {
+    class ShowWorkedHours extends ActionView {
+        public ShowWorkedHours() {
             super("Show worked hours", "Show worked hours");
         }
 
@@ -278,8 +295,8 @@ public class UI extends ActionView {
         }
     }
 
-    class addPersonalActivity extends ActionView {
-        public addPersonalActivity() {
+    class AddPersonalActivity extends ActionView {
+        public AddPersonalActivity() {
             super("Add personal Activity", "Add personal Activity");
         }
 
@@ -289,7 +306,7 @@ public class UI extends ActionView {
             String ID = app.getActiveDeveloper().getID();
             // Add a personal activity to the Active developer's personalActivityList
             try {
-                app.addPersonalActivity(new PersonalActivity(name),ID);
+                app.addPersonalActivity(new PersonalActivity(name), ID);
             } catch (IllegalAccessException e) {
                 e.getMessage();
             }
@@ -338,11 +355,18 @@ public class UI extends ActionView {
 
         @Override
         public void executeCustomAction() {
-            String projectID = this.prompt("Enter the ID:",String.class);
-            boolean confirmed = this.confirmDialog("Are you sure that you want to rem")
+            String projectID = this.prompt("Enter the ID: ", String.class);
+
+            boolean confirmed = this.confirmDialog("Are you sure that you want to remove " +projectID);
+            if (confirmed) {
+                try {
+                    app.removeProject(projectID);
+                } catch (IllegalAccessException e) {
+                    e.getMessage();
+                }
+            }
+        }
     }
-
-
 
     /*
         Project leader menus
@@ -369,9 +393,9 @@ public class UI extends ActionView {
         }
     }
 
-    class removeActivityFromProjectAction extends ActionView {
+    class RemoveActivityFromProjectAction extends ActionView {
 
-        public removeActivityFromProjectAction() {
+        public RemoveActivityFromProjectAction() {
             super("Remove activity from project", "Remove activity from project");
         }
 
@@ -381,7 +405,7 @@ public class UI extends ActionView {
                 String ID = this.prompt("Enter ID of the project: ", String.class);
                 app.removeActivityFromProject(activityName, ID);
                 this.actionSuccessful();
-            } catch ( NullPointerException | IllegalAccessException e) {
+            } catch (NullPointerException | IllegalAccessException e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -406,8 +430,8 @@ public class UI extends ActionView {
         }
     }
 
-    class setStartDateProjectAction extends ActionView {
-        public setStartDateProjectAction() {
+    class SetStartDateProjectAction extends ActionView {
+        public SetStartDateProjectAction() {
             super("Set start date for a project", "Set start date for a project");
         }
 
@@ -425,8 +449,8 @@ public class UI extends ActionView {
         }
     }
 
-    class setEndDateProjectAction extends ActionView {
-        public setEndDateProjectAction() {
+    class SetEndDateProjectAction extends ActionView {
+        public SetEndDateProjectAction() {
             super("Set end date for a project", "Set end date for a project");
         }
 
@@ -461,26 +485,26 @@ public class UI extends ActionView {
                 double dhours = Double.parseDouble(hours);
                 app.getProjectHM().get(projectID).getActivity(activityName).setPlannedHours(dhours);
                 this.actionSuccessful();
-            } catch(NullPointerException e) {
+            } catch (NullPointerException e) {
                 System.out.println("Error in input. Please try again");
             }
         }
     }
 
-    class searchForAvailableDevelopers extends ActionView {
-        public searchForAvailableDevelopers() {
+    class SearchForAvailableDevelopers extends ActionView {
+        public SearchForAvailableDevelopers() {
             super("Search for available developers", "Search for available developers");
         }
 
         @Override
         public void executeCustomAction() {
-            try{
+            try {
                 String projectID = this.prompt("Enter the ID of the project: ", String.class);
                 String activityName = this.prompt("Enter the name of the activity: ", String.class);
 
-                System.out.println(app.searchAvailableDevelopers(projectID,activityName));
+                System.out.println(app.searchAvailableDevelopers(projectID, activityName));
 
-            } catch(NullPointerException | IllegalAccessException e) {
+            } catch (NullPointerException | IllegalAccessException e) {
                 System.out.println(e.getMessage());
             }
 
