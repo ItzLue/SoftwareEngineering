@@ -13,7 +13,7 @@ Welcome to SoftwareHuset A/S
 2) Project menu
 3) Quit
 ```
-### Developer menu
+### Medarbejder menu
 ```console
 Devs menu
 1) Set an active developer
@@ -36,6 +36,24 @@ Project menu
 8) Remove project
 9) Back
 ```
+#### Hvordan tilføjes en medarbejder?
+For at tilføje en medbarbejder til systemet vælges **Developer menu** herefter vælges **Add developer**
+Der vil nu være mulighed for at indtaste et fornavn og efternavn.
+```console
+Add developer
+Enter the first name: John
+Enter the last name: Doe
+Action successful!
+```
+Hvis både fornavn og efternavn lever op til kravene. Vil man få beskeden **Action successful!** medarbejderen har nu fået et ID og er blevet oprettet i systemet.
+#### Hvordan tilføjes et projekt?
+Et projekt tilføjes ved at vælge **Project menu** herefter vælges **Add project**. Når et projekt skal oprettes skal det blot gives et navn.
+```console
+Add a project could be something like 'Marcosoft'
+Please enter a name for the project: Marcosoft
+Action successful!
+```
+Hvis projektnavnet er gyldigt vil projektet blive tilføjet til systemet. 
 ## Gruppe 08
 - Christian Emil Tchernokojev Houmann -- s194602 @194602
 - Joachim Touveneau Petersen -- s194296 @JoachimTepe
