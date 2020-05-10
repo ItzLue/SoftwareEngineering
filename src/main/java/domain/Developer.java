@@ -12,6 +12,7 @@ public class Developer {
     protected ArrayList<PersonalActivity> personalActivityList = new ArrayList<>();
     protected double workedHours;
 
+    // Joachim
     public Developer(String firstName, String lastName) {
         if(firstName.matches("^[a-zA-Z]*$") && lastName.matches("^[a-zA-Z]*$") && firstName.length() > 1 && lastName.length() > 1) {
             this.firstName = firstName;
@@ -37,6 +38,7 @@ public class Developer {
     Boolean condition
      */
 
+    // Regin
     public boolean isAvailable(Interval interval) {
         int counter = 0;
         for (PersonalActivity personalActivity : getPersonalActivityList()) {
@@ -60,6 +62,7 @@ public class Developer {
     toString method
      */
 
+    // Loui
     @Override
     public String toString() {
         return "[ First name:'" + firstName + '\'' +
@@ -91,6 +94,7 @@ public class Developer {
         return workedHours;
     }
 
+    // Chritian
     public void setWorkedHours(double workedHours, Activity activity) throws IllegalAccessException {
         if (activity.getInterval().getStartDate() != null) {
             if (workedHours > 0.5) {
@@ -104,6 +108,7 @@ public class Developer {
         }
     }
 
+    // Loui
     public Activity getActivity(String activityName) {
         for (Activity activity: activityList) {
             if (activityName.equals(activity.getName())) { return activity; }
@@ -115,6 +120,7 @@ public class Developer {
         return activityList;
     }
 
+    // Regin
     public PersonalActivity getPersonalActivity(String personalActivityName) {
         for (PersonalActivity personalActivity: personalActivityList) {
             if (personalActivityName.equals(personalActivity.getName())) {

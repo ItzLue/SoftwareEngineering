@@ -1,3 +1,4 @@
+// Joachim
 package acceptance_tests.helper;
 
 import domain.Activity;

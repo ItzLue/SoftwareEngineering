@@ -13,6 +13,7 @@ public class Interval {
     Get/Set methods
      */
 
+    // Christian
     public Calendar getStartDate() {
         if( startDate != null){
             return startDate;
@@ -20,6 +21,7 @@ public class Interval {
         return null;
     }
 
+    // Christian
     public void setStartDate(int year, int week) {
         Calendar calendar = new GregorianCalendar();
         calendar.set(Calendar.YEAR, year);
@@ -27,6 +29,7 @@ public class Interval {
         this.startDate = calendar;
     }
 
+    // Joachim
     public Calendar getEndDate() {
         if(endDate != null){
             return endDate;
@@ -34,6 +37,7 @@ public class Interval {
         return null;
     }
 
+    // Joachim
     public void setEndDate(int year, int week) {
         Calendar calendar = new GregorianCalendar();
         calendar.set(Calendar.YEAR, year);
@@ -41,6 +45,7 @@ public class Interval {
         this.endDate = calendar;
     }
 
+    // Christian
     public int getStartWeek() {
         if(startDate == null) {
             return -1;
@@ -48,6 +53,7 @@ public class Interval {
         return startDate.get(Calendar.WEEK_OF_YEAR);
     }
 
+    // Joachim
     public int getEndWeek() {
         if(endDate == null) {
             return -1;
@@ -55,6 +61,7 @@ public class Interval {
         return endDate.get(Calendar.WEEK_OF_YEAR);
     }
 
+    // Christian
     public int getStartYear() {
         if(startDate == null) {
             return -1;
@@ -62,6 +69,7 @@ public class Interval {
         return startDate.get(Calendar.YEAR);
     }
 
+    // Joachim
     public int getEndYear() {
         if(endDate == null) {
             return -1;

@@ -1,3 +1,4 @@
+# Joachim
 Feature: Add activities to an uninitialized project
   Description: A developer adds an activity to an uninitialized project
   Actors: Developer

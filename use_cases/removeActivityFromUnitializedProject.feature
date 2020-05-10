@@ -1,3 +1,4 @@
+# Joachim
 Feature: Remove activities from project
   Description: A developer removes an activity from a project
   Actors: Developer

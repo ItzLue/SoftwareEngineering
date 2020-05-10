@@ -1,3 +1,4 @@
+# Loui
 Feature: removing a personal activity
   Description: A developer removes a personal activity
   Actors: Developer

@@ -13,42 +13,25 @@ public class SystemSteps {
     private ErrorMessageHolder errorMessageHolder;
     private DeveloperHelper developerHelper;
     private ProjectHelper projectHelper;
-    private MockDateHolder dateHolder;
     private ActivityHelper activityHelper;
-    private ExceptionHandler exceptionHandler;
 
-    public SystemSteps(App app, ErrorMessageHolder errorMessageHolder, DeveloperHelper developerHelper, ProjectHelper projectHelper, MockDateHolder dateHolder, ActivityHelper activityHelper, ExceptionHandler exceptionHandler) {
+    public SystemSteps(App app, ErrorMessageHolder errorMessageHolder, DeveloperHelper developerHelper, ProjectHelper projectHelper, ActivityHelper activityHelper) {
         this.app = app;
         this.errorMessageHolder = errorMessageHolder;
         this.developerHelper = developerHelper;
         this.projectHelper = projectHelper;
-        this.dateHolder = dateHolder;
         this.activityHelper = activityHelper;
-        this.exceptionHandler = exceptionHandler;
     }
 
+    // Joachim
     @Then("an error message {string} is given")
     public void anErrorWithMessageIsGiven(String string) {
         assertEquals(string, this.errorMessageHolder.getErrorMessage());
     }
 
-
-
-    /*
-    @Then("An exception is given")
-    public void anExceptionIsGiven() {
-        assertFalse(exceptionHandler.getExceptions().isEmpty());
-    }
-
-    @Then("An exception is expected")
-    public void anExceptionIsExpected() {
-        exceptionHandler.expectException();
-    }
-     */
-
-
+    // Christian
     @When("The project leader searches for available developers for the project and activity")
-    public void theProjectLeaderSearchesForAvailableDevelopersForTheProjectAndActivity() throws IllegalAccessException {
+    public void theProjectLeaderSearchesForAvailableDevelopersForTheProjectAndActivity()  {
         try {
             app.searchAvailableDevelopers(projectHelper.getProject().getID(), activityHelper.getActivity().getName());
         } catch (Exception e) {
