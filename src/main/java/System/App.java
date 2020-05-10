@@ -329,7 +329,7 @@ public class App {
         } else {
             throw new IllegalAccessException("You have to be an active developer to add personal activities");
         }
-        assert developerHM.get(developerID).getActivityList().size() > 0 : "Post condition personal activity";
+        assert developerHM.get(developerID).getPersonalActivityList().size() > 0 : "Post condition personal activity";
 
     }
 
