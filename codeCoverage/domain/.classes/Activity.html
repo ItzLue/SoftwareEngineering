@@ -72,86 +72,87 @@
 <br/>
 
 
-<div class="sourceCode"><i>1</i>&nbsp;package domain;
-<i>2</i>&nbsp;
-<i>3</i>&nbsp;import time.Interval;
-<i>4</i>&nbsp;
-<i>5</i>&nbsp;import java.util.HashMap;
-<i>6</i>&nbsp;
-<i>7</i>&nbsp;public class Activity {
-<i>8</i>&nbsp;    protected String name;
-<i>9</i>&nbsp;    protected Interval interval;
-<i>10</i>&nbsp;    protected double plannedHours;
-<i>11</i>&nbsp;    protected double workedHours;
-<b class="fc"><i>12</i>&nbsp;    public HashMap&lt;String, Developer&gt; developerHM = new HashMap&lt;String, Developer&gt;();</b>
-<i>13</i>&nbsp;
-<b class="fc"><i>14</i>&nbsp;    public Activity(String name) {</b>
-<b class="fc"><i>15</i>&nbsp;        if (name.length() &gt; 1) {</b>
-<b class="fc"><i>16</i>&nbsp;            this.name = name;</b>
-<b class="fc"><i>17</i>&nbsp;            this.interval = new Interval();</b>
-<i>18</i>&nbsp;        } else {
-<b class="fc"><i>19</i>&nbsp;            throw new IllegalArgumentException(&quot;Activity names must be longer than one letter&quot;);</b>
-<i>20</i>&nbsp;        }
-<b class="fc"><i>21</i>&nbsp;    }</b>
-<i>22</i>&nbsp;
-<i>23</i>&nbsp;    public void addDeveloper(Developer developer) {
-<b class="fc"><i>24</i>&nbsp;        developerHM.put(developer.getID(), developer);</b>
-<b class="fc"><i>25</i>&nbsp;        developer.addActivity(this);</b>
-<b class="fc"><i>26</i>&nbsp;    }</b>
-<i>27</i>&nbsp;
-<i>28</i>&nbsp;    /*
-<i>29</i>&nbsp;    toString method
-<i>30</i>&nbsp;     */
-<i>31</i>&nbsp;
-<i>32</i>&nbsp;    @Override
-<i>33</i>&nbsp;    public String toString() {
-<b class="fc"><i>34</i>&nbsp;        return &quot;{ name: &quot; + &#39;\&#39;&#39; + name + &#39;\&#39;&#39; +</b>
-<b class="fc"><i>35</i>&nbsp;                &quot;, Start date: &quot; + &quot;Week: &quot; + &#39;\&#39;&#39; + interval.getStartWeek() + &#39;\&#39;&#39; + &quot;, Year: &quot; +</b>
-<b class="fc"><i>36</i>&nbsp;                &#39;\&#39;&#39; + interval.getStartYear() + &#39;\&#39;&#39; + &quot;, End date: &quot; + &quot;Week: &quot; + &#39;\&#39;&#39; + interval.getEndWeek() +</b>
-<b class="fc"><i>37</i>&nbsp;                &#39;\&#39;&#39; + &quot;, Year: &quot; + &#39;\&#39;&#39; + interval.getEndYear() + &#39;\&#39;&#39; +</b>
-<i>38</i>&nbsp;                &quot;, plannedHours: &quot; + plannedHours +
-<i>39</i>&nbsp;                &quot;, workedHours: &quot; + workedHours + &quot; } \n&quot;;
-<i>40</i>&nbsp;    }
-<i>41</i>&nbsp;
-<i>42</i>&nbsp;    /*
-<i>43</i>&nbsp;    Get/Set methods
-<i>44</i>&nbsp;     */
-<i>45</i>&nbsp;
-<i>46</i>&nbsp;    public String getName() {
-<b class="fc"><i>47</i>&nbsp;        return name;</b>
-<i>48</i>&nbsp;    }
-<i>49</i>&nbsp;
-<i>50</i>&nbsp;    public double getPlannedHours() {
-<b class="fc"><i>51</i>&nbsp;        return this.plannedHours;</b>
-<i>52</i>&nbsp;    }
-<i>53</i>&nbsp;
-<i>54</i>&nbsp;    public void setPlannedHours(double hours) {
-<b class="fc"><i>55</i>&nbsp;        this.plannedHours = hours;</b>
-<b class="fc"><i>56</i>&nbsp;    }</b>
-<i>57</i>&nbsp;
-<i>58</i>&nbsp;    public double getWorkedHours() {
-<b class="fc"><i>59</i>&nbsp;        return workedHours;</b>
-<i>60</i>&nbsp;    }
-<i>61</i>&nbsp;
-<i>62</i>&nbsp;    public void setWorkedHours(double workedHours) throws IllegalArgumentException {
-<b class="fc"><i>63</i>&nbsp;        if (workedHours + this.workedHours &lt;= plannedHours) {</b>
-<b class="fc"><i>64</i>&nbsp;            this.workedHours += workedHours;</b>
-<i>65</i>&nbsp;        } else {
-<b class="fc"><i>66</i>&nbsp;            this.workedHours += workedHours;</b>
-<b class="fc"><i>67</i>&nbsp;            System.out.println(&quot;Planned hours have been exceeded by &quot; + (workedHours - plannedHours));</b>
-<i>68</i>&nbsp;        }
-<b class="fc"><i>69</i>&nbsp;    }</b>
-<i>70</i>&nbsp;
-<i>71</i>&nbsp;    public Interval getInterval() {
-<b class="fc"><i>72</i>&nbsp;        return this.interval;</b>
-<i>73</i>&nbsp;    }
-<i>74</i>&nbsp;}
+<div class="sourceCode"><i>1</i>&nbsp;// Loui
+<i>2</i>&nbsp;package domain;
+<i>3</i>&nbsp;
+<i>4</i>&nbsp;import time.Interval;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;import java.util.HashMap;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;public class Activity {
+<i>9</i>&nbsp;    protected String name;
+<i>10</i>&nbsp;    protected Interval interval;
+<i>11</i>&nbsp;    protected double plannedHours;
+<i>12</i>&nbsp;    protected double workedHours;
+<b class="fc"><i>13</i>&nbsp;    public HashMap&lt;String, Developer&gt; developerHM = new HashMap&lt;String, Developer&gt;();</b>
+<i>14</i>&nbsp;
+<b class="fc"><i>15</i>&nbsp;    public Activity(String name) {</b>
+<b class="fc"><i>16</i>&nbsp;        if (name.length() &gt; 1) {</b>
+<b class="fc"><i>17</i>&nbsp;            this.name = name;</b>
+<b class="fc"><i>18</i>&nbsp;            this.interval = new Interval();</b>
+<i>19</i>&nbsp;        } else {
+<b class="fc"><i>20</i>&nbsp;            throw new IllegalArgumentException(&quot;Activity names must be longer than one letter&quot;);</b>
+<i>21</i>&nbsp;        }
+<b class="fc"><i>22</i>&nbsp;    }</b>
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;    public void addDeveloper(Developer developer) {
+<b class="fc"><i>25</i>&nbsp;        developerHM.put(developer.getID(), developer);</b>
+<b class="fc"><i>26</i>&nbsp;        developer.addActivity(this);</b>
+<b class="fc"><i>27</i>&nbsp;    }</b>
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;    /*
+<i>30</i>&nbsp;    toString method
+<i>31</i>&nbsp;     */
+<i>32</i>&nbsp;
+<i>33</i>&nbsp;    @Override
+<i>34</i>&nbsp;    public String toString() {
+<b class="fc"><i>35</i>&nbsp;        return &quot;{ name: &quot; + &#39;\&#39;&#39; + name + &#39;\&#39;&#39; +</b>
+<b class="fc"><i>36</i>&nbsp;                &quot;, Start date: &quot; + &quot;Week: &quot; + &#39;\&#39;&#39; + interval.getStartWeek() + &#39;\&#39;&#39; + &quot;, Year: &quot; +</b>
+<b class="fc"><i>37</i>&nbsp;                &#39;\&#39;&#39; + interval.getStartYear() + &#39;\&#39;&#39; + &quot;, End date: &quot; + &quot;Week: &quot; + &#39;\&#39;&#39; + interval.getEndWeek() +</b>
+<b class="fc"><i>38</i>&nbsp;                &#39;\&#39;&#39; + &quot;, Year: &quot; + &#39;\&#39;&#39; + interval.getEndYear() + &#39;\&#39;&#39; +</b>
+<i>39</i>&nbsp;                &quot;, plannedHours: &quot; + plannedHours +
+<i>40</i>&nbsp;                &quot;, workedHours: &quot; + workedHours + &quot; } \n&quot;;
+<i>41</i>&nbsp;    }
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;    /*
+<i>44</i>&nbsp;    Get/Set methods
+<i>45</i>&nbsp;     */
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;    public String getName() {
+<b class="fc"><i>48</i>&nbsp;        return name;</b>
+<i>49</i>&nbsp;    }
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;    public double getPlannedHours() {
+<b class="fc"><i>52</i>&nbsp;        return this.plannedHours;</b>
+<i>53</i>&nbsp;    }
+<i>54</i>&nbsp;
+<i>55</i>&nbsp;    public void setPlannedHours(double hours) {
+<b class="fc"><i>56</i>&nbsp;        this.plannedHours = hours;</b>
+<b class="fc"><i>57</i>&nbsp;    }</b>
+<i>58</i>&nbsp;
+<i>59</i>&nbsp;    public double getWorkedHours() {
+<b class="fc"><i>60</i>&nbsp;        return workedHours;</b>
+<i>61</i>&nbsp;    }
+<i>62</i>&nbsp;
+<i>63</i>&nbsp;    public void setWorkedHours(double workedHours) throws IllegalArgumentException {
+<b class="fc"><i>64</i>&nbsp;        if (workedHours + this.workedHours &lt;= plannedHours) {</b>
+<b class="fc"><i>65</i>&nbsp;            this.workedHours += workedHours;</b>
+<i>66</i>&nbsp;        } else {
+<b class="fc"><i>67</i>&nbsp;            this.workedHours += workedHours;</b>
+<b class="fc"><i>68</i>&nbsp;            System.out.println(&quot;Planned hours have been exceeded by &quot; + (workedHours - plannedHours));</b>
+<i>69</i>&nbsp;        }
+<b class="fc"><i>70</i>&nbsp;    }</b>
+<i>71</i>&nbsp;
+<i>72</i>&nbsp;    public Interval getInterval() {
+<b class="fc"><i>73</i>&nbsp;        return this.interval;</b>
+<i>74</i>&nbsp;    }
+<i>75</i>&nbsp;}
 </div>
 </div>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2020-05-10 12:05</div>
+    <div style="float:right;">generated on 2020-05-10 20:34</div>
 </div>
 </body>
 </html>

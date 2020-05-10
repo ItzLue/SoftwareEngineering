@@ -33,7 +33,7 @@ public class App {
 
     // Joachim
     public void removeDeveloper(String developerID) {
-        if(!developerHMContains(developerID)) {
+        if (!developerHMContains(developerID)) {
             throw new NullPointerException("The developer with ID: " + developerID + " does not exist");
         }
         assert developerHMContains(developerID) : "Precondition developer ";
@@ -43,7 +43,7 @@ public class App {
         }
         developerHM.remove(developerID);
 
-        assert !developerHMContains(developerID): "Post condition removed ";
+        assert !developerHMContains(developerID) : "Post condition removed ";
     }
 
     // Christian
@@ -94,7 +94,9 @@ public class App {
         return availableDevelopers;
     }
 
-    public HashMap<String, Developer> getDeveloperHM() { return this.developerHM; }
+    public HashMap<String, Developer> getDeveloperHM() {
+        return this.developerHM;
+    }
 
     // Loui
     public void getDevValues() {
@@ -130,7 +132,7 @@ public class App {
 
     // Joachim
     public void removeProject(String projectID) throws IllegalAccessException {
-        if(!projectHMContains(projectID)) {
+        if (!projectHMContains(projectID)) {
             throw new NullPointerException("The project with ID: " + projectID + " does not exist");
         }
         assert projectHMContains(projectID) : "Precondition project";
@@ -282,7 +284,7 @@ public class App {
     // Christian
     public void setActivityDate(boolean startOrEnd, String projectID, String activityName, int year, int week) throws IllegalAccessException {
         if (projectHMContains(projectID) && projectHM.get(projectID).activityExists(activityName)) {
-            if (!isProjectInitialized(projectID)|| isActiveDeveloperProjectLeader(projectID)) {
+            if (!isProjectInitialized(projectID) || isActiveDeveloperProjectLeader(projectID)) {
                 if (startOrEnd) {
                     projectHM.get(projectID).setActivityStartDate(activityName, year, week);
                 } else {
@@ -327,7 +329,8 @@ public class App {
         } else {
             throw new IllegalAccessException("You have to be an active developer to add personal activities");
         }
-        assert activeDeveloper.getPersonalActivityList().size() == 1;
+        assert developerHM.get(developerID).getActivityList().size() > 0 : "Postcondtion personal activity";
+
     }
 
     // Regin
@@ -356,15 +359,19 @@ public class App {
     public boolean isActiveDeveloperProjectLeader(String projectID) {
         return projectHM.get(projectID).getProjectLeader() == activeDeveloper;
     }
+
     public boolean isProjectInitialized(String projectID) {
         return projectHM.get(projectID).isInitialized();
     }
+
     public boolean isActiveDeveloper(String developerID) {
         return developerHM.get(developerID) == activeDeveloper;
     }
+
     public boolean projectHMContains(String projectID) {
         return projectHM.containsKey(projectID);
     }
+
     public boolean developerHMContains(String developerID) {
         return developerHM.containsKey(developerID);
     }

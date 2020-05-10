@@ -87,68 +87,76 @@
 <i>13</i>&nbsp;    Get/Set methods
 <i>14</i>&nbsp;     */
 <i>15</i>&nbsp;
-<i>16</i>&nbsp;    public Calendar getStartDate() {
-<b class="fc"><i>17</i>&nbsp;        if( startDate != null){</b>
-<b class="fc"><i>18</i>&nbsp;            return startDate;</b>
-<i>19</i>&nbsp;        }
-<b class="fc"><i>20</i>&nbsp;        return null;</b>
-<i>21</i>&nbsp;    }
-<i>22</i>&nbsp;
-<i>23</i>&nbsp;    public void setStartDate(int year, int week) {
-<b class="fc"><i>24</i>&nbsp;        Calendar calendar = new GregorianCalendar();</b>
-<b class="fc"><i>25</i>&nbsp;        calendar.set(Calendar.YEAR, year);</b>
-<b class="fc"><i>26</i>&nbsp;        calendar.set(Calendar.WEEK_OF_YEAR, week);</b>
-<b class="fc"><i>27</i>&nbsp;        this.startDate = calendar;</b>
-<b class="fc"><i>28</i>&nbsp;    }</b>
-<i>29</i>&nbsp;
-<i>30</i>&nbsp;    public Calendar getEndDate() {
-<b class="fc"><i>31</i>&nbsp;        if(endDate != null){</b>
-<b class="fc"><i>32</i>&nbsp;            return endDate;</b>
-<i>33</i>&nbsp;        }
-<b class="fc"><i>34</i>&nbsp;        return null;</b>
-<i>35</i>&nbsp;    }
-<i>36</i>&nbsp;
-<i>37</i>&nbsp;    public void setEndDate(int year, int week) {
-<b class="fc"><i>38</i>&nbsp;        Calendar calendar = new GregorianCalendar();</b>
-<b class="fc"><i>39</i>&nbsp;        calendar.set(Calendar.YEAR, year);</b>
-<b class="fc"><i>40</i>&nbsp;        calendar.set(Calendar.WEEK_OF_YEAR, week);</b>
-<b class="fc"><i>41</i>&nbsp;        this.endDate = calendar;</b>
-<b class="fc"><i>42</i>&nbsp;    }</b>
-<i>43</i>&nbsp;
-<i>44</i>&nbsp;    public int getStartWeek() {
-<b class="fc"><i>45</i>&nbsp;        if(startDate == null) {</b>
-<b class="fc"><i>46</i>&nbsp;            return -1;</b>
-<i>47</i>&nbsp;        }
-<b class="fc"><i>48</i>&nbsp;        return startDate.get(Calendar.WEEK_OF_YEAR);</b>
-<i>49</i>&nbsp;    }
-<i>50</i>&nbsp;
-<i>51</i>&nbsp;    public int getEndWeek() {
-<b class="fc"><i>52</i>&nbsp;        if(endDate == null) {</b>
-<b class="fc"><i>53</i>&nbsp;            return -1;</b>
-<i>54</i>&nbsp;        }
-<b class="fc"><i>55</i>&nbsp;        return endDate.get(Calendar.WEEK_OF_YEAR);</b>
-<i>56</i>&nbsp;    }
-<i>57</i>&nbsp;
-<i>58</i>&nbsp;    public int getStartYear() {
-<b class="fc"><i>59</i>&nbsp;        if(startDate == null) {</b>
-<b class="fc"><i>60</i>&nbsp;            return -1;</b>
-<i>61</i>&nbsp;        }
-<b class="fc"><i>62</i>&nbsp;        return startDate.get(Calendar.YEAR);</b>
-<i>63</i>&nbsp;    }
-<i>64</i>&nbsp;
-<i>65</i>&nbsp;    public int getEndYear() {
-<b class="fc"><i>66</i>&nbsp;        if(endDate == null) {</b>
+<i>16</i>&nbsp;    // Christian
+<i>17</i>&nbsp;    public Calendar getStartDate() {
+<b class="fc"><i>18</i>&nbsp;        if( startDate != null){</b>
+<b class="fc"><i>19</i>&nbsp;            return startDate;</b>
+<i>20</i>&nbsp;        }
+<b class="fc"><i>21</i>&nbsp;        return null;</b>
+<i>22</i>&nbsp;    }
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;    // Christian
+<i>25</i>&nbsp;    public void setStartDate(int year, int week) {
+<b class="fc"><i>26</i>&nbsp;        Calendar calendar = new GregorianCalendar();</b>
+<b class="fc"><i>27</i>&nbsp;        calendar.set(Calendar.YEAR, year);</b>
+<b class="fc"><i>28</i>&nbsp;        calendar.set(Calendar.WEEK_OF_YEAR, week);</b>
+<b class="fc"><i>29</i>&nbsp;        this.startDate = calendar;</b>
+<b class="fc"><i>30</i>&nbsp;    }</b>
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;    // Joachim
+<i>33</i>&nbsp;    public Calendar getEndDate() {
+<b class="fc"><i>34</i>&nbsp;        if(endDate != null){</b>
+<b class="fc"><i>35</i>&nbsp;            return endDate;</b>
+<i>36</i>&nbsp;        }
+<b class="fc"><i>37</i>&nbsp;        return null;</b>
+<i>38</i>&nbsp;    }
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;    // Joachim
+<i>41</i>&nbsp;    public void setEndDate(int year, int week) {
+<b class="fc"><i>42</i>&nbsp;        Calendar calendar = new GregorianCalendar();</b>
+<b class="fc"><i>43</i>&nbsp;        calendar.set(Calendar.YEAR, year);</b>
+<b class="fc"><i>44</i>&nbsp;        calendar.set(Calendar.WEEK_OF_YEAR, week);</b>
+<b class="fc"><i>45</i>&nbsp;        this.endDate = calendar;</b>
+<b class="fc"><i>46</i>&nbsp;    }</b>
+<i>47</i>&nbsp;
+<i>48</i>&nbsp;    // Christian
+<i>49</i>&nbsp;    public int getStartWeek() {
+<b class="fc"><i>50</i>&nbsp;        if(startDate == null) {</b>
+<b class="fc"><i>51</i>&nbsp;            return -1;</b>
+<i>52</i>&nbsp;        }
+<b class="fc"><i>53</i>&nbsp;        return startDate.get(Calendar.WEEK_OF_YEAR);</b>
+<i>54</i>&nbsp;    }
+<i>55</i>&nbsp;
+<i>56</i>&nbsp;    // Joachim
+<i>57</i>&nbsp;    public int getEndWeek() {
+<b class="fc"><i>58</i>&nbsp;        if(endDate == null) {</b>
+<b class="fc"><i>59</i>&nbsp;            return -1;</b>
+<i>60</i>&nbsp;        }
+<b class="fc"><i>61</i>&nbsp;        return endDate.get(Calendar.WEEK_OF_YEAR);</b>
+<i>62</i>&nbsp;    }
+<i>63</i>&nbsp;
+<i>64</i>&nbsp;    // Christian
+<i>65</i>&nbsp;    public int getStartYear() {
+<b class="fc"><i>66</i>&nbsp;        if(startDate == null) {</b>
 <b class="fc"><i>67</i>&nbsp;            return -1;</b>
 <i>68</i>&nbsp;        }
-<b class="fc"><i>69</i>&nbsp;        return endDate.get(Calendar.YEAR);</b>
+<b class="fc"><i>69</i>&nbsp;        return startDate.get(Calendar.YEAR);</b>
 <i>70</i>&nbsp;    }
-<i>71</i>&nbsp;}
+<i>71</i>&nbsp;
+<i>72</i>&nbsp;    // Joachim
+<i>73</i>&nbsp;    public int getEndYear() {
+<b class="fc"><i>74</i>&nbsp;        if(endDate == null) {</b>
+<b class="fc"><i>75</i>&nbsp;            return -1;</b>
+<i>76</i>&nbsp;        }
+<b class="fc"><i>77</i>&nbsp;        return endDate.get(Calendar.YEAR);</b>
+<i>78</i>&nbsp;    }
+<i>79</i>&nbsp;}
 </div>
 </div>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2020-05-10 12:05</div>
+    <div style="float:right;">generated on 2020-05-10 20:34</div>
 </div>
 </body>
 </html>

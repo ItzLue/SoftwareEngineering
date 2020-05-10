@@ -72,54 +72,55 @@
 <br/>
 
 
-<div class="sourceCode"><i>1</i>&nbsp;package domain;
-<i>2</i>&nbsp;
-<i>3</i>&nbsp;import time.Interval;
-<i>4</i>&nbsp;
-<i>5</i>&nbsp;public class PersonalActivity {
-<i>6</i>&nbsp;    protected String name;
-<i>7</i>&nbsp;    protected Interval interval;
-<i>8</i>&nbsp;
-<b class="fc"><i>9</i>&nbsp;    public PersonalActivity(String name) {</b>
-<b class="fc"><i>10</i>&nbsp;        if (name.length() &gt; 1) {</b>
-<b class="fc"><i>11</i>&nbsp;            this.name = name;</b>
-<b class="fc"><i>12</i>&nbsp;            this.interval = new Interval();</b>
-<i>13</i>&nbsp;        } else {
-<b class="fc"><i>14</i>&nbsp;            throw new IllegalArgumentException(&quot;Activity names must be longer than one letter&quot;);</b>
-<i>15</i>&nbsp;        }
-<b class="fc"><i>16</i>&nbsp;    }</b>
-<i>17</i>&nbsp;
-<i>18</i>&nbsp;    /*
-<i>19</i>&nbsp;    toString method
-<i>20</i>&nbsp;     */
-<i>21</i>&nbsp;
-<i>22</i>&nbsp;    @Override
-<i>23</i>&nbsp;    public String toString() {
-<b class="nc"><i>24</i>&nbsp;        return &quot;{ name: &quot; + &#39;\&#39;&#39; + name + &#39;\&#39;&#39; +</b>
-<b class="nc"><i>25</i>&nbsp;                &quot;, Start date: &quot; + &quot;Week: &quot; + &#39;\&#39;&#39; + interval.getStartWeek() + &#39;\&#39;&#39; + &quot;, Year: &quot; +</b>
-<b class="nc"><i>26</i>&nbsp;                &#39;\&#39;&#39; + interval.getStartYear() + &#39;\&#39;&#39; + &quot;, End date: &quot; + &quot;Week: &quot; + &#39;\&#39;&#39; + interval.getEndWeek() +</b>
-<b class="nc"><i>27</i>&nbsp;                &#39;\&#39;&#39; + &quot;, Year: &quot; + &#39;\&#39;&#39; + interval.getEndYear() + &#39;\&#39;&#39; + &quot; } \n&quot;;</b>
-<i>28</i>&nbsp;    }
-<i>29</i>&nbsp;
-<i>30</i>&nbsp;    /*
-<i>31</i>&nbsp;    Get/Set methods
-<i>32</i>&nbsp;     */
-<i>33</i>&nbsp;
-<i>34</i>&nbsp;    public String getName() {
-<b class="fc"><i>35</i>&nbsp;        return this.name;</b>
-<i>36</i>&nbsp;    }
-<i>37</i>&nbsp;
-<i>38</i>&nbsp;    public Interval getInterval() {
-<b class="fc"><i>39</i>&nbsp;        return this.interval;</b>
-<i>40</i>&nbsp;    }
-<i>41</i>&nbsp;
-<i>42</i>&nbsp;}
+<div class="sourceCode"><i>1</i>&nbsp;// Regin
+<i>2</i>&nbsp;package domain;
+<i>3</i>&nbsp;
+<i>4</i>&nbsp;import time.Interval;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;public class PersonalActivity {
+<i>7</i>&nbsp;    protected String name;
+<i>8</i>&nbsp;    protected Interval interval;
+<i>9</i>&nbsp;
+<b class="fc"><i>10</i>&nbsp;    public PersonalActivity(String name) {</b>
+<b class="fc"><i>11</i>&nbsp;        if (name.length() &gt; 1) {</b>
+<b class="fc"><i>12</i>&nbsp;            this.name = name;</b>
+<b class="fc"><i>13</i>&nbsp;            this.interval = new Interval();</b>
+<i>14</i>&nbsp;        } else {
+<b class="fc"><i>15</i>&nbsp;            throw new IllegalArgumentException(&quot;Activity names must be longer than one letter&quot;);</b>
+<i>16</i>&nbsp;        }
+<b class="fc"><i>17</i>&nbsp;    }</b>
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;    /*
+<i>20</i>&nbsp;    toString method
+<i>21</i>&nbsp;     */
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;    @Override
+<i>24</i>&nbsp;    public String toString() {
+<b class="nc"><i>25</i>&nbsp;        return &quot;{ name: &quot; + &#39;\&#39;&#39; + name + &#39;\&#39;&#39; +</b>
+<b class="nc"><i>26</i>&nbsp;                &quot;, Start date: &quot; + &quot;Week: &quot; + &#39;\&#39;&#39; + interval.getStartWeek() + &#39;\&#39;&#39; + &quot;, Year: &quot; +</b>
+<b class="nc"><i>27</i>&nbsp;                &#39;\&#39;&#39; + interval.getStartYear() + &#39;\&#39;&#39; + &quot;, End date: &quot; + &quot;Week: &quot; + &#39;\&#39;&#39; + interval.getEndWeek() +</b>
+<b class="nc"><i>28</i>&nbsp;                &#39;\&#39;&#39; + &quot;, Year: &quot; + &#39;\&#39;&#39; + interval.getEndYear() + &#39;\&#39;&#39; + &quot; } \n&quot;;</b>
+<i>29</i>&nbsp;    }
+<i>30</i>&nbsp;
+<i>31</i>&nbsp;    /*
+<i>32</i>&nbsp;    Get/Set methods
+<i>33</i>&nbsp;     */
+<i>34</i>&nbsp;
+<i>35</i>&nbsp;    public String getName() {
+<b class="fc"><i>36</i>&nbsp;        return this.name;</b>
+<i>37</i>&nbsp;    }
+<i>38</i>&nbsp;
+<i>39</i>&nbsp;    public Interval getInterval() {
+<b class="fc"><i>40</i>&nbsp;        return this.interval;</b>
+<i>41</i>&nbsp;    }
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;}
 </div>
 </div>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2020-05-10 12:05</div>
+    <div style="float:right;">generated on 2020-05-10 20:34</div>
 </div>
 </body>
 </html>
