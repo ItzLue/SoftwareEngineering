@@ -4,7 +4,8 @@ Feature: Remove activities from project
   Actors: Developer
 
   #background
-  Background: There is an uninitialized project in the system
+  Background: There is a developer, a project and an activity within the project in the system and the developer is
+  the project leader
     Given There is a Developer with first name "Ole" and last name "Smith"
     And the developer is added to the system
     And The developer is set as the active developer
@@ -20,6 +21,6 @@ Feature: Remove activities from project
     Then the activity with name "Coding" is not in the project
 
      #Second scenario
-  Scenario: Activity is removed from an uninitialized project developers on the activity
+  Scenario: Activity is removed from an uninitialized project with developers on the activity
     When the activity with name "Coding" is removed from the project
     Then the activity with name "Coding" is not in the project

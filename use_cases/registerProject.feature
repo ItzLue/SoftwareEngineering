@@ -3,7 +3,7 @@ Feature: Create a project
   Description: A developer creates a project
   Actors: Developer
 
-# Main scenario
+      # Main scenario
   Scenario: A developer creates and registers a project
     Given A project with name "Enigma Codebreaker" is created
     When The project is added to the system

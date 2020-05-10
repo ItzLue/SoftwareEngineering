@@ -1,10 +1,11 @@
 # Joachim
 Feature: Remove activities from an initialized project
-  Description: A developer removes an activity from an initialized project
-  Actors: Developer
+  Description: A project leader removes an activity from an initialized project
+  Actors: project leader
 
    #background
-  Background: There is an uninitialized project in the system
+  Background: There is a developer, a project and an activity within the project in the system and the developer is
+              the project leader
     Given There is a Developer with first name "Ole" and last name "Smith"
     And the developer is added to the system
     And The developer is set as the active developer
@@ -22,7 +23,7 @@ Feature: Remove activities from an initialized project
     When the activity with name "Coding" is removed from the project
     Then the activity with name "Coding" is not in the project
 
-     # Fail scenario :
+     # Fail scenario
   Scenario: Activity is unsuccesfully removed from an initialized project
     Given There is a Developer with first name "Birte" and last name "Rasmussen"
     And the developer is added to the system

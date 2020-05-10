@@ -1,10 +1,10 @@
 # Joachim
 Feature: Add activities to an initialized project
-  Description: A developer adds an activity to an initialized project
-  Actors: Developer
+  Description: A project leader adds an activity to an initialized project
+  Actors: project leader
 
   #backgrounds
-  Background: There is an uninitialized project and an activity in the system
+  Background: There is a developer, a project and an activity in the system and the developer is the project leader
     Given There is a Developer with first name "Ole" and last name "Smith"
     And the developer is added to the system
     And The developer is set as the active developer
@@ -14,7 +14,7 @@ Feature: Add activities to an initialized project
     Given the developer is set as project leader for project with name "Enigma Codebreaker"
     And The project is initialized
 
-  #first scenarios
+  #Main scenario :
   Scenario: Activity is successfully added to an initialized project
     Given the project leader is the active user
     When the activity with name "Coding" is added to the project
