@@ -27,7 +27,7 @@ class RegisterDeveloper {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             app.registerDeveloper(new Developer("", ""));
         });
-        String expectedMessage = "Developer names must be 2 letters or larger and can only contain alphabetic letters";
+        String expectedMessage = "Invalid input: each input must be one word and can't be shorter than 2 alphabetic letters";
         String actualMessage = exception.getMessage();
 
         assertTrue(actualMessage.contains(expectedMessage));
@@ -41,7 +41,7 @@ class RegisterDeveloper {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             app.registerDeveloper(new Developer("123", "123"));
         });
-        String expectedMessage = "Developer names must be 2 letters or larger and can only contain alphabetic letters";
+        String expectedMessage = "Invalid input: each input must be one word and can't be shorter than 2 alphabetic letters";
         String actualMessage = exception.getMessage();
 
         assertTrue(actualMessage.contains(expectedMessage));
@@ -54,7 +54,7 @@ class RegisterDeveloper {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             app.registerDeveloper(new Developer("Jane", "123"));
         });
-        String expectedMessage = "Developer names must be 2 letters or larger and can only contain alphabetic letters";
+        String expectedMessage = "Invalid input: each input must be one word and can't be shorter than 2 alphabetic letters";
         String actualMessage = exception.getMessage();
 
         assertTrue(actualMessage.contains(expectedMessage));
@@ -68,7 +68,7 @@ class RegisterDeveloper {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             app.registerDeveloper(new Developer("123", "Doe"));
         });
-        String expectedMessage = "Developer names must be 2 letters or larger and can only contain alphabetic letters";
+        String expectedMessage = "Invalid input: each input must be one word and can't be shorter than 2 alphabetic letters";
         String actualMessage = exception.getMessage();
         assertTrue(actualMessage.contains(expectedMessage));
     }
@@ -80,7 +80,7 @@ class RegisterDeveloper {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             app.registerDeveloper(new Developer("!#!#", "!#!#!"));
         });
-        String expectedMessage = "Developer names must be 2 letters or larger and can only contain alphabetic letters";
+        String expectedMessage = "Invalid input: each input must be one word and can't be shorter than 2 alphabetic letters";
         String actualMessage = exception.getMessage();
         assertTrue(actualMessage.contains(expectedMessage));
     }
