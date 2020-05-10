@@ -39,6 +39,7 @@ public class Developer {
      */
 
     // Regin
+    // If a personal activity's interval overlaps with the input interval we return false
     public boolean isAvailable(Interval interval) {
         int counter = 0;
         for (PersonalActivity personalActivity : getPersonalActivityList()) {
@@ -48,6 +49,7 @@ public class Developer {
                 return false;
             }
         }
+        // Returns true as long as the developer has up to 10 activities that overlap with the interval
         for (Activity activity : getActivityList()) {
             if(activity.getInterval().getEndDate().before(interval.getStartDate()) || activity.getInterval().getStartDate().after(interval.getEndDate())) {
                 continue;

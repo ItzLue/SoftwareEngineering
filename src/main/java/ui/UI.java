@@ -12,16 +12,13 @@ import java.util.InputMismatchException;
 
 public class UI extends ActionView {
     App app = new App();
-    Project project;
-    Developer developer;
     public MenuView activeDeveloperMenu;
-    public MenuView projectLeaderMenu;
-
 
     public static void main(String[] args) throws Exception {
         new UI("", "");
     }
 
+    // Loui
     public UI(String runningTitle, String nameInParentMenu) throws Exception {
         super(runningTitle, nameInParentMenu);
 
@@ -29,21 +26,7 @@ public class UI extends ActionView {
 
         MenuView developerMenu = getDeveloperMenu();
 
-        MenuView activityMenu = getActivityMenu();
-
-//        Developer developer = new Developer("Jane", "Doe");
-//        Activity activity = new Activity("frontend");
-//        Project project = new Project("Minecraft");
-//
-//        app.registerProject(project);
-//        app.registerActivityToProject(activity, project.getID());
-//        app.setActivityDate(true, "201901", "frontend", 2020, 27);
-//        app.setActivityDate(false, "201901", "frontend", 2020, 29);
-//        app.registerDeveloper(developer);
-//        app.setPlannedHoursForActivity(activity.getName(), project.getID(), 20);
-//        app.getProjectHM().get(project.getID()).getActivity(activity.getName()).addDeveloper(developer);
-
-  /*
+    /*
     Root menu
      */
         MenuView rootMenu = new MenuView("Welcome to SoftwareHuset A/S", "");
@@ -58,6 +41,7 @@ public class UI extends ActionView {
     /*
     Developer menu
      */
+    // Christian
     private MenuView getDeveloperMenu() {
         MenuView developerMenu = new MenuView("Devs menu", "Developer menu");
         developerMenu.addMenuItem(new setActiveDeveloperAction());
@@ -71,6 +55,7 @@ public class UI extends ActionView {
     /*
     Project menus
      */
+    // Loui
     private MenuView getProjectMenu() {
         MenuView projectMenu = new MenuView("Project menu", "Project menu");
         projectMenu.addMenuItem(new ShowProjectsAction());
@@ -88,6 +73,7 @@ public class UI extends ActionView {
     Activity menu
      */
 
+    // Joachim
     public MenuView getActivityMenu() {
         MenuView activityMenu = new MenuView("Activity menu", "Activity menu");
         activityMenu.addMenuItem(new ShowActivitiesAction());
@@ -99,6 +85,7 @@ public class UI extends ActionView {
         return activityMenu;
     }
 
+    // Regin
     public void setActiveDeveloperMenu() {
         String ID = this.prompt("Please enter the ID of the developer: ", String.class);
         app.setActiveDeveloper(ID);
@@ -115,6 +102,7 @@ public class UI extends ActionView {
         this.display();
     }
 
+    // Christian
     class setActiveDeveloperAction extends ActionView {
         public setActiveDeveloperAction() {
             super("Set an active developer", "Set an active developer");
@@ -130,6 +118,7 @@ public class UI extends ActionView {
         }
     }
 
+    // Christian
     class AddDeveloperAction extends ActionView {
         public AddDeveloperAction() {
             super("Add developer", "Add developer");
@@ -149,6 +138,7 @@ public class UI extends ActionView {
         }
     }
 
+    // Christian
     class RemoveDeveloperAction extends ActionView {
         public RemoveDeveloperAction() {
             super("Remove developer", "Remove developer");
@@ -169,6 +159,7 @@ public class UI extends ActionView {
         }
     }
 
+    // Christian
     class ShowDevelopersAction extends ActionView {
         public ShowDevelopersAction() {
             super("Table of developers", "Show developers");
@@ -184,6 +175,7 @@ public class UI extends ActionView {
         }
     }
 
+    // Joachim
     class ShowActivitiesAction extends ActionView {
         public ShowActivitiesAction() {
             super("Show activities", "Show activities");
@@ -199,6 +191,7 @@ public class UI extends ActionView {
         }
     }
 
+    // Regin
     class ShowActivitiesActiveDeveloperAction extends ActionView {
         public ShowActivitiesActiveDeveloperAction() {
             super("Show your activities", "Show your activities");
@@ -209,6 +202,7 @@ public class UI extends ActionView {
         }
     }
 
+    // Regin
     class ShowPersonalActivitiesActiveDeveloperAction extends ActionView {
         public ShowPersonalActivitiesActiveDeveloperAction() {
             super("Show your personal activities", "Show your personal activities");
@@ -219,6 +213,7 @@ public class UI extends ActionView {
         }
     }
 
+    // Christian
     class SetWorkedHoursAction extends ActionView {
         public SetWorkedHoursAction() {
             super("Enter your worked hours", "Set worked hours");
@@ -244,6 +239,8 @@ public class UI extends ActionView {
     /*
         Project actions
     */
+
+    // Loui
     class AddProjectLeaderAction extends ActionView {
         public AddProjectLeaderAction() {
             super("Add project leader", "Add project leader");
@@ -269,6 +266,7 @@ public class UI extends ActionView {
         }
     }
 
+    // Joachim
     class AddActivityAction extends ActionView {
         public AddActivityAction() {
             super("Add activity", "Add activity");
@@ -295,6 +293,7 @@ public class UI extends ActionView {
         }
     }
 
+    // Regin
     class ShowWorkedHours extends ActionView {
         public ShowWorkedHours() {
             super("Show worked hours", "Show worked hours");
@@ -307,6 +306,7 @@ public class UI extends ActionView {
         }
     }
 
+    // Regin
     class AddPersonalActivity extends ActionView {
         public AddPersonalActivity() {
             super("Add personal Activity", "Add personal Activity");
@@ -332,6 +332,7 @@ public class UI extends ActionView {
         }
     }
 
+    // Regin
     class RemovePersonalActivity extends ActionView {
         public RemovePersonalActivity() {
             super("Remove personal Activity", "Remove personal Activity");
@@ -341,10 +342,11 @@ public class UI extends ActionView {
         public void executeCustomAction() {
             String personalActivityName = this.prompt("Enter the name of your personal activity: ", String.class);
             app.getActiveDeveloper().removePersonalActivity(app.getActiveDeveloper().getPersonalActivity(personalActivityName));
-
+            this.actionSuccessful();
         }
     }
 
+    // Loui
     class ShowProjectsAction extends ActionView {
         public ShowProjectsAction() {
             super("Table over projects", "Show projects");
@@ -356,6 +358,7 @@ public class UI extends ActionView {
         }
     }
 
+    // Loui
     class AddProjectAction extends ActionView {
         public AddProjectAction() {
             super("Add a project could be something like 'Marcosoft'", "Add project");
@@ -373,6 +376,7 @@ public class UI extends ActionView {
         }
     }
 
+    // Loui
     class RemoveProjectAction extends ActionView {
         public RemoveProjectAction() {
             super("Remove project", "Remove project");
@@ -396,6 +400,8 @@ public class UI extends ActionView {
     /*
         Project leader menus
     */
+
+    // Loui
     class ChangeProjectNameAction extends ActionView {
         public ChangeProjectNameAction() {
             super("Change name", "Change name");
@@ -418,8 +424,8 @@ public class UI extends ActionView {
         }
     }
 
+    // Joachim
     class RemoveActivityFromProjectAction extends ActionView {
-
         public RemoveActivityFromProjectAction() {
             super("Remove activity from project", "Remove activity from project");
         }
@@ -436,6 +442,7 @@ public class UI extends ActionView {
         }
     }
 
+    // Joachim
     class AddDeveloperToActivityAction extends ActionView {
         public AddDeveloperToActivityAction() {
             super("Add developer to activity", "Add developer to activity");
@@ -455,6 +462,7 @@ public class UI extends ActionView {
         }
     }
 
+    // Loui
     class SetStartDateProjectAction extends ActionView {
         public SetStartDateProjectAction() {
             super("Set start date for a project", "Set start date for a project");
@@ -474,6 +482,7 @@ public class UI extends ActionView {
         }
     }
 
+    // Loui
     class SetEndDateProjectAction extends ActionView {
         public SetEndDateProjectAction() {
             super("Set end date for a project", "Set end date for a project");
@@ -493,6 +502,7 @@ public class UI extends ActionView {
         }
     }
 
+    // Joachim
     class SetPlannedHoursAction extends ActionView {
         public SetPlannedHoursAction() {
             super("Set the planned hours for an activity", "Set the planned hours for an activity");
@@ -516,6 +526,7 @@ public class UI extends ActionView {
         }
     }
 
+    // Joachim
     class SearchForAvailableDevelopers extends ActionView {
         public SearchForAvailableDevelopers() {
             super("Search for available developers", "Search for available developers");

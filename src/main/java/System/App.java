@@ -12,6 +12,7 @@ import java.util.HashMap;
 
 public class App {
 
+    // the activeDeveloper is the developer using the app
     public Developer activeDeveloper;
     public HashMap<String, Developer> developerHM = new HashMap<String, Developer>();
     protected HashMap<String, Project> projectHM = new HashMap<String, Project>();

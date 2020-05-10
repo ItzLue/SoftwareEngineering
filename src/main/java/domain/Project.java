@@ -15,6 +15,7 @@ public class Project {
     private String ID = "";
     protected String name;
 
+    // we use the testDate variable as a way to test dates before we assign them to startDate/endDate
     public Calendar testDate = new GregorianCalendar();
 
     // Regin
@@ -108,6 +109,7 @@ public class Project {
     Boolean conditions
      */
 
+    // Initialized projects can only be changed by the project leader
     public boolean isInitialized() {
         return initialized;
     }
@@ -123,6 +125,7 @@ public class Project {
     }
 
     // Christian
+    // If the project's start/end date is changed we check if it overlaps with the activitylist's interval in that project
     public boolean invalidActivityDates(boolean startOrEnd, int year, int week) {
         testDate.set(Calendar.YEAR, year);
         testDate.set(Calendar.WEEK_OF_YEAR, week);
@@ -184,6 +187,7 @@ public class Project {
      */
 
     // Joachim
+    // A project is initialized when a project leader is set
     public void setProjectLeader(Developer developer) {
         if (!initialized) {
             initProject();
