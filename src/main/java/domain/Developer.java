@@ -18,7 +18,7 @@ public class Developer {
             this.firstName = firstName;
             this.lastName = lastName;
         } else {
-            throw new IllegalArgumentException("Developer names must be 2 letters or larger and can only contain alphabetic letters");
+            throw new IllegalArgumentException("Invalid input: each input must be one word and can't be shorter than 2 alphabetic letters");
         }
     }
 

@@ -15,13 +15,25 @@ Welcome to SoftwareHuset A/S
 ```
 ### Medarbejder menu
 ```console
-Devs menu
+Developer menu
 1) Set an active developer
 2) Show developers
 3) Add developer
 4) Set worked hours
 5) Remove developer
 6) Back
+```
+### Aktiv Medarbejder hovedmenu
+```console
+Active Developer menu
+1) Developer menu
+2) Project menu
+3) Show your activities
+4) Show your personal activities
+5) Show worked hours
+6) Add personal Activity
+7) Remove personal Activity
+8) Quit
 ```
 ### Projekt menu
 ```console
@@ -36,6 +48,17 @@ Project menu
 8) Remove project
 9) Back
 ```
+### Activity menu
+```console
+Activity menu
+1) Show activities
+2) Add activity
+3) Remove activity from project
+4) Add developer to activity
+5) Set the planned hours for an activity
+6) Search for available developers
+7) Back
+```
 #### Hvordan tilføjes en medarbejder?
 For at tilføje en medbarbejder til systemet vælges **Developer menu** herefter vælges **Add developer**
 Der vil nu være mulighed for at indtaste et fornavn og efternavn.
@@ -45,7 +68,7 @@ Enter the first name: John
 Enter the last name: Doe
 Action successful!
 ```
-Hvis både fornavn og efternavn lever op til kravene. Vil man få beskeden **Action successful!** medarbejderen har nu fået et ID og er blevet oprettet i systemet.
+Hvis både fornavn og efternavn lever op til kravene vil man få beskeden **Action successful!** medarbejderen har nu fået et ID og er blevet oprettet i systemet.
 #### Hvordan tilføjes et projekt?
 Et projekt tilføjes ved at vælge **Project menu** herefter vælges **Add project**. Når et projekt skal oprettes skal det blot gives et navn.
 ```console
