@@ -3,6 +3,7 @@ package acceptance_tests.steps;
 import System.App;
 import acceptance_tests.helper.*;
 import domain.Activity;
+import domain.PersonalActivity;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -19,15 +20,17 @@ public class ActivitySteps {
     private ProjectHelper projectHelper;
     private MockDateHolder dateHolder;
     private ActivityHelper activityHelper;
+    private PersonalActivityHelper personalActivityHelper;
     private ExceptionHandler exceptionHandler;
 
-    public ActivitySteps(App app, ErrorMessageHolder errorMessageHolder, DeveloperHelper developerHelper, ProjectHelper projectHelper, MockDateHolder dateHolder, ActivityHelper activityHelper, ExceptionHandler exceptionHandler) {
+    public ActivitySteps(App app, ErrorMessageHolder errorMessageHolder, DeveloperHelper developerHelper, ProjectHelper projectHelper, MockDateHolder dateHolder, ActivityHelper activityHelper, ExceptionHandler exceptionHandler, PersonalActivityHelper personalActivityHelper) {
         this.app = app;
         this.errorMessageHolder = errorMessageHolder;
         this.developerHelper = developerHelper;
         this.projectHelper = projectHelper;
         this.dateHolder = dateHolder;
         this.activityHelper = activityHelper;
+        this.personalActivityHelper = personalActivityHelper;
         this.exceptionHandler = exceptionHandler;
     }
 
@@ -113,5 +116,10 @@ public class ActivitySteps {
     public void theDeveloperAndActivityWorkedHoursAre(Double hours) {
         assertTrue(hours == developerHelper.getDeveloper().getWorkedHours());
         assertTrue(hours == activityHelper.getActivity().getWorkedHours());
+    }
+
+    @Given("there is a personal activity with name {string}")
+    public void thereIsAPersonalActivityWithName(String name) {
+        personalActivityHelper.setPersonalActivity(new PersonalActivity(name));
     }
 }

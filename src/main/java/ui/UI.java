@@ -31,17 +31,17 @@ public class UI extends ActionView {
 
         MenuView activityMenu = getActivityMenu();
 
-        Developer developer = new Developer("Jane", "Doe");
-        Activity activity = new Activity("frontend");
-        Project project = new Project("Minecraft");
-
-        app.registerProject(project);
-        app.registerActivityToProject(activity, project.getID());
-        app.setActivityDate(true, "201901", "frontend", 2020, 27);
-        app.setActivityDate(false, "201901", "frontend", 2020, 29);
-        app.registerDeveloper(developer);
-        app.setPlannedHoursForActivity(activity.getName(), project.getID(), 20);
-        app.getProjectHM().get(project.getID()).getActivity(activity.getName()).addDeveloper(developer);
+//        Developer developer = new Developer("Jane", "Doe");
+//        Activity activity = new Activity("frontend");
+//        Project project = new Project("Minecraft");
+//
+//        app.registerProject(project);
+//        app.registerActivityToProject(activity, project.getID());
+//        app.setActivityDate(true, "201901", "frontend", 2020, 27);
+//        app.setActivityDate(false, "201901", "frontend", 2020, 29);
+//        app.registerDeveloper(developer);
+//        app.setPlannedHoursForActivity(activity.getName(), project.getID(), 20);
+//        app.getProjectHM().get(project.getID()).getActivity(activity.getName()).addDeveloper(developer);
 
   /*
     Root menu

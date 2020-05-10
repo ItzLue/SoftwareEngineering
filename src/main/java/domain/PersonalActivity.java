@@ -15,13 +15,9 @@ public class PersonalActivity {
         }
     }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public Interval getInterval() {
-        return this.interval;
-    }
+    /*
+    toString method
+     */
 
     @Override
     public String toString() {
@@ -30,4 +26,17 @@ public class PersonalActivity {
                 '\'' + interval.getStartYear() + '\'' + ", End date: " + "Week: " + '\'' + interval.getEndWeek() +
                 '\'' + ", Year: " + '\'' + interval.getEndYear() + '\'' + " } \n";
     }
+
+    /*
+    Get/Set methods
+     */
+
+    public String getName() {
+        return this.name;
+    }
+
+    public Interval getInterval() {
+        return this.interval;
+    }
+
 }

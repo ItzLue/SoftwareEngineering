@@ -27,79 +27,12 @@ public class Project {
         }
     }
 
-    public boolean activityExists(String activityName) {
-        for (Activity activity: getActivityList()) {
-            if (activity.getName().equals(activityName)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public void addActivity(Activity activity) {
         this.activityList.add(activity);
     }
 
     public void initProject() {
         this.initialized = true;
-    }
-
-    public void setProjectLeader(Developer developer) {
-        if (!initialized) {
-            initProject();
-        }
-        this.projectLeader = developer;
-    }
-
-    public Developer getProjectLeader() {
-        return projectLeader;
-    }
-
-    public String getProjectLeaderID() {
-        if (projectLeader == null) {
-            return null;
-        }
-        return projectLeader.getID();
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setID(String ID) {
-        if (this.ID.equals("")) {
-            this.ID = ID;
-        }
-    }
-
-    public String getID() {
-        return this.ID;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public String toString() {
-        return "Name:" + '\'' + name + '\'' +
-                ", ID: " + '\'' + ID + '\'' +
-                ", Project Leader: " + '\'' + getProjectLeaderID() + '\'' +
-                ", Start date: " + "Week: " + '\'' + interval.getStartWeek() + '\'' + " Year: " +
-                '\'' + interval.getStartYear() + '\'' +
-                ", Activity list: " + activityList.size();
-    }
-
-    public boolean isInitialized() {
-        return initialized;
-    }
-
-    public Interval getInterval() {
-        return this.interval;
-    }
-
-    public ArrayList<Activity> getActivityList() {
-        return this.activityList;
     }
 
     public void setProjectStartDate(int year, int week) {
@@ -138,36 +71,6 @@ public class Project {
         }
     }
 
-    public boolean invalidActivityDates(boolean startOrEnd, int year, int week) {
-        testDate.set(Calendar.YEAR, year);
-        testDate.set(Calendar.WEEK_OF_YEAR, week);
-        if (startOrEnd) {
-            testDate.set(Calendar.SECOND, testDate.get(Calendar.SECOND) + 1); //start week can be the same as projects
-            for (Activity activity : activityList) {
-                if (activity.getInterval().getStartDate() != null && (activity.getInterval().getStartDate().before(testDate))) {
-                    return true;
-                }
-            }
-        } else {
-            testDate.set(Calendar.SECOND, testDate.get(Calendar.SECOND) - 1); //start week can be the same as projects
-            for (Activity activity : activityList) {
-                if (activity.getInterval().getEndDate() != null && (activity.getInterval().getEndDate().after(testDate))) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    public Activity getActivity(String activityName) {
-        for (Activity activity : activityList) {
-            if (activityName.equals(activity.getName())) {
-                return activity;
-            }
-        }
-        return null;
-    }
-
     public void setActivityStartDate(String activityName, int year, int week) {
         if (getActivity(activityName).getInterval().getEndDate() == null && activityStartDateIsValid(year, week)) {
             getActivity(activityName).getInterval().setStartDate(year, week);
@@ -196,6 +99,44 @@ public class Project {
         }
     }
 
+    /*
+    Boolean conditions
+     */
+
+    public boolean isInitialized() {
+        return initialized;
+    }
+
+    public boolean activityExists(String activityName) {
+        for (Activity activity: getActivityList()) {
+            if (activity.getName().equals(activityName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean invalidActivityDates(boolean startOrEnd, int year, int week) {
+        testDate.set(Calendar.YEAR, year);
+        testDate.set(Calendar.WEEK_OF_YEAR, week);
+        if (startOrEnd) {
+            testDate.set(Calendar.SECOND, testDate.get(Calendar.SECOND) + 1); //start week can be the same as projects
+            for (Activity activity : activityList) {
+                if (activity.getInterval().getStartDate() != null && (activity.getInterval().getStartDate().before(testDate))) {
+                    return true;
+                }
+            }
+        } else {
+            testDate.set(Calendar.SECOND, testDate.get(Calendar.SECOND) - 1); //start week can be the same as projects
+            for (Activity activity : activityList) {
+                if (activity.getInterval().getEndDate() != null && (activity.getInterval().getEndDate().after(testDate))) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public boolean activityStartDateIsValid(int year, int week) {
         testDate.set(Calendar.YEAR, year);
         testDate.set(Calendar.WEEK_OF_YEAR, week);
@@ -213,4 +154,76 @@ public class Project {
             return true;
         } else return getInterval().getEndDate() == null;
     }
+
+    /*
+    toString
+     */
+
+    @Override
+    public String toString() {
+        return "Name:" + '\'' + name + '\'' +
+                ", ID: " + '\'' + ID + '\'' +
+                ", Project Leader: " + '\'' + getProjectLeaderID() + '\'' +
+                ", Start date: " + "Week: " + '\'' + interval.getStartWeek() + '\'' + " Year: " +
+                '\'' + interval.getStartYear() + '\'' +
+                ", Activity list: " + activityList.size();
+    }
+
+    /*
+    Get/Set methods
+     */
+
+    public void setProjectLeader(Developer developer) {
+        if (!initialized) {
+            initProject();
+        }
+        this.projectLeader = developer;
+    }
+
+    public Developer getProjectLeader() {
+        return projectLeader;
+    }
+
+    public String getProjectLeaderID() {
+        if (projectLeader == null) {
+            return null;
+        }
+        return projectLeader.getID();
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setID(String ID) {
+        if (this.ID.equals("")) {
+            this.ID = ID;
+        }
+    }
+
+    public String getID() {
+        return this.ID;
+    }
+
+    public Activity getActivity(String activityName) {
+        for (Activity activity : activityList) {
+            if (activityName.equals(activity.getName())) {
+                return activity;
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<Activity> getActivityList() {
+        return this.activityList;
+    }
+
+    public Interval getInterval() {
+        return this.interval;
+    }
+
 }

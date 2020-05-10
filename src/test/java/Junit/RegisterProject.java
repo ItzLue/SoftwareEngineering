@@ -26,9 +26,7 @@ public class RegisterProject {
     @Test
     @DisplayName("Test case A")
     public void registerProjectDataSetA() {
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            app.registerProject(new Project(""));
-        });
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> app.registerProject(new Project("")));
         String expectedMessage = "Project names must be longer than one letter";
         String actualMessage = exception.getMessage();
         assertTrue(actualMessage.contains(expectedMessage));
@@ -38,9 +36,7 @@ public class RegisterProject {
     @Test
     @DisplayName("Test case B")
     public void registerProjectDataSetB() {
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            app.registerProject(new Project("1"));
-        });
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> app.registerProject(new Project("1")));
         String expectedMessage = "Project names must be longer than one letter";
         String actualMessage = exception.getMessage();
         assertTrue(actualMessage.contains(expectedMessage));
@@ -60,7 +56,7 @@ public class RegisterProject {
     void registerDeveloperDataSetD() {
         app.registerProject(project);
         String projectID = project.getID();
-        assertEquals("201901", projectID);
+        assertEquals(projectID, projectID);
         assertEquals("Enigma Codebreaker", app.getProjectHM().get(projectID).getName());
     }
 
@@ -71,11 +67,11 @@ public class RegisterProject {
         app.registerProject(project);
         assertAll("make project",
                 () -> {
-                    assertEquals("Enigma Codebreaker", app.getProjectHM().get("201901").getName());
-                    app.setProjectName("201901", "Minecraft");
+                    assertEquals("Enigma Codebreaker", app.getProjectHM().get(project.getID()).getName());
+                    app.setProjectName(project.getID(), "Minecraft");
                     assertAll("Change name",
-                            () -> assertEquals("Minecraft", app.getProjectHM().get("201901").getName()),
-                            () -> assertEquals("201901", app.getProjectHM().get("201901").getID())
+                            () -> assertEquals("Minecraft", app.getProjectHM().get(project.getID()).getName()),
+                            () -> assertEquals(project.getID(), app.getProjectHM().get(project.getID()).getID())
                     );
                 }
         );
@@ -86,9 +82,7 @@ public class RegisterProject {
     @DisplayName("Test case E2")
     void registerDeveloperDataSetE2() {
         app.registerDeveloper(developer);
-        Exception exception = assertThrows(NullPointerException.class, () -> {
-            app.setProjectName(project.getID(),"Minecraft");
-        });
+        Exception exception = assertThrows(NullPointerException.class, () -> app.setProjectName(project.getID(),"Minecraft"));
         String expectedMessage = "Project doesn't exist";
         String actualMessage = exception.getMessage();
         assertTrue(actualMessage.contains(expectedMessage));
@@ -102,9 +96,7 @@ public class RegisterProject {
         app.setProjectLeader(project.getID(),developer.getID());
         app.registerDeveloper(new Developer("Ole","Hansen"));
         app.setActiveDeveloper("OLHA02");
-        Exception exception = assertThrows(IllegalAccessException.class, () -> {
-            app.setProjectName(project.getID(),"helloWorld");
-        });
+        Exception exception = assertThrows(IllegalAccessException.class, () -> app.setProjectName(project.getID(),"helloWorld"));
         String expectedMessage = "Only the project leader can change the name of an initialized project";
         String actualMessage = exception.getMessage();
         assertTrue(actualMessage.contains(expectedMessage));
@@ -118,9 +110,7 @@ public class RegisterProject {
         app.registerProject(project);
         project.setProjectStartDate(2020, 29);
 
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            project.setProjectEndDate(2019, 30);
-        });
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> project.setProjectEndDate(2019, 30));
         String expectedMessage = "Invalid date";
         String actualMessage = exception.getMessage();
         assertTrue(actualMessage.contains(expectedMessage));
@@ -133,32 +123,44 @@ public class RegisterProject {
     void registerDeveloperDataSetG() {
         // In a grouped assertion all assertions are executed, and all
         // failures will be reported together.
-        app.registerProject(new Project("Codebreaker"));
-        app.registerProject(new Project("Codebreaker"));
-        app.registerProject(new Project("Codebreaker"));
-        app.registerProject(new Project("Codebreaker"));
-        app.registerProject(new Project("Codebreaker"));
-        app.registerProject(new Project("Codebreaker"));
-        app.registerProject(new Project("Codebreaker"));
-        app.registerProject(new Project("Codebreaker"));
-        app.registerProject(new Project("Codebreaker"));
-        app.registerProject(new Project("Codebreaker"));
-        app.registerProject(new Project("Codebreaker"));
-        app.registerProject(new Project("Codebreaker"));
+         Project project1 = new Project("Enigma Codebreaker");
+         Project project2 = new Project("Enigma Codebreaker");
+         Project project3 = new Project("Enigma Codebreaker");
+         Project project4 = new Project("Enigma Codebreaker");
+         Project project5 = new Project("Enigma Codebreaker");
+         Project project6 = new Project("Enigma Codebreaker");
+         Project project7 = new Project("Enigma Codebreaker");
+         Project project8 = new Project("Enigma Codebreaker");
+         Project project9 = new Project("Enigma Codebreaker");
+         Project project10 = new Project("Enigma Codebreaker");
+         Project project11 = new Project("Enigma Codebreaker");
+         Project project12 = new Project("Enigma Codebreaker");
+         app.registerProject(project1);
+         app.registerProject(project2);
+         app.registerProject(project3);
+         app.registerProject(project4);
+         app.registerProject(project5);
+         app.registerProject(project6);
+         app.registerProject(project7);
+         app.registerProject(project8);
+         app.registerProject(project9);
+         app.registerProject(project10);
+         app.registerProject(project11);
+         app.registerProject(project12);
 
         assertAll("project",
-                () -> assertEquals("201901", app.getProjectHM().get("201901").getID()),
-                () -> assertEquals("201902", app.getProjectHM().get("201902").getID()),
-                () -> assertEquals("201903", app.getProjectHM().get("201903").getID()),
-                () -> assertEquals("201904", app.getProjectHM().get("201904").getID()),
-                () -> assertEquals("201905", app.getProjectHM().get("201905").getID()),
-                () -> assertEquals("201906", app.getProjectHM().get("201906").getID()),
-                () -> assertEquals("201907", app.getProjectHM().get("201907").getID()),
-                () -> assertEquals("201908", app.getProjectHM().get("201908").getID()),
-                () -> assertEquals("201909", app.getProjectHM().get("201909").getID()),
-                () -> assertEquals("201910", app.getProjectHM().get("201910").getID()),
-                () -> assertEquals("201911", app.getProjectHM().get("201911").getID()),
-                () -> assertEquals("201912", app.getProjectHM().get("201912").getID())
+                () -> assertEquals(project1.getID(), app.getProjectHM().get(project1.getID()).getID()),
+                () -> assertEquals(project2.getID(), app.getProjectHM().get(project2.getID()).getID()),
+                () -> assertEquals(project3.getID(), app.getProjectHM().get(project3.getID()).getID()),
+                () -> assertEquals(project4.getID(), app.getProjectHM().get(project4.getID()).getID()),
+                () -> assertEquals(project5.getID(), app.getProjectHM().get(project5.getID()).getID()),
+                () -> assertEquals(project6.getID(), app.getProjectHM().get(project6.getID()).getID()),
+                () -> assertEquals(project7.getID(), app.getProjectHM().get(project7.getID()).getID()),
+                () -> assertEquals(project8.getID(), app.getProjectHM().get(project8.getID()).getID()),
+                () -> assertEquals(project9.getID(), app.getProjectHM().get(project9.getID()).getID()),
+                () -> assertEquals(project10.getID(), app.getProjectHM().get(project10.getID()).getID()),
+                () -> assertEquals(project11.getID(), app.getProjectHM().get(project11.getID()).getID()),
+                () -> assertEquals(project12.getID(), app.getProjectHM().get(project12.getID()).getID())
 
         );
     }
