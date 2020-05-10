@@ -1,3 +1,4 @@
+# Christian
 Feature: Change project name
   Description: A developer tries to change an initialized project
   Actors: Developer

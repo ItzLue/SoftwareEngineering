@@ -1,12 +1,10 @@
 package System;
 
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 import domain.Activity;
 import domain.Developer;
 import domain.PersonalActivity;
 import domain.Project;
 import time.DateServer;
-import time.Interval;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -22,6 +20,8 @@ public class App {
     /*
     Developer
      */
+
+    // Christian
     public void registerDeveloper(Developer developer) {
         assert developer.getFirstName() != null : "Precondition first name";
         assert developer.getLastName() != null : "Precondition last name";
@@ -30,6 +30,7 @@ public class App {
         assert developerHM.get(developer.getID()).getID().equals(developer.getID()) : "Postcondition added";
     }
 
+    // Joachim
     public void removeDeveloper(String developerID) {
         if(!developerHMContains(developerID)) {
             throw new NullPointerException("The developer with ID: " + developerID + " does not exist");
@@ -44,6 +45,7 @@ public class App {
         assert !developerHMContains(developerID): "Post condition removed ";
     }
 
+    // Christian
     public String makeDeveloperID(Developer developer) {
         String ID;
         if (developerHM.size() >= 9) {
@@ -54,6 +56,7 @@ public class App {
         return ID;
     }
 
+    // Joachim
     public void setActiveDeveloper(String ID) {
         if (developerHM.containsKey(ID)) {
             setActiveDeveloper(developerHM.get(ID));
@@ -66,6 +69,7 @@ public class App {
         this.activeDeveloper = developer;
     }
 
+    // Loui
     public Developer getActiveDeveloper() {
         if (activeDeveloper == null) {
             return null;
@@ -73,6 +77,7 @@ public class App {
         return activeDeveloper;
     }
 
+    // Regin
     public ArrayList<Developer> searchAvailableDevelopers(String projectID, String activityName) throws IllegalAccessException {
         ArrayList<Developer> availableDevelopers = new ArrayList<>();
         if (isActiveDeveloperProjectLeader(projectID)) {
@@ -88,10 +93,9 @@ public class App {
         return availableDevelopers;
     }
 
-    public HashMap<String, Developer> getDeveloperHM() {
-        return this.developerHM;
-    }
+    public HashMap<String, Developer> getDeveloperHM() { return this.developerHM; }
 
+    // Loui
     public void getDevValues() {
         for (Developer developer : developerHM.values()) {
             System.out.println(developer);
@@ -102,6 +106,7 @@ public class App {
     Project
      */
 
+    // Christian
     public void registerProject(Project project) {
         assert project.getName() != null : "Precondition name";
         project.setID(makeProjectID());
@@ -109,6 +114,7 @@ public class App {
         assert getProjectHM().containsKey(project.getID()) : "Postcondition name";
     }
 
+    // Christian
     public String makeProjectID() {
         String weekNumber = Integer.toString(getDate().get(Calendar.WEEK_OF_YEAR));
         String year = Integer.toString(getDate().get(Calendar.YEAR)).substring(2);
@@ -121,6 +127,7 @@ public class App {
         return year + weekNumber + runningNumber;
     }
 
+    // Joachim
     public void removeProject(String projectID) throws IllegalAccessException {
         if(!projectHMContains(projectID)) {
             throw new NullPointerException("The project with ID: " + projectID + " does not exist");
@@ -144,6 +151,7 @@ public class App {
         assert !projectHMContains(projectID) : "Postcondition removed";
     }
 
+    // Joachim
     public void setProjectLeader(String projectID, String developerID) {
         if (projectHMContains(projectID) && developerHMContains(developerID)) {
             projectHM.get(projectID).setProjectLeader(developerHM.get(developerID));
@@ -152,6 +160,7 @@ public class App {
         }
     }
 
+    // Christian
     public void setProjectName(String projectID, String name) throws IllegalAccessException {
         if (projectHMContains(projectID)) {
             if (!isProjectInitialized(projectID) || isActiveDeveloperProjectLeader(projectID)) {
@@ -164,6 +173,7 @@ public class App {
         }
     }
 
+    // Christian
     public void setProjectDate(boolean startOrEnd, String projectID, int year, int week) throws IllegalAccessException {
         if (projectHMContains(projectID)) {
             if (!isProjectInitialized(projectID) || isActiveDeveloperProjectLeader(projectID)) {
@@ -184,6 +194,7 @@ public class App {
         return this.projectHM;
     }
 
+    // Regin
     public void getProjectValues() {
         for (Project project : projectHM.values()) {
             System.out.println(project);
@@ -193,6 +204,8 @@ public class App {
     /*
     Activity
      */
+
+    // Joachim
     public void registerActivityToProject(Activity activity, String projectID) throws IllegalAccessException {
         assert projectHMContains(projectID) : "Precondition";
         if (projectHMContains(projectID)) {
@@ -217,6 +230,7 @@ public class App {
         }
     }
 
+    // Joachim
     public void removeActivityFromProject(String activityName, String projectID) throws IllegalAccessException {
         if (!isProjectInitialized(projectID) || isActiveDeveloperProjectLeader(projectID)) {
             int counter = 0;
@@ -246,6 +260,7 @@ public class App {
         }
     }
 
+    // Joachim
     public void setDeveloperToActivity(String activityName, String projectID, String developerID) throws IllegalAccessException {
         if (projectHMContains(projectID)) {
             if (!isProjectInitialized(projectID) || isActiveDeveloperProjectLeader(projectID)) {
@@ -263,6 +278,7 @@ public class App {
         }
     }
 
+    // Christian
     public void setActivityDate(boolean startOrEnd, String projectID, String activityName, int year, int week) throws IllegalAccessException {
         if (projectHMContains(projectID) && projectHM.get(projectID).activityExists(activityName)) {
             if (!isProjectInitialized(projectID)|| isActiveDeveloperProjectLeader(projectID)) {
@@ -279,6 +295,7 @@ public class App {
         }
     }
 
+    // Christian
     public void setPlannedHoursForActivity(String activityName, String projectID, double hours) throws IllegalAccessException {
         if (!isProjectInitialized(projectID) || isActiveDeveloperProjectLeader(projectID)) {
             projectHM.get(projectID).getActivity(activityName).setPlannedHours(hours);
@@ -291,6 +308,8 @@ public class App {
         return projectHM.get(projectID).getActivity(activityName).getPlannedHours();
     }
 
+
+    // Loui
     public void setWorkedHoursForActivity(String activityName, String projectID, double hours) throws IllegalAccessException {
         if (projectHM.get(projectID).getActivity(activityName).developerHM.containsKey(activeDeveloper.getID())) {
             developerHM.get(activeDeveloper.getID()).setWorkedHours(hours, activeDeveloper.getActivity(activityName));
@@ -299,6 +318,7 @@ public class App {
         }
     }
 
+    // Joachim
     public void addPersonalActivity(PersonalActivity personalActivity, String developerID) throws IllegalAccessException {
         assert developerHMContains(developerID) : "Precondition developer";
         if (isActiveDeveloper(developerID)) {
@@ -309,6 +329,7 @@ public class App {
         assert activeDeveloper.getPersonalActivityList().size() == 1;
     }
 
+    // Regin
     public void setPersonalActivityDate(boolean startOrEnd, String personalActivityName, int year, int week) {
         assert activeDeveloper != null : "Precondtion developer";
         if (startOrEnd) {
@@ -320,15 +341,11 @@ public class App {
     }
 
     /*
-    Calander
+    Calendar
      */
 
     public Calendar getDate() {
         return dateServer.getDate();
-    }
-
-    public void setDateServer(DateServer dateServer) {
-        this.dateServer = dateServer;
     }
 
     /*

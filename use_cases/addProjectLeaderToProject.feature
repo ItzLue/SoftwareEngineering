@@ -1,3 +1,4 @@
+# Christian
 Feature: Add project leader to project
   Description: A developer is being added as project leader
   Actors: Developer
@@ -27,4 +28,3 @@ Feature: Add project leader to project
     Given the developer is set as project leader for project with name "Enigma Codebreaker"
     When the project with name "Enigma Codebreaker" has the developer as project leader
     And The project is initialized
-    When the project is printed

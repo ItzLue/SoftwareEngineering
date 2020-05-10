@@ -17,6 +17,7 @@ public class Project {
 
     public Calendar testDate = new GregorianCalendar();
 
+    // Regin
     public Project(String name) {
         if (name.length() > 1) {
             this.name = name;
@@ -35,6 +36,7 @@ public class Project {
         this.initialized = true;
     }
 
+    // Christian
     public void setProjectStartDate(int year, int week) {
         if (!invalidActivityDates(true, year, week)) {
             if (getInterval().getEndDate() == null) {
@@ -53,6 +55,7 @@ public class Project {
         }
     }
 
+    // Christian
     public void setProjectEndDate(int year, int week) {
         if (!invalidActivityDates(false, year, week)) {
             if (getInterval().getStartDate() == null) {
@@ -71,6 +74,7 @@ public class Project {
         }
     }
 
+    // Christian
     public void setActivityStartDate(String activityName, int year, int week) {
         if (getActivity(activityName).getInterval().getEndDate() == null && activityStartDateIsValid(year, week)) {
             getActivity(activityName).getInterval().setStartDate(year, week);
@@ -85,6 +89,7 @@ public class Project {
         }
     }
 
+    // Christian
     public void setActivityEndDate(String activityName, int year, int week) {
         if (getActivity(activityName).getInterval().getStartDate() == null && activityEndDateIsValid(year, week)) {
             getActivity(activityName).getInterval().setEndDate(year, week);
@@ -107,6 +112,7 @@ public class Project {
         return initialized;
     }
 
+    // Loui
     public boolean activityExists(String activityName) {
         for (Activity activity: getActivityList()) {
             if (activity.getName().equals(activityName)) {
@@ -116,6 +122,7 @@ public class Project {
         return false;
     }
 
+    // Christian
     public boolean invalidActivityDates(boolean startOrEnd, int year, int week) {
         testDate.set(Calendar.YEAR, year);
         testDate.set(Calendar.WEEK_OF_YEAR, week);
@@ -137,6 +144,7 @@ public class Project {
         return false;
     }
 
+    // Christian
     public boolean activityStartDateIsValid(int year, int week) {
         testDate.set(Calendar.YEAR, year);
         testDate.set(Calendar.WEEK_OF_YEAR, week);
@@ -146,6 +154,7 @@ public class Project {
         } else return getInterval().getStartDate() == null;
     }
 
+    // Christian
     public boolean activityEndDateIsValid(int year, int week) {
         testDate.set(Calendar.YEAR, year);
         testDate.set(Calendar.WEEK_OF_YEAR, week);
@@ -159,6 +168,7 @@ public class Project {
     toString
      */
 
+    // Regin
     @Override
     public String toString() {
         return "Name:" + '\'' + name + '\'' +
@@ -173,6 +183,7 @@ public class Project {
     Get/Set methods
      */
 
+    // Joachim
     public void setProjectLeader(Developer developer) {
         if (!initialized) {
             initProject();
@@ -184,6 +195,7 @@ public class Project {
         return projectLeader;
     }
 
+    // Joachim
     public String getProjectLeaderID() {
         if (projectLeader == null) {
             return null;
@@ -199,6 +211,7 @@ public class Project {
         return name;
     }
 
+    // Joachim
     public void setID(String ID) {
         if (this.ID.equals("")) {
             this.ID = ID;
@@ -209,6 +222,7 @@ public class Project {
         return this.ID;
     }
 
+    // Loui
     public Activity getActivity(String activityName) {
         for (Activity activity : activityList) {
             if (activityName.equals(activity.getName())) {
@@ -222,8 +236,6 @@ public class Project {
         return this.activityList;
     }
 
-    public Interval getInterval() {
-        return this.interval;
-    }
+    public Interval getInterval() { return this.interval; }
 
 }
